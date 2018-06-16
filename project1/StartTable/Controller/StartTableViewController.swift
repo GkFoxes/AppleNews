@@ -49,12 +49,12 @@ class StartTableViewController: UITableViewController {
 //        return [delete]
 //    }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "detailSegue" {
-//            if let indexPath = tableView.indexPathForSelectedRow {
-//                let dvc = segue.destination as! EateryDetailViewController
-//                dvc.imageName = self.restaurants[indexPath.row].image
-//            }
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destinationViewController = segue.destination as! StartDetailViewController
+                destinationViewController.girlsName = girls[indexPath.row]
+            }
+        }
+    }
 }

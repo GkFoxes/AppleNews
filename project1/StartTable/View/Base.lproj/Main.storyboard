@@ -43,7 +43,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="0Pc-Tm-dLq" id="0ox-es-JNv"/>
-                                    <segue destination="gXl-L1-e9h" kind="showDetail" id="cAJ-Qb-tbg"/>
+                                    <segue destination="gXl-L1-e9h" kind="show" identifier="detailSegue" id="0oa-9Z-hIw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -58,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="1055.2" y="6.746626686656672"/>
         </scene>
-        <!--View Controller-->
+        <!--Start Detail View Controller-->
         <scene sceneID="gLG-I8-Gg3">
             <objects>
-                <viewController id="gXl-L1-e9h" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="gXl-L1-e9h" customClass="StartDetailViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Hc-ud-elX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
