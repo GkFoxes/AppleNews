@@ -1,5 +1,5 @@
 //
-//  UITableTableViewController.swift
+//  StartTableViewController.swift
 //  project1
 //
 //  Created by Дмитрий Матвеенко on 16.06.2018.
@@ -8,44 +8,45 @@
 
 import UIKit
 
-class UITableTableViewController: UITableViewController {
+class StartTableViewController: UITableViewController {
+    
+    var girls: [Girls] = [
+        Girls(name: "Анджелина Джоли", years: 43),
+        Girls(name: "Скарлетт Йоханссон", years: 33),
+        Girls(name: "Меган Фокс", years: 32),
+        Girls(name: "Шарлиз Терон", years: 42),
+        Girls(name: "Моника Беллуччи", years: 53),
+        Girls(name: "Натали Портман", years: 37),
+        Girls(name: "Мила Кунис", years: 34),
+        Girls(name: "Кира Найтли", years: 33),
+        Girls(name: "Дженнифер Лоуренс", years: 27),
+        Girls(name: "Марго Робби", years: 27)]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return girls.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! StartTableViewCell
+        
+        cell.nameLabel.text = girls[indexPath.row].name
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
