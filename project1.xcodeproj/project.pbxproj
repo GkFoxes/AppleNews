@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A904991F20D7C4C40039BB4E /* NewCell.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A904991D20D7C4C40039BB4E /* NewCell.storyboard */; };
+		A904992120D7C5270039BB4E /* NewCellTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A904992020D7C5270039BB4E /* NewCellTableViewController.swift */; };
 		A90A00AF20D7AA6E003DDF4A /* StartDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90A00AD20D7AA6E003DDF4A /* StartDetail.storyboard */; };
 		A90A00B620D7AD3F003DDF4A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90A00B420D7AD3F003DDF4A /* Profile.storyboard */; };
 		A90A00B820D7AD70003DDF4A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90A00B720D7AD70003DDF4A /* ProfileViewController.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A904991E20D7C4C40039BB4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = project1/StartTable/View/Base.lproj/NewCell.storyboard; sourceTree = "<group>"; };
+		A904992020D7C5270039BB4E /* NewCellTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCellTableViewController.swift; sourceTree = "<group>"; };
 		A90A00AE20D7AA6E003DDF4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = project1/StartTable/View/Base.lproj/StartDetail.storyboard; sourceTree = "<group>"; };
 		A90A00B520D7AD3F003DDF4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = project1/StartTable/View/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		A90A00B720D7AD70003DDF4A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +94,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A904991820D7C4710039BB4E /* NewCeel */ = {
+			isa = PBXGroup;
+			children = (
+				A904991C20D7C49D0039BB4E /* Model */,
+				A904991B20D7C49C0039BB4E /* View */,
+				A904991920D7C4940039BB4E /* Controller */,
+			);
+			path = NewCeel;
+			sourceTree = "<group>";
+		};
+		A904991920D7C4940039BB4E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A904992020D7C5270039BB4E /* NewCellTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A904991B20D7C49C0039BB4E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A904991D20D7C4C40039BB4E /* NewCell.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A904991C20D7C49D0039BB4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A90A00A920D7A928003DDF4A /* StartDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +220,7 @@
 				A9BC908B20D556060019C7F6 /* Application */,
 				A9BC909120D556A80019C7F6 /* StartTable */,
 				A90A00A920D7A928003DDF4A /* StartDetail */,
+				A904991820D7C4710039BB4E /* NewCeel */,
 				A90A00B020D7ACF3003DDF4A /* Profile */,
 				A9BC908720D554F80019C7F6 /* Resources */,
 			);
@@ -402,6 +440,7 @@
 				A9BC90A020D6723B0019C7F6 /* .gitignore in Resources */,
 				A9BC906220D544EC0019C7F6 /* LaunchScreen.storyboard in Resources */,
 				A9BC905F20D544EC0019C7F6 /* Assets.xcassets in Resources */,
+				A904991F20D7C4C40039BB4E /* NewCell.storyboard in Resources */,
 				A9BC905A20D544EB0019C7F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A904992120D7C5270039BB4E /* NewCellTableViewController.swift in Sources */,
 				A9BC905D20D544EB0019C7F6 /* project1.xcdatamodeld in Sources */,
 				A9BC909820D57D5B0019C7F6 /* StartTableViewController.swift in Sources */,
 				A9BC909E20D58A7D0019C7F6 /* StartDetailViewController.swift in Sources */,
@@ -469,6 +509,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A904991D20D7C4C40039BB4E /* NewCell.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A904991E20D7C4C40039BB4E /* Base */,
+			);
+			name = NewCell.storyboard;
+			sourceTree = "<group>";
+		};
 		A90A00AD20D7AA6E003DDF4A /* StartDetail.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
