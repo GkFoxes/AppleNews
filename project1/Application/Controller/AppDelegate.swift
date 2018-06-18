@@ -16,10 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Thread.sleep(forTimeInterval: 1.0)
-        //let splitViewController = window!.rootViewController as! UISplitViewController
-       // let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
+        // Override point for customization after application launch.
+        //let splitViewController = self.window!.rootViewController as! UISplitViewController
+        //let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
         //navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-       // splitViewController.delegate = self
+        //splitViewController.delegate = self
         return true
     }
 
@@ -42,14 +43,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     // MARK: - Split view
     
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
-        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-        guard let topAsDetailController = secondaryAsNavController.topViewController as? StartDetailViewController else { return false }
-//        if topAsDetailController.detailItem == nil {
-//            return true
-//        }
-        return false
-    }
+//    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
+//        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
+//        guard let topAsDetailController = secondaryAsNavController.topViewController as? StartDetailViewController else { return false }
+////        if topAsDetailController.detailItem == nil {
+////            return true
+////        }
+//        return false
+//    }
 
     // MARK: - Core Data stack
 
