@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A904991F20D7C4C40039BB4E /* NewCell.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A904991D20D7C4C40039BB4E /* NewCell.storyboard */; };
 		A904992120D7C5270039BB4E /* NewCellTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A904992020D7C5270039BB4E /* NewCellTableViewController.swift */; };
+		A904992320D7DADA0039BB4E /* NewCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A904992220D7DADA0039BB4E /* NewCellTableViewCell.swift */; };
 		A90A00AF20D7AA6E003DDF4A /* StartDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90A00AD20D7AA6E003DDF4A /* StartDetail.storyboard */; };
 		A90A00B620D7AD3F003DDF4A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90A00B420D7AD3F003DDF4A /* Profile.storyboard */; };
 		A90A00B820D7AD70003DDF4A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90A00B720D7AD70003DDF4A /* ProfileViewController.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		A904991E20D7C4C40039BB4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = project1/StartTable/View/Base.lproj/NewCell.storyboard; sourceTree = "<group>"; };
 		A904992020D7C5270039BB4E /* NewCellTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCellTableViewController.swift; sourceTree = "<group>"; };
+		A904992220D7DADA0039BB4E /* NewCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCellTableViewCell.swift; sourceTree = "<group>"; };
 		A90A00AE20D7AA6E003DDF4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = project1/StartTable/View/Base.lproj/StartDetail.storyboard; sourceTree = "<group>"; };
 		A90A00B520D7AD3F003DDF4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = project1/StartTable/View/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		A90A00B720D7AD70003DDF4A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				A904992020D7C5270039BB4E /* NewCellTableViewController.swift */,
+				A904992220D7DADA0039BB4E /* NewCellTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 			files = (
 				A904992120D7C5270039BB4E /* NewCellTableViewController.swift in Sources */,
 				A9BC905D20D544EB0019C7F6 /* project1.xcdatamodeld in Sources */,
+				A904992320D7DADA0039BB4E /* NewCellTableViewCell.swift in Sources */,
 				A9BC909820D57D5B0019C7F6 /* StartTableViewController.swift in Sources */,
 				A9BC909E20D58A7D0019C7F6 /* StartDetailViewController.swift in Sources */,
 				A9BC905520D544EB0019C7F6 /* AppDelegate.swift in Sources */,

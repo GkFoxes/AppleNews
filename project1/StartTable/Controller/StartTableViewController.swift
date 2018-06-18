@@ -49,7 +49,7 @@ class StartTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let destinationViewController = segue.destination as! StartDetailViewController
+                let destinationViewController = (segue.destination as! UINavigationController).topViewController as! StartDetailViewController
                 destinationViewController.girlsName = girls[indexPath.row]
             }
         }
