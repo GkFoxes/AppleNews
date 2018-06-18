@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C1M-VB-xuv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pg3-Io-CSz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -16,7 +16,7 @@
                 <viewControllerPlaceholder storyboardName="StartDetail" id="8Iu-5V-Wdg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xRX-sX-CCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="773" y="1332"/>
+            <point key="canvasLocation" x="1342" y="1332"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5J5-7U-Qyp">
@@ -30,13 +30,13 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="EGz-AS-Whb" kind="relationship" relationship="viewControllers" id="6Ag-RP-S1C"/>
-                        <segue destination="N1k-Dc-8yk" kind="relationship" relationship="viewControllers" id="9zd-02-MMy"/>
+                        <segue destination="C1M-VB-xuv" kind="relationship" relationship="viewControllers" id="FbV-Od-T3L"/>
+                        <segue destination="N1k-Dc-8yk" kind="relationship" relationship="viewControllers" id="Eqv-jl-o1A"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LbM-w9-ATh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="846" y="708"/>
+            <point key="canvasLocation" x="-81" y="707"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Q1T-0j-jQf">
@@ -46,7 +46,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kr3-sy-cme" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1002" y="1151"/>
+            <point key="canvasLocation" x="202" y="1165"/>
         </scene>
         <!--Актрисы-->
         <scene sceneID="f0j-yR-NWh">
@@ -118,18 +118,19 @@
             </objects>
             <point key="canvasLocation" x="1564" y="707"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Item-->
         <scene sceneID="zi1-M2-Y2x">
             <objects>
                 <splitViewController id="C1M-VB-xuv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="ClK-aG-cYe"/>
                     <connections>
-                        <segue destination="Pg3-Io-CSz" kind="relationship" relationship="masterViewController" id="NOQ-4V-AcE"/>
                         <segue destination="8Iu-5V-Wdg" kind="relationship" relationship="detailViewController" id="IC6-nQ-auS"/>
+                        <segue destination="EGz-AS-Whb" kind="relationship" relationship="masterViewController" id="ULa-VP-nUJ"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wzT-hn-hJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65" y="1045"/>
+            <point key="canvasLocation" x="774" y="878"/>
         </scene>
         <!--NewCell-->
         <scene sceneID="qrf-R4-zYV">
@@ -141,6 +142,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TnP-AX-OVu"/>
+        <segue reference="IC6-nQ-auS"/>
     </inferredMetricsTieBreakers>
 </document>
