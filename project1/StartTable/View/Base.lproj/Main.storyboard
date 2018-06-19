@@ -29,7 +29,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LbM-w9-ATh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-81" y="707"/>
+            <point key="canvasLocation" x="-1" y="1117"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Q1T-0j-jQf">
@@ -39,7 +39,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kr3-sy-cme" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="202" y="1165"/>
+            <point key="canvasLocation" x="208" y="1558"/>
         </scene>
         <!--Актрисы-->
         <scene sceneID="f0j-yR-NWh">
@@ -85,7 +85,9 @@
                     <navigationItem key="navigationItem" title="Актрисы" id="I0m-rc-gze">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Mf8-gu-nLa">
                             <connections>
-                                <segue destination="zzK-BN-Kpj" kind="presentation" id="8A9-Zt-qfv"/>
+                                <segue destination="zzK-BN-Kpj" kind="popoverPresentation" popoverAnchorBarButtonItem="Mf8-gu-nLa" id="XqU-gH-qvn">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -100,7 +102,7 @@
                 <viewControllerPlaceholder storyboardName="AddNewCell" id="zzK-BN-Kpj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Oi-vl-Gd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2658" y="412"/>
+            <point key="canvasLocation" x="2808" y="450"/>
         </scene>
         <!--Item-->
         <scene sceneID="xrr-HF-srQ">
@@ -148,7 +150,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wzT-hn-hJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="774" y="878"/>
+            <point key="canvasLocation" x="783" y="1117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MAy-p2-u9r">

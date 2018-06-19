@@ -5,7 +5,6 @@
 //  Created by Дмитрий Матвеенко on 16.06.2018.
 //  Copyright © 2018 Дмитрий Матвеенко. All rights reserved.
 //
-
 import UIKit
 import CoreData
 
@@ -15,7 +14,7 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
     
     var context: NSManagedObjectContext!
     var fetchResultsController: NSFetchedResultsController<Girls>!
-    var girls: [Girls] = []
+    var actresses: [Girls] = []
     
     @IBAction func close(segue: UIStoryboardSegue) {
         //Cancels the addition new element in CoreData
@@ -24,14 +23,6 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //navigationItem.leftBarButtonItem = editButtonItem
-        
-//        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
-//        navigationItem.rightBarButtonItem = addButton
-//        if let split = splitViewController {
-//            let controllers = split.viewControllers
-//            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? StartDetailViewController
-//        }
         let fetchRequest: NSFetchRequest<Girls> = Girls.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "girls", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -42,7 +33,7 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
             
             do {
                 try fetchResultsController.performFetch()
-                girls = fetchResultsController.fetchedObjects!
+                actresses = fetchResultsController.fetchedObjects!
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
@@ -70,80 +61,77 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
         default:
             tableView.reloadData()
         }
-        girls = controller.fetchedObjects as! [Girls]
+        actresses = controller.fetchedObjects as! [Girls]
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
-//        super.viewWillAppear(animated)
-//    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-//    @objc
-//    func insertNewObject(_ sender: Any) {
-//        objects.insert(girls, at: 0)
-//        let indexPath = IndexPath(row: 0, section: 0)
-//        tableView.insertRows(at: [indexPath], with: .automatic)
-//    }
-    
-    // MARK: - Segues
-    
-    func insertDataFrom(selectedNumber: Girls) {
-        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "detailSegue" {
-                if let indexPath = tableView.indexPathForSelectedRow {
-                    let destinationViewController = segue.destination as! StartDetailViewController
-                    destinationViewController.girlsName = self.girls[indexPath.row].girls!
-                }
-            }
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailSegue" {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let girls = self.girls[indexPath.row]
-                let destinationViewController = (segue.destination as! UINavigationController).topViewController as! StartDetailViewController
-                destinationViewController.girlsName = girls.girls!
-                destinationViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                destinationViewController.navigationItem.leftItemsSupplementBackButton = true
-            }
-        }
-    }
-
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return girls.count
+        return actresses.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! StartTableViewCell
         
-        cell.nameLabel.text = girls[indexPath.row].girls!
-//        
-//        let object = objects[indexPath.row]
-//        cell.textLabel!.text = object.description
-        
+        cell.nameLabel.text = actresses[indexPath.row].girls!
         return cell
     }
     
     // MARK: - Delete from table
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        girls.remove(at: indexPath.row)
-        let indexPaths = [indexPath]
-        tableView.deleteRows(at: indexPaths, with: .automatic)
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let share = UITableViewRowAction(style: .default, title: "Поделиться") { (action, indexPath) in
+            
+            let defaultText = "Цифра " + self.actresses[indexPath.row].girls!
+            let activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+            self.present(activityController, animated: true, completion: nil)
+        }
+        
+        let delete = UITableViewRowAction(style: .default, title: "Удалить") { (action, indexPath) in
+            
+            self.actresses.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+                
+                let objectToDelete = self.fetchResultsController.object(at: indexPath)
+                context.delete(objectToDelete)
+                
+                do {
+                    try context.save()
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        
+        share.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        delete.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        return [delete]
+    }
+    
+    // MARK: - Segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let actresses = self.actresses[indexPath.row]
+                let destinationViewController = (segue.destination as! UINavigationController).topViewController as! StartDetailViewController
+                destinationViewController.girlsName = actresses.girls!
+                destinationViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                destinationViewController.navigationItem.leftItemsSupplementBackButton = true
+            }
+        }
     }
 }
