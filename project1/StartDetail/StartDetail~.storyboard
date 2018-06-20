@@ -73,7 +73,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="l8X-j2-bfF" id="q4t-hw-F65"/>
-                                    <segue destination="DMm-pC-Aek" kind="showDetail" identifier="detailSegue" id="Juk-G5-kt7"/>
+                                    <segue destination="eIJ-wx-gIJ" kind="showDetail" identifier="detailSegue" id="sYa-A4-AwR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -91,9 +91,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="tableContent" destination="rFs-d7-4T8" id="jmx-mZ-t2g"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdL-Mf-ih2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -124,6 +121,22 @@
             </objects>
             <point key="canvasLocation" x="1564" y="707"/>
         </scene>
+        <!--Start Detail View Controller-->
+        <scene sceneID="eio-ll-vaU">
+            <objects>
+                <viewController id="qrq-25-TrA" customClass="StartDetailViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bNZ-5W-5Jh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="1QP-zL-1t8"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pjp-C0-5gM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zm9-Wl-Xq9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2321" y="1472"/>
+        </scene>
         <!--Список-->
         <scene sceneID="zi1-M2-Y2x">
             <objects>
@@ -132,52 +145,36 @@
                     <navigationItem key="navigationItem" id="1wl-RQ-N1z"/>
                     <connections>
                         <segue destination="EGz-AS-Whb" kind="relationship" relationship="masterViewController" id="ULa-VP-nUJ"/>
-                        <segue destination="DMm-pC-Aek" kind="relationship" relationship="detailViewController" id="027-Wv-2bx"/>
+                        <segue destination="eIJ-wx-gIJ" kind="relationship" relationship="detailViewController" id="9tz-j3-YQy"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wzT-hn-hJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="783" y="1117"/>
         </scene>
-        <!--Start Detail View Controller-->
-        <scene sceneID="if0-84-RpE">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UWc-KP-nTs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="3Uu-pe-2fc" customClass="StartDetailViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JuV-gm-q1w">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="9yq-nR-hvr"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="moa-nY-WLE"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="2276" y="1470"/>
-        </scene>
         <!--Navigation Controller-->
-        <scene sceneID="TW6-DH-g29">
+        <scene sceneID="MAy-p2-u9r">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DMm-pC-Aek" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eIJ-wx-gIJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="s1i-f2-Bfs">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nqo-hH-06v">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="3Uu-pe-2fc" kind="relationship" relationship="rootViewController" id="14p-bg-BqQ"/>
+                        <segue destination="qrq-25-TrA" kind="relationship" relationship="rootViewController" id="8ob-ll-kM8"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7In-GB-QwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x8l-X6-ixu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1564" y="1471"/>
+            <point key="canvasLocation" x="1604" y="1471"/>
         </scene>
     </scenes>
     <resources>
         <image name="list" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Juk-G5-kt7"/>
+        <segue reference="sYa-A4-AwR"/>
     </inferredMetricsTieBreakers>
 </document>

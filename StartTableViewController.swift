@@ -10,6 +10,11 @@ import CoreData
 
 class StartTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
+    @IBOutlet weak var tableContent: UITableView!
+    @IBAction func close(segue: UIStoryboardSegue) {
+        //Cancels the addition new element in CoreData
+    }
+    
     var detailViewController: StartDetailViewController? = nil
     
     var selectedGirl: Girl!
@@ -17,34 +22,30 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
     var context: NSManagedObjectContext!
     var fetchResultsController: NSFetchedResultsController<Girl>!
     var actresses: [Girl] = []
-    
-    @IBAction func close(segue: UIStoryboardSegue) {
-        //Cancels the addition new element in CoreData
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        getDataFromFile()
-//a
-//        let fetchRequest: NSFetchRequest<Girl> = Girl.fetchRequest()
-//        //let name = tableView.ind
-//        //fetchRequest.predicate = NSPredicate(format: "name == %@", name!)
-//
-//        do {
-//            let results = try context.fetch(fetchRequest)
-//            selectedGirl = results[0]
-//            //insertDataFrom(selectedGirl: selectedGirl)
-//        } catch {
-//            print(error.localizedDescription)
-//        }
+                getDataFromFile()
         
-        let fetchRequest: NSFetchRequest<Girl> = Girl.fetchRequest()
+                let fetchRequest: NSFetchRequest<Girl> = Girl.fetchRequest()
+                //let name = tableView.ind
+                //fetchRequest.predicate = NSPredicate(format: "name == %@", name!)
+        
+                do {
+                    let results = try context.fetch(fetchRequest)
+                    selectedGirl = results[0]
+                    insertDataFrom(selectedGirl: selectedGirl)
+                } catch {
+                    print(error.localizedDescription)
+                }
+        
+        let fetchedRequest: NSFetchRequest<Girl> = Girl.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchedRequest.sortDescriptors = [sortDescriptor]
         
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultsController = NSFetchedResultsController(fetchRequest: fetchedRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
             fetchResultsController.delegate = self
             
             do {
@@ -56,68 +57,40 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
         }
     }
     
-    // MARK: - Fetch results controller delegate
-    
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
-        switch type {
-        case.insert:
-            guard let indexPath = newIndexPath else { break }
-            tableView.insertRows(at: [indexPath], with: .fade)
-        case .delete:
-            guard let indexPath = indexPath else { break }
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        case .update:
-            guard let indexPath = indexPath else { break }
-            tableView.reloadRows(at: [indexPath], with: .fade)
-        default:
-            tableView.reloadData()
-        }
-        actresses = controller.fetchedObjects as! [Girl]
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-//    func insertDataFrom(selectedGirl: Girl) {
-//        tableView.insertRows(at: 0, with: .fade)
-//    }
+        func insertDataFrom(selectedGirl: Girl) {
+            tableView.insertRows(at: 0, with: .fade)
+        }
     
-//    func getDataFromFile() {
-//        let fetchRequest: NSFetchRequest<Girl> = Girl.fetchRequest()
-//        fetchRequest.predicate = NSPredicate(format: "name != nil") //xz
-//
-//        var records = 0
-//
-//        do {
-//            let count = try context.count(for: fetchRequest)
-//            records = count
-//            print("Data is there already?")
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//
-//        guard  records == 0 else { return }
-//        let pathToFile = Bundle.main.path(forResource: "data", ofType: "plist")
-//        let dataArray = NSArray(contentsOfFile: "pathToFile")!
-//
-//        for dictionary in dataArray {
-//            let entity = NSEntityDescription.entity(forEntityName: "Girl", in: context)
-//            let girl = NSManagedObject(entity: entity!, insertInto: context) as! Girl
-//
-//            let girlsDictionary = dictionary as! NSDictionary
-//            girl.name = girlsDictionary["name"] as? String
-//        }
-//    }
+        func getDataFromFile() {
+            let fetchRequest: NSFetchRequest<Girl> = Girl.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "name != nil") //xz
+    
+            var records = 0
+    
+            do {
+                let count = try context.count(for: fetchRequest)
+                records = count
+                print("Data is there already?")
+            } catch {
+                print(error.localizedDescription)
+            }
+    
+            guard  records == 0 else { return }
+            let pathToFile = Bundle.main.path(forResource: "data", ofType: "plist")
+            let dataArray = NSArray(contentsOfFile: "pathToFile")!
+    
+            for dictionary in dataArray {
+                let entity = NSEntityDescription.entity(forEntityName: "Girl", in: context)
+                let girl = NSManagedObject(entity: entity!, insertInto: context) as! Girl
+    
+                let girlsDictionary = dictionary as! NSDictionary
+                girl.name = girlsDictionary["name"] as? String
+            }
+        }
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -135,7 +108,7 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
         return cell
     }
     
-    // MARK: - Delete from table
+    // MARK: - Delete and share from table
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let share = UITableViewRowAction(style: .default, title: "Поделиться") { (action, indexPath) in

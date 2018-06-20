@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Thread.sleep(forTimeInterval: 1.0)
+        
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "StartTableViewController") as! UITableViewController
+        UIApplication.shared.keyWindow?.rootViewController = viewController
         return true
     }
 
@@ -43,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         guard let topAsDetailController = secondaryAsNavController.topViewController as? StartDetailViewController else { return false }
         if topAsDetailController.girlsName == "" {
             // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-            return true
+           return true
         }
         return false
     }
@@ -73,6 +77,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             }
         }
     }
-
 }
-

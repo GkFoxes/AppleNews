@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>girl1</key>
+	<dict>
+		<key>name</key>
+		<string>Анджелина Джоли</string>
+	</dict>
+	<key>girl2</key>
+	<dict>
+		<key>name</key>
+		<string>Скарлетт Йоханссон</string>
+	</dict>
+	<key>girl3</key>
+	<dict>
+		<key>name</key>
+		<string>Шарлиз Терон</string>
+	</dict>
+	<key>girl4</key>
+	<dict>
+		<key>name</key>
+		<string>Моника Беллуччи</string>
+	</dict>
+	<key>girl5</key>
+	<dict>
+		<key>name</key>
+		<string>Натали Портман</string>
+	</dict>
+	<key>girl6</key>
+	<dict>
+		<key>name</key>
+		<string>Мила Кунис</string>
+	</dict>
+	<key>girl7</key>
+	<dict>
+		<key>name</key>
+		<string>Кира Найтли</string>
+	</dict>
+	<key>girl8</key>
+	<dict>
+		<key>name</key>
+		<string>Дженнифер Лоуренс</string>
+	</dict>
+	<key>girl9</key>
+	<dict>
+		<key>name</key>
+		<string>Меган Фокс</string>
+	</dict>
+	<key>girl10</key>
+	<dict>
+		<key>name</key>
+		<string>Марго Робби</string>
+	</dict>
+</dict>
+</plist>

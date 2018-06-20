@@ -17,8 +17,8 @@ class AddNewCellTableViewController: UITableViewController {
             print ("Не все поля заполнены!")
         } else {
             if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-                let girls = Girls(context: context)
-                girls.girls = nameTextField.text
+                let girls = Girl(context: context)
+                girls.name = nameTextField.text
                 
                 do {
                     try context.save()
