@@ -15,10 +15,20 @@ class StartTableViewController: UITableViewController {
     }
     
     var detailViewController: StartDetailViewController? = nil
-    var actresses: [Girl] = []
+    var actresses = girls
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let split = splitViewController {
+            let controllers = split.viewControllers
+            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? StartDetailViewController
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
+        super.viewWillAppear(animated)
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,40 +47,15 @@ class StartTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! StartTableViewCell
         
-        cell.nameLabel.text = actresses[indexPath.row].name!
+        cell.nameLabel.text = actresses[indexPath.row]
         return cell
     }
     
     // MARK: - Delete and share from table
     
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let share = UITableViewRowAction(style: .default, title: "Поделиться") { (action, indexPath) in
-            
-            let defaultText = "Цифра " + self.actresses[indexPath.row].name!
-            let activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
-            self.present(activityController, animated: true, completion: nil)
-        }
-        
-        let delete = UITableViewRowAction(style: .default, title: "Удалить") { (action, indexPath) in
-            
-            self.actresses.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            
-            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-                
-                //let objectToDelete = self.fetchResultsController.object(at: indexPath)
-                //context.delete(objectToDelete)
-                
-                do {
-                    try context.save()
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-        }
-        share.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-        delete.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        return [delete]
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        actresses.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
     // MARK: - Segues
@@ -80,7 +65,7 @@ class StartTableViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let actresses = self.actresses[indexPath.row]
                 let destinationViewController = (segue.destination as! UINavigationController).topViewController as! StartDetailViewController
-                destinationViewController.girlsName = actresses.name!
+                destinationViewController.girlsName = actresses
                 destinationViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 destinationViewController.navigationItem.leftItemsSupplementBackButton = true
             }

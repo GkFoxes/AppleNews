@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Start Tab Bar Controller-->
         <scene sceneID="5J5-7U-Qyp">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Pg3-Io-CSz" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Pg3-Io-CSz" customClass="StartTabBarController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Npp-H6-tHf"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FqL-JI-8DP">
@@ -22,6 +22,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="defaultIndex">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="C1M-VB-xuv" kind="relationship" relationship="viewControllers" id="FbV-Od-T3L"/>
                         <segue destination="N1k-Dc-8yk" kind="relationship" relationship="viewControllers" id="Eqv-jl-o1A"/>
@@ -44,7 +49,7 @@
         <!--Актрисы-->
         <scene sceneID="f0j-yR-NWh">
             <objects>
-                <tableViewController storyboardIdentifier="StartTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="wbP-M3-cOw" customClass="StartTableViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="StartTableViewController" clearsSelectionOnViewWillAppear="NO" id="wbP-M3-cOw" customClass="StartTableViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rFs-d7-4T8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,7 +132,7 @@
         <!--Список-->
         <scene sceneID="zi1-M2-Y2x">
             <objects>
-                <splitViewController id="C1M-VB-xuv" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="StartSplitViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C1M-VB-xuv" customClass="StartSplitViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Список" image="list" id="ClK-aG-cYe"/>
                     <navigationItem key="navigationItem" id="1wl-RQ-N1z"/>
                     <connections>
@@ -142,7 +147,6 @@
         <!--Start Detail View Controller-->
         <scene sceneID="if0-84-RpE">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UWc-KP-nTs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="3Uu-pe-2fc" customClass="StartDetailViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JuV-gm-q1w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -152,6 +156,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="moa-nY-WLE"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UWc-KP-nTs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2276" y="1470"/>
         </scene>
@@ -178,6 +183,6 @@
         <image name="list" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Juk-G5-kt7"/>
+        <segue reference="027-Wv-2bx"/>
     </inferredMetricsTieBreakers>
 </document>

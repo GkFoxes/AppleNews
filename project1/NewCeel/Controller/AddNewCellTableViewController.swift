@@ -12,24 +12,24 @@ class AddNewCellTableViewController: UITableViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     
-    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-        if ((nameTextField.text?.isEmpty)! || nameTextField.text == " ") {
-            print ("Не все поля заполнены!")
-        } else {
-            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-                let girls = Girl(context: context)
-                girls.name = nameTextField.text
-                
-                do {
-                    try context.save()
-                    print("Сохранение удалось")
-                } catch let error as NSError{
-                    print("Не удалось сохранить данные \(error.userInfo)!")
-                }
-            }
-        }
-        performSegue(withIdentifier: "unwindSegueFromNewCell", sender: self)
-    }
+//    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+//        if ((nameTextField.text?.isEmpty)! || nameTextField.text == " ") {
+//            print ("Не все поля заполнены!")
+//        } else {
+//            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+//                let girls = Girl(context: context)
+//                girls.name = nameTextField.text
+//                
+//                do {
+//                    try context.save()
+//                    print("Сохранение удалось")
+//                } catch let error as NSError{
+//                    print("Не удалось сохранить данные \(error.userInfo)!")
+//                }
+//            }
+//        }
+//        performSegue(withIdentifier: "unwindSegueFromNewCell", sender: self)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

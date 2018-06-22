@@ -10,7 +10,7 @@ import UIKit
 
 class StartDetailViewController: UIViewController {
     
-    var girlsName = ""
+    var girlsName = "Detail"
     
     override func viewDidLoad() {
         super.viewDidLoad()
