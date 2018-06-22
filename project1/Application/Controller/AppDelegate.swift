@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: "StartTableViewController") as! UITableViewController
         UIApplication.shared.keyWindow?.rootViewController = viewController
+        //viewController.context = persistentContainer.viewContext
         return true
     }
 

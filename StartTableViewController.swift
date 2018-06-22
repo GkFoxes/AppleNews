@@ -22,23 +22,24 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
     var context: NSManagedObjectContext!
     var fetchResultsController: NSFetchedResultsController<Girl>!
     var actresses: [Girl] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-                getDataFromFile()
+        getDataFromFile()
         
-                let fetchRequest: NSFetchRequest<Girl> = Girl.fetchRequest()
-                //let name = tableView.ind
-                //fetchRequest.predicate = NSPredicate(format: "name == %@", name!)
+        let fetchRequest: NSFetchRequest<Girl> = Girl.fetchRequest()
+        let myIndexPath = IndexPath(row: 1, section: 0)
+        let name = tableContent.cellForRow(at: myIndexPath)
+        fetchRequest.predicate = NSPredicate(format: "name == %@", name!)
         
-                do {
-                    let results = try context.fetch(fetchRequest)
-                    selectedGirl = results[0]
-                    insertDataFrom(selectedGirl: selectedGirl)
-                } catch {
-                    print(error.localizedDescription)
-                }
+        do {
+            let results = try context.fetch(fetchRequest)
+            selectedGirl = results[0]
+            insertDataFrom(selectedGirl: selectedGirl)
+        } catch {
+            print(error.localizedDescription)
+        }
         
         let fetchedRequest: NSFetchRequest<Girl> = Girl.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
@@ -61,36 +62,37 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
         super.didReceiveMemoryWarning()
     }
     
-        func insertDataFrom(selectedGirl: Girl) {
-            tableView.insertRows(at: 0, with: .fade)
+    func insertDataFrom(selectedGirl: Girl) {
+        let myIndexPath = IndexPath(row: 1, section: 0)
+        tableContent.insertRows(at: [myIndexPath], with: .automatic)
+    }
+    
+    func getDataFromFile() {
+        let fetchRequest: NSFetchRequest<Girl> = Girl.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "name != nil") //xz
+        
+        var records = 0
+        
+        do {
+            let count = try context.count(for: fetchRequest)
+            records = count
+            print("Data is there already?")
+        } catch {
+            print(error.localizedDescription)
         }
-    
-        func getDataFromFile() {
-            let fetchRequest: NSFetchRequest<Girl> = Girl.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "name != nil") //xz
-    
-            var records = 0
-    
-            do {
-                let count = try context.count(for: fetchRequest)
-                records = count
-                print("Data is there already?")
-            } catch {
-                print(error.localizedDescription)
-            }
-    
-            guard  records == 0 else { return }
-            let pathToFile = Bundle.main.path(forResource: "data", ofType: "plist")
-            let dataArray = NSArray(contentsOfFile: "pathToFile")!
-    
-            for dictionary in dataArray {
-                let entity = NSEntityDescription.entity(forEntityName: "Girl", in: context)
-                let girl = NSManagedObject(entity: entity!, insertInto: context) as! Girl
-    
-                let girlsDictionary = dictionary as! NSDictionary
-                girl.name = girlsDictionary["name"] as? String
-            }
+        
+        guard  records == 0 else { return }
+        let pathToFile = Bundle.main.path(forResource: "data", ofType: "plist")
+        let dataArray = NSArray(contentsOfFile: "pathToFile")!
+        
+        for dictionary in dataArray {
+            let entity = NSEntityDescription.entity(forEntityName: "Girl", in: context)
+            let girl = NSManagedObject(entity: entity!, insertInto: context) as! Girl
+            
+            let girlsDictionary = dictionary as! NSDictionary
+            girl.name = girlsDictionary["name"] as? String
         }
+    }
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
