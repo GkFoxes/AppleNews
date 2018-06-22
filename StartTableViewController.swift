@@ -6,9 +6,8 @@
 //  Copyright © 2018 Дмитрий Матвеенко. All rights reserved.
 //
 import UIKit
-import CoreData
 
-class StartTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class StartTableViewController: UITableViewController {
     
     @IBOutlet weak var tableContent: UITableView!
     @IBAction func close(segue: UIStoryboardSegue) {
@@ -16,82 +15,14 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
     }
     
     var detailViewController: StartDetailViewController? = nil
-    
-    var selectedGirl: Girl!
-    
-    var context: NSManagedObjectContext!
-    var fetchResultsController: NSFetchedResultsController<Girl>!
     var actresses: [Girl] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        getDataFromFile()
-        
-        let fetchRequest: NSFetchRequest<Girl> = Girl.fetchRequest()
-        let myIndexPath = IndexPath(row: 1, section: 0)
-        let name = tableContent.cellForRow(at: myIndexPath)
-        fetchRequest.predicate = NSPredicate(format: "name == %@", name!)
-        
-        do {
-            let results = try context.fetch(fetchRequest)
-            selectedGirl = results[0]
-            insertDataFrom(selectedGirl: selectedGirl)
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        let fetchedRequest: NSFetchRequest<Girl> = Girl.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-        fetchedRequest.sortDescriptors = [sortDescriptor]
-        
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            fetchResultsController = NSFetchedResultsController(fetchRequest: fetchedRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-            fetchResultsController.delegate = self
-            
-            do {
-                try fetchResultsController.performFetch()
-                actresses = fetchResultsController.fetchedObjects!
-            } catch let error as NSError {
-                print(error.localizedDescription)
-            }
-        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    func insertDataFrom(selectedGirl: Girl) {
-        let myIndexPath = IndexPath(row: 1, section: 0)
-        tableContent.insertRows(at: [myIndexPath], with: .automatic)
-    }
-    
-    func getDataFromFile() {
-        let fetchRequest: NSFetchRequest<Girl> = Girl.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "name != nil") //xz
-        
-        var records = 0
-        
-        do {
-            let count = try context.count(for: fetchRequest)
-            records = count
-            print("Data is there already?")
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        guard  records == 0 else { return }
-        let pathToFile = Bundle.main.path(forResource: "data", ofType: "plist")
-        let dataArray = NSArray(contentsOfFile: "pathToFile")!
-        
-        for dictionary in dataArray {
-            let entity = NSEntityDescription.entity(forEntityName: "Girl", in: context)
-            let girl = NSManagedObject(entity: entity!, insertInto: context) as! Girl
-            
-            let girlsDictionary = dictionary as! NSDictionary
-            girl.name = girlsDictionary["name"] as? String
-        }
     }
     
     // MARK: - Table view data source
@@ -127,8 +58,8 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
             
             if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
                 
-                let objectToDelete = self.fetchResultsController.object(at: indexPath)
-                context.delete(objectToDelete)
+                //let objectToDelete = self.fetchResultsController.object(at: indexPath)
+                //context.delete(objectToDelete)
                 
                 do {
                     try context.save()
@@ -137,7 +68,6 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
                 }
             }
         }
-        
         share.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         delete.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         return [delete]

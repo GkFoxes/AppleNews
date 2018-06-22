@@ -13,8 +13,6 @@
 		A90A00B620D7AD3F003DDF4A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90A00B420D7AD3F003DDF4A /* Profile.storyboard */; };
 		A90A00B820D7AD70003DDF4A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90A00B720D7AD70003DDF4A /* ProfileViewController.swift */; };
 		A92449A820DA78C100E3F522 /* StartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92449A720DA78C100E3F522 /* StartTableViewController.swift */; };
-		A92449AA20DA7A6E00E3F522 /* StartDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92449A920DA7A6E00E3F522 /* StartDetail.storyboard */; };
-		A92449AC20DA7B5800E3F522 /* GirlCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92449AB20DA7B5800E3F522 /* GirlCoreData.swift */; };
 		A9BC905520D544EB0019C7F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BC905420D544EB0019C7F6 /* AppDelegate.swift */; };
 		A9BC905A20D544EB0019C7F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BC905820D544EB0019C7F6 /* Main.storyboard */; };
 		A9BC905D20D544EB0019C7F6 /* project1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9BC905B20D544EB0019C7F6 /* project1.xcdatamodeld */; };
@@ -52,8 +50,6 @@
 		A90A00B520D7AD3F003DDF4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = project1/StartTable/View/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		A90A00B720D7AD70003DDF4A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A92449A720DA78C100E3F522 /* StartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StartTableViewController.swift; path = ../../../StartTableViewController.swift; sourceTree = "<group>"; };
-		A92449A920DA7A6E00E3F522 /* StartDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StartDetail.storyboard; sourceTree = "<group>"; };
-		A92449AB20DA7B5800E3F522 /* GirlCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirlCoreData.swift; sourceTree = "<group>"; };
 		A9BC905120D544EB0019C7F6 /* project1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BC905420D544EB0019C7F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9BC905920D544EB0019C7F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,7 +155,6 @@
 		A90A00AC20D7A95B003DDF4A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A92449A920DA7A6E00E3F522 /* StartDetail.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -315,7 +310,6 @@
 			isa = PBXGroup;
 			children = (
 				A9BC909920D57DB90019C7F6 /* Girls.swift */,
-				A92449AB20DA7B5800E3F522 /* GirlCoreData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -447,7 +441,6 @@
 				A9BC906220D544EC0019C7F6 /* LaunchScreen.storyboard in Resources */,
 				A9BC905F20D544EC0019C7F6 /* Assets.xcassets in Resources */,
 				A904998C20D9141A0039BB4E /* data.plist in Resources */,
-				A92449AA20DA7A6E00E3F522 /* StartDetail.storyboard in Resources */,
 				A9BC905A20D544EB0019C7F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,7 +470,6 @@
 				A9BC905D20D544EB0019C7F6 /* project1.xcdatamodeld in Sources */,
 				A9BC909E20D58A7D0019C7F6 /* StartDetailViewController.swift in Sources */,
 				A9BC905520D544EB0019C7F6 /* AppDelegate.swift in Sources */,
-				A92449AC20DA7B5800E3F522 /* GirlCoreData.swift in Sources */,
 				A90A00B820D7AD70003DDF4A /* ProfileViewController.swift in Sources */,
 				A9BC909A20D57DB90019C7F6 /* Girls.swift in Sources */,
 				A92449A820DA78C100E3F522 /* StartTableViewController.swift in Sources */,
