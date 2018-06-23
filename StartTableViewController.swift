@@ -17,7 +17,11 @@ class StartTableViewController: UITableViewController {
     
     var detailViewController: StartDetailViewController? = nil
     
-    var actresses = girls
+    func readAndUpdateUI(){
+        girlsList = realm.objects(Girl.self)
+        tableContent.setEditing(false, animated: true)
+        tableContent.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +32,19 @@ class StartTableViewController: UITableViewController {
         }
         
         realm = try! Realm()
+        if realm.isEmpty {
+            girlInitial()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
         readAndUpdateUI()
+    }
+    
+    override func viewDidAppear (_ animated: Bool ) {
+        tableContent.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,7 +64,6 @@ class StartTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! StartTableViewCell
         
         let item = girlsList[indexPath.row]
-        
         cell.nameLabel.text = item.name
         return cell
     }
@@ -66,7 +76,6 @@ class StartTableViewController: UITableViewController {
             try! realm.write({
                 realm.delete(item)
             })
-            
             tableView.deleteRows(at:[indexPath], with: .automatic)
         }
     }
@@ -83,11 +92,5 @@ class StartTableViewController: UITableViewController {
                 destinationViewController.navigationItem.leftItemsSupplementBackButton = true
             }
         }
-    }
-    
-    func readAndUpdateUI(){
-        girlsList = realm.objects(Girl.self)
-        tableContent.setEditing(false, animated: true)
-        tableContent.reloadData()
     }
 }

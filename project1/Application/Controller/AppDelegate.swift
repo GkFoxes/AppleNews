@@ -18,14 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         Thread.sleep(forTimeInterval: 0.5)
     
         // Override point for customization after application launch.
-//        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let splitViewController = mainStoryboard.instantiateViewController(withIdentifier: "StartSplitViewController") as! UISplitViewController
-//        UIApplication.shared.keyWindow?.rootViewController = splitViewController
-//
-//        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-//
-//        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-//        splitViewController.delegate = self
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let splitViewController = mainStoryboard.instantiateViewController(withIdentifier: "StartSplitViewController") as! UISplitViewController
+        UIApplication.shared.keyWindow?.rootViewController = splitViewController
+
+        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
+
+        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+        splitViewController.delegate = self
         
 
         let tabBarViewController = self.window!.rootViewController as! UITabBarController

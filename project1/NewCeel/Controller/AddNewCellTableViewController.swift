@@ -11,8 +11,6 @@ import RealmSwift
 
 class AddNewCellTableViewController: UITableViewController {
     
-    var girlUpdate: UITableView?
-    
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
@@ -25,8 +23,6 @@ class AddNewCellTableViewController: UITableViewController {
             // We are adding the reminder to our database
             try! realm.write({
                 realm.add(girlItem)
-                
-                //girlUpdate?.insertRows(at: [IndexPath.init(row: girlsList.count-1, section: 0)], with: .automatic)
             })
         }
         performSegue(withIdentifier: "unwindSegueFromNewCell", sender: self)
