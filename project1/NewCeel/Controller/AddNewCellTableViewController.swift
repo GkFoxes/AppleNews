@@ -7,29 +7,30 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AddNewCellTableViewController: UITableViewController {
-
+    
+    var girlUpdate: UITableView?
+    
     @IBOutlet weak var nameTextField: UITextField!
     
-//    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-//        if ((nameTextField.text?.isEmpty)! || nameTextField.text == " ") {
-//            print ("Не все поля заполнены!")
-//        } else {
-//            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-//                let girls = Girl(context: context)
-//                girls.name = nameTextField.text
-//                
-//                do {
-//                    try context.save()
-//                    print("Сохранение удалось")
-//                } catch let error as NSError{
-//                    print("Не удалось сохранить данные \(error.userInfo)!")
-//                }
-//            }
-//        }
-//        performSegue(withIdentifier: "unwindSegueFromNewCell", sender: self)
-//    }
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        if ((nameTextField.text?.isEmpty)! || nameTextField.text == " ") {
+            print ("Не все поля заполнены!")
+        } else {
+            let girlItem = Girl()
+            girlItem.name = nameTextField.text!
+            
+            // We are adding the reminder to our database
+            try! realm.write({
+                realm.add(girlItem)
+                
+                //girlUpdate?.insertRows(at: [IndexPath.init(row: girlsList.count-1, section: 0)], with: .automatic)
+            })
+        }
+        performSegue(withIdentifier: "unwindSegueFromNewCell", sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

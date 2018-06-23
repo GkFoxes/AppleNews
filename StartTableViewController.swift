@@ -6,6 +6,7 @@
 //  Copyright © 2018 Дмитрий Матвеенко. All rights reserved.
 //
 import UIKit
+import RealmSwift
 
 class StartTableViewController: UITableViewController {
     
@@ -15,6 +16,7 @@ class StartTableViewController: UITableViewController {
     }
     
     var detailViewController: StartDetailViewController? = nil
+    
     var actresses = girls
     
     override func viewDidLoad() {
@@ -24,11 +26,14 @@ class StartTableViewController: UITableViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? StartDetailViewController
         }
+        
+        realm = try! Realm()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+        readAndUpdateUI()
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,21 +46,29 @@ class StartTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return actresses.count
+        return girlsList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! StartTableViewCell
         
-        cell.nameLabel.text = actresses[indexPath.row]
+        let item = girlsList[indexPath.row]
+        
+        cell.nameLabel.text = item.name
         return cell
     }
     
     // MARK: - Delete and share from table
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        actresses.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .automatic)
+        if (editingStyle == .delete){
+            let item = girlsList[indexPath.row]
+            try! realm.write({
+                realm.delete(item)
+            })
+            
+            tableView.deleteRows(at:[indexPath], with: .automatic)
+        }
     }
     
     // MARK: - Segues
@@ -63,12 +76,18 @@ class StartTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let actresses = self.actresses[indexPath.row]
+                let girl = girlsList[indexPath.row].name
                 let destinationViewController = (segue.destination as! UINavigationController).topViewController as! StartDetailViewController
-                destinationViewController.girlsName = actresses
+                destinationViewController.girlName = girl
                 destinationViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 destinationViewController.navigationItem.leftItemsSupplementBackButton = true
             }
         }
+    }
+    
+    func readAndUpdateUI(){
+        girlsList = realm.objects(Girl.self)
+        tableContent.setEditing(false, animated: true)
+        tableContent.reloadData()
     }
 }

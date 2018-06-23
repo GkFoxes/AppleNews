@@ -9,6 +9,15 @@
 import Foundation
 import RealmSwift
 
-class Reminder: Object {
+var realm: Realm!
+//var girlsList: Results<Girl> {
+//    get {
+//        return realm.objects(Girl.self)
+//    }
+//}
+
+var girlsList: Results<Girl>!
+
+class Girl: Object {
     @objc dynamic var name = ""
 }

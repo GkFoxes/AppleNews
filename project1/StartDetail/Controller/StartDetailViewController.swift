@@ -10,12 +10,12 @@ import UIKit
 
 class StartDetailViewController: UIViewController {
     
-    var girlsName = "Detail"
+    var girlName = "Detail"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = girlsName
+        title = girlName
     }
 
     override func didReceiveMemoryWarning() {
