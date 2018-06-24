@@ -10,7 +10,6 @@ import UIKit
 
 class StartSplitViewController: UISplitViewController, UISplitViewControllerDelegate {
     
-    
     override func viewDidLoad() {
         self.delegate = self
         self.preferredDisplayMode = .allVisible

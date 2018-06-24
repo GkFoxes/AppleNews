@@ -16,7 +16,7 @@ class StartTableViewController: UITableViewController {
     }
     
     var detailViewController: StartDetailViewController? = nil
-    
+
     func readAndUpdateUI(){
         girlsList = realm.objects(Girl.self)
         tableContent.setEditing(false, animated: true)

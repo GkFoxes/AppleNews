@@ -9,14 +9,11 @@
 import Foundation
 import RealmSwift
 
-var realm: Realm!
-
 //var girlsList: Results<Girl> {
 //    get {
 //        return realm.objects(Girl.self)
 //    }
 //}
-
 var girlsList: Results<Girl>!
 
 class Girl: Object {
@@ -38,13 +35,13 @@ func girlInitial() {
     try! realm.write {
         realm.add(Girl(name: "Анджелина Джоли", girlID: "0"))
         realm.add(Girl(name: "Скарлетт Йоханссон", girlID: "1"))
-        realm.add(Girl(name:"Меган Фокс", girlID: "2"))
-        realm.add(Girl(name:"Шарлиз Терон", girlID: "3"))
-        realm.add(Girl(name:"Моника Беллуччи", girlID: "4"))
-        realm.add(Girl(name:"Натали Портман", girlID: "5"))
-        realm.add(Girl(name:"Мила Кунис", girlID: "6"))
-        realm.add(Girl(name:"Кира Найтли", girlID: "7"))
-        realm.add(Girl(name:"Дженнифер Лоуренс", girlID: "8"))
-        realm.add(Girl(name:"Марго Робби", girlID: "9"))
+        realm.add(Girl(name: "Меган Фокс", girlID: "2"))
+        realm.add(Girl(name: "Шарлиз Терон", girlID: "3"))
+        realm.add(Girl(name: "Моника Беллуччи", girlID: "4"))
+        realm.add(Girl(name: "Натали Портман", girlID: "5"))
+        realm.add(Girl(name: "Мила Кунис", girlID: "6"))
+        realm.add(Girl(name: "Кира Найтли", girlID: "7"))
+        realm.add(Girl(name: "Дженнифер Лоуренс", girlID: "8"))
+        realm.add(Girl(name: "Марго Робби", girlID: "9"))
     }
 }

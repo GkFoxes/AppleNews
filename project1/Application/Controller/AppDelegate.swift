@@ -9,6 +9,8 @@
 import UIKit
 import RealmSwift
 
+var realm : Realm!
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
@@ -27,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         splitViewController.delegate = self
         
-
         let tabBarViewController = self.window!.rootViewController as! UITabBarController
         //var splitViewController: UISplitViewController? = nil
         for viewController in tabBarViewController.viewControllers! {
@@ -35,10 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                 _ = viewController as? UISplitViewController
             }
         }
-        
         return true
     }
-
 
     func applicationWillResignActive(_ application: UIApplication) {
     }

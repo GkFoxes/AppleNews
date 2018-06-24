@@ -16,5 +16,4 @@ class StartTabBarController: UITabBarController {
         super.viewDidLoad()
         selectedIndex = defaultIndex
     }
-    
 }
