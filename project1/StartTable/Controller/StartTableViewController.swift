@@ -12,9 +12,11 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
     
     var detailViewController: StartDetailViewController? = nil
     
+    var selectedGirl: Girl!
+    
     var context: NSManagedObjectContext!
-    var fetchResultsController: NSFetchedResultsController<Girls>!
-    var actresses: [Girls] = []
+    var fetchResultsController: NSFetchedResultsController<Girl>!
+    var actresses: [Girl] = []
     
     @IBAction func close(segue: UIStoryboardSegue) {
         //Cancels the addition new element in CoreData
@@ -23,8 +25,22 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let fetchRequest: NSFetchRequest<Girls> = Girls.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "girls", ascending: true)
+//        getDataFromFile()
+//a
+//        let fetchRequest: NSFetchRequest<Girl> = Girl.fetchRequest()
+//        //let name = tableView.ind
+//        //fetchRequest.predicate = NSPredicate(format: "name == %@", name!)
+//
+//        do {
+//            let results = try context.fetch(fetchRequest)
+//            selectedGirl = results[0]
+//            //insertDataFrom(selectedGirl: selectedGirl)
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+        
+        let fetchRequest: NSFetchRequest<Girl> = Girl.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
@@ -61,7 +77,7 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
         default:
             tableView.reloadData()
         }
-        actresses = controller.fetchedObjects as! [Girls]
+        actresses = controller.fetchedObjects as! [Girl]
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -71,6 +87,37 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+//    func insertDataFrom(selectedGirl: Girl) {
+//        tableView.insertRows(at: 0, with: .fade)
+//    }
+    
+//    func getDataFromFile() {
+//        let fetchRequest: NSFetchRequest<Girl> = Girl.fetchRequest()
+//        fetchRequest.predicate = NSPredicate(format: "name != nil") //xz
+//
+//        var records = 0
+//
+//        do {
+//            let count = try context.count(for: fetchRequest)
+//            records = count
+//            print("Data is there already?")
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+//
+//        guard  records == 0 else { return }
+//        let pathToFile = Bundle.main.path(forResource: "data", ofType: "plist")
+//        let dataArray = NSArray(contentsOfFile: "pathToFile")!
+//
+//        for dictionary in dataArray {
+//            let entity = NSEntityDescription.entity(forEntityName: "Girl", in: context)
+//            let girl = NSManagedObject(entity: entity!, insertInto: context) as! Girl
+//
+//            let girlsDictionary = dictionary as! NSDictionary
+//            girl.name = girlsDictionary["name"] as? String
+//        }
+//    }
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -84,7 +131,7 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! StartTableViewCell
         
-        cell.nameLabel.text = actresses[indexPath.row].girls!
+        cell.nameLabel.text = actresses[indexPath.row].name!
         return cell
     }
     
@@ -93,7 +140,7 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let share = UITableViewRowAction(style: .default, title: "Поделиться") { (action, indexPath) in
             
-            let defaultText = "Цифра " + self.actresses[indexPath.row].girls!
+            let defaultText = "Цифра " + self.actresses[indexPath.row].name!
             let activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
             self.present(activityController, animated: true, completion: nil)
         }
@@ -128,7 +175,7 @@ class StartTableViewController: UITableViewController, NSFetchedResultsControlle
             if let indexPath = tableView.indexPathForSelectedRow {
                 let actresses = self.actresses[indexPath.row]
                 let destinationViewController = (segue.destination as! UINavigationController).topViewController as! StartDetailViewController
-                destinationViewController.girlsName = actresses.girls!
+                destinationViewController.girlsName = actresses.name!
                 destinationViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 destinationViewController.navigationItem.leftItemsSupplementBackButton = true
             }
