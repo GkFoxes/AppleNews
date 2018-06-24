@@ -9,11 +9,9 @@
 import UIKit
 import RealmSwift
 
-class DBManager {
-    
+class RealmManager {
     private var database: Realm
-    static let sharedInstance = DBManager()
-    
+    static let sharedInstance = RealmManager()
     private init() {
         database = try! Realm()
     }
