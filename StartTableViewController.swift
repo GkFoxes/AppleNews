@@ -16,11 +16,11 @@ class StartTableViewController: UITableViewController {
     }
     
     var detailViewController: StartDetailViewController? = nil
-
-    func readAndUpdateUI(){
-        girlsList = realm.objects(Girl.self)
-        tableContent.setEditing(false, animated: true)
-        tableContent.reloadData()
+    
+    var girlsList: Results<Girl> {
+        get {
+            return realm.objects(Girl.self)
+        }
     }
     
     override func viewDidLoad() {
@@ -32,19 +32,15 @@ class StartTableViewController: UITableViewController {
         }
         
         realm = try! Realm()
-        if realm.isEmpty {
-            girlInitial()
-        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableContent.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
-        readAndUpdateUI()
-    }
-    
-    override func viewDidAppear (_ animated: Bool ) {
-        tableContent.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
