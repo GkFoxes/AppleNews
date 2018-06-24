@@ -9,34 +9,45 @@
 import Foundation
 import RealmSwift
 
-//class RealmManager {
-//    private var realm: Realm
-//    static let sharedInstance = RealmManager()
-//    private init() {
-//        realm = try! Realm()
-//    }
-//    
-//    func getDataFromDB() -> Results<Girl> {
-//        let results: Results<Girl> = realm.objects(Girl.self)
-//        return results
-//    }
-//    
-//    func addData(object: Girl) {
-//        try! realm.write {
-//            realm.add(girlsList, update: true)
-//            print("Added new object")
-//        }
-//    }
-//    
-//    func deleteAllFromDatabase() {
-//        try! realm.write {
-//            realm.deleteAll()
-//        }
-//    }
-//    
-//    func deleteFromDb(object: Girl) {
-//        try! realm.write {
-//            realm.delete(object)
-//        }
-//    }
-//}
+class RealmManager {
+    
+    // delete table
+    func deleteDatabase() {
+        try! realm?.write({
+            realm?.deleteAll()
+        })
+    }
+    
+    // delete particular object
+    func deleteObject(objs : Object) {
+        try? realm!.write ({
+            realm?.delete(objs)
+        })
+    }
+    
+    //Save array of objects to database
+    func saveObjects(objs: Object) {
+        try? realm!.write ({
+            // If update = false, adds the object
+            realm?.add(objs, update: false)
+        })
+    }
+    
+    // editing the object
+    func editObjects(objs: Object) {
+        try? realm!.write ({
+            // If update = true, objects that are already in the Realm will be
+            // updated instead of added a new.
+            realm?.add(objs, update: true)
+        })
+    }
+    
+    //Returs an array as Results<object>?
+    func getObjects(type: Object.Type) -> Results<Object>? {
+        return realm!.objects(type)
+    }
+    
+    func incrementID() -> Int {
+        return (realm!.objects(Girl.self).max(ofProperty: "girlID") as Int? ?? 0) + 1
+    }
+}

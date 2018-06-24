@@ -36,9 +36,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                 _ = viewController as? UISplitViewController
             }
         }
+        
+        if !UserDefaults.standard.bool(forKey: "db_install") {
+            self.girlInitial()
+        }
+        
         return true
     }
-
+    
+    func girlInitial() {
+        let realmInstance = try! Realm()
+        
+        try! realmInstance.write {
+            realmInstance.add(Girl(name: "Анджелина Джоли", girlID: 0))
+            realmInstance.add(Girl(name: "Скарлетт Йоханссон", girlID: 1))
+            realmInstance.add(Girl(name: "Меган Фокс", girlID: 2))
+            realmInstance.add(Girl(name: "Шарлиз Терон", girlID: 3))
+            realmInstance.add(Girl(name: "Моника Беллуччи", girlID: 4))
+            realmInstance.add(Girl(name: "Натали Портман", girlID: 5))
+            realmInstance.add(Girl(name: "Мила Кунис", girlID: 6))
+            realmInstance.add(Girl(name: "Кира Найтли", girlID: 7))
+            realmInstance.add(Girl(name: "Дженнифер Лоуренс", girlID: 8))
+            realmInstance.add(Girl(name: "Марго Робби", girlID: 9))
+        }
+        
+        UserDefaults.standard.set(true, forKey: "db_install")
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
     }
 
