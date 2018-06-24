@@ -24,6 +24,7 @@ class AddNewCellTableViewController: UITableViewController {
             try! realm.write({
                 realm.add(girlItem)
             })
+            
         }
         performSegue(withIdentifier: "unwindSegueFromNewCell", sender: self)
     }

@@ -1,53 +1,44 @@
 //
-//  UpdateStartTable.swift
+//  RealmManager.swift
 //  project1
 //
-//  Created by Дмитрий Матвеенко on 23.06.2018.
+//  Created by Дмитрий Матвеенко on 24.06.2018.
 //  Copyright © 2018 Дмитрий Матвеенко. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import RealmSwift
 
-class RealmManager {
+class DBManager {
     
-    // delete table
-    func deleteDatabase() {
-        try! realm?.write({
-            realm?.deleteAll()
-        })
+    private var database: Realm
+    static let sharedInstance = DBManager()
+    
+    private init() {
+        database = try! Realm()
     }
     
-    // delete particular object
-    func deleteObject(objs : Object) {
-        try? realm!.write ({
-            realm?.delete(objs)
-        })
+    func getDataFromDB() -> Results<Girl> {
+        let results: Results<Girl> = database.objects(Girl.self)
+        return results
     }
     
-    //Save array of objects to database
-    func saveObjects(objs: Object) {
-        try? realm!.write ({
-            // If update = false, adds the object
-            realm?.add(objs, update: false)
-        })
+    func addData(object: Girl) {
+        try! database.write {
+            database.add(object, update: true)
+            print("Added new object")
+        }
     }
     
-    // editing the object
-    func editObjects(objs: Object) {
-        try? realm!.write ({
-            // If update = true, objects that are already in the Realm will be
-            // updated instead of added a new.
-            realm?.add(objs, update: true)
-        })
+    func deleteAllDatabase()  {
+        try! database.write {
+            database.deleteAll()
+        }
     }
     
-    //Returs an array as Results<object>?
-    func getObjects(type: Object.Type) -> Results<Object>? {
-        return realm!.objects(type)
-    }
-    
-    func incrementID() -> Int {
-        return (realm!.objects(Girl.self).max(ofProperty: "girlID") as Int? ?? 0) + 1
+    func deleteFromDb(object: Girl) {
+        try! database.write {
+            database.delete(object)
+        }
     }
 }

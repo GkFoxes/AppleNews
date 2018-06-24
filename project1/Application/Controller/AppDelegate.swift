@@ -48,16 +48,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let realmInstance = try! Realm()
         
         try! realmInstance.write {
-            realmInstance.add(Girl(name: "Анджелина Джоли", girlID: 0))
-            realmInstance.add(Girl(name: "Скарлетт Йоханссон", girlID: 1))
-            realmInstance.add(Girl(name: "Меган Фокс", girlID: 2))
-            realmInstance.add(Girl(name: "Шарлиз Терон", girlID: 3))
-            realmInstance.add(Girl(name: "Моника Беллуччи", girlID: 4))
-            realmInstance.add(Girl(name: "Натали Портман", girlID: 5))
-            realmInstance.add(Girl(name: "Мила Кунис", girlID: 6))
-            realmInstance.add(Girl(name: "Кира Найтли", girlID: 7))
-            realmInstance.add(Girl(name: "Дженнифер Лоуренс", girlID: 8))
-            realmInstance.add(Girl(name: "Марго Робби", girlID: 9))
+            realmInstance.add(Girl(name: "Анджелина Джоли"))
+            realmInstance.add(Girl(name: "Скарлетт Йоханссон"))
+            realmInstance.add(Girl(name: "Меган Фокс"))
+            realmInstance.add(Girl(name: "Шарлиз Терон"))
+            realmInstance.add(Girl(name: "Моника Беллуччи"))
+            realmInstance.add(Girl(name: "Натали Портман"))
+            realmInstance.add(Girl(name: "Мила Кунис"))
+            realmInstance.add(Girl(name: "Кира Найтли"))
+            realmInstance.add(Girl(name: "Дженнифер Лоуренс"))
+            realmInstance.add(Girl(name: "Марго Робби"))
         }
         
         UserDefaults.standard.set(true, forKey: "db_install")

@@ -14,19 +14,13 @@ import RealmSwift
 //        return realm.objects(Girl.self)
 //    }
 //}
-var girlsList: Results<Girl>!
+//var girlsList: Results<Girl>!
 
 class Girl: Object {
     @objc dynamic var name = ""
-    @objc dynamic var girlID = Int()
     
-    override static func primaryKey() -> String? {
-        return "girlID"
-    }
-    
-    convenience init(name: String, girlID: Int) {
+    convenience init(name: String) {
         self.init()
         self.name = name
-        self.girlID = girlID
     }
 }
