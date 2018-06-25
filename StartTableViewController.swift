@@ -104,23 +104,22 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
                 destinationViewController.navigationItem.leftItemsSupplementBackButton = true
             }
         }
+        
+        if segue.identifier == "editDetail" {
+            let destinationEditViewController = (segue.destination as! UINavigationController).topViewController as! EditDetailTableViewController
+            
+            let object = sender as! Girl
+            
+            let editName = object.name
+            let editBiography = object.biography
+            let editLink = object.link
+            
+            destinationEditViewController.editDetailName = editName
+            destinationEditViewController.editDetailBiography = editBiography
+            destinationEditViewController.editDetailLink = editLink
+            
+            destinationEditViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+            destinationEditViewController.navigationItem.leftItemsSupplementBackButton = true
+        }
     }
-//    func prepare(for segue: UIStoryboardSegue, sender: girlToBeUpdated) {
-//        if segue.identifier == "editDetail" {
-//            if let indexPath = tableView.indexPathForSelectedRow {
-//                let editName = girlsList[indexPath.row].name
-//                let editBiography = girlsList[indexPath.row].biography
-//                let editLink = girlsList[indexPath.row].link
-//                
-//                let destinationEditViewController = (segue.destination as! UINavigationController).topViewController as! EditDetailTableViewController
-//                destinationEditViewController.editNameTextField.text = editName
-//                destinationEditViewController.editBiographyTextField.text = editBiography
-//                destinationEditViewController.editlinkTextField.text = editLink
-//                
-//                destinationEditViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-//                destinationEditViewController.navigationItem.leftItemsSupplementBackButton = true
-//            }
-//        }
-//    }
 }
-

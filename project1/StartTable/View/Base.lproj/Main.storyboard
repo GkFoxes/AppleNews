@@ -98,7 +98,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableContent" destination="rFs-d7-4T8" id="jmx-mZ-t2g"/>
-                        <segue destination="1TX-z2-y4c" kind="popoverPresentation" identifier="editDetail" popoverAnchorBarButtonItem="Mf8-gu-nLa" id="iqx-wF-yMB">
+                        <segue destination="1TX-z2-y4c" kind="popoverPresentation" identifier="editDetail" popoverAnchorView="rFs-d7-4T8" id="jaK-gf-JYZ">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                     </connections>

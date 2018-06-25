@@ -18,6 +18,7 @@
 		A912677020E10ABD003E9C1A /* StartDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */; };
 		A912677520E10B4D003E9C1A /* EditDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A912677420E10B4D003E9C1A /* EditDetail.storyboard */; };
 		A912677720E10BD3003E9C1A /* EditDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A912677620E10BD3003E9C1A /* EditDetailTableViewController.swift */; };
+		A912677920E15D0B003E9C1A /* ShareDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A912677820E15D0B003E9C1A /* ShareDelegate.swift */; };
 		A915736620DD361E00800DD0 /* GirlRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915736520DD361E00800DD0 /* GirlRealm.swift */; };
 		A915736820DD985A00800DD0 /* StartTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915736720DD985A00800DD0 /* StartTabBarController.swift */; };
 		A915736A20DD9E1100800DD0 /* StartSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915736920DD9E1100800DD0 /* StartSplitViewController.swift */; };
@@ -66,6 +67,7 @@
 		A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartDetailViewController.swift; sourceTree = "<group>"; };
 		A912677420E10B4D003E9C1A /* EditDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditDetail.storyboard; sourceTree = "<group>"; };
 		A912677620E10BD3003E9C1A /* EditDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailTableViewController.swift; sourceTree = "<group>"; };
+		A912677820E15D0B003E9C1A /* ShareDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDelegate.swift; sourceTree = "<group>"; };
 		A915736520DD361E00800DD0 /* GirlRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirlRealm.swift; sourceTree = "<group>"; };
 		A915736720DD985A00800DD0 /* StartTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTabBarController.swift; sourceTree = "<group>"; };
 		A915736920DD9E1100800DD0 /* StartSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSplitViewController.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 			children = (
 				A915736520DD361E00800DD0 /* GirlRealm.swift */,
 				A912676D20E00AE2003E9C1A /* RealmManager.swift */,
+				A912677820E15D0B003E9C1A /* ShareDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				A912677720E10BD3003E9C1A /* EditDetailTableViewController.swift in Sources */,
 				A915736A20DD9E1100800DD0 /* StartSplitViewController.swift in Sources */,
 				A915736820DD985A00800DD0 /* StartTabBarController.swift in Sources */,
+				A912677920E15D0B003E9C1A /* ShareDelegate.swift in Sources */,
 				A9BC905520D544EB0019C7F6 /* AppDelegate.swift in Sources */,
 				A90A00B820D7AD70003DDF4A /* ProfileViewController.swift in Sources */,
 				A92449A820DA78C100E3F522 /* StartTableViewController.swift in Sources */,

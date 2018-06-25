@@ -29,10 +29,17 @@ class EditDetailTableViewController: UITableViewController {
         }
         performSegue(withIdentifier: "unwindEditSegueFromNewCell", sender: self)
     }
+    
+    var editDetailName = "name"
+    var editDetailBiography = "bio"
+    var editDetailLink = "link"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //editNameTextField = editName
+        editNameTextField.text = editDetailName
+        editBiographyTextField.text = editDetailBiography
+        editlinkTextField.text = editDetailLink
     }
 
     override func didReceiveMemoryWarning() {
