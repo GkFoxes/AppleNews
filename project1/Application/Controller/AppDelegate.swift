@@ -48,16 +48,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let realmInstance = try! Realm()
         
         try! realmInstance.write {
-            realmInstance.add(Girl(name: "Анджелина Джоли"))
-            realmInstance.add(Girl(name: "Скарлетт Йоханссон"))
-            realmInstance.add(Girl(name: "Меган Фокс"))
-            realmInstance.add(Girl(name: "Шарлиз Терон"))
-            realmInstance.add(Girl(name: "Моника Беллуччи"))
-            realmInstance.add(Girl(name: "Натали Портман"))
-            realmInstance.add(Girl(name: "Мила Кунис"))
-            realmInstance.add(Girl(name: "Кира Найтли"))
-            realmInstance.add(Girl(name: "Дженнифер Лоуренс"))
-            realmInstance.add(Girl(name: "Марго Робби"))
+            realmInstance.add(Girl(
+                name: "Анджелина Джоли",
+                biography: "Анджелина Джоли родилась в 1965 и бла бла бла",
+                link: "https://ru.wikipedia.org/wiki/Джоли,_Анджелина"))
+            realmInstance.add(Girl(
+                name: "Скарлетт Йоханссон",
+                biography: "Скарлетт Йоханссон родилась в 1965 и бла бла бла",
+                link: "https://ru.wikipedia.org/wiki/Джоли,_Анджелина"))
+            realmInstance.add(Girl(
+                name: "Меган Фокс",
+                biography: "Меган Фокс родилась в 1965 и бла бла бла",
+                link: "https://ru.wikipedia.org/wiki/Джоли,_Анджелина"))
+            realmInstance.add(Girl(
+                name: "Шарлиз Терон",
+                biography: "Шарлиз Терон родилась в 1965 и бла бла бла",
+                link: "https://ru.wikipedia.org/wiki/Джоли,_Анджелина"))
+            realmInstance.add(Girl(
+                name: "Моника Беллуччи",
+                biography: "Моника Беллуччи родилась в 1965 и бла бла бла",
+                link: "https://ru.wikipedia.org/wiki/Джоли,_Анджелина"))
+            realmInstance.add(Girl(
+                name: "Натали Портман",
+                biography: "Натали Портман родилась в 1965 и бла бла бла",
+                link: "https://ru.wikipedia.org/wiki/Джоли,_Анджелина"))
+            realmInstance.add(Girl(
+                name: "Мила Кунис",
+                biography: "Мила Кунис родилась в 1965 и бла бла бла",
+                link: "https://ru.wikipedia.org/wiki/Джоли,_Анджелина"))
+            realmInstance.add(Girl(
+                name: "Кира Найтли",
+                biography: "Кира Найтли родилась в 1965 и бла бла бла",
+                link: "https://ru.wikipedia.org/wiki/Джоли,_Анджелина"))
+            realmInstance.add(Girl(
+                name: "Дженнифер Лоуренс",
+                biography: "женнифер Лоуренс родилась в 1965 и бла бла бла",
+                link: "https://ru.wikipedia.org/wiki/Джоли,_Анджелина"))
+            realmInstance.add(Girl(
+                name: "Марго Робби",
+                biography: "Марго РоббиМарго Робби родилась в 1965 и бла бла бла",
+                link: "https://ru.wikipedia.org/wiki/Джоли,_Анджелина"))
         }
         
         UserDefaults.standard.set(true, forKey: "db_install")

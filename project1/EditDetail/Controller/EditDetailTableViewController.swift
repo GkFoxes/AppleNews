@@ -1,52 +1,51 @@
 //
-//  NewCellTableViewController.swift
+//  EditDetailTableViewController.swift
 //  project1
 //
-//  Created by Дмитрий Матвеенко on 18.06.2018.
+//  Created by Дмитрий Матвеенко on 25.06.2018.
 //  Copyright © 2018 Дмитрий Матвеенко. All rights reserved.
 //
 
 import UIKit
-import RealmSwift
 
-class AddNewCellTableViewController: UITableViewController {
+class EditDetailTableViewController: UITableViewController {
     
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var biographyTextField: UITextField!
-    @IBOutlet weak var linkTextField: UITextField!
+    @IBOutlet weak var editNameTextField: UITextField!
+    @IBOutlet weak var editBiographyTextField: UITextField!
+    @IBOutlet weak var editlinkTextField: UITextField!
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-        if ((nameTextField.text?.isEmpty)! || nameTextField.text == " ") || ((biographyTextField.text?.isEmpty)! || biographyTextField.text == " ") {
+        if ((editNameTextField.text?.isEmpty)! || editNameTextField.text == " ") || ((editBiographyTextField.text?.isEmpty)! || editBiographyTextField.text == " ") {
             print ("Не все поля заполнены!")
         } else {
             
             let girlItem = Girl()
-            girlItem.name = nameTextField.text!
-            girlItem.biography = biographyTextField.text!
+            girlItem.name = editNameTextField.text!
+            girlItem.biography = editBiographyTextField.text!
             
             try! realm.write({
                 realm.add(girlItem)
             })
         }
-        performSegue(withIdentifier: "unwindSegueFromNewCell", sender: self)
+        performSegue(withIdentifier: "unwindEditSegueFromNewCell", sender: self)
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //editNameTextField = editName
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     // MARK: - Table view data source
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
 }
-

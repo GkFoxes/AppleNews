@@ -15,6 +15,9 @@
 		A90A00B620D7AD3F003DDF4A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90A00B420D7AD3F003DDF4A /* Profile.storyboard */; };
 		A90A00B820D7AD70003DDF4A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90A00B720D7AD70003DDF4A /* ProfileViewController.swift */; };
 		A912676E20E00AE2003E9C1A /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A912676D20E00AE2003E9C1A /* RealmManager.swift */; };
+		A912677020E10ABD003E9C1A /* StartDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */; };
+		A912677520E10B4D003E9C1A /* EditDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A912677420E10B4D003E9C1A /* EditDetail.storyboard */; };
+		A912677720E10BD3003E9C1A /* EditDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A912677620E10BD3003E9C1A /* EditDetailTableViewController.swift */; };
 		A915736620DD361E00800DD0 /* GirlRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915736520DD361E00800DD0 /* GirlRealm.swift */; };
 		A915736820DD985A00800DD0 /* StartTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915736720DD985A00800DD0 /* StartTabBarController.swift */; };
 		A915736A20DD9E1100800DD0 /* StartSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915736920DD9E1100800DD0 /* StartSplitViewController.swift */; };
@@ -26,7 +29,6 @@
 		A9BC906D20D544EC0019C7F6 /* project1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BC906C20D544EC0019C7F6 /* project1Tests.swift */; };
 		A9BC907820D544EC0019C7F6 /* project1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BC907720D544EC0019C7F6 /* project1UITests.swift */; };
 		A9BC909C20D581110019C7F6 /* StartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BC909B20D581110019C7F6 /* StartTableViewCell.swift */; };
-		A9BC909E20D58A7D0019C7F6 /* StartDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BC909D20D58A7D0019C7F6 /* StartDetailViewController.swift */; };
 		A9BC90A020D6723B0019C7F6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A9BC909F20D6723B0019C7F6 /* .gitignore */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,9 @@
 		A90A00B520D7AD3F003DDF4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = project1/StartTable/View/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		A90A00B720D7AD70003DDF4A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A912676D20E00AE2003E9C1A /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartDetailViewController.swift; sourceTree = "<group>"; };
+		A912677420E10B4D003E9C1A /* EditDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditDetail.storyboard; sourceTree = "<group>"; };
+		A912677620E10BD3003E9C1A /* EditDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailTableViewController.swift; sourceTree = "<group>"; };
 		A915736520DD361E00800DD0 /* GirlRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirlRealm.swift; sourceTree = "<group>"; };
 		A915736720DD985A00800DD0 /* StartTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTabBarController.swift; sourceTree = "<group>"; };
 		A915736920DD9E1100800DD0 /* StartSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSplitViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +83,6 @@
 		A9BC907720D544EC0019C7F6 /* project1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = project1UITests.swift; sourceTree = "<group>"; };
 		A9BC907920D544EC0019C7F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9BC909B20D581110019C7F6 /* StartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTableViewCell.swift; sourceTree = "<group>"; };
-		A9BC909D20D58A7D0019C7F6 /* StartDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartDetailViewController.swift; sourceTree = "<group>"; };
 		A9BC909F20D6723B0019C7F6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C37E84B96D3AC3080274C214 /* Pods_project1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -167,20 +171,20 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		A90A00A920D7A928003DDF4A /* StartDetail */ = {
+		A90A00A920D7A928003DDF4A /* EditDetail */ = {
 			isa = PBXGroup;
 			children = (
 				A90A00AB20D7A955003DDF4A /* Model */,
 				A90A00AC20D7A95B003DDF4A /* View */,
 				A90A00AA20D7A949003DDF4A /* Controller */,
 			);
-			path = StartDetail;
+			path = EditDetail;
 			sourceTree = "<group>";
 		};
 		A90A00AA20D7A949003DDF4A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A9BC909D20D58A7D0019C7F6 /* StartDetailViewController.swift */,
+				A912677620E10BD3003E9C1A /* EditDetailTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -195,6 +199,7 @@
 		A90A00AC20D7A95B003DDF4A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A912677420E10B4D003E9C1A /* EditDetail.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -260,7 +265,7 @@
 			children = (
 				A9BC908B20D556060019C7F6 /* Application */,
 				A9BC909120D556A80019C7F6 /* StartTable */,
-				A90A00A920D7A928003DDF4A /* StartDetail */,
+				A90A00A920D7A928003DDF4A /* EditDetail */,
 				A904991820D7C4710039BB4E /* NewCeel */,
 				A90A00B020D7ACF3003DDF4A /* Profile */,
 				A9BC908720D554F80019C7F6 /* Resources */,
@@ -360,8 +365,9 @@
 			children = (
 				A915736720DD985A00800DD0 /* StartTabBarController.swift */,
 				A915736920DD9E1100800DD0 /* StartSplitViewController.swift */,
-				A92449A720DA78C100E3F522 /* StartTableViewController.swift */,
 				A9BC909B20D581110019C7F6 /* StartTableViewCell.swift */,
+				A92449A720DA78C100E3F522 /* StartTableViewController.swift */,
+				A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -476,6 +482,7 @@
 			files = (
 				A90A00B620D7AD3F003DDF4A /* Profile.storyboard in Resources */,
 				A904998A20D806440039BB4E /* AddNewCell.storyboard in Resources */,
+				A912677520E10B4D003E9C1A /* EditDetail.storyboard in Resources */,
 				A9BC90A020D6723B0019C7F6 /* .gitignore in Resources */,
 				A9BC906220D544EC0019C7F6 /* LaunchScreen.storyboard in Resources */,
 				A9BC905F20D544EC0019C7F6 /* Assets.xcassets in Resources */,
@@ -582,7 +589,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A904992120D7C5270039BB4E /* AddNewCellTableViewController.swift in Sources */,
-				A9BC909E20D58A7D0019C7F6 /* StartDetailViewController.swift in Sources */,
+				A912677720E10BD3003E9C1A /* EditDetailTableViewController.swift in Sources */,
 				A915736A20DD9E1100800DD0 /* StartSplitViewController.swift in Sources */,
 				A915736820DD985A00800DD0 /* StartTabBarController.swift in Sources */,
 				A9BC905520D544EB0019C7F6 /* AppDelegate.swift in Sources */,
@@ -590,6 +597,7 @@
 				A92449A820DA78C100E3F522 /* StartTableViewController.swift in Sources */,
 				A912676E20E00AE2003E9C1A /* RealmManager.swift in Sources */,
 				A915736620DD361E00800DD0 /* GirlRealm.swift in Sources */,
+				A912677020E10ABD003E9C1A /* StartDetailViewController.swift in Sources */,
 				A9BC909C20D581110019C7F6 /* StartTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
