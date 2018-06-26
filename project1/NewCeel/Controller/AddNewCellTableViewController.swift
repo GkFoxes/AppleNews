@@ -12,11 +12,11 @@ import RealmSwift
 class AddNewCellTableViewController: UITableViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var biographyTextField: UITextField!
+    @IBOutlet weak var biographyTextView: UITextView!
     @IBOutlet weak var linkTextField: UITextField!
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-        if ((nameTextField.text?.isEmpty)! || nameTextField.text == " ") || ((biographyTextField.text?.isEmpty)! || biographyTextField.text == " ") || ((linkTextField.text?.isEmpty)! || linkTextField.text == " ") {
+        if ((nameTextField.text?.isEmpty)! || nameTextField.text == " ") || ((biographyTextView.text?.isEmpty)! || biographyTextView.text == " ") || ((linkTextField.text?.isEmpty)! || linkTextField.text == " ") {
             let alert = UIAlertController(title: "Can not save", message: "You did not fill all the fields, please check again.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
                 NSLog("The \"OK\" alert occured.")
@@ -25,7 +25,7 @@ class AddNewCellTableViewController: UITableViewController {
         } else {
             let girlItem = Girl()
             girlItem.name = nameTextField.text!
-            girlItem.biography = biographyTextField.text!
+            girlItem.biography = biographyTextView.text!
             girlItem.link = linkTextField.text!
             
             try! realm.write({

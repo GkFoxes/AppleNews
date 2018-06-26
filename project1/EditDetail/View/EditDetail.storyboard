@@ -18,69 +18,68 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Имя и фамилия" id="gM2-YD-gTk">
+                            <tableViewSection headerTitle="name and surname" id="gM2-YD-gTk">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Xwt-wM-230">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="46" id="Xwt-wM-230">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xwt-wM-230" id="KHs-ZV-dyM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="45.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fjp-PR-QQJ">
-                                                    <rect key="frame" x="16" y="7" width="343" height="30"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fjp-PR-QQJ">
+                                                    <rect key="frame" x="16" y="7" width="343" height="32.5"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="fjp-PR-QQJ" firstAttribute="top" secondItem="KHs-ZV-dyM" secondAttribute="top" constant="7" id="6oo-iq-68L"/>
                                                 <constraint firstItem="fjp-PR-QQJ" firstAttribute="leading" secondItem="KHs-ZV-dyM" secondAttribute="leading" constant="16" id="O4K-de-vBw"/>
-                                                <constraint firstAttribute="bottom" secondItem="fjp-PR-QQJ" secondAttribute="bottom" constant="6.5" id="asG-Rm-EYP"/>
+                                                <constraint firstAttribute="bottom" secondItem="fjp-PR-QQJ" secondAttribute="bottom" constant="6" id="asG-Rm-EYP"/>
                                                 <constraint firstAttribute="trailing" secondItem="fjp-PR-QQJ" secondAttribute="trailing" constant="16" id="uNE-Ma-ho6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Биография" id="vV6-Vl-muO">
+                            <tableViewSection headerTitle="biography" id="vV6-Vl-muO">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="AES-QU-e91">
-                                        <rect key="frame" x="0.0" y="155.5" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="150" id="AES-QU-e91">
+                                        <rect key="frame" x="0.0" y="157.5" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AES-QU-e91" id="rQh-xO-s1w">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bii-cL-llp">
-                                                    <rect key="frame" x="16" y="7" width="343" height="66"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <string key="userLabel">Анджелина Джоли Войт родилась в Лос-Анджелесе (США, штат Калифорния), в семье известного американского актёра Джона Войта и франкоканадской актрисы Маршелин Бертран.  В силу своего происхождения Джоли унаследовала кровь нескольких народов: со стороны отца — словацкого и немецкого (по отцу), со стороны матери — франкоканадского, а также голландского и немецкого. Сама Джоли утверждает, что по материнской линии она имеет ещё и ирокезские корни, хотя её отец отрицает данный факт; единственными индейскими предками, которых удалось проследить в родословной Маршелин Бертран, оказались гуроны XVII века.  Родители Джоли разошлись в 1976 году (развод был оформлен только два года спустя), и мать с годовалой Анджелиной и её братом переехала в Нью-Йорк. Год спустя Войт получил «Оскар» за свою роль в «Возвращении домой», а Бертран была вынуждена оставить свои мечты об успешной актёрской карьере и посвятила своё время воспитанию детей. Она часто водила их в кино, чем пробудила у Джоли интерес к актёрству. По крайней мере, именно этим та объясняла позже в прессе свой выбор в пользу кинематографа (а не успешной карьерой отца).</string>
-                                                </textField>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wzx-ZC-d3c">
+                                                    <rect key="frame" x="16" y="7" width="343" height="136"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="bii-cL-llp" firstAttribute="top" secondItem="rQh-xO-s1w" secondAttribute="top" constant="7" id="HQp-1E-Vnl"/>
-                                                <constraint firstAttribute="bottom" secondItem="bii-cL-llp" secondAttribute="bottom" constant="6.5" id="K5M-74-bXL"/>
-                                                <constraint firstAttribute="trailing" secondItem="bii-cL-llp" secondAttribute="trailing" constant="16" id="KZd-nJ-gSb"/>
-                                                <constraint firstItem="bii-cL-llp" firstAttribute="leading" secondItem="rQh-xO-s1w" secondAttribute="leading" constant="16" id="jgO-0r-lm8"/>
+                                                <constraint firstAttribute="bottom" secondItem="wzx-ZC-d3c" secondAttribute="bottom" constant="6.5" id="C6O-DM-Jsb"/>
+                                                <constraint firstItem="wzx-ZC-d3c" firstAttribute="leading" secondItem="rQh-xO-s1w" secondAttribute="leading" constant="16" id="Fwt-IM-dCl"/>
+                                                <constraint firstItem="wzx-ZC-d3c" firstAttribute="top" secondItem="rQh-xO-s1w" secondAttribute="top" constant="7" id="txN-LJ-4F3"/>
+                                                <constraint firstAttribute="trailing" secondItem="wzx-ZC-d3c" secondAttribute="trailing" constant="16" id="u9l-ue-EQL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Ссылка" id="5mK-fj-kP7">
+                            <tableViewSection headerTitle="link" id="5mK-fj-kP7">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cgF-gq-PvY">
-                                        <rect key="frame" x="0.0" y="291.5" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="cgF-gq-PvY">
+                                        <rect key="frame" x="0.0" y="363.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cgF-gq-PvY" id="abt-wG-gmq">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Dm-2Y-pp3">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8Dm-2Y-pp3">
                                                     <rect key="frame" x="16" y="7" width="343" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -116,7 +115,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="editBiographyTextField" destination="bii-cL-llp" id="tEl-Nf-nE5"/>
+                        <outlet property="editBiographyTextView" destination="wzx-ZC-d3c" id="e5M-w7-KNT"/>
                         <outlet property="editNameTextField" destination="fjp-PR-QQJ" id="G02-Hl-NNa"/>
                         <outlet property="editlinkTextField" destination="8Dm-2Y-pp3" id="3Er-bQ-RnN"/>
                     </connections>
@@ -124,7 +123,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZvV-Uj-nBP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="63Z-ue-yt2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4223" y="1117"/>
+            <point key="canvasLocation" x="4221.6000000000004" y="1116.7916041979011"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GdS-ui-ev9">

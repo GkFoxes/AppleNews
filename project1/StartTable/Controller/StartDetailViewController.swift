@@ -11,9 +11,9 @@ import UIKit
 class StartDetailViewController: UIViewController {
     
     @IBOutlet weak var detailLabel: UITextView!
-    var girlName = "Detail"
-    var girlBiography = "Biography"
-    var girlLink = "Link"
+    var girlName = ""
+    var girlBiography = ""
+    var girlLink = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

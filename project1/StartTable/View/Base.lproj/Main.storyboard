@@ -40,13 +40,13 @@
         <scene sceneID="Q1T-0j-jQf">
             <objects>
                 <viewControllerPlaceholder storyboardName="Profile" id="N1k-Dc-8yk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="zVr-Ug-hkF"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="zVr-Ug-hkF"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kr3-sy-cme" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="208" y="1558"/>
         </scene>
-        <!--Актрисы-->
+        <!--Actresses-->
         <scene sceneID="f0j-yR-NWh">
             <objects>
                 <tableViewController storyboardIdentifier="StartTableViewController" clearsSelectionOnViewWillAppear="NO" id="wbP-M3-cOw" customClass="StartTableViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
@@ -87,7 +87,7 @@
                             <outlet property="delegate" destination="wbP-M3-cOw" id="QX3-VW-NX2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Актрисы" id="I0m-rc-gze">
+                    <navigationItem key="navigationItem" title="Actresses" id="I0m-rc-gze">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Mf8-gu-nLa">
                             <connections>
                                 <segue destination="zzK-BN-Kpj" kind="popoverPresentation" popoverAnchorBarButtonItem="Mf8-gu-nLa" id="XqU-gH-qvn">
@@ -132,11 +132,11 @@
             </objects>
             <point key="canvasLocation" x="1564" y="707"/>
         </scene>
-        <!--Список-->
+        <!--List-->
         <scene sceneID="zi1-M2-Y2x">
             <objects>
                 <splitViewController storyboardIdentifier="StartSplitViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C1M-VB-xuv" customClass="StartSplitViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Список" image="list" id="ClK-aG-cYe"/>
+                    <tabBarItem key="tabBarItem" title="List" image="list" id="ClK-aG-cYe"/>
                     <navigationItem key="navigationItem" id="1wl-RQ-N1z"/>
                     <connections>
                         <segue destination="EGz-AS-Whb" kind="relationship" relationship="masterViewController" id="ULa-VP-nUJ"/>
@@ -212,8 +212,9 @@
     </scenes>
     <resources>
         <image name="list" width="30" height="30"/>
+        <image name="profile" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Juk-G5-kt7"/>
+        <segue reference="027-Wv-2bx"/>
     </inferredMetricsTieBreakers>
 </document>

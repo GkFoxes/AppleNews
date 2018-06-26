@@ -33,9 +33,11 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+        
         girlsList = realm.objects(Girl.self)
-        self.tableContent.setEditing(false, animated: true)
         self.girlsList = self.girlsList.sorted(byKeyPath: "createdAt", ascending:false)
+        
+        self.tableContent.setEditing(false, animated: true)
         self.tableContent.reloadData()
     }
     
@@ -74,6 +76,11 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
             try! realm.write({
                 realm.delete(item)
             })
+            
+            if self.splitViewController?.viewControllers.count == 2 {
+                self.performSegue(withIdentifier: "detailSegue", sender: self)
+            }
+    
             tableView.deleteRows(at:[indexPath], with: .automatic)
         }
         

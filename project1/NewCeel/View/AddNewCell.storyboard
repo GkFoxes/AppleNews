@@ -9,123 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add New Cell Table View Controller-->
-        <scene sceneID="mH8-nU-LoP">
-            <objects>
-                <tableViewController id="ZRW-Zc-OwW" customClass="AddNewCellTableViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Ng0-QJ-qd1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection headerTitle="Имя и фамилия" id="ehf-T3-Y1c">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2zZ-LV-gda">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2zZ-LV-gda" id="GLN-rw-0Gj">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Анджелина Джоли" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lmP-xd-TMx">
-                                                    <rect key="frame" x="16" y="7" width="343" height="30"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="lmP-xd-TMx" secondAttribute="bottom" constant="6.5" id="BE1-mM-eJ7"/>
-                                                <constraint firstItem="lmP-xd-TMx" firstAttribute="leading" secondItem="GLN-rw-0Gj" secondAttribute="leading" constant="16" id="S93-VI-VYy"/>
-                                                <constraint firstAttribute="trailing" secondItem="lmP-xd-TMx" secondAttribute="trailing" constant="16" id="o1k-3T-rHc"/>
-                                                <constraint firstItem="lmP-xd-TMx" firstAttribute="top" secondItem="GLN-rw-0Gj" secondAttribute="top" constant="7" id="pOw-zZ-PRN"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Биография" id="bWh-WZ-fk8">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="qRh-LT-Tfw">
-                                        <rect key="frame" x="0.0" y="155.5" width="375" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qRh-LT-Tfw" id="s4B-hW-Zxy">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Анджелина Джоли родилась в Лос-Анджелесе..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kz4-zr-15O">
-                                                    <rect key="frame" x="16" y="7" width="343" height="66"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <mutableString key="userLabel">Анджелина Джоли Войт родилась в Лос-Анджелесе (США, штат Калифорния), в семье известного американского актёра Джона Войта и франкоканадской актрисы Маршелин Бертран.  В силу своего происхождения Джоли унаследовала кровь нескольких народов: со стороны отца — словацкого и немецкого (по отцу), со стороны матери — франкоканадского, а также голландского и немецкого. Сама Джоли утверждает, что по материнской линии она имеет ещё и ирокезские корни, хотя её отец отрицает данный факт; единственными индейскими предками, которых удалось проследить в родословной Маршелин Бертран, оказались гуроны XVII века.  Родители Джоли разошлись в 1976 году (развод был оформлен только два года спустя), и мать с годовалой Анджелиной и её братом переехала в Нью-Йорк. Год спустя Войт получил «Оскар» за свою роль в «Возвращении домой», а Бертран была вынуждена оставить свои мечты об успешной актёрской карьере и посвятила своё время воспитанию детей. Она часто водила их в кино, чем пробудила у Джоли интерес к актёрству. По крайней мере, именно этим та объясняла позже в прессе свой выбор в пользу кинематографа (а не успешной карьерой отца).</mutableString>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Kz4-zr-15O" firstAttribute="top" secondItem="s4B-hW-Zxy" secondAttribute="top" constant="7" id="0Jo-dB-eIN"/>
-                                                <constraint firstAttribute="bottom" secondItem="Kz4-zr-15O" secondAttribute="bottom" constant="6.5" id="Ilk-Ni-eAK"/>
-                                                <constraint firstAttribute="trailing" secondItem="Kz4-zr-15O" secondAttribute="trailing" constant="16" id="NeX-DE-oDK"/>
-                                                <constraint firstItem="Kz4-zr-15O" firstAttribute="leading" secondItem="s4B-hW-Zxy" secondAttribute="leading" constant="16" id="lE8-L0-SdJ"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Ссылка" id="Jv4-C6-CsX">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="UVe-sW-eov">
-                                        <rect key="frame" x="0.0" y="291.5" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UVe-sW-eov" id="dHr-Fr-q3C">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="https://ru.wikipedia.org/wiki/Джоли,_Анджелина" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L3K-vx-78b">
-                                                    <rect key="frame" x="16" y="7" width="343" height="30"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="L3K-vx-78b" secondAttribute="trailing" constant="16" id="1PK-l2-qVf"/>
-                                                <constraint firstItem="L3K-vx-78b" firstAttribute="leading" secondItem="dHr-Fr-q3C" secondAttribute="leading" constant="16" id="COZ-5g-2Mz"/>
-                                                <constraint firstItem="L3K-vx-78b" firstAttribute="top" secondItem="dHr-Fr-q3C" secondAttribute="top" constant="7" id="TK6-hd-kAF"/>
-                                                <constraint firstAttribute="bottom" secondItem="L3K-vx-78b" secondAttribute="bottom" constant="6.5" id="uv4-Dk-aiY"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="ZRW-Zc-OwW" id="5m8-uz-hMH"/>
-                            <outlet property="delegate" destination="ZRW-Zc-OwW" id="22L-xb-a5a"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="GhH-5L-fhV">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="VLz-5Q-O4F">
-                            <connections>
-                                <segue destination="Rug-jQ-HBn" kind="unwind" identifier="unwindSegueFromNewCell" unwindAction="closeWithSegue:" id="cok-hF-zB6"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6cZ-pj-EjH">
-                            <connections>
-                                <action selector="saveButtonPressed:" destination="ZRW-Zc-OwW" id="1Er-2h-ivf"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="biographyTextField" destination="Kz4-zr-15O" id="cuU-D8-6Z2"/>
-                        <outlet property="linkTextField" destination="L3K-vx-78b" id="Qn6-rD-NEY"/>
-                        <outlet property="nameTextField" destination="lmP-xd-TMx" id="TUE-eT-Kaw"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NCc-tp-8XI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Rug-jQ-HBn" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="496.80000000000001" y="-676.01199400299856"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="XXd-pu-URS">
             <objects>
@@ -137,12 +20,128 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ZRW-Zc-OwW" kind="relationship" relationship="rootViewController" id="jgd-kM-Sn6"/>
+                        <segue destination="YrY-rg-ncb" kind="relationship" relationship="rootViewController" id="jbW-44-ZT1"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0oJ-fr-4oG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-218" y="-676"/>
+        </scene>
+        <!--Add New Cell Table View Controller-->
+        <scene sceneID="M7G-wR-Oa8">
+            <objects>
+                <tableViewController storyboardIdentifier="EditPopover" id="YrY-rg-ncb" customClass="AddNewCellTableViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Cbu-6A-Wgc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="name and surname" id="h0E-42-CUt">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="46" id="Ltd-4y-dwR">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ltd-4y-dwR" id="1r5-LK-pGN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="45.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fhU-ZS-LWQ">
+                                                    <rect key="frame" x="16" y="7" width="343" height="32.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="fhU-ZS-LWQ" secondAttribute="trailing" constant="16" id="RDM-LU-s1Z"/>
+                                                <constraint firstAttribute="bottom" secondItem="fhU-ZS-LWQ" secondAttribute="bottom" constant="6" id="jsr-Pf-XL7"/>
+                                                <constraint firstItem="fhU-ZS-LWQ" firstAttribute="leading" secondItem="1r5-LK-pGN" secondAttribute="leading" constant="16" id="voP-pT-AB4"/>
+                                                <constraint firstItem="fhU-ZS-LWQ" firstAttribute="top" secondItem="1r5-LK-pGN" secondAttribute="top" constant="7" id="y42-v8-GmW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="biography" id="UXY-yU-M2x">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="150" id="Wxp-GT-Yff">
+                                        <rect key="frame" x="0.0" y="157.5" width="375" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wxp-GT-Yff" id="7mk-fD-jqs">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="J7V-HN-pvV">
+                                                    <rect key="frame" x="16" y="7" width="343" height="136"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="J7V-HN-pvV" secondAttribute="trailing" constant="16" id="7Uu-Tk-j7v"/>
+                                                <constraint firstAttribute="bottom" secondItem="J7V-HN-pvV" secondAttribute="bottom" constant="6.5" id="SUg-gQ-vgU"/>
+                                                <constraint firstItem="J7V-HN-pvV" firstAttribute="leading" secondItem="7mk-fD-jqs" secondAttribute="leading" constant="16" id="kU3-tC-TZO"/>
+                                                <constraint firstItem="J7V-HN-pvV" firstAttribute="top" secondItem="7mk-fD-jqs" secondAttribute="top" constant="7" id="w3A-jg-3RH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="link" id="Yhv-lr-ESW">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="ANZ-Mi-20c">
+                                        <rect key="frame" x="0.0" y="363.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ANZ-Mi-20c" id="noZ-EK-Ah3">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O8W-dW-0gC">
+                                                    <rect key="frame" x="16" y="7" width="343" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="O8W-dW-0gC" secondAttribute="trailing" constant="16" id="M8F-PD-ags"/>
+                                                <constraint firstItem="O8W-dW-0gC" firstAttribute="top" secondItem="noZ-EK-Ah3" secondAttribute="top" constant="7" id="Nu5-dy-rpI"/>
+                                                <constraint firstAttribute="bottom" secondItem="O8W-dW-0gC" secondAttribute="bottom" constant="6.5" id="nfj-xZ-WRj"/>
+                                                <constraint firstItem="O8W-dW-0gC" firstAttribute="leading" secondItem="noZ-EK-Ah3" secondAttribute="leading" constant="16" id="owh-p9-cGI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="YrY-rg-ncb" id="dic-Vd-eX2"/>
+                            <outlet property="delegate" destination="YrY-rg-ncb" id="YiB-j9-e1G"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="sgO-L9-6mh">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="TQY-kQ-beO">
+                            <connections>
+                                <segue destination="8IO-ci-JXM" kind="unwind" identifier="unwindSegueFromNewCell" unwindAction="closeWithSegue:" id="0Hj-z5-HDv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JaV-86-Yer">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="YrY-rg-ncb" id="QZF-L9-jlD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="biographyTextView" destination="J7V-HN-pvV" id="b6k-VF-hMC"/>
+                        <outlet property="linkTextField" destination="O8W-dW-0gC" id="2in-hz-JOp"/>
+                        <outlet property="nameTextField" destination="fhU-ZS-LWQ" id="hal-om-nI5"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7jM-KG-sI8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8IO-ci-JXM" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="506" y="-676"/>
         </scene>
     </scenes>
 </document>
