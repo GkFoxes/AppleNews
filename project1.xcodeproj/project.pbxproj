@@ -14,7 +14,6 @@
 		A904998A20D806440039BB4E /* AddNewCell.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A904998920D806440039BB4E /* AddNewCell.storyboard */; };
 		A90A00B620D7AD3F003DDF4A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90A00B420D7AD3F003DDF4A /* Profile.storyboard */; };
 		A90A00B820D7AD70003DDF4A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90A00B720D7AD70003DDF4A /* ProfileViewController.swift */; };
-		A912676E20E00AE2003E9C1A /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A912676D20E00AE2003E9C1A /* RealmManager.swift */; };
 		A912677020E10ABD003E9C1A /* StartDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */; };
 		A912677520E10B4D003E9C1A /* EditDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A912677420E10B4D003E9C1A /* EditDetail.storyboard */; };
 		A912677720E10BD3003E9C1A /* EditDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A912677620E10BD3003E9C1A /* EditDetailTableViewController.swift */; };
@@ -62,7 +61,6 @@
 		A904998920D806440039BB4E /* AddNewCell.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewCell.storyboard; sourceTree = "<group>"; };
 		A90A00B520D7AD3F003DDF4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = project1/StartTable/View/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		A90A00B720D7AD70003DDF4A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		A912676D20E00AE2003E9C1A /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartDetailViewController.swift; sourceTree = "<group>"; };
 		A912677420E10B4D003E9C1A /* EditDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditDetail.storyboard; sourceTree = "<group>"; };
 		A912677620E10BD3003E9C1A /* EditDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -347,7 +345,6 @@
 			isa = PBXGroup;
 			children = (
 				A915736520DD361E00800DD0 /* GirlRealm.swift */,
-				A912676D20E00AE2003E9C1A /* RealmManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -595,7 +592,6 @@
 				A9BC905520D544EB0019C7F6 /* AppDelegate.swift in Sources */,
 				A90A00B820D7AD70003DDF4A /* ProfileViewController.swift in Sources */,
 				A92449A820DA78C100E3F522 /* StartTableViewController.swift in Sources */,
-				A912676E20E00AE2003E9C1A /* RealmManager.swift in Sources */,
 				A915736620DD361E00800DD0 /* GirlRealm.swift in Sources */,
 				A912677020E10ABD003E9C1A /* StartDetailViewController.swift in Sources */,
 				A9BC909C20D581110019C7F6 /* StartTableViewCell.swift in Sources */,
