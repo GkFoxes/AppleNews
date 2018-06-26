@@ -15,28 +15,4 @@ import RealmSwift
 //    private init() {
 //        database = try! Realm()
 //    }
-//
-//    func getDataFromDB() -> Results<Girl> {
-//        let results: Results<Girl> = database.objects(Girl.self)
-//        return results
-//    }
-//
-//    func addData(object: Girl) {
-//        try! database.write {
-//            database.add(object, update: true)
-//            print("Added new object")
-//        }
-//    }
-//
-//    func deleteAllDatabase()  {
-//        try! database.write {
-//            database.deleteAll()
-//        }
-//    }
-//
-//    func deleteFromDb(object: Girl) {
-//        try! database.write {
-//            database.delete(object)
-//        }
-//    }
 //}
