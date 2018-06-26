@@ -56,6 +56,13 @@ class EditDetailTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override var preferredContentSize: CGSize {
+        get {
+            return super.preferredContentSize
+        }
+        set { super.preferredContentSize = newValue }
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {

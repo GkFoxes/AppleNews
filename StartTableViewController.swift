@@ -12,7 +12,6 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
     
     @IBOutlet weak var tableContent: UITableView!
     @IBAction func close(segue: UIStoryboardSegue) {
-        //Cancels the addition new element in CoreData
         tableContent.reloadData()
     }
     
@@ -36,6 +35,7 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
         super.viewWillAppear(animated)
         girlsList = realm.objects(Girl.self)
         self.tableContent.setEditing(false, animated: true)
+        self.girlsList = self.girlsList.sorted(byKeyPath: "createdAt", ascending:false)
         self.tableContent.reloadData()
     }
     
@@ -119,9 +119,6 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
             destinationEditViewController.editDetailBiography = editBiography
             destinationEditViewController.editDetailLink = editLink
             destinationEditViewController.girlToDelete = object
-            
-            destinationEditViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-            destinationEditViewController.navigationItem.leftItemsSupplementBackButton = true
         }
     }
 }

@@ -20,6 +20,7 @@ class Girl: Object {
     @objc dynamic var name = ""
     @objc dynamic var biography = ""
     @objc dynamic var link = ""
+    @objc dynamic var createdAt = NSDate()
     
     convenience init(name: String, biography: String, link: String ) {
         self.init()
