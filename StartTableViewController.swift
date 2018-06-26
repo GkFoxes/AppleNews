@@ -8,20 +8,16 @@
 import UIKit
 import RealmSwift
 
-class StartTableViewController: UITableViewController {
+class StartTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var tableContent: UITableView!
     @IBAction func close(segue: UIStoryboardSegue) {
-        //Cancels the addition new element in CoreData
+        tableContent.reloadData()
     }
     
     var detailViewController: StartDetailViewController? = nil
     
-    var girlsList: Results<Girl> {
-        get {
-            return realm.objects(Girl.self)
-        }
-    }
+    var girlsList: Results<Girl>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +30,19 @@ class StartTableViewController: UITableViewController {
         realm = try! Realm()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        tableContent.reloadData()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+        
+        girlsList = realm.objects(Girl.self)
+        self.girlsList = self.girlsList.sorted(byKeyPath: "createdAt", ascending:false)
+        
+        self.tableContent.setEditing(false, animated: true)
+        self.tableContent.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableContent.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,6 +50,7 @@ class StartTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -64,16 +67,31 @@ class StartTableViewController: UITableViewController {
         return cell
     }
     
-    // MARK: - Delete and share from table
+    // MARK: - Delete and edit from table
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == .delete){
-            let item = girlsList[indexPath.row]
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let delete = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
+            let item = self.girlsList[indexPath.row]
             try! realm.write({
                 realm.delete(item)
             })
+            
+            if self.splitViewController?.viewControllers.count == 2 {
+                self.performSegue(withIdentifier: "detailSegue", sender: self)
+            }
+    
             tableView.deleteRows(at:[indexPath], with: .automatic)
         }
+        
+//        let edit = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
+//            let girlToBeUpdated = self.girlsList[indexPath.row]
+//            self.performSegue(withIdentifier: "editDetail", sender: girlToBeUpdated)
+//        }
+        
+        //edit.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        delete.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        return [delete]
     }
     
     // MARK: - Segues
@@ -81,12 +99,33 @@ class StartTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let girl = girlsList[indexPath.row].name
+                let name = girlsList[indexPath.row].name
+                let biography = girlsList[indexPath.row].biography
+                let link = girlsList[indexPath.row].link
+                
                 let destinationViewController = (segue.destination as! UINavigationController).topViewController as! StartDetailViewController
-                destinationViewController.girlName = girl
+                destinationViewController.girlName = name
+                destinationViewController.girlBiography = biography
+                destinationViewController.girlLink = link
+                
                 destinationViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 destinationViewController.navigationItem.leftItemsSupplementBackButton = true
             }
+        }
+        
+        if segue.identifier == "editDetail" {
+            let destinationEditViewController = (segue.destination as! UINavigationController).topViewController as! EditDetailTableViewController
+            
+            let object = sender as! Girl
+            
+            let editName = object.name
+            let editBiography = object.biography
+            let editLink = object.link
+            
+            destinationEditViewController.editDetailName = editName
+            destinationEditViewController.editDetailBiography = editBiography
+            destinationEditViewController.editDetailLink = editLink
+            destinationEditViewController.girlToDelete = object
         }
     }
 }
