@@ -13,6 +13,7 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
     @IBOutlet weak var tableContent: UITableView!
     @IBAction func close(segue: UIStoryboardSegue) {
         //Cancels the addition new element in CoreData
+        tableContent.reloadData()
     }
     
     var detailViewController: StartDetailViewController? = nil
@@ -117,6 +118,7 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
             destinationEditViewController.editDetailName = editName
             destinationEditViewController.editDetailBiography = editBiography
             destinationEditViewController.editDetailLink = editLink
+            destinationEditViewController.girlToDelete = object
             
             destinationEditViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
             destinationEditViewController.navigationItem.leftItemsSupplementBackButton = true

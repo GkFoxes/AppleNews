@@ -109,7 +109,11 @@
                                 <segue destination="63Z-ue-yt2" kind="unwind" identifier="unwindEditSegueFromNewCell" unwindAction="closeWithSegue:" id="9Ve-2x-5me"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cJm-5B-4Hc"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cJm-5B-4Hc">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="kQI-Ir-Xmt" id="DY0-gZ-rKx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="editBiographyTextField" destination="bii-cL-llp" id="tEl-Nf-nE5"/>
