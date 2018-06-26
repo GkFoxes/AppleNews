@@ -18,8 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Thread.sleep(forTimeInterval: 0.5)
-    
-        // Override point for customization after application launch.
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let splitViewController = mainStoryboard.instantiateViewController(withIdentifier: "StartSplitViewController") as! UISplitViewController
         UIApplication.shared.keyWindow?.rootViewController = splitViewController
@@ -30,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         splitViewController.delegate = self
         
         let tabBarViewController = self.window!.rootViewController as! UITabBarController
-        //var splitViewController: UISplitViewController? = nil
+        
         for viewController in tabBarViewController.viewControllers! {
             if viewController.title == "Detail" {
                 _ = viewController as? UISplitViewController
@@ -46,7 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func girlInitial() {
         let realmInstance = try! Realm()
-        
         try! realmInstance.write {
             realmInstance.add(Girl(
                 name: "Angelina Jolie",
@@ -129,7 +126,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                 """,
                 link: "https://en.wikipedia.org/wiki/Margot_Robbie"))
         }
-        
         UserDefaults.standard.set(true, forKey: "db_install")
     }
     

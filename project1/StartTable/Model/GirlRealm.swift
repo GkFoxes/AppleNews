@@ -9,13 +9,6 @@
 import Foundation
 import RealmSwift
 
-//var girlsList: Results<Girl> {
-//    get {
-//        return realm.objects(Girl.self)
-//    }
-//}
-//var girlsList: Results<Girl>!
-
 class Girl: Object {
     @objc dynamic var name = ""
     @objc dynamic var biography = ""

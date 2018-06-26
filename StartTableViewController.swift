@@ -84,14 +84,14 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
             tableView.deleteRows(at:[indexPath], with: .automatic)
         }
         
-//        let edit = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
-//            let girlToBeUpdated = self.girlsList[indexPath.row]
-//            self.performSegue(withIdentifier: "editDetail", sender: girlToBeUpdated)
-//        }
+        let edit = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
+            let girlToBeUpdated = self.girlsList[indexPath.row]
+            self.performSegue(withIdentifier: "editDetail", sender: girlToBeUpdated)
+        }
         
-        //edit.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        edit.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         delete.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        return [delete]
+        return [delete, edit]
     }
     
     // MARK: - Segues
