@@ -104,7 +104,7 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
                 let link = girlsList[indexPath.row].link
                 
                 let destinationViewController = (segue.destination as! UINavigationController).topViewController as! StartDetailViewController
-                destinationViewController.girlName = name
+                destinationViewController.title = name
                 destinationViewController.girlBiography = biography
                 destinationViewController.girlLink = link
                 

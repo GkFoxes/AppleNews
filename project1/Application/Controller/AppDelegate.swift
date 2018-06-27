@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 var realm : Realm!
 
@@ -17,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        Thread.sleep(forTimeInterval: 0.5)
+        Thread.sleep(forTimeInterval: 0.8)
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let splitViewController = mainStoryboard.instantiateViewController(withIdentifier: "StartSplitViewController") as! UISplitViewController
         UIApplication.shared.keyWindow?.rootViewController = splitViewController
@@ -39,20 +41,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             self.girlInitial()
         }
         
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         return true
     }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        FBSDKAppEvents.activateApp()
+    }
+    
+    func application (_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
+    func applicationDidEnterBackground(_ application: UIApplication) {
+    }
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+    }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+    }
+    
+    // MARK: - Split view
+    
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
+        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
+        guard let topAsDetailController = secondaryAsNavController.topViewController as? StartDetailViewController else { return false }
+        if topAsDetailController.title == "" {
+            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+           return true
+        }
+        return true
+    }
+    
+    // MARK: - Function girlInitial() for first start app
     
     func girlInitial() {
         let realmInstance = try! Realm()
         try! realmInstance.write {
-            realmInstance.add(Girl(
-                name: "Angelina Jolie",
-                biography:
-                """
-                    Angelina Jolie (born Angelina Jolie Voight, June 4, 1975) is an American actress, filmmaker, and humanitarian. She has received an Academy Award, two Screen Actors Guild Awards, and three Golden Globe Awards, and has been cited as Hollywood's highest-paid actress. Jolie made her screen debut as a child alongside her father, Jon Voight, in Lookin' to Get Out (1982). Her film career began in earnest a decade later with the low-budget production Cyborg 2 (1993), followed by her first leading role in a major film, Hackers (1995). She starred in the critically acclaimed biographical cable films George Wallace (1997) and Gia (1998), and won an Academy Award for Best Supporting Actress for her performance in the drama Girl, Interrupted (1999).
-                    Jolie's starring role as the video game heroine Lara Croft in Lara Croft: Tomb Raider (2001) established her as a leading Hollywood actress. She continued her successful action-star career with Mr. & Mrs. Smith (2005), Wanted (2008), and Salt (2010), and received critical acclaim for her performances in the dramas A Mighty Heart (2007) and Changeling (2008), which earned her a nomination for an Academy Award for Best Actress. Her biggest commercial success came with the fantasy picture Maleficent (2014). In the 2010s, Jolie expanded her career into directing, screenwriting, and producing, with In the Land of Blood and Honey (2011), Unbroken (2014), By the Sea (2015), and First They Killed My Father (2017).
-                """,
-                link: "https://en.wikipedia.org/wiki/Angelina_Jolie"))
             realmInstance.add(Girl(
                 name: "Scarlett Johansson",
                 biography:
@@ -125,34 +154,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                   Born and raised on a farm in Dalby, Queensland, Robbie studied drama at Somerset College. She began her career in Australian independent films in the late 2000s, before working in the soap opera Neighbours (2008–2011), which earned her two Logie Award nominations. After moving to the United States, she starred in the short-lived ABC drama series Pan Am (2011–2012). In 2013, she had a supporting role in the romantic comedy About Time, and made her breakthrough later that year by co-starring in Martin Scorsese's biographical black comedy The Wolf of Wall Street.
                 """,
                 link: "https://en.wikipedia.org/wiki/Margot_Robbie"))
+            realmInstance.add(Girl(
+                name: "Angelina Jolie",
+                biography:
+                """
+                    Angelina Jolie (born Angelina Jolie Voight, June 4, 1975) is an American actress, filmmaker, and humanitarian. She has received an Academy Award, two Screen Actors Guild Awards, and three Golden Globe Awards, and has been cited as Hollywood's highest-paid actress. Jolie made her screen debut as a child alongside her father, Jon Voight, in Lookin' to Get Out (1982). Her film career began in earnest a decade later with the low-budget production Cyborg 2 (1993), followed by her first leading role in a major film, Hackers (1995). She starred in the critically acclaimed biographical cable films George Wallace (1997) and Gia (1998), and won an Academy Award for Best Supporting Actress for her performance in the drama Girl, Interrupted (1999).
+                    Jolie's starring role as the video game heroine Lara Croft in Lara Croft: Tomb Raider (2001) established her as a leading Hollywood actress. She continued her successful action-star career with Mr. & Mrs. Smith (2005), Wanted (2008), and Salt (2010), and received critical acclaim for her performances in the dramas A Mighty Heart (2007) and Changeling (2008), which earned her a nomination for an Academy Award for Best Actress. Her biggest commercial success came with the fantasy picture Maleficent (2014). In the 2010s, Jolie expanded her career into directing, screenwriting, and producing, with In the Land of Blood and Honey (2011), Unbroken (2014), By the Sea (2015), and First They Killed My Father (2017).
+                """,
+                link: "https://en.wikipedia.org/wiki/Angelina_Jolie"))
         }
         UserDefaults.standard.set(true, forKey: "db_install")
-    }
-    
-    func applicationWillResignActive(_ application: UIApplication) {
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-    }
-    
-    // MARK: - Split view
-    
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
-        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-        guard let topAsDetailController = secondaryAsNavController.topViewController as? StartDetailViewController else { return false }
-        if topAsDetailController.girlName == "" {
-            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-           return true
-        }
-        return true
     }
 }

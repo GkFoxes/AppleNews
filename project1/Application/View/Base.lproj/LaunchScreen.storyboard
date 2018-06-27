@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unicorn" translatesAutoresizingMaskIntoConstraints="NO" id="RSu-Jf-PUT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unicornBig" translatesAutoresizingMaskIntoConstraints="NO" id="RSu-Jf-PUT">
                                 <rect key="frame" x="100" y="246" width="175" height="175"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="RSu-Jf-PUT" secondAttribute="height" multiplier="1:1" id="1mQ-Mt-9r0"/>
@@ -42,6 +42,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="unicorn" width="362" height="400"/>
+        <image name="unicornBig" width="300" height="300"/>
     </resources>
 </document>
