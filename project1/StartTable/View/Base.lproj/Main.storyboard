@@ -147,7 +147,7 @@
             </objects>
             <point key="canvasLocation" x="783" y="1117"/>
         </scene>
-        <!--Start Detail View Controller-->
+        <!--Name-->
         <scene sceneID="if0-84-RpE">
             <objects>
                 <viewController id="3Uu-pe-2fc" customClass="StartDetailViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
@@ -209,7 +209,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9yq-nR-hvr"/>
                     </view>
-                    <navigationItem key="navigationItem" id="moa-nY-WLE"/>
+                    <navigationItem key="navigationItem" title="Name" id="moa-nY-WLE"/>
                     <connections>
                         <outlet property="detailLabel" destination="nMR-H4-D8Z" id="GCR-l0-euL"/>
                         <outlet property="textOnButton" destination="Zyo-9k-YqU" id="Ait-qW-urI"/>

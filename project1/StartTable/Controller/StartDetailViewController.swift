@@ -26,15 +26,18 @@ class StartDetailViewController: UIViewController, SFSafariViewControllerDelegat
         }
     }
     @IBOutlet weak var textOnButton: UIButton!
-    
-    var girlName = ""
+
     var girlBiography = ""
     var girlLink = ""
     
+    override func viewDidAppear(_ animated: Bool) {
+        navigationItem.largeTitleDisplayMode = .always
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = girlName
+        navigationController?.navigationBar.prefersLargeTitles = true  
+
         detailLabel.text = girlBiography
         textOnButton.setTitle(girlLink, for: .normal)
     }

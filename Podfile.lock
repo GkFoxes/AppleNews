@@ -5,6 +5,9 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
+  - FacebookCore (0.3.1):
+    - Bolts (~> 1.8)
+    - FBSDKCoreKit (~> 4.33)
   - FBSDKCoreKit (4.34.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.34.0):
@@ -16,12 +19,16 @@ PODS:
     - Realm (= 3.7.4)
 
 DEPENDENCIES:
+  - Bolts
+  - FacebookCore
+  - FBSDKCoreKit
   - FBSDKLoginKit
   - RealmSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Bolts
+    - FacebookCore
     - FBSDKCoreKit
     - FBSDKLoginKit
     - Realm
@@ -29,11 +36,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  FacebookCore: 33078ef1d7d76b73f7e8c990dca7d3ea6db8d22f
   FBSDKCoreKit: 0ff57f093b85c8c9d5aba697d3edf68a8960ce78
   FBSDKLoginKit: 8c78f57a145afb756e4755e69195ebe08a42466e
   Realm: a469bb59e33f9926102ccaea4349822c53b9117e
   RealmSwift: a45861b21c180f5cf0f122144b9759fa8dde3e9e
 
-PODFILE CHECKSUM: 3e9038c6ad25723a36a9acec34102700e3df1a2b
+PODFILE CHECKSUM: a87475afc86ce6750e4a6630675af2e402720c52
 
 COCOAPODS: 1.5.3
