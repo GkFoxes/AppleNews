@@ -14,6 +14,8 @@
 		A904998A20D806440039BB4E /* AddNewCell.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A904998920D806440039BB4E /* AddNewCell.storyboard */; };
 		A90A00B620D7AD3F003DDF4A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90A00B420D7AD3F003DDF4A /* Profile.storyboard */; };
 		A90A00B820D7AD70003DDF4A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90A00B720D7AD70003DDF4A /* ProfileViewController.swift */; };
+		A910E7D620E38CB4008AC222 /* LoginFacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910E7D520E38CB4008AC222 /* LoginFacebookManager.swift */; };
+		A910E7D820E39246008AC222 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910E7D720E39246008AC222 /* UserDetailViewController.swift */; };
 		A912677020E10ABD003E9C1A /* StartDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */; };
 		A912677520E10B4D003E9C1A /* EditDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A912677420E10B4D003E9C1A /* EditDetail.storyboard */; };
 		A912677720E10BD3003E9C1A /* EditDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A912677620E10BD3003E9C1A /* EditDetailTableViewController.swift */; };
@@ -61,6 +63,8 @@
 		A904998920D806440039BB4E /* AddNewCell.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewCell.storyboard; sourceTree = "<group>"; };
 		A90A00B520D7AD3F003DDF4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = project1/StartTable/View/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		A90A00B720D7AD70003DDF4A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A910E7D520E38CB4008AC222 /* LoginFacebookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFacebookManager.swift; sourceTree = "<group>"; };
+		A910E7D720E39246008AC222 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartDetailViewController.swift; sourceTree = "<group>"; };
 		A912677420E10B4D003E9C1A /* EditDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditDetail.storyboard; sourceTree = "<group>"; };
 		A912677620E10BD3003E9C1A /* EditDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				A90A00B720D7AD70003DDF4A /* ProfileViewController.swift */,
+				A910E7D720E39246008AC222 /* UserDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 		A90A00B320D7AD2B003DDF4A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A910E7D520E38CB4008AC222 /* LoginFacebookManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -547,11 +553,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-project1/Pods-project1-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
@@ -587,9 +599,11 @@
 			files = (
 				A904992120D7C5270039BB4E /* AddNewCellTableViewController.swift in Sources */,
 				A912677720E10BD3003E9C1A /* EditDetailTableViewController.swift in Sources */,
+				A910E7D820E39246008AC222 /* UserDetailViewController.swift in Sources */,
 				A915736A20DD9E1100800DD0 /* StartSplitViewController.swift in Sources */,
 				A915736820DD985A00800DD0 /* StartTabBarController.swift in Sources */,
 				A9BC905520D544EB0019C7F6 /* AppDelegate.swift in Sources */,
+				A910E7D620E38CB4008AC222 /* LoginFacebookManager.swift in Sources */,
 				A90A00B820D7AD70003DDF4A /* ProfileViewController.swift in Sources */,
 				A92449A820DA78C100E3F522 /* StartTableViewController.swift in Sources */,
 				A915736620DD361E00800DD0 /* GirlRealm.swift in Sources */,

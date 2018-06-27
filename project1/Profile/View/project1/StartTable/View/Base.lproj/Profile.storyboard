@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RQK-8s-5UM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f1O-OY-OGE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,21 +10,103 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile-->
+        <!--Navigation Controller-->
+        <scene sceneID="V15-q6-kal">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="f1O-OY-OGE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6bY-nE-IIP">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BDU-8Y-oIs">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="RQK-8s-5UM" kind="relationship" relationship="rootViewController" id="nuv-rs-CeH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ibl-0w-iH9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1894" y="257"/>
+        </scene>
+        <!--Login-->
         <scene sceneID="Gvk-FD-a5Z">
             <objects>
                 <viewController id="RQK-8s-5UM" customClass="ProfileViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Mm-5L-3N0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.18177513332523976" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0b-Z6-QEa">
+                                <rect key="frame" x="123.5" y="322.5" width="128" height="42"/>
+                                <color key="backgroundColor" red="0.3277581991311872" green="0.31780442899129657" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="128" id="xhz-oF-evg"/>
+                                    <constraint firstAttribute="height" constant="42" id="yX0-KI-GL4"/>
+                                </constraints>
+                                <state key="normal" title="Facebook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.13530460615605033" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginFacebook:" destination="RQK-8s-5UM" eventType="touchUpInside" id="3yS-Pe-ObL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="F0b-Z6-QEa" firstAttribute="centerY" secondItem="VB6-Jo-lmv" secondAttribute="centerY" id="pki-dz-c68"/>
+                            <constraint firstItem="F0b-Z6-QEa" firstAttribute="centerX" secondItem="VB6-Jo-lmv" secondAttribute="centerX" id="zqL-Eg-ceW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VB6-Jo-lmv"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="profile" id="hSn-yN-aQx"/>
+                    <navigationItem key="navigationItem" title="Login" id="6HC-KG-Hsu"/>
+                    <connections>
+                        <segue destination="ATQ-kE-rFC" kind="show" id="Xpz-cM-oFn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HKb-C3-GOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2610" y="257"/>
+            <point key="canvasLocation" x="2608.8000000000002" y="256.82158920539734"/>
+        </scene>
+        <!--User Detail View Controller-->
+        <scene sceneID="xN6-bA-wR3">
+            <objects>
+                <viewController storyboardIdentifier="UserDetailViewController" id="ATQ-kE-rFC" customClass="UserDetailViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cWi-z7-SOV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1OB-ZC-4k5">
+                                <rect key="frame" x="166" y="192" width="43" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="e-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DU-ls-6bP">
+                                <rect key="frame" x="163" y="255" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4DU-ls-6bP" firstAttribute="top" secondItem="1OB-ZC-4k5" secondAttribute="bottom" constant="42" id="CDg-6G-U0a"/>
+                            <constraint firstItem="1OB-ZC-4k5" firstAttribute="centerX" secondItem="aUG-Wd-NW5" secondAttribute="centerX" id="CLN-M3-KmS"/>
+                            <constraint firstItem="aUG-Wd-NW5" firstAttribute="bottom" secondItem="4DU-ls-6bP" secondAttribute="bottom" constant="391" id="JMz-jc-ywC"/>
+                            <constraint firstItem="4DU-ls-6bP" firstAttribute="centerX" secondItem="aUG-Wd-NW5" secondAttribute="centerX" id="VpM-EO-flm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aUG-Wd-NW5"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="4DU-ls-6bP" id="KVq-Pk-GOa"/>
+                        <outlet property="nameLabel" destination="1OB-ZC-4k5" id="wuX-qg-af7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ikj-1z-ltW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3313" y="257"/>
         </scene>
     </scenes>
     <resources>

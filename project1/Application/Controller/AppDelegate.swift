@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 var realm : Realm!
 
@@ -39,8 +41,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             self.girlInitial()
         }
         
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         return true
     }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        FBSDKAppEvents.activateApp()
+    }
+    
+    func application (_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
+    func applicationDidEnterBackground(_ application: UIApplication) {
+    }
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+    }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+    }
+    
+    // MARK: - Split view
+    
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
+        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
+        guard let topAsDetailController = secondaryAsNavController.topViewController as? StartDetailViewController else { return false }
+        if topAsDetailController.girlName == "" {
+            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+           return true
+        }
+        return true
+    }
+    
+    // MARK: - Function girlInitial() for first start app
     
     func girlInitial() {
         let realmInstance = try! Realm()
@@ -127,32 +164,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                 link: "https://en.wikipedia.org/wiki/Margot_Robbie"))
         }
         UserDefaults.standard.set(true, forKey: "db_install")
-    }
-    
-    func applicationWillResignActive(_ application: UIApplication) {
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-    }
-    
-    // MARK: - Split view
-    
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
-        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-        guard let topAsDetailController = secondaryAsNavController.topViewController as? StartDetailViewController else { return false }
-        if topAsDetailController.girlName == "" {
-            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-           return true
-        }
-        return true
     }
 }
