@@ -28,6 +28,7 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
         }
         
         realm = try! Realm()
+        fetchCurrentWeatherData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,7 +81,7 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
             if self.splitViewController?.viewControllers.count == 2 {
                 self.performSegue(withIdentifier: "detailSegue", sender: self)
             }
-    
+            
             tableView.deleteRows(at:[indexPath], with: .automatic)
         }
         
@@ -128,4 +129,60 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
             destinationEditViewController.girlToDelete = object
         }
     }
+    
+    // MARK: - Weather API Data
+    
+    lazy var weatherManager = APIWeatherManager(apiKey: "416e4d01fc649f94c5c4b5c68ec20ed6")
+    let coordinates = [
+        Coordinates(latitude: 54.741704, longitude: 55.984471, name: "St.peters"),
+        Coordinates(latitude: 56.741704, longitude: 52.984471, name: "Moscow"),
+//        Coordinates(latitude: 42.741704, longitude: 38.984471),
+//        Coordinates(latitude: 54.741704, longitude: 55.984471),
+//        Coordinates(latitude: 54.741704, longitude: 55.984471),
+//        Coordinates(latitude: 54.741704, longitude: 55.984471),
+//        Coordinates(latitude: 54.741704, longitude: 55.984471),
+//        Coordinates(latitude: 54.741704, longitude: 55.984471),
+//        Coordinates(latitude: 54.741704, longitude: 55.984471),
+//        Coordinates(latitude: 54.741704, longitude: 55.984471)
+    ]
+    
+    func fetchCurrentWeatherData(){
+        for tenCoordinates in coordinates{
+            weatherManager.fetchCurrentWeatherWith(coordinates: tenCoordinates) { (result) in
+                //self.toggleActivityIndicator(on: false)
+                
+                switch result {
+                case .Success(let currentWeather):
+                    self.updateUIWith(currentWeather: currentWeather, coordinates: tenCoordinates)
+                case .Failure(let error as NSError):
+                    
+                    let alertController = UIAlertController(title: "Unable to get data ", message: "\(error.localizedDescription)", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(okAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                default: break
+                }
+            }
+        }
+    }
+    
+    func updateUIWith(currentWeather: CurrentWeather, coordinates: Coordinates ) {
+        let girlItem = Girl()
+        girlItem.name = coordinates.name
+        girlItem.biography = currentWeather.temperatureString
+        girlItem.link = currentWeather.appearentTemperatureString
+        
+        try! realm.write({
+            realm.add(girlItem)
+        })
+        
+        tableContent.reloadData()
+        //        self.imageView.image = currentWeather.icon
+        //        self.pressureLabel.text = currentWeather.pressureString
+        //        self.temperatureLabel.text = currentWeather.temperatureString
+        //        self.appearentTemperatureLabel.text = currentWeather.appearentTemperatureString
+        //        self.humidityLabel.text = currentWeather.humidityString
+    }
+    
 }
