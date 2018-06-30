@@ -13,20 +13,22 @@ class StartDetailViewController: UIViewController, SFSafariViewControllerDelegat
     
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var linkLabel: UILabel!
+    @IBOutlet weak var textOnButton: UIButton!
     @IBAction func openWithSafari(sender: AnyObject) {
         if let girlUrl = URL(string: girlLink) {
-            let svc = SFSafariViewController(url: girlUrl)
-            self.present(svc, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(title: "Can not open this website", message: "Please check the existence of the website", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-                NSLog("The \"OK\" alert occured.")
-            }))
-            self.present(alert, animated: true, completion: nil)
+            if  UIApplication.shared.canOpenURL(girlUrl) == true {
+                let svc = SFSafariViewController(url: girlUrl)
+                self.present(svc, animated: true, completion: nil)
+            } else {
+                let alert = UIAlertController(title: "Can not open this website", message: "Please check the existence of the website", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                    NSLog("The \"OK\" alert occured.")
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
-    @IBOutlet weak var textOnButton: UIButton!
-
+    
     var girlBiography = ""
     var girlLink = ""
     
@@ -37,7 +39,7 @@ class StartDetailViewController: UIViewController, SFSafariViewControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true  
-
+        
         detailLabel.text = girlBiography
         textOnButton.setTitle(girlLink, for: .normal)
     }

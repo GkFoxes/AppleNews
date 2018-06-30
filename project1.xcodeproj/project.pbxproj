@@ -30,6 +30,7 @@
 		A9BC907820D544EC0019C7F6 /* project1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BC907720D544EC0019C7F6 /* project1UITests.swift */; };
 		A9BC909C20D581110019C7F6 /* StartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BC909B20D581110019C7F6 /* StartTableViewCell.swift */; };
 		A9BC90A020D6723B0019C7F6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A9BC909F20D6723B0019C7F6 /* .gitignore */; };
+		A9F8898520E7779D00F2B99E /* LoginFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F8898420E7779D00F2B99E /* LoginFacebook.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +70,7 @@
 		A915736520DD361E00800DD0 /* GirlRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirlRealm.swift; sourceTree = "<group>"; };
 		A915736720DD985A00800DD0 /* StartTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTabBarController.swift; sourceTree = "<group>"; };
 		A915736920DD9E1100800DD0 /* StartSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSplitViewController.swift; sourceTree = "<group>"; };
-		A92449A720DA78C100E3F522 /* StartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StartTableViewController.swift; path = ../../../StartTableViewController.swift; sourceTree = "<group>"; };
+		A92449A720DA78C100E3F522 /* StartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StartTableViewController.swift; path = ../../Application/View/StartTableViewController.swift; sourceTree = "<group>"; };
 		A9BC905120D544EB0019C7F6 /* project1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BC905420D544EB0019C7F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9BC905920D544EB0019C7F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +85,7 @@
 		A9BC907920D544EC0019C7F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9BC909B20D581110019C7F6 /* StartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTableViewCell.swift; sourceTree = "<group>"; };
 		A9BC909F20D6723B0019C7F6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		A9F8898420E7779D00F2B99E /* LoginFacebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFacebook.swift; sourceTree = "<group>"; };
 		C37E84B96D3AC3080274C214 /* Pods_project1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -234,6 +236,7 @@
 		A90A00B320D7AD2B003DDF4A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A9F8898420E7779D00F2B99E /* LoginFacebook.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 		A9BC908C20D556210019C7F6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A9BC905420D544EB0019C7F6 /* AppDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -329,7 +333,6 @@
 		A9BC908E20D556360019C7F6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A9BC905420D544EB0019C7F6 /* AppDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A904992120D7C5270039BB4E /* AddNewCellTableViewController.swift in Sources */,
+				A9F8898520E7779D00F2B99E /* LoginFacebook.swift in Sources */,
 				A912677720E10BD3003E9C1A /* EditDetailTableViewController.swift in Sources */,
 				A910E7D820E39246008AC222 /* UserDetailViewController.swift in Sources */,
 				A915736A20DD9E1100800DD0 /* StartSplitViewController.swift in Sources */,
