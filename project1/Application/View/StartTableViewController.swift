@@ -28,6 +28,7 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
         }
         
         realm = try! Realm()
+        fetchCurrentWeatherData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,7 +81,7 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
             if self.splitViewController?.viewControllers.count == 2 {
                 self.performSegue(withIdentifier: "detailSegue", sender: self)
             }
-    
+            
             tableView.deleteRows(at:[indexPath], with: .automatic)
         }
         
@@ -128,4 +129,21 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
             destinationEditViewController.girlToDelete = object
         }
     }
+    
+    // MARK: - This Data for Weather API
+    
+    lazy var weatherManager = APIWeatherManager(apiKey: "416e4d01fc649f94c5c4b5c68ec20ed6")
+    
+    let coordinates = [
+        Coordinates(latitude: 59.939095, longitude: 30.315868, name: "St. Petersburg"),
+        Coordinates(latitude: 55.755814, longitude: 37.617635, name: "Moscow"),
+        Coordinates(latitude: 54.707390, longitude: 20.507307, name: "Kaliningrad"),
+        Coordinates(latitude: 53.195063, longitude: 45.018316, name: "Penza"),
+        Coordinates(latitude: 55.030199, longitude: 82.920430, name: "Novosibirsk"),
+        Coordinates(latitude: 55.796289, longitude: 49.108795, name: "Kazan"),
+        Coordinates(latitude: 58.522810, longitude: 31.269915, name: "Veliky Novgorod"),
+        Coordinates(latitude: 56.326887, longitude: 44.005986, name: "Nizhny Novgorod"),
+        Coordinates(latitude: 54.989342, longitude: 73.368212, name: "Omsk"),
+        Coordinates(latitude: 53.195538, longitude: 50.101783, name: "Samara")
+    ]
 }
