@@ -130,9 +130,10 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
         }
     }
     
-    // MARK: - Weather API Data
+    // MARK: - This Data for Weather API
     
     lazy var weatherManager = APIWeatherManager(apiKey: "416e4d01fc649f94c5c4b5c68ec20ed6")
+    
     let coordinates = [
         Coordinates(latitude: 59.939095, longitude: 30.315868, name: "St. Petersburg"),
         Coordinates(latitude: 55.755814, longitude: 37.617635, name: "Moscow"),
@@ -145,44 +146,4 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
         Coordinates(latitude: 54.989342, longitude: 73.368212, name: "Omsk"),
         Coordinates(latitude: 53.195538, longitude: 50.101783, name: "Samara")
     ]
-    
-    func fetchCurrentWeatherData(){
-        for tenCoordinates in coordinates{
-            weatherManager.fetchCurrentWeatherWith(coordinates: tenCoordinates) { (result) in
-                //self.toggleActivityIndicator(on: false)
-                
-                switch result {
-                case .Success(let currentWeather):
-                    self.updateUIWith(currentWeather: currentWeather, coordinates: tenCoordinates)
-                case .Failure(let error as NSError):
-                    
-                    let alertController = UIAlertController(title: "Unable to get data ", message: "\(error.localizedDescription)", preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                    alertController.addAction(okAction)
-                    
-                    self.present(alertController, animated: true, completion: nil)
-                default: break
-                }
-            }
-        }
-    }
-    
-    func updateUIWith(currentWeather: CurrentWeather, coordinates: Coordinates ) {
-        let girlItem = Girl()
-        girlItem.name = coordinates.name
-        girlItem.biography = currentWeather.pressureString
-        girlItem.link = currentWeather.appearentTemperatureString
-        
-        try! realm.write({
-            realm.add(girlItem)
-        })
-        
-        tableContent.reloadData()
-        //        self.imageView.image = currentWeather.icon
-        //        self.pressureLabel.text = currentWeather.pressureString
-        //        self.temperatureLabel.text = currentWeather.temperatureString
-        //        self.appearentTemperatureLabel.text = currentWeather.appearentTemperatureString
-        //        self.humidityLabel.text = currentWeather.humidityString
-    }
-    
 }
