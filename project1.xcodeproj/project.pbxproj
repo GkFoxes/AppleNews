@@ -12,9 +12,10 @@
 		784A283BBE513741B0778118 /* Pods_project1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 575FF4925741EA25ED06CFC5 /* Pods_project1UITests.framework */; };
 		A90A00B620D7AD3F003DDF4A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90A00B420D7AD3F003DDF4A /* Profile.storyboard */; };
 		A912677020E10ABD003E9C1A /* StartDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */; };
-		A915736820DD985A00800DD0 /* StartTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915736720DD985A00800DD0 /* StartTabBarController.swift */; };
-		A915736A20DD9E1100800DD0 /* StartSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915736920DD9E1100800DD0 /* StartSplitViewController.swift */; };
+		A915736820DD985A00800DD0 /* SplitControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915736720DD985A00800DD0 /* SplitControllers.swift */; };
 		A92449A820DA78C100E3F522 /* StartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92449A720DA78C100E3F522 /* StartTableViewController.swift */; };
+		A94D558D2130457700649282 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D558C2130457700649282 /* News.swift */; };
+		A94D558F2130482400649282 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D558E2130482400649282 /* DataManager.swift */; };
 		A9BC905520D544EB0019C7F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BC905420D544EB0019C7F6 /* AppDelegate.swift */; };
 		A9BC905A20D544EB0019C7F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BC905820D544EB0019C7F6 /* Main.storyboard */; };
 		A9BC905F20D544EC0019C7F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9BC905E20D544EC0019C7F6 /* Assets.xcassets */; };
@@ -51,9 +52,10 @@
 		9408C3F5C715C481A2BE2710 /* Pods-project1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project1.release.xcconfig"; path = "Pods/Target Support Files/Pods-project1/Pods-project1.release.xcconfig"; sourceTree = "<group>"; };
 		A90A00B520D7AD3F003DDF4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = project1/StartTable/View/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartDetailViewController.swift; sourceTree = "<group>"; };
-		A915736720DD985A00800DD0 /* StartTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTabBarController.swift; sourceTree = "<group>"; };
-		A915736920DD9E1100800DD0 /* StartSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSplitViewController.swift; sourceTree = "<group>"; };
+		A915736720DD985A00800DD0 /* SplitControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitControllers.swift; sourceTree = "<group>"; };
 		A92449A720DA78C100E3F522 /* StartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTableViewController.swift; sourceTree = "<group>"; };
+		A94D558C2130457700649282 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		A94D558E2130482400649282 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		A9BC905120D544EB0019C7F6 /* project1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BC905420D544EB0019C7F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9BC905920D544EB0019C7F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,8 +123,7 @@
 		A94D5584213029E500649282 /* Start */ = {
 			isa = PBXGroup;
 			children = (
-				A915736720DD985A00800DD0 /* StartTabBarController.swift */,
-				A915736920DD9E1100800DD0 /* StartSplitViewController.swift */,
+				A915736720DD985A00800DD0 /* SplitControllers.swift */,
 				A92449A720DA78C100E3F522 /* StartTableViewController.swift */,
 				A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */,
 			);
@@ -207,7 +208,9 @@
 		A9BC909220D5570C0019C7F6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A9F8898C20E805A300F2B99E /* WeatherAPI */,
+				A94D558C2130457700649282 /* News.swift */,
+				A9F8898620E7E77900F2B99E /* APIManager.swift */,
+				A94D558E2130482400649282 /* DataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,14 +230,6 @@
 				A94D5584213029E500649282 /* Start */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		A9F8898C20E805A300F2B99E /* WeatherAPI */ = {
-			isa = PBXGroup;
-			children = (
-				A9F8898620E7E77900F2B99E /* APIManager.swift */,
-			);
-			path = WeatherAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -459,10 +454,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A915736A20DD9E1100800DD0 /* StartSplitViewController.swift in Sources */,
-				A915736820DD985A00800DD0 /* StartTabBarController.swift in Sources */,
+				A94D558F2130482400649282 /* DataManager.swift in Sources */,
+				A915736820DD985A00800DD0 /* SplitControllers.swift in Sources */,
 				A9BC905520D544EB0019C7F6 /* AppDelegate.swift in Sources */,
 				A92449A820DA78C100E3F522 /* StartTableViewController.swift in Sources */,
+				A94D558D2130457700649282 /* News.swift in Sources */,
 				A9F8898720E7E77900F2B99E /* APIManager.swift in Sources */,
 				A912677020E10ABD003E9C1A /* StartDetailViewController.swift in Sources */,
 			);

@@ -11,6 +11,8 @@ import RealmSwift
 class StartTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +26,7 @@ class StartTableViewCell: UITableViewCell {
 class StartTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var tableContent: UITableView!
+    
     @IBAction func close(segue: UIStoryboardSegue) {
         tableContent.reloadData()
     }
@@ -39,6 +42,8 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
         }
         
         realm = try! Realm()
+        
+        getInitialData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,14 +69,14 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return news.articles!.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! StartTableViewCell
         
-        //let item = girlsList[indexPath.row]
-        //cell.nameLabel.text = item.name
+        let item = news.articles![indexPath.row]
+        cell.nameLabel.text = item.title
         return cell
     }
     
