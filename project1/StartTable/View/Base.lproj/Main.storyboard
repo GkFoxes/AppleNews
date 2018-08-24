@@ -68,38 +68,42 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KcC-rx-BfW">
-                                            <rect key="frame" x="16" y="43" width="343" height="18"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PnG-he-nDU">
-                                                    <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UE8-9R-aef">
-                                                    <rect key="frame" x="171.66666666666663" y="0.0" width="171.33333333333337" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PnG-he-nDU">
+                                            <rect key="frame" x="16" y="43" width="262" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="pZv-cA-Rko"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UE8-9R-aef">
+                                            <rect key="frame" x="294" y="43" width="65" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" priority="250" constant="65" id="R1w-w8-wdm"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="KcC-rx-BfW" firstAttribute="leading" secondItem="bMi-16-4Yb" secondAttribute="leading" constant="16" id="43l-5Y-C86"/>
+                                        <constraint firstItem="PnG-he-nDU" firstAttribute="top" secondItem="l8X-j2-bfF" secondAttribute="bottom" constant="8" id="1N3-kP-N9I"/>
                                         <constraint firstItem="l8X-j2-bfF" firstAttribute="top" secondItem="bMi-16-4Yb" secondAttribute="topMargin" id="5vO-FD-Pmo"/>
-                                        <constraint firstItem="KcC-rx-BfW" firstAttribute="top" secondItem="l8X-j2-bfF" secondAttribute="bottom" constant="8" id="GEO-zR-Or4"/>
-                                        <constraint firstAttribute="bottom" secondItem="KcC-rx-BfW" secondAttribute="bottom" constant="8.6699999999999999" id="GtF-WJ-2A6"/>
+                                        <constraint firstAttribute="trailing" secondItem="UE8-9R-aef" secondAttribute="trailing" constant="16" id="Fpm-NM-hec"/>
+                                        <constraint firstItem="UE8-9R-aef" firstAttribute="leading" secondItem="PnG-he-nDU" secondAttribute="trailing" constant="16" id="I5L-aK-A8T"/>
+                                        <constraint firstItem="PnG-he-nDU" firstAttribute="leading" secondItem="bMi-16-4Yb" secondAttribute="leading" constant="16" id="MJV-YU-ppK"/>
+                                        <constraint firstAttribute="bottom" secondItem="UE8-9R-aef" secondAttribute="bottom" constant="8.6699999999999999" id="UBj-kP-ThZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="PnG-he-nDU" secondAttribute="bottom" constant="8.6699999999999999" id="W04-Id-3nW"/>
+                                        <constraint firstItem="UE8-9R-aef" firstAttribute="top" secondItem="l8X-j2-bfF" secondAttribute="bottom" constant="8" id="eul-sg-tvY"/>
                                         <constraint firstItem="l8X-j2-bfF" firstAttribute="leading" secondItem="bMi-16-4Yb" secondAttribute="leadingMargin" id="hvV-EM-98g"/>
-                                        <constraint firstAttribute="trailing" secondItem="KcC-rx-BfW" secondAttribute="trailing" constant="16" id="wlb-xm-LGK"/>
                                         <constraint firstItem="l8X-j2-bfF" firstAttribute="trailing" secondItem="bMi-16-4Yb" secondAttribute="trailingMargin" id="ymP-eU-6yZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="dateLabel" destination="UE8-9R-aef" id="vOt-7v-1W2"/>
+                                    <outlet property="authorLabel" destination="PnG-he-nDU" id="k83-fQ-64Y"/>
+                                    <outlet property="dateLabel" destination="UE8-9R-aef" id="iHo-Ur-zh2"/>
                                     <outlet property="nameLabel" destination="l8X-j2-bfF" id="q4t-hw-F65"/>
-                                    <outlet property="titleLabel" destination="PnG-he-nDU" id="C0L-Re-rk5"/>
                                     <segue destination="DMm-pC-Aek" kind="showDetail" identifier="detailSegue" id="Juk-G5-kt7"/>
                                 </connections>
                             </tableViewCell>

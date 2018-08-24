@@ -11,7 +11,7 @@ import RealmSwift
 class StartTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
@@ -77,6 +77,8 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
         
         let item = news.articles![indexPath.row]
         cell.nameLabel.text = item.title
+        cell.authorLabel.text = item.author
+        cell.dateLabel.text = item.publishedAt
         return cell
     }
     
