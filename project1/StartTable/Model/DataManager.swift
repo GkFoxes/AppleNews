@@ -9,7 +9,12 @@
 import UIKit
 
 var articlesToNews = [DataAPI(source: nil, author: nil, title: nil, description: nil, url: nil, urlToImage: nil, publishedAt: nil)]
-var news = News(status: nil, totalResults: nil, articles: articlesToNews)
+var news = News(status: nil, totalResults: 0, articles: articlesToNews)
+
+var pageSearch = 1
+var totalInPage = news.totalResults
+
+var imageCache = NSCache<AnyObject, UIImage>()
 
 extension StartTableViewController {
     
@@ -17,11 +22,28 @@ extension StartTableViewController {
         initialData { (result) in
             switch result {
             case .success(let posts):
-                news.articles = posts.articles
+                news = posts
                 self.tableContent.reloadData()
                 print("YES")
             case .failure(let error):
                 print(error)
+            }
+        }
+    }
+    
+    func loadDataFromNextPage() {
+        loadNextPage{ (result) in
+            switch result {
+            case .success(let posts):
+                
+                guard let addNews = posts.articles else { return }
+                for item in addNews {
+                    news.articles?.append(item)
+                    self.tableContent.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+                self.tableContent.reloadData()
             }
         }
     }

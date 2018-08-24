@@ -6,7 +6,6 @@
 //  Copyright © 2018 Дмитрий Матвеенко. All rights reserved.
 //
 import UIKit
-import RealmSwift
 
 class StartTableViewCell: UITableViewCell {
     
@@ -41,15 +40,13 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? StartDetailViewController
         }
         
-        realm = try! Realm()
-        
         getInitialData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
-    
+        
         self.tableContent.setEditing(false, animated: true)
         self.tableContent.reloadData()
     }
@@ -77,8 +74,31 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
         
         let item = news.articles![indexPath.row]
         cell.nameLabel.text = item.title
-        cell.authorLabel.text = item.author
-        cell.dateLabel.text = item.publishedAt
+        cell.authorLabel.text = item.source?.name
+        
+        let dateString = item.publishedAt
+        let dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        let newFormat = DateFormatter()
+        newFormat.dateFormat = "MM.dd HH:mm"
+        newFormat.locale = Locale(identifier: "ru_RU")
+        
+        if dateString != nil {
+            if let date = dateFormatter.date(from: dateString!) {
+                cell.dateLabel.text = newFormat.string(from: date)
+            }
+        } else {
+            cell.dateLabel.text = ""
+        }
+        
+        if indexPath.row == news.articles!.count - 5 {
+            if news.articles!.count < totalInPage! {
+                pageSearch += 1
+                loadDataFromNextPage()
+            }
+        }
+        
         return cell
     }
     
@@ -87,14 +107,24 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                //let name = girlsList[indexPath.row].name
-                //let biography = girlsList[indexPath.row].biography
-                //let link = girlsList[indexPath.row].link
+                
+                guard let details = news.articles else { return }
+                let nameDetail = details[indexPath.row].source?.name
+                let descriptionDetal = details[indexPath.row].description
+                let linkDetail = details[indexPath.row].url
+                let photoDetailURL = details[indexPath.row].urlToImage
                 
                 let destinationViewController = (segue.destination as! UINavigationController).topViewController as! StartDetailViewController
-                //destinationViewController.title = name
-                //destinationViewController.girlBiography = biography
-                //destinationViewController.girlLink = link
+                destinationViewController.title = nameDetail
+                if descriptionDetal != nil {
+                    destinationViewController.descriptionText = descriptionDetal!
+                }
+                if linkDetail != nil {
+                    destinationViewController.link = linkDetail!
+                }
+                if photoDetailURL != nil {
+                    destinationViewController.photoString = photoDetailURL!
+                }
                 
                 destinationViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 destinationViewController.navigationItem.leftItemsSupplementBackButton = true
