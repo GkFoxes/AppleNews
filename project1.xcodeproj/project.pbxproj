@@ -10,27 +10,17 @@
 		075D18C0E884C2DBBC68F3B5 /* Pods_project1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C9C91286DD7A4A5F2D515A /* Pods_project1.framework */; };
 		2B9C84B086FDE3876B63CDFE /* Pods_project1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37E84B96D3AC3080274C214 /* Pods_project1Tests.framework */; };
 		784A283BBE513741B0778118 /* Pods_project1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 575FF4925741EA25ED06CFC5 /* Pods_project1UITests.framework */; };
-		A904992120D7C5270039BB4E /* AddNewCellTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A904992020D7C5270039BB4E /* AddNewCellTableViewController.swift */; };
 		A90A00B620D7AD3F003DDF4A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90A00B420D7AD3F003DDF4A /* Profile.storyboard */; };
-		A90A00B820D7AD70003DDF4A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90A00B720D7AD70003DDF4A /* ProfileViewController.swift */; };
-		A910E7D820E39246008AC222 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910E7D720E39246008AC222 /* UserDetailViewController.swift */; };
 		A912677020E10ABD003E9C1A /* StartDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */; };
-		A915736620DD361E00800DD0 /* GirlRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915736520DD361E00800DD0 /* GirlRealm.swift */; };
 		A915736820DD985A00800DD0 /* StartTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915736720DD985A00800DD0 /* StartTabBarController.swift */; };
 		A915736A20DD9E1100800DD0 /* StartSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915736920DD9E1100800DD0 /* StartSplitViewController.swift */; };
 		A92449A820DA78C100E3F522 /* StartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92449A720DA78C100E3F522 /* StartTableViewController.swift */; };
-		A94D558B21302C7A00649282 /* EditDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D558A21302C7A00649282 /* EditDetailTableViewController.swift */; };
 		A9BC905520D544EB0019C7F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BC905420D544EB0019C7F6 /* AppDelegate.swift */; };
 		A9BC905A20D544EB0019C7F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BC905820D544EB0019C7F6 /* Main.storyboard */; };
 		A9BC905F20D544EC0019C7F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9BC905E20D544EC0019C7F6 /* Assets.xcassets */; };
 		A9BC906220D544EC0019C7F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BC906020D544EC0019C7F6 /* LaunchScreen.storyboard */; };
-		A9BC909C20D581110019C7F6 /* StartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BC909B20D581110019C7F6 /* StartTableViewCell.swift */; };
 		A9BC90A020D6723B0019C7F6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A9BC909F20D6723B0019C7F6 /* .gitignore */; };
-		A9F8898520E7779D00F2B99E /* LoginFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F8898420E7779D00F2B99E /* LoginFacebook.swift */; };
 		A9F8898720E7E77900F2B99E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F8898620E7E77900F2B99E /* APIManager.swift */; };
-		A9F8898920E7EC2B00F2B99E /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F8898820E7EC2B00F2B99E /* ErrorManager.swift */; };
-		A9F8898B20E8057200F2B99E /* APIWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F8898A20E8057200F2B99E /* APIWeatherManager.swift */; };
-		A9F8898E20E805BF00F2B99E /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F8898D20E805BF00F2B99E /* CurrentWeather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,16 +49,11 @@
 		614E6B03B95A28BCB6F77127 /* Pods-project1UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project1UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-project1UITests/Pods-project1UITests.release.xcconfig"; sourceTree = "<group>"; };
 		6A58F116B42C27C32A5643E0 /* Pods-project1UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project1UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-project1UITests/Pods-project1UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9408C3F5C715C481A2BE2710 /* Pods-project1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project1.release.xcconfig"; path = "Pods/Target Support Files/Pods-project1/Pods-project1.release.xcconfig"; sourceTree = "<group>"; };
-		A904992020D7C5270039BB4E /* AddNewCellTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCellTableViewController.swift; sourceTree = "<group>"; };
 		A90A00B520D7AD3F003DDF4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = project1/StartTable/View/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
-		A90A00B720D7AD70003DDF4A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		A910E7D720E39246008AC222 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartDetailViewController.swift; sourceTree = "<group>"; };
-		A915736520DD361E00800DD0 /* GirlRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirlRealm.swift; sourceTree = "<group>"; };
 		A915736720DD985A00800DD0 /* StartTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTabBarController.swift; sourceTree = "<group>"; };
 		A915736920DD9E1100800DD0 /* StartSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSplitViewController.swift; sourceTree = "<group>"; };
 		A92449A720DA78C100E3F522 /* StartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTableViewController.swift; sourceTree = "<group>"; };
-		A94D558A21302C7A00649282 /* EditDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailTableViewController.swift; sourceTree = "<group>"; };
 		A9BC905120D544EB0019C7F6 /* project1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BC905420D544EB0019C7F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9BC905920D544EB0019C7F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,13 +62,8 @@
 		A9BC906320D544EC0019C7F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9BC906820D544EC0019C7F6 /* project1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = project1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BC907320D544EC0019C7F6 /* project1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = project1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9BC909B20D581110019C7F6 /* StartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTableViewCell.swift; sourceTree = "<group>"; };
 		A9BC909F20D6723B0019C7F6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		A9F8898420E7779D00F2B99E /* LoginFacebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFacebook.swift; sourceTree = "<group>"; };
 		A9F8898620E7E77900F2B99E /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		A9F8898820E7EC2B00F2B99E /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
-		A9F8898A20E8057200F2B99E /* APIWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIWeatherManager.swift; sourceTree = "<group>"; };
-		A9F8898D20E805BF00F2B99E /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		C37E84B96D3AC3080274C214 /* Pods_project1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -138,30 +118,11 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		A904991920D7C4940039BB4E /* Add and Edit */ = {
-			isa = PBXGroup;
-			children = (
-				A904992020D7C5270039BB4E /* AddNewCellTableViewController.swift */,
-				A94D558A21302C7A00649282 /* EditDetailTableViewController.swift */,
-			);
-			path = "Add and Edit";
-			sourceTree = "<group>";
-		};
-		A90A00B120D7AD18003DDF4A /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				A90A00B720D7AD70003DDF4A /* ProfileViewController.swift */,
-				A910E7D720E39246008AC222 /* UserDetailViewController.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
 		A94D5584213029E500649282 /* Start */ = {
 			isa = PBXGroup;
 			children = (
 				A915736720DD985A00800DD0 /* StartTabBarController.swift */,
 				A915736920DD9E1100800DD0 /* StartSplitViewController.swift */,
-				A9BC909B20D581110019C7F6 /* StartTableViewCell.swift */,
 				A92449A720DA78C100E3F522 /* StartTableViewController.swift */,
 				A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */,
 			);
@@ -247,9 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				A9F8898C20E805A300F2B99E /* WeatherAPI */,
-				A9F8898D20E805BF00F2B99E /* CurrentWeather.swift */,
-				A915736520DD361E00800DD0 /* GirlRealm.swift */,
-				A9F8898420E7779D00F2B99E /* LoginFacebook.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -267,8 +225,6 @@
 			isa = PBXGroup;
 			children = (
 				A94D5584213029E500649282 /* Start */,
-				A904991920D7C4940039BB4E /* Add and Edit */,
-				A90A00B120D7AD18003DDF4A /* Profile */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -277,8 +233,6 @@
 			isa = PBXGroup;
 			children = (
 				A9F8898620E7E77900F2B99E /* APIManager.swift */,
-				A9F8898A20E8057200F2B99E /* APIWeatherManager.swift */,
-				A9F8898820E7EC2B00F2B99E /* ErrorManager.swift */,
 			);
 			path = WeatherAPI;
 			sourceTree = "<group>";
@@ -505,22 +459,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A904992120D7C5270039BB4E /* AddNewCellTableViewController.swift in Sources */,
-				A9F8898520E7779D00F2B99E /* LoginFacebook.swift in Sources */,
-				A9F8898E20E805BF00F2B99E /* CurrentWeather.swift in Sources */,
-				A9F8898920E7EC2B00F2B99E /* ErrorManager.swift in Sources */,
-				A9F8898B20E8057200F2B99E /* APIWeatherManager.swift in Sources */,
-				A94D558B21302C7A00649282 /* EditDetailTableViewController.swift in Sources */,
-				A910E7D820E39246008AC222 /* UserDetailViewController.swift in Sources */,
 				A915736A20DD9E1100800DD0 /* StartSplitViewController.swift in Sources */,
 				A915736820DD985A00800DD0 /* StartTabBarController.swift in Sources */,
 				A9BC905520D544EB0019C7F6 /* AppDelegate.swift in Sources */,
-				A90A00B820D7AD70003DDF4A /* ProfileViewController.swift in Sources */,
 				A92449A820DA78C100E3F522 /* StartTableViewController.swift in Sources */,
-				A915736620DD361E00800DD0 /* GirlRealm.swift in Sources */,
 				A9F8898720E7E77900F2B99E /* APIManager.swift in Sources */,
 				A912677020E10ABD003E9C1A /* StartDetailViewController.swift in Sources */,
-				A9BC909C20D581110019C7F6 /* StartTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
