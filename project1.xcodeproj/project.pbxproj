@@ -74,7 +74,7 @@
 		A915736520DD361E00800DD0 /* GirlRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirlRealm.swift; sourceTree = "<group>"; };
 		A915736720DD985A00800DD0 /* StartTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTabBarController.swift; sourceTree = "<group>"; };
 		A915736920DD9E1100800DD0 /* StartSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSplitViewController.swift; sourceTree = "<group>"; };
-		A92449A720DA78C100E3F522 /* StartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StartTableViewController.swift; path = ../../Application/View/StartTableViewController.swift; sourceTree = "<group>"; };
+		A92449A720DA78C100E3F522 /* StartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTableViewController.swift; sourceTree = "<group>"; };
 		A9BC905120D544EB0019C7F6 /* project1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BC905420D544EB0019C7F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9BC905920D544EB0019C7F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -148,105 +148,42 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		A904991820D7C4710039BB4E /* NewCeel */ = {
-			isa = PBXGroup;
-			children = (
-				A904991C20D7C49D0039BB4E /* Model */,
-				A904991B20D7C49C0039BB4E /* View */,
-				A904991920D7C4940039BB4E /* Controller */,
-			);
-			path = NewCeel;
-			sourceTree = "<group>";
-		};
-		A904991920D7C4940039BB4E /* Controller */ = {
+		A904991920D7C4940039BB4E /* NewCell */ = {
 			isa = PBXGroup;
 			children = (
 				A904992020D7C5270039BB4E /* AddNewCellTableViewController.swift */,
 			);
-			path = Controller;
+			path = NewCell;
 			sourceTree = "<group>";
 		};
-		A904991B20D7C49C0039BB4E /* View */ = {
-			isa = PBXGroup;
-			children = (
-				A904998920D806440039BB4E /* AddNewCell.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		A904991C20D7C49D0039BB4E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		A90A00A920D7A928003DDF4A /* EditDetail */ = {
-			isa = PBXGroup;
-			children = (
-				A90A00AB20D7A955003DDF4A /* Model */,
-				A90A00AC20D7A95B003DDF4A /* View */,
-				A90A00AA20D7A949003DDF4A /* Controller */,
-			);
-			path = EditDetail;
-			sourceTree = "<group>";
-		};
-		A90A00AA20D7A949003DDF4A /* Controller */ = {
+		A90A00AA20D7A949003DDF4A /* EditDetail */ = {
 			isa = PBXGroup;
 			children = (
 				A912677620E10BD3003E9C1A /* EditDetailTableViewController.swift */,
 			);
-			path = Controller;
+			name = EditDetail;
+			path = ../../EditDetail/EditDetail;
 			sourceTree = "<group>";
 		};
-		A90A00AB20D7A955003DDF4A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		A90A00AC20D7A95B003DDF4A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				A912677420E10B4D003E9C1A /* EditDetail.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		A90A00B020D7ACF3003DDF4A /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				A90A00B320D7AD2B003DDF4A /* Model */,
-				A90A00B220D7AD25003DDF4A /* View */,
-				A90A00B120D7AD18003DDF4A /* Controller */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		A90A00B120D7AD18003DDF4A /* Controller */ = {
+		A90A00B120D7AD18003DDF4A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				A90A00B720D7AD70003DDF4A /* ProfileViewController.swift */,
 				A910E7D720E39246008AC222 /* UserDetailViewController.swift */,
 			);
-			path = Controller;
+			path = Profile;
 			sourceTree = "<group>";
 		};
-		A90A00B220D7AD25003DDF4A /* View */ = {
+		A94D5584213029E500649282 /* Start */ = {
 			isa = PBXGroup;
 			children = (
-				A90A00B420D7AD3F003DDF4A /* Profile.storyboard */,
+				A915736720DD985A00800DD0 /* StartTabBarController.swift */,
+				A915736920DD9E1100800DD0 /* StartSplitViewController.swift */,
+				A9BC909B20D581110019C7F6 /* StartTableViewCell.swift */,
+				A92449A720DA78C100E3F522 /* StartTableViewController.swift */,
+				A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		A90A00B320D7AD2B003DDF4A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A9F8898420E7779D00F2B99E /* LoginFacebook.swift */,
-			);
-			path = Model;
+			path = Start;
 			sourceTree = "<group>";
 		};
 		A9BC904820D544EB0019C7F6 = {
@@ -277,9 +214,6 @@
 			children = (
 				A9BC908B20D556060019C7F6 /* Application */,
 				A9BC909120D556A80019C7F6 /* StartTable */,
-				A90A00A920D7A928003DDF4A /* EditDetail */,
-				A904991820D7C4710039BB4E /* NewCeel */,
-				A90A00B020D7ACF3003DDF4A /* Profile */,
 				A9BC908720D554F80019C7F6 /* Resources */,
 			);
 			path = project1;
@@ -317,7 +251,6 @@
 			children = (
 				A9BC908C20D556210019C7F6 /* Model */,
 				A9BC908D20D556260019C7F6 /* View */,
-				A9BC908E20D556360019C7F6 /* Controller */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -338,13 +271,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		A9BC908E20D556360019C7F6 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		A9BC909120D556A80019C7F6 /* StartTable */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +287,7 @@
 				A9F8898C20E805A300F2B99E /* WeatherAPI */,
 				A9F8898D20E805BF00F2B99E /* CurrentWeather.swift */,
 				A915736520DD361E00800DD0 /* GirlRealm.swift */,
+				A9F8898420E7779D00F2B99E /* LoginFacebook.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -369,6 +296,9 @@
 			isa = PBXGroup;
 			children = (
 				A9BC905820D544EB0019C7F6 /* Main.storyboard */,
+				A904998920D806440039BB4E /* AddNewCell.storyboard */,
+				A912677420E10B4D003E9C1A /* EditDetail.storyboard */,
+				A90A00B420D7AD3F003DDF4A /* Profile.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -376,11 +306,10 @@
 		A9BC909420D557190019C7F6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A915736720DD985A00800DD0 /* StartTabBarController.swift */,
-				A915736920DD9E1100800DD0 /* StartSplitViewController.swift */,
-				A9BC909B20D581110019C7F6 /* StartTableViewCell.swift */,
-				A92449A720DA78C100E3F522 /* StartTableViewController.swift */,
-				A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */,
+				A94D5584213029E500649282 /* Start */,
+				A904991920D7C4940039BB4E /* NewCell */,
+				A90A00AA20D7A949003DDF4A /* EditDetail */,
+				A90A00B120D7AD18003DDF4A /* Profile */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
