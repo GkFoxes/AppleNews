@@ -15,6 +15,7 @@
 		A92449A820DA78C100E3F522 /* StartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92449A720DA78C100E3F522 /* StartTableViewController.swift */; };
 		A94D558D2130457700649282 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D558C2130457700649282 /* News.swift */; };
 		A94D558F2130482400649282 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D558E2130482400649282 /* DataManager.swift */; };
+		A94D55912131560900649282 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D55902131560900649282 /* SettingsTableViewController.swift */; };
 		A9BC905520D544EB0019C7F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BC905420D544EB0019C7F6 /* AppDelegate.swift */; };
 		A9BC905A20D544EB0019C7F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BC905820D544EB0019C7F6 /* Main.storyboard */; };
 		A9BC905F20D544EC0019C7F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9BC905E20D544EC0019C7F6 /* Assets.xcassets */; };
@@ -51,9 +52,10 @@
 		9408C3F5C715C481A2BE2710 /* Pods-project1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project1.release.xcconfig"; path = "Pods/Target Support Files/Pods-project1/Pods-project1.release.xcconfig"; sourceTree = "<group>"; };
 		A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartDetailViewController.swift; sourceTree = "<group>"; };
 		A915736720DD985A00800DD0 /* SplitControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitControllers.swift; sourceTree = "<group>"; };
-		A92449A720DA78C100E3F522 /* StartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTableViewController.swift; sourceTree = "<group>"; };
+		A92449A720DA78C100E3F522 /* StartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StartTableViewController.swift; path = Start/StartTableViewController.swift; sourceTree = "<group>"; };
 		A94D558C2130457700649282 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		A94D558E2130482400649282 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		A94D55902131560900649282 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		A9BC905120D544EB0019C7F6 /* project1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BC905420D544EB0019C7F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9BC905920D544EB0019C7F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,16 +118,6 @@
 				614E6B03B95A28BCB6F77127 /* Pods-project1UITests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		A94D5584213029E500649282 /* Start */ = {
-			isa = PBXGroup;
-			children = (
-				A915736720DD985A00800DD0 /* SplitControllers.swift */,
-				A92449A720DA78C100E3F522 /* StartTableViewController.swift */,
-				A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */,
-			);
-			path = Start;
 			sourceTree = "<group>";
 		};
 		A9BC904820D544EB0019C7F6 = {
@@ -224,7 +216,10 @@
 		A9BC909420D557190019C7F6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A94D5584213029E500649282 /* Start */,
+				A915736720DD985A00800DD0 /* SplitControllers.swift */,
+				A92449A720DA78C100E3F522 /* StartTableViewController.swift */,
+				A912676F20E10ABD003E9C1A /* StartDetailViewController.swift */,
+				A94D55902131560900649282 /* SettingsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -454,6 +449,7 @@
 				A915736820DD985A00800DD0 /* SplitControllers.swift in Sources */,
 				A9BC905520D544EB0019C7F6 /* AppDelegate.swift in Sources */,
 				A92449A820DA78C100E3F522 /* StartTableViewController.swift in Sources */,
+				A94D55912131560900649282 /* SettingsTableViewController.swift in Sources */,
 				A94D558D2130457700649282 /* News.swift in Sources */,
 				A9F8898720E7E77900F2B99E /* APIManager.swift in Sources */,
 				A912677020E10ABD003E9C1A /* StartDetailViewController.swift in Sources */,

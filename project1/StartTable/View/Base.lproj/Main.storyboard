@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--News-->
+        <!--Новости-->
         <scene sceneID="f0j-yR-NWh">
             <objects>
                 <tableViewController storyboardIdentifier="StartTableViewController" clearsSelectionOnViewWillAppear="NO" id="wbP-M3-cOw" customClass="StartTableViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
@@ -75,8 +75,14 @@
                             <outlet property="delegate" destination="wbP-M3-cOw" id="QX3-VW-NX2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="News" id="I0m-rc-gze">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Mf8-gu-nLa"/>
+                    <navigationItem key="navigationItem" title="Новости" id="I0m-rc-gze">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="categories" id="Mf8-gu-nLa">
+                            <connections>
+                                <segue destination="LPk-ZT-f4J" kind="popoverPresentation" popoverAnchorBarButtonItem="Mf8-gu-nLa" id="kyh-5c-vYd">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableContent" destination="rFs-d7-4T8" id="jmx-mZ-t2g"/>
@@ -84,7 +90,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdL-Mf-ih2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2276" y="707"/>
+            <point key="canvasLocation" x="2332" y="845"/>
         </scene>
         <!--Item-->
         <scene sceneID="xrr-HF-srQ">
@@ -110,7 +116,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uax-Ya-TTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1564" y="707"/>
+            <point key="canvasLocation" x="1564" y="845"/>
         </scene>
         <!--List-->
         <scene sceneID="zi1-M2-Y2x">
@@ -127,7 +133,7 @@
             </objects>
             <point key="canvasLocation" x="783" y="1117"/>
         </scene>
-        <!--Name-->
+        <!--Организация-->
         <scene sceneID="if0-84-RpE">
             <objects>
                 <viewController id="3Uu-pe-2fc" customClass="StartDetailViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
@@ -235,7 +241,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9yq-nR-hvr"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Name" id="moa-nY-WLE"/>
+                    <navigationItem key="navigationItem" title="Организация" id="moa-nY-WLE"/>
                     <connections>
                         <outlet property="activityPhotoView" destination="ehq-9r-dTN" id="Kcy-c1-2Iz"/>
                         <outlet property="detailLabel" destination="nMR-H4-D8Z" id="GCR-l0-euL"/>
@@ -247,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UWc-KP-nTs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2276" y="1742"/>
+            <point key="canvasLocation" x="2332" y="1592"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TW6-DH-g29">
@@ -273,10 +279,102 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7In-GB-QwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1564" y="1742"/>
+            <point key="canvasLocation" x="1564" y="1592"/>
+        </scene>
+        <!--Категории-->
+        <scene sceneID="nn6-Ef-RNP">
+            <objects>
+                <tableViewController title="Категории" id="n4y-Wl-dVC" customClass="SettingsTableViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hWA-Vt-ANk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellCategory" rowHeight="60" id="d38-Z5-pPw" customClass="CategoryCell" customModule="project1" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d38-Z5-pPw" id="zvI-aZ-1J7">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Категория" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3E-tw-KW0">
+                                            <rect key="frame" x="16" y="10" width="343" height="38"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="38" id="ZGO-Lf-iTx"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="O3E-tw-KW0" firstAttribute="top" secondItem="zvI-aZ-1J7" secondAttribute="top" constant="10" id="U8a-Jp-sN8"/>
+                                        <constraint firstItem="O3E-tw-KW0" firstAttribute="leading" secondItem="zvI-aZ-1J7" secondAttribute="leadingMargin" id="ZUx-hr-KNc"/>
+                                        <constraint firstAttribute="bottom" secondItem="O3E-tw-KW0" secondAttribute="bottom" constant="11.5" id="bRT-Z7-R7d"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="O3E-tw-KW0" secondAttribute="trailing" id="uD0-GL-4Pd"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="categoryLabel" destination="O3E-tw-KW0" id="vxe-yN-Uog"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="n4y-Wl-dVC" id="NjW-Ji-cbW"/>
+                            <outlet property="delegate" destination="n4y-Wl-dVC" id="JyC-K9-aHf"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Рубрики" id="ry3-Uv-pll">
+                        <barButtonItem key="leftBarButtonItem" title="Отмена" id="TS8-t3-5t8">
+                            <connections>
+                                <segue destination="OVM-fZ-QPE" kind="unwind" identifier="unwindSegueFromSettings" unwindAction="closeWithSegue:" id="aMd-mv-2Xy"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="FEP-F6-hA4">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="n4y-Wl-dVC" id="cvy-EE-iZk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableCategories" destination="hWA-Vt-ANk" id="mtU-Z9-BoU"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7E7-9L-mnK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="OVM-fZ-QPE" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3897" y="474"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1D9-YA-SFk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LPk-ZT-f4J" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Iw4-b7-scZ">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="n4y-Wl-dVC" kind="relationship" relationship="rootViewController" id="7Ef-no-HS7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E8r-Uu-Ony" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3159" y="474"/>
         </scene>
     </scenes>
     <resources>
+        <image name="categories" width="30" height="30"/>
         <image name="list" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>

@@ -49,7 +49,6 @@ class StartDetailViewController: UIViewController, SFSafariViewControllerDelegat
         
         titleLabel.text = titleDetail
         detailLabel.text = descriptionText
-        //textOnButton.setTitle(link, for: .normal)
         
         if photoString != "" {
             activityPhotoView.startAnimating()

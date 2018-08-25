@@ -27,6 +27,22 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
     @IBOutlet weak var tableContent: UITableView!
     
     @IBAction func close(segue: UIStoryboardSegue) {
+        if cancelOrSave {
+            pageSearch = 1
+            for item in categories {
+                if (item.id != 0) && (item.isChoise == true) {
+                    self.title = item.name
+                    break
+                } else {
+                    self.title = "Новости"
+                }
+            }
+            
+            getInitialData()
+            
+            tableContent.reloadData()
+        }
+        cancelOrSave = false
         tableContent.reloadData()
     }
     
@@ -117,7 +133,7 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
                 
                 let destinationViewController = (segue.destination as! UINavigationController).topViewController as! StartDetailViewController
                 destinationViewController.title = nameDetail
-               
+                
                 if title != nil {
                     destinationViewController.titleDetail = title!
                 }
