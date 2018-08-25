@@ -117,11 +117,11 @@
             </objects>
             <point key="canvasLocation" x="1564" y="845"/>
         </scene>
-        <!--List-->
+        <!--Start Split View Controller-->
         <scene sceneID="zi1-M2-Y2x">
             <objects>
                 <splitViewController storyboardIdentifier="StartSplitViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C1M-VB-xuv" customClass="StartSplitViewController" customModule="project1" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="List" image="list" id="ClK-aG-cYe"/>
+                    <tabBarItem key="tabBarItem" title="" id="ClK-aG-cYe"/>
                     <navigationItem key="navigationItem" id="1wl-RQ-N1z"/>
                     <connections>
                         <segue destination="EGz-AS-Whb" kind="relationship" relationship="masterViewController" id="ULa-VP-nUJ"/>
@@ -374,7 +374,6 @@
     </scenes>
     <resources>
         <image name="categories" width="30" height="30"/>
-        <image name="list" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Juk-G5-kt7"/>
