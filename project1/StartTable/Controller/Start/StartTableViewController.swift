@@ -26,27 +26,8 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
     
     @IBOutlet weak var tableContent: UITableView!
     
-    @IBAction func close(segue: UIStoryboardSegue) {
-        if cancelOrSave {
-            pageSearch = 1
-            for item in categories {
-                if (item.id != 0) && (item.isChoise == true) {
-                    self.title = item.name
-                    break
-                } else {
-                    self.title = "Новости"
-                }
-            }
-            
-            getInitialData()
-            
-            tableContent.reloadData()
-        }
-        cancelOrSave = false
-        tableContent.reloadData()
-    }
-    
     var detailViewController: StartDetailViewController? = nil
+    var refresher: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +36,11 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? StartDetailViewController
         }
+        
+        refresher = UIRefreshControl()
+        refresher.tintColor = UIColor.white
+        refresher.addTarget(self, action: #selector(StartTableViewController.populate), for: UIControlEvents.valueChanged)
+        tableContent.refreshControl = refresher
         
         getInitialData()
     }
@@ -116,6 +102,33 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
         }
         
         return cell
+    }
+    
+    // MARK: - Button Action
+    
+    @IBAction func close(segue: UIStoryboardSegue) {
+        if cancelOrSave {
+            pageSearch = 1
+            for item in categories {
+                if (item.id != 0) && (item.isChoise == true) {
+                    self.title = item.name
+                    break
+                } else {
+                    self.title = "Новости"
+                }
+            }
+            
+            getInitialData()
+            
+            tableContent.reloadData()
+        }
+        cancelOrSave = false
+        tableContent.reloadData()
+    }
+    
+    @objc func populate() {
+        getInitialData()
+        refresher.endRefreshing()
     }
     
     // MARK: - Segues
