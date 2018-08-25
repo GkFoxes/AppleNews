@@ -25,13 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         splitViewController.delegate = self
         
-        let tabBarViewController = self.window!.rootViewController as! UITabBarController
-        
-        for viewController in tabBarViewController.viewControllers! {
-            if viewController.title == "Detail" {
-                _ = viewController as? UISplitViewController
-            }
-        }
+        UIApplication.shared.statusBarStyle = .lightContent
         
         return true
     }

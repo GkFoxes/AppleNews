@@ -110,12 +110,17 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
                 
                 guard let details = news.articles else { return }
                 let nameDetail = details[indexPath.row].source?.name
+                let title = details[indexPath.row].title
                 let descriptionDetal = details[indexPath.row].description
                 let linkDetail = details[indexPath.row].url
                 let photoDetailURL = details[indexPath.row].urlToImage
                 
                 let destinationViewController = (segue.destination as! UINavigationController).topViewController as! StartDetailViewController
                 destinationViewController.title = nameDetail
+               
+                if title != nil {
+                    destinationViewController.titleDetail = title!
+                }
                 if descriptionDetal != nil {
                     destinationViewController.descriptionText = descriptionDetal!
                 }

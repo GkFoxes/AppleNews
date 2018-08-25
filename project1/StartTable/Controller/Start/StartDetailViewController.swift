@@ -11,6 +11,7 @@ import SafariServices
 
 class StartDetailViewController: UIViewController, SFSafariViewControllerDelegate {
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var textOnButton: UIButton!
     
@@ -33,6 +34,7 @@ class StartDetailViewController: UIViewController, SFSafariViewControllerDelegat
         }
     }
     
+    var titleDetail = ""
     var descriptionText = ""
     var link = ""
     var photoString = ""
@@ -45,8 +47,9 @@ class StartDetailViewController: UIViewController, SFSafariViewControllerDelegat
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true  
         
+        titleLabel.text = titleDetail
         detailLabel.text = descriptionText
-        textOnButton.setTitle(link, for: .normal)
+        //textOnButton.setTitle(link, for: .normal)
         
         if photoString != "" {
             activityPhotoView.startAnimating()
