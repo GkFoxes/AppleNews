@@ -22,8 +22,24 @@ func initialData(completion: ((Result<News>) -> Void)?) {
     let countryItem = URLQueryItem(name: "country", value: "ru")
     let apiKeyItem = URLQueryItem(name: "apiKey", value: "aa953c7c330a4f13b3fc1a69c1361892")
     
+    var category: String? = nil
+    for item in categories {
+        if (item.id != 0) && (item.isChoise == true) {
+            category = item.nameAPI
+            break
+        } else {
+            category = nil
+        }
+    }
+    let categoryItem = URLQueryItem(name: "category", value: category)
+    
     urlComponents.percentEncodedQuery = urlComponents.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
-    urlComponents.queryItems = [countryItem, apiKeyItem]
+    
+    if category != nil {
+        urlComponents.queryItems = [countryItem, apiKeyItem, categoryItem]
+    } else {
+        urlComponents.queryItems = [countryItem, apiKeyItem]
+    }
     
     guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
     print(url)

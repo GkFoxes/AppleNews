@@ -19,19 +19,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unicornBig" translatesAutoresizingMaskIntoConstraints="NO" id="RSu-Jf-PUT">
-                                <rect key="frame" x="100" y="246" width="175" height="175"/>
+                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oneN" translatesAutoresizingMaskIntoConstraints="NO" id="RSu-Jf-PUT">
+                                <rect key="frame" x="53" y="237" width="269" height="192"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="RSu-Jf-PUT" secondAttribute="height" multiplier="1:1" id="1mQ-Mt-9r0"/>
-                                    <constraint firstAttribute="height" constant="175" id="Vwp-bL-oKZ"/>
-                                    <constraint firstAttribute="width" constant="175" id="uhB-w2-yt0"/>
+                                    <constraint firstAttribute="width" secondItem="RSu-Jf-PUT" secondAttribute="height" multiplier="21:15" id="1mQ-Mt-9r0"/>
+                                    <constraint firstAttribute="width" constant="269" id="Nvg-If-wEK"/>
+                                    <constraint firstAttribute="height" constant="192" id="hIw-OX-f2g"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.99519230769230771" green="0.99038461538461542" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="RSu-Jf-PUT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="c9O-91-U5p"/>
-                            <constraint firstItem="RSu-Jf-PUT" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-10" id="rWE-cp-PmE"/>
+                            <constraint firstItem="RSu-Jf-PUT" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-10.5" id="7Ze-Zc-Xrz"/>
+                            <constraint firstItem="RSu-Jf-PUT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Tyt-u7-hrX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -42,6 +42,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="unicornBig" width="300" height="300"/>
+        <image name="oneN" width="420" height="261"/>
     </resources>
 </document>
