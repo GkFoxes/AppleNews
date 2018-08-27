@@ -16,6 +16,7 @@
 		A94D558D2130457700649282 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D558C2130457700649282 /* News.swift */; };
 		A94D558F2130482400649282 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D558E2130482400649282 /* DataManager.swift */; };
 		A94D55912131560900649282 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D55902131560900649282 /* SettingsTableViewController.swift */; };
+		A95867722134235500ADF339 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95867712134235500ADF339 /* Favorites.storyboard */; };
 		A9BC905520D544EB0019C7F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BC905420D544EB0019C7F6 /* AppDelegate.swift */; };
 		A9BC905A20D544EB0019C7F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BC905820D544EB0019C7F6 /* Main.storyboard */; };
 		A9BC905F20D544EC0019C7F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9BC905E20D544EC0019C7F6 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		A94D558C2130457700649282 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		A94D558E2130482400649282 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		A94D55902131560900649282 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		A95867712134235500ADF339 /* Favorites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
 		A9BC905120D544EB0019C7F6 /* project1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BC905420D544EB0019C7F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9BC905920D544EB0019C7F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				A9BC905820D544EB0019C7F6 /* Main.storyboard */,
+				A95867712134235500ADF339 /* Favorites.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				A9BC906220D544EC0019C7F6 /* LaunchScreen.storyboard in Resources */,
 				A9BC905F20D544EC0019C7F6 /* Assets.xcassets in Resources */,
 				A9BC905A20D544EB0019C7F6 /* Main.storyboard in Resources */,
+				A95867722134235500ADF339 /* Favorites.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
