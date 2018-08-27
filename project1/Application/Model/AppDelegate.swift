@@ -1,3 +1,4 @@
+
 //
 //  AppDelegate.swift
 //  project1
@@ -14,15 +15,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        Thread.sleep(forTimeInterval: 0.7)
         
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let splitViewController = mainStoryboard.instantiateViewController(withIdentifier: "StartSplitViewController") as! UISplitViewController
         UIApplication.shared.keyWindow?.rootViewController = splitViewController
 
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-
+        
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         splitViewController.delegate = self
+        
+        let tabBarViewController = self.window!.rootViewController as! UITabBarController
+        
+        for viewController in tabBarViewController.viewControllers! {
+            if viewController.title == "Организация" {
+                _ = viewController as? UISplitViewController
+            }
+        }
         
         UIApplication.shared.statusBarStyle = .lightContent
         
