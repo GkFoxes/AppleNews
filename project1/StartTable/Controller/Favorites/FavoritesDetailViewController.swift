@@ -1,16 +1,17 @@
 //
-//  StartDetailViewController.swift
+//  FavoritesDetailViewController.swift
 //  project1
 //
-//  Created by Дмитрий Матвеенко on 16.06.2018.
+//  Created by Дмитрий Матвеенко on 29.08.2018.
 //  Copyright © 2018 Дмитрий Матвеенко. All rights reserved.
 //
 
 import UIKit
 import SafariServices
+import RealmSwift
 
-class StartDetailViewController: UIViewController, SFSafariViewControllerDelegate {
-    
+class FavoritesDetailViewController: UIViewController {
+
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var textOnButton: UIButton!
@@ -19,7 +20,7 @@ class StartDetailViewController: UIViewController, SFSafariViewControllerDelegat
     @IBOutlet weak var imageBlurDetail: UIImageView!
     @IBOutlet weak var activityPhotoView: UIActivityIndicatorView!
     
-    @IBAction func openWithSafari(sender: AnyObject) {
+    @IBAction func openWithSafari(_ sender: Any) {
         if let url = URL(string: link) {
             if  UIApplication.shared.canOpenURL(url) == true {
                 let svc = SFSafariViewController(url: url)
@@ -45,7 +46,9 @@ class StartDetailViewController: UIViewController, SFSafariViewControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true  
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        realm = try! Realm()
         
         titleLabel.text = titleDetail
         detailLabel.text = descriptionText
