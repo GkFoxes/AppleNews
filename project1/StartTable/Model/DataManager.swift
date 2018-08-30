@@ -24,7 +24,6 @@ extension StartTableViewController {
             case .success(let posts):
                 news = posts
                 self.tableContent.reloadData()
-                print("YES")
             case .failure(let error):
                 print(error)
             }

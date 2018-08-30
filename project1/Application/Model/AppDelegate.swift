@@ -8,6 +8,9 @@
 //
 
 import UIKit
+import RealmSwift
+
+var realm : Realm!
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {

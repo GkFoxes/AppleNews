@@ -83,7 +83,7 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
         let newFormat = DateFormatter()
-        newFormat.dateFormat = "MM.dd HH:mm"
+        newFormat.dateFormat = "HH:mm"
         newFormat.locale = Locale(identifier: "ru_RU")
         
         if dateString != nil {
@@ -143,6 +143,9 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
                 let descriptionDetal = details[indexPath.row].description
                 let linkDetail = details[indexPath.row].url
                 let photoDetailURL = details[indexPath.row].urlToImage
+                let sourceDetail = details[indexPath.row].source
+                let authorDetail = details[indexPath.row].author
+                let publishedAtDetail = details[indexPath.row].publishedAt
                 
                 let destinationViewController = (segue.destination as! UINavigationController).topViewController as! StartDetailViewController
                 destinationViewController.title = nameDetail
@@ -160,6 +163,18 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
                     destinationViewController.photoString = photoDetailURL!
                 }
                 
+                if sourceDetail?.name != nil {
+                    destinationViewController.sourceRealm = sourceDetail!.name!
+                }
+                
+                if authorDetail != nil {
+                    destinationViewController.authorRealm = authorDetail!
+                }
+                
+                if publishedAtDetail != nil {
+                    destinationViewController.publishedAtRealm = publishedAtDetail!
+                }
+            
                 destinationViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 destinationViewController.navigationItem.leftItemsSupplementBackButton = true
             }
