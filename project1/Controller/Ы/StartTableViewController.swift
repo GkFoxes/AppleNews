@@ -46,7 +46,7 @@ class StartTableViewController: UITableViewController, UIPopoverPresentationCont
         
         refresher = UIRefreshControl()
         refresher.tintColor = UIColor.white
-        refresher.addTarget(self, action: #selector(StartTableViewController.populate), for: UIControlEvents.valueChanged)
+        refresher.addTarget(self, action: #selector(StartTableViewController.populate), for: UIControl.Event.valueChanged)
         tableContent.refreshControl = refresher
         
         getInitialData()

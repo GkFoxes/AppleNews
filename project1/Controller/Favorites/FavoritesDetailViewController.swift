@@ -67,7 +67,7 @@ class FavoritesDetailViewController: UIViewController {
             self.imageBlurDetail.image = #imageLiteral(resourceName: "primer")
         }
         
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = imageBlurDetail.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

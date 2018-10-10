@@ -18,7 +18,7 @@ class FavoritesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = imageCell.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

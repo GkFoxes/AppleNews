@@ -54,7 +54,7 @@ class StartDetailViewController: UIViewController, SFSafariViewControllerDelegat
         realm = try! Realm()
         
         let button = UIButton.init(type: .custom)
-        button.setImage(UIImage(named: "favoriteWhite"), for: UIControlState.normal)
+        button.setImage(UIImage(named: "favoriteWhite"), for: UIControl.State.normal)
                 button.addTarget(self, action: #selector(StartDetailViewController.saveAdPressed), for: .touchUpInside)
         button.addTarget(self, action: #selector(StartDetailViewController.favoriteTap), for: .touchUpInside)
         button.frame = CGRect(x: 0, y: 0, width: 53, height: 51)
@@ -79,7 +79,7 @@ class StartDetailViewController: UIViewController, SFSafariViewControllerDelegat
             self.imageBlurDetail.image = #imageLiteral(resourceName: "primer")
         }
         
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = imageBlurDetail.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
