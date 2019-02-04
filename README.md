@@ -1,2 +1,0 @@
-# Pravda
-Aggregator of news.
