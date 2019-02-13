@@ -37,6 +37,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A9395AF922147748001CE83D /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				A9F6C60622082BDA00C8E5C1 /* AppDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		A9395AFA22147759001CE83D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A9F6C61122082BDD00C8E5C1 /* LaunchScreen.storyboard */,
+				A9F6C60C22082BDA00C8E5C1 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A9395AFB2214776E001CE83D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A9F6C60822082BDA00C8E5C1 /* MasterViewController.swift */,
+				A9F6C60A22082BDA00C8E5C1 /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A9395AFC2214778B001CE83D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A9F6C60F22082BDD00C8E5C1 /* Assets.xcassets */,
+				A9F6C61422082BDD00C8E5C1 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		A9F6C5FA22082BD900C8E5C1 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +91,10 @@
 		A9F6C60522082BDA00C8E5C1 /* Pravda */ = {
 			isa = PBXGroup;
 			children = (
-				A9F6C60622082BDA00C8E5C1 /* AppDelegate.swift */,
-				A9F6C60822082BDA00C8E5C1 /* MasterViewController.swift */,
-				A9F6C60A22082BDA00C8E5C1 /* DetailViewController.swift */,
-				A9F6C60C22082BDA00C8E5C1 /* Main.storyboard */,
-				A9F6C60F22082BDD00C8E5C1 /* Assets.xcassets */,
-				A9F6C61122082BDD00C8E5C1 /* LaunchScreen.storyboard */,
-				A9F6C61422082BDD00C8E5C1 /* Info.plist */,
+				A9395AF922147748001CE83D /* Delegate */,
+				A9395AFA22147759001CE83D /* View */,
+				A9395AFB2214776E001CE83D /* Controller */,
+				A9395AFC2214778B001CE83D /* Resources */,
 			);
 			path = Pravda;
 			sourceTree = "<group>";
@@ -288,7 +320,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2NKCB3S776;
-				INFOPLIST_FILE = Pravda/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Pravda/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,7 +338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2NKCB3S776;
-				INFOPLIST_FILE = Pravda/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Pravda/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
