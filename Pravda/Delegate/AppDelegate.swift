@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        Thread.sleep(forTimeInterval: 0.5)
+        
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let splitViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainSplitViewController") as! UISplitViewController
         UIApplication.shared.keyWindow?.rootViewController = splitViewController
