@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainTableViewCell: UITableViewCell {
+class NewsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -21,16 +21,16 @@ class MainTableViewCell: UITableViewCell {
     }
 }
 
-class MasterViewController: UITableViewController {
+class NewsViewController: UITableViewController {
 
-    var detailViewController: DetailViewController? = nil
+    var detailViewController: NewsDetailViewController? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
        
         if let split = splitViewController {
             let controllers = split.viewControllers
-            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? NewsDetailViewController
         }
     }
 
@@ -45,7 +45,7 @@ class MasterViewController: UITableViewController {
         if segue.identifier == "showDetail" { /*
             if let indexPath = tableView.indexPathForSelectedRow {
                 let object = objects[indexPath.row] as! NSDate
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+                let controller = (segue.destination as! UINavigationController).topViewController as! NewsDetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
@@ -61,7 +61,7 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath)
 
         return cell
     }

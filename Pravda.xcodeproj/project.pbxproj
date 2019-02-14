@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		A9395AFE221555C7001CE83D /* SplitControllerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9395AFD221555C7001CE83D /* SplitControllerSettings.swift */; };
 		A9F6C60722082BDA00C8E5C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F6C60622082BDA00C8E5C1 /* AppDelegate.swift */; };
-		A9F6C60922082BDA00C8E5C1 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F6C60822082BDA00C8E5C1 /* MasterViewController.swift */; };
-		A9F6C60B22082BDA00C8E5C1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F6C60A22082BDA00C8E5C1 /* DetailViewController.swift */; };
+		A9F6C60922082BDA00C8E5C1 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F6C60822082BDA00C8E5C1 /* NewsViewController.swift */; };
+		A9F6C60B22082BDA00C8E5C1 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F6C60A22082BDA00C8E5C1 /* NewsDetailViewController.swift */; };
 		A9F6C60E22082BDA00C8E5C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F6C60C22082BDA00C8E5C1 /* Main.storyboard */; };
 		A9F6C61022082BDD00C8E5C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9F6C60F22082BDD00C8E5C1 /* Assets.xcassets */; };
 		A9F6C61322082BDD00C8E5C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F6C61122082BDD00C8E5C1 /* LaunchScreen.storyboard */; };
@@ -20,8 +20,8 @@
 		A9395AFD221555C7001CE83D /* SplitControllerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitControllerSettings.swift; sourceTree = "<group>"; };
 		A9F6C60322082BD900C8E5C1 /* Pravda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pravda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9F6C60622082BDA00C8E5C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A9F6C60822082BDA00C8E5C1 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		A9F6C60A22082BDA00C8E5C1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A9F6C60822082BDA00C8E5C1 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		A9F6C60A22082BDA00C8E5C1 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		A9F6C60D22082BDA00C8E5C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9F6C60F22082BDD00C8E5C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9F6C61222082BDD00C8E5C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,8 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				A9395AFD221555C7001CE83D /* SplitControllerSettings.swift */,
-				A9F6C60822082BDA00C8E5C1 /* MasterViewController.swift */,
-				A9F6C60A22082BDA00C8E5C1 /* DetailViewController.swift */,
+				A9F6C60822082BDA00C8E5C1 /* NewsViewController.swift */,
+				A9F6C60A22082BDA00C8E5C1 /* NewsDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -174,8 +174,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9395AFE221555C7001CE83D /* SplitControllerSettings.swift in Sources */,
-				A9F6C60B22082BDA00C8E5C1 /* DetailViewController.swift in Sources */,
-				A9F6C60922082BDA00C8E5C1 /* MasterViewController.swift in Sources */,
+				A9F6C60B22082BDA00C8E5C1 /* NewsDetailViewController.swift in Sources */,
+				A9F6C60922082BDA00C8E5C1 /* NewsViewController.swift in Sources */,
 				A9F6C60722082BDA00C8E5C1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
