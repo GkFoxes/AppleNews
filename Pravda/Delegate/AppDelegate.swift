@@ -14,10 +14,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let splitViewController = window!.rootViewController as! UISplitViewController
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let splitViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainSplitViewController") as! UISplitViewController
+        UIApplication.shared.keyWindow?.rootViewController = splitViewController
+        
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         splitViewController.delegate = self
+        
+        let tabBarViewController = self.window!.rootViewController as! UITabBarController
+        
+        for viewController in tabBarViewController.viewControllers! {
+            if viewController.title == "Detail" {
+                _ = viewController as? UISplitViewController
+            }
+        }
+        
         return true
     }
 
