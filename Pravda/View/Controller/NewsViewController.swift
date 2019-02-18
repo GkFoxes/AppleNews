@@ -8,25 +8,12 @@
 
 import UIKit
 
-class NewsTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var authorLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-}
-
 class NewsViewController: UITableViewController {
 
     var detailViewController: NewsDetailViewController? = nil
-
+    
+    var newsViewModel: NewsTableViewModelType?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -34,6 +21,8 @@ class NewsViewController: UITableViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? NewsDetailViewController
         }
+        
+        newsViewModel = NewsViewModel()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -58,12 +47,21 @@ class NewsViewController: UITableViewController {
     // MARK: - Table View
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return newsViewModel?.numberOfRows ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath)
-
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as? NewsTableViewCell
+        
+        guard let newsCell = cell,
+        let newsViewModel = newsViewModel else { return UITableViewCell() }
+        
+        let news = newsViewModel.news[indexPath.row]
+        
+        newsCell.titleLabel.text = news.title
+        newsCell.authorLabel.text = news.author
+        newsCell.dateLabel.text = news.date
+        
+        return newsCell
     }
 }
