@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol NewsTableViewModelType {
-    var numberOfRows: Int { get }
-    var news: [News] { get }
+protocol NewsTableViewViewModelType {
+    func numberOfRows() -> Int
+    func cellViewModel(forIndexPath indexPath: IndexPath) -> NewsTableViewCellViewModelType?
 }

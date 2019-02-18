@@ -12,7 +12,7 @@ class NewsViewController: UITableViewController {
 
     var detailViewController: NewsDetailViewController? = nil
     
-    var newsViewModel: NewsTableViewModelType?
+    var newsViewModel: NewsTableViewViewModelType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,20 +47,17 @@ class NewsViewController: UITableViewController {
     // MARK: - Table View
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsViewModel?.numberOfRows ?? 0
+        return newsViewModel?.numberOfRows() ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as? NewsTableViewCell
         
-        guard let newsCell = cell,
-        let newsViewModel = newsViewModel else { return UITableViewCell() }
+        guard let newsCell = cell, let newsViewModel = newsViewModel else { return UITableViewCell() }
         
-        let news = newsViewModel.news[indexPath.row]
+        let newsCellViewModel = newsViewModel.cellViewModel(forIndexPath: indexPath)
         
-        newsCell.titleLabel.text = news.title
-        newsCell.authorLabel.text = news.author
-        newsCell.dateLabel.text = news.date
+        newsCell.newsViewModel = newsCellViewModel
         
         return newsCell
     }

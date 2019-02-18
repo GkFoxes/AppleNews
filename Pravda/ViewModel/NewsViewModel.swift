@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NewsViewModel: NewsTableViewModelType {
+class NewsViewModel: NewsTableViewViewModelType {
     
     var news = [
         News(title: "BREAKING something", author: "CNN", date: "14:55"),
@@ -16,7 +16,12 @@ class NewsViewModel: NewsTableViewModelType {
         News(title: "Okey, but not okey. What are he waiting for? Trouble", author: "PostPravda", date: "9:58")
     ]
     
-    var numberOfRows: Int {
+    func numberOfRows() -> Int {
         return news.count
+    }
+    
+    func cellViewModel(forIndexPath indexPath: IndexPath) -> NewsTableViewCellViewModelType? {
+        let article = news[indexPath.row]
+        return NewsTableViewCellViewModel(article: article)
     }
 }
