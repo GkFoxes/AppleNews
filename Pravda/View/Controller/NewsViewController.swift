@@ -9,7 +9,10 @@
 import UIKit
 
 class NewsViewController: UITableViewController {
-
+    
+    @IBOutlet weak var newsTableView: UITableView!
+    private let identifier = String(describing: NewsTableViewCell.self)
+    
     var detailViewController: NewsDetailViewController? = nil
     
     var newsViewModel: NewsTableViewViewModelType?
@@ -51,7 +54,7 @@ class NewsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as? NewsTableViewCell
+        let cell = newsTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? NewsTableViewCell
         
         guard let newsCell = cell, let newsViewModel = newsViewModel else { return UITableViewCell() }
         
