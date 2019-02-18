@@ -10,9 +10,18 @@ import UIKit
 
 class NewsDetailViewController: UIViewController {
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    var detailViewModel: NewsDetailViewModelType?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let detailViewModel = detailViewModel else { return }
+        self.titleLabel.text = detailViewModel.title
     }
 }

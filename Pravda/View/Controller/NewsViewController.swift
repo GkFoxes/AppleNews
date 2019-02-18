@@ -15,7 +15,7 @@ class NewsViewController: UITableViewController {
     
     var detailViewController: NewsDetailViewController? = nil
     
-    var newsViewModel: NewsTableViewViewModelType?
+    private var newsViewModel: NewsTableViewViewModelType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,20 +33,6 @@ class NewsViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
-    // MARK: - Segues
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
-            //if let indexPath = tableView.indexPathForSelectedRow {
-                
-                let destinationViewController = (segue.destination as! UINavigationController).topViewController as! NewsDetailViewController
-                
-                destinationViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                destinationViewController.navigationItem.leftItemsSupplementBackButton = true
-            //}
-        }
-    }
-
     // MARK: - Table View
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,11 +43,28 @@ class NewsViewController: UITableViewController {
         let cell = newsTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? NewsTableViewCell
         
         guard let newsCell = cell, let newsViewModel = newsViewModel else { return UITableViewCell() }
-        
         let newsCellViewModel = newsViewModel.cellViewModel(forIndexPath: indexPath)
         
         newsCell.newsViewModel = newsCellViewModel
         
         return newsCell
+    }
+    
+    // MARK: - Segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showNewsDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                guard let newsViewModel = newsViewModel else { return }
+                newsViewModel.selectRow(atIndexPath: indexPath)
+                
+                if let destinationViewController = (segue.destination as! UINavigationController).topViewController as? NewsDetailViewController {
+                    destinationViewController.detailViewModel = newsViewModel.viewModelForSelectedRow()
+                    
+                    destinationViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                    destinationViewController.navigationItem.leftItemsSupplementBackButton = true
+                }
+            }
+        }
     }
 }

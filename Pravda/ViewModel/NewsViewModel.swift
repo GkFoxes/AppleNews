@@ -10,6 +10,8 @@ import Foundation
 
 class NewsViewModel: NewsTableViewViewModelType {
     
+    private var selectedIndexPath: IndexPath?
+    
     var news = [
         News(title: "BREAKING something", author: "CNN", date: "14:55"),
         News(title: "What is this?", author: "P2P", date: "12:41"),
@@ -23,5 +25,14 @@ class NewsViewModel: NewsTableViewViewModelType {
     func cellViewModel(forIndexPath indexPath: IndexPath) -> NewsTableViewCellViewModelType? {
         let article = news[indexPath.row]
         return NewsTableViewCellViewModel(article: article)
+    }
+    
+    func viewModelForSelectedRow() -> NewsDetailViewModelType? {
+        guard let selectedIndexPath = selectedIndexPath else { return nil }
+        return NewsDetailViewModel(article: news[selectedIndexPath.row])
+    }
+    
+    func selectRow(atIndexPath indexPath: IndexPath) {
+        self.selectedIndexPath = indexPath
     }
 }

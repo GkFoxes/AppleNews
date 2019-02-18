@@ -11,4 +11,7 @@ import Foundation
 protocol NewsTableViewViewModelType {
     func numberOfRows() -> Int
     func cellViewModel(forIndexPath indexPath: IndexPath) -> NewsTableViewCellViewModelType?
+    
+    func viewModelForSelectedRow() -> NewsDetailViewModelType?
+    func selectRow(atIndexPath indexPath: IndexPath)
 }
