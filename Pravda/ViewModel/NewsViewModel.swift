@@ -80,8 +80,7 @@ class NewsViewModel: NewsTableViewViewModelType {
                 switch result {
                 case .success(let posts):
                     guard let addNews = posts.articles else { return }
-                    guard self.news != nil else { return }
-                    guard self.news!.articles != nil else { return }
+                    guard news.articles != nil else { return }
                     
                     for item in addNews {
                         self.news!.articles!.append(item)
