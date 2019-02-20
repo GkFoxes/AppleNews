@@ -6,7 +6,7 @@
 //  Copyright © 2019 GkFoxes. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum Result<Value> {
     case success(Value)
@@ -58,5 +58,25 @@ class NetworkManager {
             }
         }
         task.resume()
+    }
+    
+    static func obtainImage(toUrl url: String, with text: String, forCache cache:NSCache<AnyObject, UIImage>, completion: @escaping (UIImage) -> ()) {
+        if let image = cache.object(forKey: text as AnyObject) {
+            completion(image)
+        } else {
+            guard let urlPhoto = URL(string: url) else { return }
+            let request = URLRequest(url: urlPhoto)
+            
+            URLSession.shared.dataTask(with: request) { (data, responce, error) in
+                guard error == nil else {
+                    print("Error: \(String(describing:error?.localizedDescription))")
+                    return
+                }
+                
+                guard let data = data, let image = UIImage(data: data) else { return }
+                completion(image)
+                cache.setObject(image, forKey: text as AnyObject)
+            }.resume()
+        }
     }
 }
