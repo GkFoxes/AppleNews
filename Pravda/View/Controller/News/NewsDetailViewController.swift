@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class NewsDetailViewController: UIViewController {
+class NewsDetailViewController: UIViewController, SFSafariViewControllerDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
@@ -31,16 +32,37 @@ class NewsDetailViewController: UIViewController {
         self.titleLabel.text = detailViewModel.title
         self.detailLabel.text = detailViewModel.detailText
         
-        detailViewModel.getPhoto(toImageView: imageDetail, withImageBlur: imageBlurDetail, activityIndicator: activityPhotoView) { (image) in
-            DispatchQueue.main.async {
-                self.activityPhotoView.stopAnimating()
-                self.imageDetail.image = image
-                self.imageBlurDetail.image = image
+        if detailViewModel.photoString != nil {
+            self.activityPhotoView.startAnimating()
+            detailViewModel.getPhoto() { (image) in
+                DispatchQueue.main.async {
+                    self.activityPhotoView.stopAnimating()
+                    self.imageDetail.image = image
+                    self.imageBlurDetail.image = image
+                    detailViewModel.setBlur(forImageView: self.imageBlurDetail)
+                }
             }
+        } else {
+            self.activityPhotoView.stopAnimating()
+            imageDetail.image = UIImage(named: "noImage")
+            imageBlurDetail.image = UIImage(named: "noImage")
         }
     }
     
     @IBAction func openWithSafari(_ sender: Any) {
-        
+        guard let detailViewModel = detailViewModel else { return }
+        guard let link = detailViewModel.link else { return }
+        if let url = URL(string: link) {
+            if  UIApplication.shared.canOpenURL(url) == true {
+                let svc = SFSafariViewController(url: url)
+                self.present(svc, animated: true, completion: nil)
+            } else {
+                let alert = UIAlertController(title: "Can not open this website", message: "Please check the existence of the website", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                    NSLog("The \"OK\" alert occured.")
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
 }

@@ -33,6 +33,12 @@ class NewsViewController: UITableViewController {
             DispatchQueue.main.async {
                 self.newsTableView.reloadData()
                 self.newsViewModel?.removeSpinner()
+                
+                if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad) {
+                    let indexPath = IndexPath(row: 0, section: 0)
+                    self.newsTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
+                    self.performSegue(withIdentifier: "showNewsDetail", sender: indexPath)
+                }
             }
         }
     }
@@ -40,6 +46,10 @@ class NewsViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     // MARK: - Table View
@@ -69,6 +79,7 @@ class NewsViewController: UITableViewController {
                 
                 if let destinationViewController = (segue.destination as! UINavigationController).topViewController as? NewsDetailViewController {
                     destinationViewController.detailViewModel = newsViewModel.viewModelForSelectedRow()
+                    destinationViewController.title = newsViewModel.viewModelForSelectedRow()?.author
                     
                     destinationViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                     destinationViewController.navigationItem.leftItemsSupplementBackButton = true

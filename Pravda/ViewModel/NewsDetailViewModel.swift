@@ -40,19 +40,21 @@ class NewsDetailViewModel: NewsDetailViewModelType {
     
     // MARK: - Networking
     
-    func getPhoto(toImageView imageView: UIImageView, withImageBlur imageBlur: UIImageView, activityIndicator: UIActivityIndicatorView, completion: @escaping(UIImage) -> ()) {
-        activityIndicator.startAnimating()
+    func getPhoto(completion: @escaping(UIImage) -> ()) {
         guard let textLink = link else { return }
-        guard let urlImage = photoString else {
-            activityIndicator.isHidden = true
-            imageView.isHidden = true
-            imageBlur.isHidden = true
-            return
-        }
-        print(urlImage)
+        guard let urlImage = photoString else { return }
+
         NetworkManager.obtainImage(toUrl: urlImage, with: textLink, forCache:imageCache) { (image) in
             let setImage = image
             completion(setImage)
         }
+    }
+    
+    func setBlur(forImageView imageView: UIImageView) {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = imageView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        imageView.addSubview(blurEffectView)
     }
 }

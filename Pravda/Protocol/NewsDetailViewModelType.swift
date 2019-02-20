@@ -16,5 +16,6 @@ protocol NewsDetailViewModelType {
     var photoString: String? { get }
     var imageCache: NSCache<AnyObject, UIImage> { get }
     
-    func getPhoto(toImageView imageView: UIImageView, withImageBlur imageBlur: UIImageView, activityIndicator: UIActivityIndicatorView, completion: @escaping(UIImage) -> ())
+    func getPhoto(completion: @escaping(UIImage) -> ())
+    func setBlur(forImageView imageView: UIImageView)
 }
