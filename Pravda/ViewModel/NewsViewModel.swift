@@ -6,33 +6,66 @@
 //  Copyright © 2019 GkFoxes. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class NewsViewModel: NewsTableViewViewModelType {
     
+    // MARK: Properties
+    
+    var news: News?
     private var selectedIndexPath: IndexPath?
     
-    var news = [
-        News(title: "BREAKING something", author: "CNN", date: "14:55"),
-        News(title: "What is this?", author: "P2P", date: "12:41"),
-        News(title: "Okey, but not okey. What are he waiting for? Trouble", author: "PostPravda", date: "9:58")
-    ]
+    let spinner = UIActivityIndicatorView(style: .whiteLarge)
+    
+    // MARK: - Table Data
     
     func numberOfRows() -> Int {
-        return news.count
+        guard let news = news else { return 0 }
+        guard let articles = news.articles else { return 0 }
+        return articles.count
     }
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> NewsTableViewCellViewModelType? {
-        let article = news[indexPath.row]
+        guard let news = news else { return nil }
+        guard let articles = news.articles else { return nil }
+        let article = articles[indexPath.row]
         return NewsTableViewCellViewModel(article: article)
     }
     
     func viewModelForSelectedRow() -> NewsDetailViewModelType? {
         guard let selectedIndexPath = selectedIndexPath else { return nil }
-        return NewsDetailViewModel(article: news[selectedIndexPath.row])
+        guard let news = news else { return nil }
+        guard let articles = news.articles else { return nil }
+        return NewsDetailViewModel(article: articles[selectedIndexPath.row])
     }
     
     func selectRow(atIndexPath indexPath: IndexPath) {
         self.selectedIndexPath = indexPath
+    }
+    
+    func setSpinner(forTable table: UITableView) {
+        spinner.color = UIColor.black
+        spinner.startAnimating()
+        table.backgroundView = spinner
+    }
+    
+    func removeSpinner() {
+        spinner.stopAnimating()
+        spinner.isHidden = true
+    }
+    
+    // MARK: - Networking
+    
+    func getInitialData(completion: @escaping() -> ()) {
+        NetworkManager.initialData { (result) in
+            switch result {
+            case .success(let posts):
+                self.news = posts
+                completion()
+            case .failure(let error):
+                print(error)
+                completion()
+            }
+        }
     }
 }

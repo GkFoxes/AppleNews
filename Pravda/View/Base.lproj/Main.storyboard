@@ -149,13 +149,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvV-0Q-bRc">
-                                            <rect key="frame" x="73" y="40.5" width="286" height="19.5"/>
+                                            <rect key="frame" x="73" y="40.5" width="286" height="19"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="tvV-0Q-bRc" firstAttribute="top" secondItem="afI-YC-8HV" secondAttribute="bottom" constant="5.5" id="2BU-sO-oQA"/>
                                         <constraint firstItem="tvV-0Q-bRc" firstAttribute="leading" secondItem="dYF-9E-9CV" secondAttribute="trailing" constant="8" id="3ma-Iy-M0f"/>
                                         <constraint firstItem="dYF-9E-9CV" firstAttribute="top" secondItem="afI-YC-8HV" secondAttribute="bottom" constant="6" id="842-zp-5ft"/>
                                         <constraint firstItem="dYF-9E-9CV" firstAttribute="bottom" secondItem="37f-cq-3Eg" secondAttribute="bottomMargin" id="BzW-ck-GtL"/>
@@ -191,7 +192,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="709" y="-630"/>
+            <point key="canvasLocation" x="708" y="-630.13493253373315"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
