@@ -97,22 +97,7 @@ class NewsViewController: UITableViewController {
     }
     
     @IBAction func close(segue: UIStoryboardSegue) {
-//        if shared.cancelOrSave {
-//            shared.pageSearch = 1
-//            for item in shared.categories {
-//                if (item.id != 0) && (item.isChoise == true) {
-//                    self.title = item.name
-//                    break
-//                } else {
-//                    self.title = "Новости"
-//                }
-//            }
-//
-//            getInitialData()
-//
-//            tableContent.reloadData()
-//        }
-//        shared.cancelOrSave = false
+        print("-------")
         newsTableView.reloadData()
     }
 }

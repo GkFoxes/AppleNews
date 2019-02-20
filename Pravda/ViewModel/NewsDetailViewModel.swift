@@ -15,6 +15,7 @@ class NewsDetailViewModel: NewsDetailViewModelType {
     var title: String? {
         return article.title ?? nil
     }
+    
     var detailText: String? {
         return article.description ?? nil
     }
