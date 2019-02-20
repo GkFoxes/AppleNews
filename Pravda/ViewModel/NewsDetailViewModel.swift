@@ -10,13 +10,13 @@ import Foundation
 
 class NewsDetailViewModel: NewsDetailViewModelType {
    
-    private var article: News
+    private var article: NewsAPI
     
     var title: String {
-        return article.title
+        return article.title ?? ""
     }
     
-    init(article: News) {
+    init(article: NewsAPI) {
         self.article = article
     }
 }

@@ -24,15 +24,24 @@ class NewsViewController: UITableViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? NewsDetailViewController
         }
+        newsTableView.tableFooterView = UIView()
         
         newsViewModel = NewsViewModel()
+        
+        newsViewModel?.setSpinner(forTable: newsTableView)
+        newsViewModel?.getInitialData {
+            DispatchQueue.main.async {
+                self.newsTableView.reloadData()
+                self.newsViewModel?.removeSpinner()
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }
-
+    
     // MARK: - Table View
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
