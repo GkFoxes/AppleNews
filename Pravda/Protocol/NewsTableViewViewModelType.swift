@@ -19,4 +19,5 @@ protocol NewsTableViewViewModelType {
     func removeSpinner()
     
     func getInitialData(completion: @escaping() -> ())
+    func loadNextPage(completion: @escaping() -> ())
 }

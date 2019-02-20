@@ -15,7 +15,7 @@ enum Result<Value> {
 
 class NetworkManager {
     
-    static func initialData(completion: ((Result<News>) -> Void)?) {
+    static func initialData(withPage page: Int, completion: ((Result<News>) -> Void)?) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "newsapi.org"
@@ -23,19 +23,20 @@ class NetworkManager {
         
         let countryItem = URLQueryItem(name: "country", value: "us")
         let apiKeyItem = URLQueryItem(name: "apiKey", value: "aa953c7c330a4f13b3fc1a69c1361892")
+        let pageItem = URLQueryItem(name: "page", value: "\(page)")
         let category: String? = ""
         let categoryItem = URLQueryItem(name: "category", value: category)
         
         urlComponents.percentEncodedQuery = urlComponents.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
         
         if category != nil {
-            urlComponents.queryItems = [countryItem, apiKeyItem, categoryItem]
+            urlComponents.queryItems = [countryItem, apiKeyItem, categoryItem, pageItem]
         } else {
-            urlComponents.queryItems = [countryItem, apiKeyItem]
+            urlComponents.queryItems = [countryItem, apiKeyItem, pageItem]
         }
         
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
-        
+
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         let config = URLSessionConfiguration.default

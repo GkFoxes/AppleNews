@@ -14,6 +14,7 @@ class NewsViewModel: NewsTableViewViewModelType {
     
     var news: News?
     private var selectedIndexPath: IndexPath?
+    var pageSearch = 1
     
     let spinner = UIActivityIndicatorView(style: .whiteLarge)
     
@@ -57,7 +58,7 @@ class NewsViewModel: NewsTableViewViewModelType {
     // MARK: - Networking
     
     func getInitialData(completion: @escaping() -> ()) {
-        NetworkManager.initialData { (result) in
+        NetworkManager.initialData(withPage: 1) { (result) in
             switch result {
             case .success(let posts):
                 self.news = posts
@@ -65,6 +66,31 @@ class NewsViewModel: NewsTableViewViewModelType {
             case .failure(let error):
                 print(error)
                 completion()
+            }
+        }
+    }
+    
+    func loadNextPage(completion: @escaping() -> ()) {
+        guard let news = news else { return }
+        guard let newsCount = news.totalResults else { return }
+        
+        if newsCount > numberOfRows() {
+            pageSearch += 1
+            NetworkManager.initialData(withPage: pageSearch) { (result) in
+                switch result {
+                case .success(let posts):
+                    guard let addNews = posts.articles else { return }
+                    guard self.news != nil else { return }
+                    guard self.news!.articles != nil else { return }
+                    
+                    for item in addNews {
+                        self.news!.articles!.append(item)
+                    }
+                    completion()
+                case .failure(let error):
+                    print(error)
+                    completion()
+                }
             }
         }
     }

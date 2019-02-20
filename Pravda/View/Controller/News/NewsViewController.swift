@@ -66,6 +66,14 @@ class NewsViewController: UITableViewController {
         
         newsCell.newsViewModel = newsCellViewModel
         
+        if indexPath.row == newsViewModel.numberOfRows() - 3 {
+            newsViewModel.loadNextPage() {
+                DispatchQueue.main.async {
+                    self.newsTableView.reloadData()
+                }
+            }
+        }
+        
         return newsCell
     }
     
