@@ -139,8 +139,8 @@
 		A9395B04221AD58B001CE83D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A9395B05221AD5A0001CE83D /* NewsViewModel.swift */,
 				A918321C221AE02D00A87602 /* NewsTableViewCellViewModel.swift */,
+				A9395B05221AD5A0001CE83D /* NewsViewModel.swift */,
 				A9183226221AF95600A87602 /* NewsDetailViewModel.swift */,
 			);
 			path = ViewModel;
@@ -149,8 +149,8 @@
 		A9395B07221AD88C001CE83D /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				A9395B08221AD8A6001CE83D /* NewsTableViewViewModelType.swift */,
 				A918321A221ADEFF00A87602 /* NewsTableViewCellViewModelType.swift */,
+				A9395B08221AD8A6001CE83D /* NewsTableViewViewModelType.swift */,
 				A9183224221AF92800A87602 /* NewsDetailViewModelType.swift */,
 			);
 			path = Protocol;

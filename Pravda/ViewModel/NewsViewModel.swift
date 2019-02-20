@@ -6,13 +6,18 @@
 //  Copyright © 2019 GkFoxes. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class NewsViewModel: NewsTableViewViewModelType {
     
-    private var selectedIndexPath: IndexPath?
+    // MARK: Properties
     
     var news: News?
+    private var selectedIndexPath: IndexPath?
+    
+    let spinner = UIActivityIndicatorView(style: .whiteLarge)
+    
+    // MARK: - Table Data
     
     func numberOfRows() -> Int {
         guard let news = news else { return 0 }
@@ -37,6 +42,19 @@ class NewsViewModel: NewsTableViewViewModelType {
     func selectRow(atIndexPath indexPath: IndexPath) {
         self.selectedIndexPath = indexPath
     }
+    
+    func setSpinner(forTable table: UITableView) {
+        spinner.color = UIColor.black
+        spinner.startAnimating()
+        table.backgroundView = spinner
+    }
+    
+    func removeSpinner() {
+        spinner.stopAnimating()
+        spinner.isHidden = true
+    }
+    
+    // MARK: - Networking
     
     func getInitialData(completion: @escaping() -> ()) {
         NetworkManager.initialData { (result) in

@@ -6,7 +6,7 @@
 //  Copyright © 2019 GkFoxes. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol NewsTableViewViewModelType {
     func numberOfRows() -> Int
@@ -14,6 +14,9 @@ protocol NewsTableViewViewModelType {
     
     func viewModelForSelectedRow() -> NewsDetailViewModelType?
     func selectRow(atIndexPath indexPath: IndexPath)
+    
+    func setSpinner(forTable table: UITableView)
+    func removeSpinner()
     
     func getInitialData(completion: @escaping() -> ())
 }
