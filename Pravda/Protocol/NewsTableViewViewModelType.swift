@@ -14,4 +14,6 @@ protocol NewsTableViewViewModelType {
     
     func viewModelForSelectedRow() -> NewsDetailViewModelType?
     func selectRow(atIndexPath indexPath: IndexPath)
+    
+    func getInitialData(completion: @escaping() -> ())
 }

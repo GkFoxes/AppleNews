@@ -39,4 +39,17 @@ class NewsViewModel: NewsTableViewViewModelType {
     func selectRow(atIndexPath indexPath: IndexPath) {
         self.selectedIndexPath = indexPath
     }
+    
+    func getInitialData(completion: @escaping() -> ()) {
+        NetworkManager.initialData { (result) in
+            switch result {
+            case .success(let posts):
+                self.news = posts
+                completion()
+            case .failure(let error):
+                print(error)
+                completion()
+            }
+        }
+    }
 }

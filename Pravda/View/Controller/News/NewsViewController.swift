@@ -26,6 +26,12 @@ class NewsViewController: UITableViewController {
         }
         
         newsViewModel = NewsViewModel()
+        
+        newsViewModel?.getInitialData {
+            DispatchQueue.main.async {
+                self.newsTableView.reloadData()
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
