@@ -10,21 +10,21 @@ import Foundation
 
 class NewsTableViewCellViewModel: NewsTableViewCellViewModelType {
 
-    private var article: News
+    private var article: NewsAPI
     
     var title: String {
-        return article.title
+        return article.title ?? ""
     }
     
     var author: String {
-        return article.author
+        return article.author ?? ""
     }
     
     var date: String {
-        return article.date
+        return article.publishedAt ?? ""
     }
     
-    init(article: News) {
+    init(article: NewsAPI) {
         self.article = article
     }
 }

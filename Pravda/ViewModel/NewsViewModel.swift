@@ -12,24 +12,28 @@ class NewsViewModel: NewsTableViewViewModelType {
     
     private var selectedIndexPath: IndexPath?
     
-    var news = [
-        News(title: "BREAKING something", author: "CNN", date: "14:55"),
-        News(title: "What is this?", author: "P2P", date: "12:41"),
-        News(title: "Okey, but not okey. What are he waiting for? Trouble", author: "PostPravda", date: "9:58")
-    ]
+    var news =
+        News(status: "ok", totalResults: 3, articles: [
+            NewsAPI(source: nil, author: "CNN", title: "BREAKING something", description: nil, url: nil, urlToImage: nil, publishedAt: "14:55"),
+            NewsAPI(source: nil, author: "P2P", title: "What is this?", description: nil, url: nil, urlToImage: nil, publishedAt: "12:41"),
+            NewsAPI(source: nil, author: "PostPravda", title: "Okey, but not okey. What are he waiting for? Trouble", description: nil, url: nil, urlToImage: nil, publishedAt: "9:58")
+            ])
     
     func numberOfRows() -> Int {
-        return news.count
+        guard let articles = news.articles else { return 0 }
+        return articles.count
     }
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> NewsTableViewCellViewModelType? {
-        let article = news[indexPath.row]
+        guard let articles = news.articles else { return nil }
+        let article = articles[indexPath.row]
         return NewsTableViewCellViewModel(article: article)
     }
     
     func viewModelForSelectedRow() -> NewsDetailViewModelType? {
         guard let selectedIndexPath = selectedIndexPath else { return nil }
-        return NewsDetailViewModel(article: news[selectedIndexPath.row])
+        guard let articles = news.articles else { return nil }
+        return NewsDetailViewModel(article: articles[selectedIndexPath.row])
     }
     
     func selectRow(atIndexPath indexPath: IndexPath) {
