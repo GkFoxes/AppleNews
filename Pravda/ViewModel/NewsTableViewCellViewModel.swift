@@ -21,7 +21,18 @@ class NewsTableViewCellViewModel: NewsTableViewCellViewModelType {
     }
     
     var date: String {
-        return article.publishedAt ?? ""
+        let dateString = article.publishedAt
+        let dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        let newFormat = DateFormatter()
+        newFormat.dateFormat = "HH:mm"
+        
+        guard let preDate = dateString else { return "" }
+        guard let date = dateFormatter.date(from: preDate) else { return "" }
+        let articleDate = newFormat.string(from: date)
+        
+        return articleDate
     }
     
     init(article: NewsAPI) {

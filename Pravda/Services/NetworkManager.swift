@@ -21,7 +21,7 @@ class NetworkManager {
         urlComponents.host = "newsapi.org"
         urlComponents.path = "/v2/top-headlines"
         
-        let countryItem = URLQueryItem(name: "country", value: "ru")
+        let countryItem = URLQueryItem(name: "country", value: "us")
         let apiKeyItem = URLQueryItem(name: "apiKey", value: "aa953c7c330a4f13b3fc1a69c1361892")
         let category: String? = ""
         let categoryItem = URLQueryItem(name: "category", value: category)
