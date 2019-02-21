@@ -100,7 +100,7 @@ class NewsViewModel: NewsTableViewViewModelType {
     
     func chooseCategory() -> Category {
         for item in CategoryTableViewController.categories {
-            if (item.id != 0) && (item.isChoise == true) {
+            if item.isChoise {
                 self.category = item
                 break
             }

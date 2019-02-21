@@ -27,9 +27,7 @@ class NewsViewController: UITableViewController {
         newsTableView.tableFooterView = UIView()
         
         newsViewModel = NewsViewModel()
-        
-        guard let newsViewModel = newsViewModel else { return }
-        newsViewModel.setSpinner(forTable: newsTableView)
+
         setInitialData()
     }
 
@@ -42,6 +40,7 @@ class NewsViewController: UITableViewController {
     
     func setInitialData() {
         guard let newsViewModel = newsViewModel else { return }
+        newsViewModel.setSpinner(forTable: newsTableView)
         newsViewModel.getInitialData {
             DispatchQueue.main.async {
                 self.newsTableView.reloadData()
