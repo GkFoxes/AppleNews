@@ -28,8 +28,19 @@ class NewsViewController: UITableViewController {
         
         newsViewModel = NewsViewModel()
         
-        newsViewModel?.setSpinner(forTable: newsTableView)
-        newsViewModel?.getInitialData {
+        guard let newsViewModel = newsViewModel else { return }
+        newsViewModel.setSpinner(forTable: newsTableView)
+        setInitialData()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
+        super.viewWillAppear(animated)
+    }
+    
+    func setInitialData() {
+        guard let newsViewModel = newsViewModel else { return }
+        newsViewModel.getInitialData {
             DispatchQueue.main.async {
                 self.newsTableView.reloadData()
                 self.newsViewModel?.removeSpinner()
@@ -41,15 +52,6 @@ class NewsViewController: UITableViewController {
                 }
             }
         }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     // MARK: - Table View
@@ -97,7 +99,7 @@ class NewsViewController: UITableViewController {
     }
     
     @IBAction func close(segue: UIStoryboardSegue) {
-        print("-------")
+        setInitialData()
         newsTableView.reloadData()
     }
 }
