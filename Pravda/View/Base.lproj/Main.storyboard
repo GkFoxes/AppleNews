@@ -388,14 +388,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Category" id="WA8-Eu-zxx">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="eOH-UY-Xrg">
-                            <connections>
-                                <segue destination="q2b-sj-2wK" kind="unwind" identifier="unwindSegueFromCategories" unwindAction="closeWithSegue:" id="Xim-LD-4P9"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="nor-th-VNF">
                             <connections>
                                 <action selector="saveButtonPressed:" destination="wXs-Bc-Ov4" id="gQ0-1U-8Bb"/>
+                                <segue destination="q2b-sj-2wK" kind="unwind" identifier="unwindSegueFromCategories" unwindAction="closeWithSegue:" id="9yQ-pA-4o3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

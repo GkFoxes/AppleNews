@@ -75,7 +75,7 @@ class NewsViewController: UITableViewController {
                 }
             }
         }
-        
+
         return newsCell
     }
     
@@ -99,7 +99,10 @@ class NewsViewController: UITableViewController {
     }
     
     @IBAction func close(segue: UIStoryboardSegue) {
+        guard let newsViewModel = newsViewModel else { return }
+        let category = newsViewModel.chooseCategory()
+        self.title = category.name
+        
         setInitialData()
-        newsTableView.reloadData()
     }
 }

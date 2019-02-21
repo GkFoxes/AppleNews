@@ -20,4 +20,5 @@ protocol NewsTableViewViewModelType {
     
     func getInitialData(completion: @escaping() -> ())
     func loadNextPage(completion: @escaping() -> ())
+    func chooseCategory() -> Category
 }
