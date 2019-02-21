@@ -38,6 +38,8 @@ class NewsViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
     
+    // MARK: - Methods
+    
     func setInitialData() {
         guard let newsViewModel = newsViewModel else { return }
         newsViewModel.getInitialData {

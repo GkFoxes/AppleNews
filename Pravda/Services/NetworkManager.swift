@@ -30,7 +30,7 @@ class NetworkManager {
         urlComponents.queryItems = [countryItem, apiKeyItem, categoryItem, pageItem]
         
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
-        print(url)
+        
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         let config = URLSessionConfiguration.default
