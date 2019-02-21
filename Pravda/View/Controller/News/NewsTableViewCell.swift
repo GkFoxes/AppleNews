@@ -23,6 +23,7 @@ class NewsTableViewCell: UITableViewCell {
             dateLabel.text = newsViewModel.date
         }
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

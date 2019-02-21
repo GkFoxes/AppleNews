@@ -28,18 +28,30 @@ class NewsViewController: UITableViewController {
         
         newsViewModel = NewsViewModel()
         
-        newsViewModel?.setSpinner(forTable: newsTableView)
-        newsViewModel?.getInitialData {
-            DispatchQueue.main.async {
-                self.newsTableView.reloadData()
-                self.newsViewModel?.removeSpinner()
-            }
-        }
+        guard let newsViewModel = newsViewModel else { return }
+        newsViewModel.setSpinner(forTable: newsTableView)
+        setInitialData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+    }
+    
+    func setInitialData() {
+        guard let newsViewModel = newsViewModel else { return }
+        newsViewModel.getInitialData {
+            DispatchQueue.main.async {
+                self.newsTableView.reloadData()
+                self.newsViewModel?.removeSpinner()
+                
+                if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad) {
+                    let indexPath = IndexPath(row: 0, section: 0)
+                    self.newsTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
+                    self.performSegue(withIdentifier: "showNewsDetail", sender: indexPath)
+                }
+            }
+        }
     }
     
     // MARK: - Table View
@@ -56,6 +68,14 @@ class NewsViewController: UITableViewController {
         
         newsCell.newsViewModel = newsCellViewModel
         
+        if indexPath.row == newsViewModel.numberOfRows() - 3 {
+            newsViewModel.loadNextPage() {
+                DispatchQueue.main.async {
+                    self.newsTableView.reloadData()
+                }
+            }
+        }
+
         return newsCell
     }
     
@@ -69,11 +89,20 @@ class NewsViewController: UITableViewController {
                 
                 if let destinationViewController = (segue.destination as! UINavigationController).topViewController as? NewsDetailViewController {
                     destinationViewController.detailViewModel = newsViewModel.viewModelForSelectedRow()
+                    destinationViewController.title = newsViewModel.viewModelForSelectedRow()?.author
                     
                     destinationViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                     destinationViewController.navigationItem.leftItemsSupplementBackButton = true
                 }
             }
         }
+    }
+    
+    @IBAction func close(segue: UIStoryboardSegue) {
+        guard let newsViewModel = newsViewModel else { return }
+        let category = newsViewModel.chooseCategory()
+        self.title = category.name
+        
+        setInitialData()
     }
 }

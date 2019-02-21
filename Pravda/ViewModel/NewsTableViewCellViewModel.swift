@@ -12,15 +12,15 @@ class NewsTableViewCellViewModel: NewsTableViewCellViewModelType {
 
     private var article: NewsAPI
     
-    var title: String {
-        return article.title ?? ""
+    var title: String? {
+        return article.title ?? nil
     }
     
-    var author: String {
-        return article.author ?? ""
+    var author: String? {
+        return article.author ?? nil
     }
     
-    var date: String {
+    var date: String? {
         let dateString = article.publishedAt
         let dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let dateFormatter = DateFormatter()
@@ -28,8 +28,8 @@ class NewsTableViewCellViewModel: NewsTableViewCellViewModelType {
         let newFormat = DateFormatter()
         newFormat.dateFormat = "HH:mm"
         
-        guard let preDate = dateString else { return "" }
-        guard let date = dateFormatter.date(from: preDate) else { return "" }
+        guard let preDate = dateString else { return nil }
+        guard let date = dateFormatter.date(from: preDate) else { return nil }
         let articleDate = newFormat.string(from: date)
         
         return articleDate

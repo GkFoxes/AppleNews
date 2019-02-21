@@ -9,7 +9,7 @@
 import Foundation
 
 protocol NewsTableViewCellViewModelType: class {
-    var title: String { get }
-    var author: String { get }
-    var date: String { get }
+    var title: String? { get }
+    var author: String? { get }
+    var date: String? { get }
 }

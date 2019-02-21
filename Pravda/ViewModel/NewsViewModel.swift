@@ -14,6 +14,8 @@ class NewsViewModel: NewsTableViewViewModelType {
     
     var news: News?
     private var selectedIndexPath: IndexPath?
+    var pageSearch = 1
+    var category = Category(id: 0, name: "News", nameAPI: "general", isChoise: true)
     
     let spinner = UIActivityIndicatorView(style: .whiteLarge)
     
@@ -57,7 +59,9 @@ class NewsViewModel: NewsTableViewViewModelType {
     // MARK: - Networking
     
     func getInitialData(completion: @escaping() -> ()) {
-        NetworkManager.initialData { (result) in
+        let category = chooseCategory()
+        pageSearch = 1
+        NetworkManager.getData(forCategory: category.nameAPI, withPage: 1) { (result) in
             switch result {
             case .success(let posts):
                 self.news = posts
@@ -67,5 +71,41 @@ class NewsViewModel: NewsTableViewViewModelType {
                 completion()
             }
         }
+    }
+    
+    func loadNextPage(completion: @escaping() -> ()) {
+        guard let news = news else { return }
+        guard let newsCount = news.totalResults else { return }
+        
+        if newsCount > numberOfRows() {
+            pageSearch += 1
+            let category = chooseCategory()
+            NetworkManager.getData(forCategory: category.nameAPI, withPage: pageSearch) { (result) in
+                switch result {
+                case .success(let posts):
+                    guard let addNews = posts.articles else { return }
+                    guard news.articles != nil else { return }
+                    
+                    for item in addNews {
+                        self.news!.articles!.append(item)
+                    }
+                    completion()
+                case .failure(let error):
+                    print(error)
+                    completion()
+                }
+            }
+        }
+    }
+    
+    func chooseCategory() -> Category {
+        for item in CategoryTableViewController.categories {
+            if (item.id != 0) && (item.isChoise == true) {
+                self.category = item
+                break
+            }
+        }
+        
+        return category
     }
 }
