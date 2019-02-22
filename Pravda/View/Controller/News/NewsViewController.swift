@@ -36,25 +36,6 @@ class NewsViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
     
-    // MARK: - Methods
-    
-    func setInitialData() {
-        guard let newsViewModel = newsViewModel else { return }
-        newsViewModel.setSpinner(forTable: newsTableView)
-        newsViewModel.getInitialData {
-            DispatchQueue.main.async {
-                self.newsTableView.reloadData()
-                self.newsViewModel?.removeSpinner()
-                
-                if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad) {
-                    let indexPath = IndexPath(row: 0, section: 0)
-                    self.newsTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
-                    self.performSegue(withIdentifier: "showNewsDetail", sender: indexPath)
-                }
-            }
-        }
-    }
-    
     // MARK: - Table View
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,6 +75,25 @@ class NewsViewController: UITableViewController {
                     
                     destinationViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                     destinationViewController.navigationItem.leftItemsSupplementBackButton = true
+                }
+            }
+        }
+    }
+    
+    // MARK: - Methods
+    
+    func setInitialData() {
+        guard let newsViewModel = newsViewModel else { return }
+        newsViewModel.setSpinner(forTable: newsTableView)
+        newsViewModel.getInitialData {
+            DispatchQueue.main.async {
+                self.newsTableView.reloadData()
+                self.newsViewModel?.removeSpinner()
+                
+                if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad) {
+                    let indexPath = IndexPath(row: 0, section: 0)
+                    self.newsTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
+                    self.performSegue(withIdentifier: "showNewsDetail", sender: indexPath)
                 }
             }
         }
