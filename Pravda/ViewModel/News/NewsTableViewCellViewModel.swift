@@ -17,7 +17,8 @@ class NewsTableViewCellViewModel: NewsTableViewCellViewModelType {
     }
     
     var author: String? {
-        return article.author ?? nil
+        guard let source = article.source else { return nil }
+        return source.name ?? nil
     }
     
     var date: String? {
