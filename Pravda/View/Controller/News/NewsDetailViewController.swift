@@ -53,7 +53,7 @@ class NewsDetailViewController: UIViewController, SFSafariViewControllerDelegate
         guard let detailViewModel = detailViewModel else { return }
         guard let link = detailViewModel.link else { return }
         if let url = URL(string: link) {
-            if  UIApplication.shared.canOpenURL(url) == true {
+            if  UIApplication.shared.canOpenURL(url) {
                 let svc = SFSafariViewController(url: url)
                 self.present(svc, animated: true, completion: nil)
             } else {

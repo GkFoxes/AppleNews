@@ -51,6 +51,8 @@ class NewsDetailViewModel: NewsDetailViewModelType {
         }
     }
     
+    // MARK: - Methods
+    
     func setBlur(forImageView imageView: UIImageView) {
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)

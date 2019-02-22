@@ -6,7 +6,7 @@
 //  Copyright © 2019 GkFoxes. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class FavoritesTableViewCellViewModel: FavoritesTableViewCellViewModelType {
     
@@ -24,8 +24,12 @@ class FavoritesTableViewCellViewModel: FavoritesTableViewCellViewModelType {
         return article.publishedAt ?? nil
     }
     
-    var image: UIImage? {
-        return UIImage(named: "noImage") ?? nil
+    var url: String? {
+        return article.url ?? nil
+    }
+    
+    var urlImage: String? {
+        return article.urlToImage ?? nil
     }
     
     init(article: NewsAPI) {

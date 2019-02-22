@@ -6,9 +6,11 @@
 //  Copyright © 2019 GkFoxes. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol FavoritesTableViewViewModelType {
+    var favoritesNews: [NewsAPI]? { get }
+    
     func numberOfRows() -> Int
     func cellViewModel(forIndexPath indexPath: IndexPath) -> FavoritesTableViewCellViewModelType?
 }

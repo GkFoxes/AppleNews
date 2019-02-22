@@ -6,11 +6,12 @@
 //  Copyright © 2019 GkFoxes. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol FavoritesTableViewCellViewModelType: class {
     var title: String? { get }
     var author: String? { get }
     var date: String? { get }
-    var image: UIImage? { get }
+    var url: String? { get }
+    var urlImage: String? { get }
 }

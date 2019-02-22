@@ -9,11 +9,16 @@
 import UIKit
 
 class FavoritesTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var favoriteImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    
+    @IBOutlet weak var shadowLabel: UILabel!
+    @IBOutlet weak var activityPhotoView: UIActivityIndicatorView!
+    
+    var imageCache = NSCache<AnyObject, UIImage>()
     
     weak var favoritesViewModel: FavoritesTableViewCellViewModelType? {
         willSet(favoritesViewModel) {
@@ -22,7 +27,30 @@ class FavoritesTableViewCell: UITableViewCell {
             titleLabel.text = favoritesViewModel.title
             authorLabel.text = favoritesViewModel.author
             dateLabel.text = favoritesViewModel.date
-            favoriteImageView.image = favoritesViewModel.image
+            
+            if let urlImage = favoritesViewModel.urlImage {
+                self.activityPhotoView.startAnimating()
+                guard let url = favoritesViewModel.url else { return }
+                
+                NetworkManager.obtainImage(toUrl: urlImage, with: url, forCache:imageCache) { (image) in
+                    DispatchQueue.main.async {
+                        self.activityPhotoView.stopAnimating()
+                        self.favoriteImageView.image = image
+                    }
+                }
+            } else {
+                self.activityPhotoView.stopAnimating()
+                favoriteImageView.image = UIImage(named: "noImage")
+            }
+
+            authorLabel.layer.cornerRadius = 20
+            authorLabel.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            authorLabel.layer.masksToBounds = true
+            favoriteImageView.layer.cornerRadius = 20
+            favoriteImageView.layer.masksToBounds = true
+            shadowLabel.layer.cornerRadius = 20
+            shadowLabel.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+            shadowLabel.layer.masksToBounds = true
         }
     }
     

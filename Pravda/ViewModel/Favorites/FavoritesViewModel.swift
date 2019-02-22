@@ -6,33 +6,31 @@
 //  Copyright © 2019 GkFoxes. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class FavoritesViewModel: FavoritesTableViewViewModelType {
     
     //var news: News?
-    var news: News? =
-        News(status: "ok", totalResults: 3, articles: [
-            NewsAPI(source: nil, author: "CNN", title: "BREAKING something", description: nil, url: nil, urlToImage: nil, publishedAt: "14:55"),
-            NewsAPI(source: nil, author: "P2P", title: "What is this?", description: nil, url: nil, urlToImage: nil, publishedAt: "12:41"),
-            NewsAPI(source: nil, author: "PostPravda", title: "Okey, but not okey. What are he waiting for? Trouble", description: nil, url: nil, urlToImage: nil, publishedAt: "9:58"),
-            NewsAPI(source: nil, author: "CNN", title: "BREAKING something", description: nil, url: nil, urlToImage: nil, publishedAt: "14:55"),
-            NewsAPI(source: nil, author: "P2P", title: "What is this?", description: nil, url: nil, urlToImage: nil, publishedAt: "12:41"),
-            NewsAPI(source: nil, author: "PostPravda", title: "Okey, but not okey. What are he waiting for? Trouble", description: nil, url: nil, urlToImage: nil, publishedAt: "9:58")
-            ])
+    var favoritesNews: [NewsAPI]? = [
+        NewsAPI(source: nil, author: "Macdigger", title: "Macdigger", description: nil, url: "https://www.macdigger.ru", urlToImage: "https://www.macdigger.ru/crop/85/85/storage/app/uploads/public/5bb/4f0/868/5bb4f0868e0d3171677799.jpg", publishedAt: "21.08 14:55"),
+        NewsAPI(source: nil, author: "P2P", title: "Samsung", description: nil, url: "https://www.macdigger.ru/news/post/samsung-operedila-apple-v-innovaciyah-no-sovershila-oshibku-pri-zapuske-svoego-flagmana", urlToImage: "https://www.macdigger.ru/storage/app/media/uploaded-files/galaxys10-6-920x613.jpg", publishedAt: "21.08 9:40"),
+        NewsAPI(source: nil, author: "PostPravda", title: "12 Safari", description: nil, url: "https://www.macdigger.ru/news/post/12-sovetov-po-safari-dlya-iphone-kotorye-dolzhen-znat-kazhdyj", urlToImage: "https://www.macdigger.ru/storage/app/media/uploaded-files/12-Safari-Tips-Close-Tabs%201.jpg", publishedAt: "11.08 16:55"),
+        NewsAPI(source: nil, author: "CNN", title: "BREAKING something", description: nil, url: nil, urlToImage: nil, publishedAt: "14:55"),
+        NewsAPI(source: nil, author: "P2P", title: "What is this?", description: nil, url: nil, urlToImage: nil, publishedAt: "12:41"),
+        NewsAPI(source: nil, author: "PostPravda", title: "Okey, but not okey. What are he waiting for? Trouble Okey, but not okey. What are he waiting for? Trouble Okey, but not okey. What are he waiting for? Trouble", description: nil, url: nil, urlToImage: nil, publishedAt: "9:58"),
+        NewsAPI(source: nil, author: "PostPravda", title: "12 Safari", description: nil, url: "https://www.macdigger.ru/news/post/12-sovetov-po-safari-dlya-iphone-kotorye-dolzhen-znat-kazhdyj", urlToImage: "https://www.macdigger.ru/storage/app/media/uploaded-files/12-Safari-Tips-Close-Tabs%201.jpg", publishedAt: "9:58")
+    ]
     
     // MARK: - Table Data
     
     func numberOfRows() -> Int {
-        guard let news = news else { return 0 }
-        guard let articles = news.articles else { return 0 }
-        return articles.count
+        guard let favoritesNews = favoritesNews else { return 0 }
+        return favoritesNews.count
     }
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> FavoritesTableViewCellViewModelType? {
-        guard let news = news else { return nil }
-        guard let articles = news.articles else { return nil }
-        let article = articles[indexPath.row]
+        guard let favoritesNews = favoritesNews else { return nil }
+        let article = favoritesNews[indexPath.row]
         return FavoritesTableViewCellViewModel(article: article)
     }
 }
