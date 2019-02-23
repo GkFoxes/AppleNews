@@ -11,7 +11,7 @@ import CoreData
 
 class FavoritesViewModel: NSObject, NSFetchedResultsControllerDelegate, FavoritesTableViewViewModelType {
     
-    static var favoritesNews: [FavoritesNews]?
+    static var favoritesNews: [FavoritesNews] = []
     
     var context: NSManagedObjectContext!
     var fetchResultsController: NSFetchedResultsController<FavoritesNews>!
@@ -19,13 +19,11 @@ class FavoritesViewModel: NSObject, NSFetchedResultsControllerDelegate, Favorite
     // MARK: - Table Data
     
     func numberOfRows() -> Int {
-        guard let favoritesNews = FavoritesViewModel.favoritesNews else { return 0 }
-        return favoritesNews.count
+        return FavoritesViewModel.favoritesNews.count
     }
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> FavoritesTableViewCellViewModelType? {
-        guard let favoritesNews = FavoritesViewModel.favoritesNews else { return nil }
-        let article = favoritesNews[indexPath.row]
+        let article = FavoritesViewModel.favoritesNews[indexPath.row]
         return FavoritesTableViewCellViewModel(article: article)
     }
     
@@ -50,8 +48,7 @@ class FavoritesViewModel: NSObject, NSFetchedResultsControllerDelegate, Favorite
     }
     
     func deleteCoreDataNews(atIndexPath indexPath: IndexPath) {
-        guard var favoritesNews = FavoritesViewModel.favoritesNews else { return }
-        favoritesNews.remove(at: indexPath.row)
+        FavoritesViewModel.favoritesNews.remove(at: indexPath.row)
         
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             
@@ -64,5 +61,10 @@ class FavoritesViewModel: NSObject, NSFetchedResultsControllerDelegate, Favorite
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func updateCoreDataNews(atController controller: NSFetchedResultsController<NSFetchRequestResult>) {
+
+        FavoritesViewModel.favoritesNews = controller.fetchedObjects as! [FavoritesNews]
     }
 }

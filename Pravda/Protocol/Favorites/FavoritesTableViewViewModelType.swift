@@ -15,4 +15,5 @@ protocol FavoritesTableViewViewModelType {
     
     func initialCoreDataNews()
     func deleteCoreDataNews(atIndexPath indexPath: IndexPath)
+    func updateCoreDataNews(atController controller: NSFetchedResultsController<NSFetchRequestResult>)
 }
