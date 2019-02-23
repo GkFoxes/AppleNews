@@ -368,7 +368,7 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUE-At-WVb">
                                             <rect key="frame" x="16" y="51" width="288" height="258"/>
-                                            <color key="backgroundColor" red="0.25370796319796951" green="0.25370796319796951" blue="0.25370796319796951" alpha="0.75329088184931514" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" red="0.13574714467005078" green="0.13574714467005078" blue="0.13574714467005078" alpha="0.75329088184931514" colorSpace="custom" customColorSpace="displayP3"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
