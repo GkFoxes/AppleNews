@@ -19,6 +19,8 @@ class FavoritesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         favoritesViewModel = FavoritesViewModel()
+        guard let favoritesViewModel = favoritesViewModel else { return }
+        favoritesViewModel.initialCoreDataNews()
     }
     
     // MARK: - Table view data source
@@ -40,9 +42,7 @@ class FavoritesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let favoritesViewModel = favoritesViewModel else { return }
-        guard let favoritesNews = favoritesViewModel.favoritesNews else { return }
-        guard let link = favoritesNews[indexPath.row].url else { return }
+        guard let favoritesViewModel = favoritesViewModel, let favoritesNews = favoritesViewModel.favoritesNews, let link = favoritesNews[indexPath.row].url else { return }
         
         if let url = URL(string: link) {
             if  UIApplication.shared.canOpenURL(url) {

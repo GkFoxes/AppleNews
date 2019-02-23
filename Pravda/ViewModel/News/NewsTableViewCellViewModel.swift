@@ -29,8 +29,7 @@ class NewsTableViewCellViewModel: NewsTableViewCellViewModelType {
         let newFormat = DateFormatter()
         newFormat.dateFormat = "HH:mm"
         
-        guard let preDate = dateString else { return nil }
-        guard let date = dateFormatter.date(from: preDate) else { return nil }
+        guard let preDate = dateString, let date = dateFormatter.date(from: preDate) else { return nil }
         let articleDate = newFormat.string(from: date)
         
         return articleDate

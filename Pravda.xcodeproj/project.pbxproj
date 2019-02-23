@@ -33,7 +33,7 @@
 		A98919E9221F0CCC00102F67 /* FavoritesTableViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98919E8221F0CCC00102F67 /* FavoritesTableViewViewModelType.swift */; };
 		A98919EE221F0DB000102F67 /* FavoritesTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98919ED221F0DB000102F67 /* FavoritesTableViewCellViewModel.swift */; };
 		A98919F0221F0DC300102F67 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98919EF221F0DC300102F67 /* FavoritesViewModel.swift */; };
-		A98919F322214A4900102F67 /* favoritesNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A98919F122214A4900102F67 /* favoritesNews.xcdatamodeld */; };
+		A98919F322214A4900102F67 /* FavoritesNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A98919F122214A4900102F67 /* FavoritesNews.xcdatamodeld */; };
 		A9F6C60722082BDA00C8E5C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F6C60622082BDA00C8E5C1 /* AppDelegate.swift */; };
 		A9F6C60922082BDA00C8E5C1 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F6C60822082BDA00C8E5C1 /* NewsViewController.swift */; };
 		A9F6C60B22082BDA00C8E5C1 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F6C60A22082BDA00C8E5C1 /* NewsDetailViewController.swift */; };
@@ -69,7 +69,7 @@
 		A98919E8221F0CCC00102F67 /* FavoritesTableViewViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewViewModelType.swift; sourceTree = "<group>"; };
 		A98919ED221F0DB000102F67 /* FavoritesTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		A98919EF221F0DC300102F67 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
-		A98919F222214A4900102F67 /* favoritesNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = favoritesNews.xcdatamodel; sourceTree = "<group>"; };
+		A98919F222214A4900102F67 /* FavoritesNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoritesNews.xcdatamodel; sourceTree = "<group>"; };
 		A9F6C60322082BD900C8E5C1 /* Pravda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pravda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9F6C60622082BDA00C8E5C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9F6C60822082BDA00C8E5C1 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				A9F6C60F22082BDD00C8E5C1 /* Assets.xcassets */,
-				A98919F122214A4900102F67 /* favoritesNews.xcdatamodeld */,
+				A98919F122214A4900102F67 /* FavoritesNews.xcdatamodeld */,
 				A9F6C61422082BDD00C8E5C1 /* Info.plist */,
 			);
 			path = Resources;
@@ -385,7 +385,7 @@
 				A98919EE221F0DB000102F67 /* FavoritesTableViewCellViewModel.swift in Sources */,
 				A98919E9221F0CCC00102F67 /* FavoritesTableViewViewModelType.swift in Sources */,
 				A9183227221AF95600A87602 /* NewsDetailViewModel.swift in Sources */,
-				A98919F322214A4900102F67 /* favoritesNews.xcdatamodeld in Sources */,
+				A98919F322214A4900102F67 /* FavoritesNews.xcdatamodeld in Sources */,
 				A918323A221DB11900A87602 /* CategoryTableViewCellViewModelType.swift in Sources */,
 				A918322D221C2A1E00A87602 /* MainSplitViewController.swift in Sources */,
 				A9183242221DB21400A87602 /* CategoryTableViewCell.swift in Sources */,
@@ -594,13 +594,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A98919F122214A4900102F67 /* favoritesNews.xcdatamodeld */ = {
+		A98919F122214A4900102F67 /* FavoritesNews.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				A98919F222214A4900102F67 /* favoritesNews.xcdatamodel */,
+				A98919F222214A4900102F67 /* FavoritesNews.xcdatamodel */,
 			);
-			currentVersion = A98919F222214A4900102F67 /* favoritesNews.xcdatamodel */;
-			path = favoritesNews.xcdatamodeld;
+			currentVersion = A98919F222214A4900102F67 /* FavoritesNews.xcdatamodel */;
+			path = FavoritesNews.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

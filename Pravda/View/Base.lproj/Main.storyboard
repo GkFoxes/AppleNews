@@ -387,7 +387,7 @@
                                             <size key="shadowOffset" width="1" height="0.0"/>
                                         </label>
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="K1C-re-Mrf">
-                                            <rect key="frame" x="140" y="140" width="40" height="40"/>
+                                            <rect key="frame" x="140" y="67" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="Imr-wP-yIS"/>
                                                 <constraint firstAttribute="height" constant="40" id="hg7-2S-HTD"/>
@@ -412,7 +412,7 @@
                                         <constraint firstItem="QWJ-cj-4VT" firstAttribute="leading" secondItem="Fo1-C1-434" secondAttribute="leadingMargin" id="XWs-o9-zh2"/>
                                         <constraint firstItem="CLE-rw-Acq" firstAttribute="leading" secondItem="Fo1-C1-434" secondAttribute="leadingMargin" id="YQX-5h-cdK"/>
                                         <constraint firstItem="CLE-rw-Acq" firstAttribute="bottom" secondItem="Fo1-C1-434" secondAttribute="bottomMargin" id="cYM-Bo-1pG"/>
-                                        <constraint firstItem="K1C-re-Mrf" firstAttribute="centerY" secondItem="CLE-rw-Acq" secondAttribute="centerY" id="fHa-3Y-k07"/>
+                                        <constraint firstItem="K1C-re-Mrf" firstAttribute="top" secondItem="QWJ-cj-4VT" secondAttribute="bottom" constant="16" id="fca-H9-ICO"/>
                                         <constraint firstItem="9P3-lA-tyP" firstAttribute="top" secondItem="QWJ-cj-4VT" secondAttribute="bottom" id="fyt-FU-VtJ"/>
                                         <constraint firstItem="9P3-lA-tyP" firstAttribute="trailing" secondItem="Fo1-C1-434" secondAttribute="trailingMargin" constant="-16" id="mNb-8Y-5qt"/>
                                         <constraint firstItem="9P3-lA-tyP" firstAttribute="leading" secondItem="Fo1-C1-434" secondAttribute="leadingMargin" constant="16" id="pPk-D1-QsJ"/>

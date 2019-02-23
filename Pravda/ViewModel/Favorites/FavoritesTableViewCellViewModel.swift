@@ -10,7 +10,7 @@ import Foundation
 
 class FavoritesTableViewCellViewModel: FavoritesTableViewCellViewModelType {
     
-    private var article: NewsAPI
+    private var article: FavoritesNews
     
     var title: String? {
         return article.title ?? nil
@@ -32,7 +32,7 @@ class FavoritesTableViewCellViewModel: FavoritesTableViewCellViewModelType {
         return article.urlToImage ?? nil
     }
     
-    init(article: NewsAPI) {
+    init(article: FavoritesNews) {
         self.article = article
     }
 }

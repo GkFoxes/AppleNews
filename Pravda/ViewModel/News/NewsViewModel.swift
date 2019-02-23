@@ -22,22 +22,18 @@ class NewsViewModel: NewsTableViewViewModelType {
     // MARK: - Table Data
     
     func numberOfRows() -> Int {
-        guard let news = news else { return 0 }
-        guard let articles = news.articles else { return 0 }
+        guard let news = news, let articles = news.articles else { return 0 }
         return articles.count
     }
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> NewsTableViewCellViewModelType? {
-        guard let news = news else { return nil }
-        guard let articles = news.articles else { return nil }
+        guard let news = news, let articles = news.articles else { return nil }
         let article = articles[indexPath.row]
         return NewsTableViewCellViewModel(article: article)
     }
     
     func viewModelForSelectedRow() -> NewsDetailViewModelType? {
-        guard let selectedIndexPath = selectedIndexPath else { return nil }
-        guard let news = news else { return nil }
-        guard let articles = news.articles else { return nil }
+        guard let selectedIndexPath = selectedIndexPath, let news = news, let articles = news.articles else { return nil }
         return NewsDetailViewModel(article: articles[selectedIndexPath.row])
     }
     
@@ -74,8 +70,7 @@ class NewsViewModel: NewsTableViewViewModelType {
     }
     
     func loadNextPage(completion: @escaping() -> ()) {
-        guard let news = news else { return }
-        guard let newsCount = news.totalResults else { return }
+        guard let news = news, let newsCount = news.totalResults else { return }
         
         if newsCount > numberOfRows() {
             pageSearch += 1

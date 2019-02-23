@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 protocol FavoritesTableViewViewModelType {
-    var favoritesNews: [NewsAPI]? { get }
+    var favoritesNews: [FavoritesNews]? { get set }
     
     func numberOfRows() -> Int
     func cellViewModel(forIndexPath indexPath: IndexPath) -> FavoritesTableViewCellViewModelType?
+    
+    func initialCoreDataNews()
 }
