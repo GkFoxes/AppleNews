@@ -17,19 +17,21 @@ class FavoritesTableViewController: UITableViewController, NSFetchedResultsContr
     
     private var favoritesViewModel: FavoritesTableViewViewModelType?
     
+    var context: NSManagedObjectContext!
+    var fetchResultsController: NSFetchedResultsController<FavoritesNews>!
+    static var favoritesNews: [FavoritesNews] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         favoritesViewModel = FavoritesViewModel()
-        guard let favoritesViewModel = favoritesViewModel else { return }
-        favoritesViewModel.initialCoreDataNews()
+        initialCoreDataNews()
     }
     
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let favoritesViewModel = favoritesViewModel else { return 0 }
-        return favoritesViewModel.numberOfRows()
+        return FavoritesTableViewController.favoritesNews.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,7 +47,7 @@ class FavoritesTableViewController: UITableViewController, NSFetchedResultsContr
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let link = FavoritesViewModel.favoritesNews[indexPath.row].url else { return }
+        guard let link = FavoritesTableViewController.favoritesNews[indexPath.row].url else { return }
         
         if let url = URL(string: link) {
             if  UIApplication.shared.canOpenURL(url) {
@@ -63,14 +65,24 @@ class FavoritesTableViewController: UITableViewController, NSFetchedResultsContr
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
-            
-            guard let favoritesViewModel = self.favoritesViewModel else { return }
-            favoritesViewModel.deleteCoreDataNews(atIndexPath: indexPath)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            self.deleteCoreDataNews(atIndexPath: indexPath)
         }
         
         delete.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         return [delete]
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let action =  UIContextualAction(style: .normal, title: "Files", handler: { (action,view,completionHandler ) in
+            //do stuff
+            completionHandler(true)
+        })
+        action.image = UIImage(named: "apple.png")
+        action.backgroundColor = .red
+        let confrigation = UISwipeActionsConfiguration(actions: [action])
+        
+        return confrigation
     }
     
     // MARK: - Fetch results controller delegate
@@ -95,7 +107,7 @@ class FavoritesTableViewController: UITableViewController, NSFetchedResultsContr
             tableView.reloadData()
         }
         
-        FavoritesViewModel.favoritesNews = controller.fetchedObjects as! [FavoritesNews]
+        FavoritesTableViewController.favoritesNews = controller.fetchedObjects as! [FavoritesNews]
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

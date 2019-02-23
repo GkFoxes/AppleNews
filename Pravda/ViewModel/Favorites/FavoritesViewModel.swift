@@ -11,27 +11,21 @@ import CoreData
 
 class FavoritesViewModel: NSObject, NSFetchedResultsControllerDelegate, FavoritesTableViewViewModelType {
     
-    static var favoritesNews: [FavoritesNews] = []
-    
-    var context: NSManagedObjectContext!
-    var fetchResultsController: NSFetchedResultsController<FavoritesNews>!
-    
     // MARK: - Table Data
     
-    func numberOfRows() -> Int {
-        return FavoritesViewModel.favoritesNews.count
-    }
-    
     func cellViewModel(forIndexPath indexPath: IndexPath) -> FavoritesTableViewCellViewModelType? {
-        let article = FavoritesViewModel.favoritesNews[indexPath.row]
+        let article = FavoritesTableViewController.favoritesNews[indexPath.row]
         return FavoritesTableViewCellViewModel(article: article)
     }
+}
+
+extension FavoritesTableViewController {
     
     // MARK: - CoreData
     
     func initialCoreDataNews() {
         let fetchRequest: NSFetchRequest<FavoritesNews> = FavoritesNews.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "publishedAt", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "publishedAt", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
@@ -40,7 +34,7 @@ class FavoritesViewModel: NSObject, NSFetchedResultsControllerDelegate, Favorite
             
             do {
                 try fetchResultsController.performFetch()
-                FavoritesViewModel.favoritesNews = fetchResultsController.fetchedObjects!
+                FavoritesTableViewController.favoritesNews = fetchResultsController.fetchedObjects!
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
@@ -48,7 +42,8 @@ class FavoritesViewModel: NSObject, NSFetchedResultsControllerDelegate, Favorite
     }
     
     func deleteCoreDataNews(atIndexPath indexPath: IndexPath) {
-        FavoritesViewModel.favoritesNews.remove(at: indexPath.row)
+        FavoritesTableViewController.favoritesNews.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
         
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             
@@ -64,7 +59,7 @@ class FavoritesViewModel: NSObject, NSFetchedResultsControllerDelegate, Favorite
     }
     
     func updateCoreDataNews(atController controller: NSFetchedResultsController<NSFetchRequestResult>) {
-
-        FavoritesViewModel.favoritesNews = controller.fetchedObjects as! [FavoritesNews]
+        print("kk")
+        FavoritesTableViewController.favoritesNews = controller.fetchedObjects as! [FavoritesNews]
     }
 }
