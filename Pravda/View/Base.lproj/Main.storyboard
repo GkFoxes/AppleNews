@@ -435,6 +435,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Favorites" id="eM2-rW-zkp"/>
+                    <connections>
+                        <outlet property="favoritesTableView" destination="A4D-b9-djb" id="SiO-ed-iiY"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9t-DD-fgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

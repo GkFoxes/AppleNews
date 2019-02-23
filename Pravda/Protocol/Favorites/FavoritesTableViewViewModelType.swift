@@ -10,10 +10,9 @@ import UIKit
 import CoreData
 
 protocol FavoritesTableViewViewModelType {
-    var favoritesNews: [FavoritesNews]? { get set }
-    
     func numberOfRows() -> Int
     func cellViewModel(forIndexPath indexPath: IndexPath) -> FavoritesTableViewCellViewModelType?
     
     func initialCoreDataNews()
+    func deleteCoreDataNews(atIndexPath indexPath: IndexPath)
 }

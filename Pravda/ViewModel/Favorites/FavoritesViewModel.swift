@@ -11,16 +11,7 @@ import CoreData
 
 class FavoritesViewModel: NSObject, NSFetchedResultsControllerDelegate, FavoritesTableViewViewModelType {
     
-    //var news: News?
-    var favoritesNews: [FavoritesNews]? = [
-//        NewsAPI(source: nil, author: "Macdigger", title: "Macdigger", description: nil, url: "https://www.macdigger.ru", urlToImage: "https://www.macdigger.ru/crop/85/85/storage/app/uploads/public/5bb/4f0/868/5bb4f0868e0d3171677799.jpg", publishedAt: "21.08 14:55"),
-//        NewsAPI(source: nil, author: "P2P", title: "Samsung", description: nil, url: "https://www.macdigger.ru/news/post/samsung-operedila-apple-v-innovaciyah-no-sovershila-oshibku-pri-zapuske-svoego-flagmana", urlToImage: "https://www.macdigger.ru/storage/app/media/uploaded-files/galaxys10-6-920x613.jpg", publishedAt: "21.08 9:40"),
-//        NewsAPI(source: nil, author: "PostPravda", title: "12 Safari", description: nil, url: "https://www.macdigger.ru/news/post/12-sovetov-po-safari-dlya-iphone-kotorye-dolzhen-znat-kazhdyj", urlToImage: "https://www.macdigger.ru/storage/app/media/uploaded-files/12-Safari-Tips-Close-Tabs%201.jpg", publishedAt: "11.08 16:55"),
-//        NewsAPI(source: nil, author: "CNN", title: "BREAKING something", description: nil, url: nil, urlToImage: nil, publishedAt: "14:55"),
-//        NewsAPI(source: nil, author: "P2P", title: "What is this?", description: nil, url: nil, urlToImage: nil, publishedAt: "12:41"),
-//        NewsAPI(source: nil, author: "PostPravda", title: "Okey, but not okey. What are he waiting for? Trouble Okey, but not okey. What are he waiting for? Trouble Okey, but not okey. What are he waiting for? Trouble", description: nil, url: nil, urlToImage: nil, publishedAt: "9:58"),
-//        NewsAPI(source: nil, author: "PostPravda", title: "12 Safari", description: nil, url: "https://www.macdigger.ru/news/post/12-sovetov-po-safari-dlya-iphone-kotorye-dolzhen-znat-kazhdyj", urlToImage: "https://www.macdigger.ru/storage/app/media/uploaded-files/12-Safari-Tips-Close-Tabs%201.jpg", publishedAt: "9:58")
-    ]
+    static var favoritesNews: [FavoritesNews]?
     
     var context: NSManagedObjectContext!
     var fetchResultsController: NSFetchedResultsController<FavoritesNews>!
@@ -28,12 +19,12 @@ class FavoritesViewModel: NSObject, NSFetchedResultsControllerDelegate, Favorite
     // MARK: - Table Data
     
     func numberOfRows() -> Int {
-        guard let favoritesNews = favoritesNews else { return 0 }
+        guard let favoritesNews = FavoritesViewModel.favoritesNews else { return 0 }
         return favoritesNews.count
     }
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> FavoritesTableViewCellViewModelType? {
-        guard let favoritesNews = favoritesNews else { return nil }
+        guard let favoritesNews = FavoritesViewModel.favoritesNews else { return nil }
         let article = favoritesNews[indexPath.row]
         return FavoritesTableViewCellViewModel(article: article)
     }
@@ -51,8 +42,25 @@ class FavoritesViewModel: NSObject, NSFetchedResultsControllerDelegate, Favorite
             
             do {
                 try fetchResultsController.performFetch()
-                favoritesNews = fetchResultsController.fetchedObjects!
+                FavoritesViewModel.favoritesNews = fetchResultsController.fetchedObjects!
             } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func deleteCoreDataNews(atIndexPath indexPath: IndexPath) {
+        guard var favoritesNews = FavoritesViewModel.favoritesNews else { return }
+        favoritesNews.remove(at: indexPath.row)
+        
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            
+            let objectToDelete = self.fetchResultsController.object(at: indexPath)
+            context.delete(objectToDelete)
+            
+            do {
+                try context.save()
+            } catch {
                 print(error.localizedDescription)
             }
         }
