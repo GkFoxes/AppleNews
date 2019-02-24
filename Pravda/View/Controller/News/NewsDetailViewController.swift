@@ -23,6 +23,9 @@ class NewsDetailViewController: UIViewController, SFSafariViewControllerDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let detailViewModel = detailViewModel else { return }
+        detailViewModel.setFavoriteButton(forNavigationItem: self.navigationItem)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,10 +53,9 @@ class NewsDetailViewController: UIViewController, SFSafariViewControllerDelegate
     }
     
     @IBAction func openWithSafari(_ sender: Any) {
-        guard let detailViewModel = detailViewModel else { return }
-        guard let link = detailViewModel.link else { return }
+        guard let detailViewModel = detailViewModel, let link = detailViewModel.link else { return }
         if let url = URL(string: link) {
-            if  UIApplication.shared.canOpenURL(url) == true {
+            if  UIApplication.shared.canOpenURL(url) {
                 let svc = SFSafariViewController(url: url)
                 self.present(svc, animated: true, completion: nil)
             } else {

@@ -17,5 +17,7 @@ protocol NewsDetailViewModelType {
     var imageCache: NSCache<AnyObject, UIImage> { get }
     
     func getPhoto(completion: @escaping(UIImage) -> ())
+    
     func setBlur(forImageView imageView: UIImageView)
+    func setFavoriteButton (forNavigationItem navigationItem: UINavigationItem)
 }

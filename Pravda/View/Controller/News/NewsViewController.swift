@@ -27,31 +27,13 @@ class NewsViewController: UITableViewController {
         newsTableView.tableFooterView = UIView()
         
         newsViewModel = NewsViewModel()
-        
-        guard let newsViewModel = newsViewModel else { return }
-        newsViewModel.setSpinner(forTable: newsTableView)
+
         setInitialData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
-    }
-    
-    func setInitialData() {
-        guard let newsViewModel = newsViewModel else { return }
-        newsViewModel.getInitialData {
-            DispatchQueue.main.async {
-                self.newsTableView.reloadData()
-                self.newsViewModel?.removeSpinner()
-                
-                if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad) {
-                    let indexPath = IndexPath(row: 0, section: 0)
-                    self.newsTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
-                    self.performSegue(withIdentifier: "showNewsDetail", sender: indexPath)
-                }
-            }
-        }
     }
     
     // MARK: - Table View
@@ -93,6 +75,25 @@ class NewsViewController: UITableViewController {
                     
                     destinationViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                     destinationViewController.navigationItem.leftItemsSupplementBackButton = true
+                }
+            }
+        }
+    }
+    
+    // MARK: - Methods
+    
+    func setInitialData() {
+        guard let newsViewModel = newsViewModel else { return }
+        newsViewModel.setSpinner(forTable: newsTableView)
+        newsViewModel.getInitialData {
+            DispatchQueue.main.async {
+                self.newsTableView.reloadData()
+                self.newsViewModel?.removeSpinner()
+                
+                if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad) {
+                    let indexPath = IndexPath(row: 0, section: 0)
+                    self.newsTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
+                    self.performSegue(withIdentifier: "showNewsDetail", sender: indexPath)
                 }
             }
         }
