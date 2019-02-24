@@ -34,6 +34,7 @@
 		A98919EE221F0DB000102F67 /* FavoritesTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98919ED221F0DB000102F67 /* FavoritesTableViewCellViewModel.swift */; };
 		A98919F0221F0DC300102F67 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98919EF221F0DC300102F67 /* FavoritesViewModel.swift */; };
 		A98919F322214A4900102F67 /* FavoritesNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A98919F122214A4900102F67 /* FavoritesNews.xcdatamodeld */; };
+		A9B8617322219D92003D62FF /* ImageTableViewRowAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B8617222219D92003D62FF /* ImageTableViewRowAction.swift */; };
 		A9F6C60722082BDA00C8E5C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F6C60622082BDA00C8E5C1 /* AppDelegate.swift */; };
 		A9F6C60922082BDA00C8E5C1 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F6C60822082BDA00C8E5C1 /* NewsViewController.swift */; };
 		A9F6C60B22082BDA00C8E5C1 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F6C60A22082BDA00C8E5C1 /* NewsDetailViewController.swift */; };
@@ -70,6 +71,7 @@
 		A98919ED221F0DB000102F67 /* FavoritesTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		A98919EF221F0DC300102F67 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		A98919F222214A4900102F67 /* FavoritesNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoritesNews.xcdatamodel; sourceTree = "<group>"; };
+		A9B8617222219D92003D62FF /* ImageTableViewRowAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewRowAction.swift; sourceTree = "<group>"; };
 		A9F6C60322082BD900C8E5C1 /* Pravda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pravda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9F6C60622082BDA00C8E5C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9F6C60822082BDA00C8E5C1 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -262,6 +264,14 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
+		A9B8617122219D57003D62FF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A9B8617222219D92003D62FF /* ImageTableViewRowAction.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		A9F6C5FA22082BD900C8E5C1 = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				A9395AF922147748001CE83D /* Delegate */,
+				A9B8617122219D57003D62FF /* Helpers */,
 				A918322E221D429C00A87602 /* Services */,
 				A9395B07221AD88C001CE83D /* Protocol */,
 				A9395AFF221AD436001CE83D /* Model */,
@@ -378,6 +389,7 @@
 				A9F6C60922082BDA00C8E5C1 /* NewsViewController.swift in Sources */,
 				A918323E221DB17C00A87602 /* CategoryTableViewCellViewModel.swift in Sources */,
 				A918322B221C29F400A87602 /* MainTabBarController.swift in Sources */,
+				A9B8617322219D92003D62FF /* ImageTableViewRowAction.swift in Sources */,
 				A9183234221D44B800A87602 /* Source.swift in Sources */,
 				A9395B06221AD5A0001CE83D /* NewsViewModel.swift in Sources */,
 				A918323C221DB14000A87602 /* CategoryTableViewViewModelType.swift in Sources */,

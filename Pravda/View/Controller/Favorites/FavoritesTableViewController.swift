@@ -64,25 +64,13 @@ class FavoritesTableViewController: UITableViewController, NSFetchedResultsContr
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
+        let delete = UITableViewRowAction(style: .default, title: "\u{2297}\n Delete") { (action, indexPath) in
             self.deleteCoreDataNews(atIndexPath: indexPath)
         }
-        
-        delete.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+
+        delete.backgroundColor = .white
+        UIButton.appearance().setTitleColor(UIColor.red, for: UIControl.State.normal)
         return [delete]
-    }
-    
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        let action =  UIContextualAction(style: .normal, title: "Files", handler: { (action,view,completionHandler ) in
-            //do stuff
-            completionHandler(true)
-        })
-        action.image = UIImage(named: "apple.png")
-        action.backgroundColor = .red
-        let confrigation = UISwipeActionsConfiguration(actions: [action])
-        
-        return confrigation
     }
     
     // MARK: - Fetch results controller delegate
