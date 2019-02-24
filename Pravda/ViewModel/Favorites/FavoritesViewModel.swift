@@ -43,7 +43,7 @@ extension FavoritesTableViewController {
     
     func deleteCoreDataNews(atIndexPath indexPath: IndexPath) {
         FavoritesTableViewController.favoritesNews.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .fade)
+        //self.favoritesTableView.deleteRows(at: [indexPath], with: .fade)
         
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             
@@ -56,10 +56,5 @@ extension FavoritesTableViewController {
                 print(error.localizedDescription)
             }
         }
-    }
-    
-    func updateCoreDataNews(atController controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        print("kk")
-        FavoritesTableViewController.favoritesNews = controller.fetchedObjects as! [FavoritesNews]
     }
 }

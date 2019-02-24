@@ -35,6 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         return true
     }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        saveContext()
+    }
 
     // MARK: - Split view
     
