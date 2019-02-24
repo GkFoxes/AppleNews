@@ -9,8 +9,9 @@
 import UIKit
 import CoreData
 import SafariServices
+import SwipeCellKit
 
-class FavoritesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class FavoritesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, SwipeTableViewCellDelegate {
     
     @IBOutlet var favoritesTableView: UITableView!
     private let identifier = String(describing: FavoritesTableViewCell.self)
@@ -38,9 +39,9 @@ class FavoritesTableViewController: UITableViewController, NSFetchedResultsContr
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? FavoritesTableViewCell
         
         guard let favoritesCell = cell, let favoritesViewModel = favoritesViewModel else { return UITableViewCell() }
+        favoritesCell.delegate = self
         
         let favoritesCellViewModel = favoritesViewModel.cellViewModel(forIndexPath: indexPath)
-        
         favoritesCell.favoritesViewModel = favoritesCellViewModel
         
         return favoritesCell
@@ -63,14 +64,17 @@ class FavoritesTableViewController: UITableViewController, NSFetchedResultsContr
         }
     }
     
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .default, title: "\u{2297}\n Delete") { (action, indexPath) in
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "") { action, indexPath in
             self.deleteCoreDataNews(atIndexPath: indexPath)
         }
         
-        UIButton.appearance(whenContainedInInstancesOf: [FavoritesTableViewCell.self]).setTitleColor(UIColor.red, for: UIControl.State.normal)
-        delete.backgroundColor = .white
-        return [delete]
+        deleteAction.backgroundColor = .white
+        deleteAction.image = UIImage(named: "deleteCell")
+        
+        return [deleteAction]
     }
     
     // MARK: - Fetch results controller delegate
