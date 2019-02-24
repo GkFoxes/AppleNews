@@ -67,9 +67,9 @@ class FavoritesTableViewController: UITableViewController, NSFetchedResultsContr
         let delete = UITableViewRowAction(style: .default, title: "\u{2297}\n Delete") { (action, indexPath) in
             self.deleteCoreDataNews(atIndexPath: indexPath)
         }
-
+        
+        UIButton.appearance(whenContainedInInstancesOf: [FavoritesTableViewCell.self]).setTitleColor(UIColor.red, for: UIControl.State.normal)
         delete.backgroundColor = .white
-        UIButton.appearance().setTitleColor(UIColor.red, for: UIControl.State.normal)
         return [delete]
     }
     
