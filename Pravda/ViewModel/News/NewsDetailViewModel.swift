@@ -71,7 +71,7 @@ class NewsDetailViewModel: NewsDetailViewModelType {
         button.setImage(UIImage(named: "favoriteWhite"), for: UIControl.State.normal)
         button.addTarget(self, action: #selector(saveAdPressed), for: .touchUpInside)
         button.addTarget(self, action: #selector(favoriteTap), for: .touchUpInside)
-        button.frame = CGRect(x: 0, y: 0, width: 53, height: 51)
+        button.frame = CGRect(x: 0, y: 0, width: 10, height: 50)
         
         let barButton = UIBarButtonItem(customView: button)
         navigationItem.rightBarButtonItem = barButton
