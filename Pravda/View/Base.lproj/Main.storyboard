@@ -460,7 +460,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qo3-eJ-VK9">
-                                            <rect key="frame" x="16" y="11" width="288" height="38"/>
+                                            <rect key="frame" x="67" y="11" width="237" height="38"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" priority="750" constant="38" id="tSb-44-M42"/>
                                             </constraints>
@@ -468,16 +468,26 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pO5-in-x60">
+                                            <rect key="frame" x="16" y="12.5" width="35" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="35" id="dgg-3i-VXJ"/>
+                                                <constraint firstAttribute="height" constant="35" id="tfm-rR-bXw"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="pO5-in-x60" firstAttribute="centerY" secondItem="qo3-eJ-VK9" secondAttribute="centerY" id="1dz-Io-ksN"/>
+                                        <constraint firstItem="pO5-in-x60" firstAttribute="leading" secondItem="FMD-aY-3fE" secondAttribute="leading" constant="16" id="Bau-9h-Oco"/>
+                                        <constraint firstItem="qo3-eJ-VK9" firstAttribute="leading" secondItem="pO5-in-x60" secondAttribute="trailing" constant="16" id="XY5-3L-HJE"/>
                                         <constraint firstItem="qo3-eJ-VK9" firstAttribute="bottom" secondItem="FMD-aY-3fE" secondAttribute="bottomMargin" id="fH8-gl-MFY"/>
-                                        <constraint firstItem="qo3-eJ-VK9" firstAttribute="leading" secondItem="FMD-aY-3fE" secondAttribute="leadingMargin" id="l61-ru-PD1"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="qo3-eJ-VK9" secondAttribute="trailing" id="q0i-xx-B8g"/>
                                         <constraint firstItem="qo3-eJ-VK9" firstAttribute="top" secondItem="FMD-aY-3fE" secondAttribute="topMargin" id="uyu-4f-F9d"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="categoryLabel" destination="qo3-eJ-VK9" id="Aty-K1-6pK"/>
+                                    <outlet property="photoImageView" destination="pO5-in-x60" id="tpn-eX-3av"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -11,12 +11,14 @@ import UIKit
 class CategoryTableViewCell: UITableViewCell {
 
     @IBOutlet var categoryLabel: UILabel!
+    @IBOutlet weak var photoImageView: UIImageView!
     
     weak var categoriesViewModel: CategoryTableViewCellViewModelType? {
         willSet(categoriesViewModel) {
             guard let categoriesViewModel = categoriesViewModel else { return }
             
             categoryLabel.text = categoriesViewModel.title
+            photoImageView.image = UIImage(named: categoriesViewModel.photoString)
         }
     }
     
