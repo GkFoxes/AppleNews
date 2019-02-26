@@ -8,13 +8,12 @@
 
 import UIKit
 import CoreData
-import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
-    let notificationCenter = UNUserNotificationCenter.current()
+    let notifications = Notifications()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Thread.sleep(forTimeInterval: 0.5)
@@ -35,13 +34,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             }
         }
         
-        requestAutorisation()
+        notifications.requestAutorization()
+        notifications.notificationCenter.delegate = notifications
         
         return true
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
         saveContext()
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
     // MARK: - Split view
@@ -78,23 +82,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
-        }
-    }
-    
-    // MARK: - Notifications
-    
-    func requestAutorisation() {
-        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-            print("Permission granted: \(granted)")
-            
-            guard granted else { return }
-            self.getNotificationSettings()
-        }
-    }
-    
-    func getNotificationSettings() {
-        notificationCenter.getNotificationSettings { (settings) in
-            print("Notification settings: \(settings)")
         }
     }
 }

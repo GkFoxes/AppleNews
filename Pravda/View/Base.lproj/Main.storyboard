@@ -156,6 +156,35 @@
             </objects>
             <point key="canvasLocation" x="708" y="128.18590704647679"/>
         </scene>
+        <!--Reminder-->
+        <scene sceneID="mal-6P-YTB">
+            <objects>
+                <viewController id="AY2-fk-TEF" customClass="FavoritesReminderViewController" customModule="Pravda" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tt8-5O-ogj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="tVp-z7-UQT"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reminder" id="9hV-hb-Ifd">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="2zl-2z-8Qw">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="AY2-fk-TEF" id="aHx-gn-RwN"/>
+                                <segue destination="Le0-DD-gUy" kind="unwind" identifier="unwindSegueFromReminder" unwindAction="closeWithSegue:" id="1bL-IE-6Ve"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="mYk-Zf-4qm">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="AY2-fk-TEF" id="kiB-Sy-J6b"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rq0-C5-2ia" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Le0-DD-gUy" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1478" y="835"/>
+        </scene>
         <!--Main Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
             <objects>
@@ -434,12 +463,23 @@
                             <outlet property="delegate" destination="2eY-eG-O8E" id="B6q-iY-JLT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Favorites" id="eM2-rW-zkp"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="eM2-rW-zkp">
+                        <barButtonItem key="rightBarButtonItem" image="notification" id="84x-Zn-rcI">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="UeS-7w-FJx" kind="popoverPresentation" popoverAnchorBarButtonItem="84x-Zn-rcI" id="gzx-c2-Cb3">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="favoritesTableView" destination="A4D-b9-djb" id="SiO-ed-iiY"/>
+                        <segue destination="7xe-aM-pQr" kind="unwind" identifier="unwindSegueFromReminder" unwindAction="closeWithSegue:" id="UDM-8S-RMo"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9t-DD-fgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="7xe-aM-pQr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-136.875" y="835.56338028169012"/>
         </scene>
@@ -540,11 +580,38 @@
             </objects>
             <point key="canvasLocation" x="1647" y="-933"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tKX-cv-sla">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="UeS-7w-FJx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="RrU-Ls-oYb">
+                        <rect key="frame" x="0.0" y="20" width="320" height="91"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AY2-fk-TEF" kind="relationship" relationship="rootViewController" id="cjY-pc-xpd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e6n-ZQ-A5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="707" y="835"/>
+        </scene>
     </scenes>
     <resources>
         <image name="categories" width="45" height="45"/>
         <image name="favorite" width="37.5" height="37.5"/>
         <image name="news" width="37.5" height="37.5"/>
+        <image name="notification" width="37.5" height="37.5"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6S0-TO-JiA"/>
