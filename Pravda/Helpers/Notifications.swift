@@ -28,33 +28,18 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         }
     }
     
-    func scheduleNotification(notifaicationType: String) {
+    func scheduleNotification(forNotifaicationBody notificationBody: String, withTimeInterval timeInterval: TimeInterval) {
         
         let content = UNMutableNotificationContent()
-        let userAction = "User Action"
+        let userAction = "User Reminder"
         
-        content.title = notifaicationType
-        content.body = "This is example how to create " + notifaicationType
+        content.title = "Read your favorite news"
+        content.body = notificationBody
         content.sound = UNNotificationSound.default
         content.badge = 1
         content.categoryIdentifier = userAction
-        
-        guard let path = Bundle.main.path(forResource: "favicon", ofType: "png") else { return }
-        
-        let url = URL(fileURLWithPath: path)
-        
-        do {
-            let attachment = try UNNotificationAttachment(
-                identifier: "favicon",
-                url: url,
-                options: nil)
-            
-            content.attachments = [attachment]
-        } catch {
-            print("The attachment cold not be loaded")
-        }
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
         
         let identifire = "Local Notification"
         let request = UNNotificationRequest(identifier: identifire,
@@ -67,11 +52,10 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
             }
         }
         
-        let snoozeAction = UNNotificationAction(identifier: "Snooze", title: "Snooze", options: [])
-        let deleteAction = UNNotificationAction(identifier: "Delete", title: "Delete", options: [.destructive])
+        let reminderAction = UNNotificationAction(identifier: "ReminderAction", title: "Remind in 15 minutes", options: [])
         let category = UNNotificationCategory(
             identifier: userAction,
-            actions: [snoozeAction, deleteAction],
+            actions: [reminderAction],
             intentIdentifiers: [],
             options: [])
         
@@ -96,15 +80,9 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         }
         
         switch response.actionIdentifier {
-        case UNNotificationDismissActionIdentifier:
-            print("Dismiss Action")
-        case UNNotificationDefaultActionIdentifier:
-            print("Default")
-        case "Snooze":
+        case "ReminderAction":
             print("Snooze")
-            scheduleNotification(notifaicationType: "Reminder")
-        case "Delete":
-            print("Delete")
+            scheduleNotification(forNotifaicationBody: "We remind again", withTimeInterval: 15 * 60)
         default:
             print("Unknown action")
         }

@@ -163,13 +163,43 @@
                     <view key="view" contentMode="scaleToFill" id="Tt8-5O-ogj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" countDownDuration="1" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwe-xJ-6bH">
+                                <rect key="frame" x="0.0" y="111" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="572887358.11127996">
+                                    <!--2019-02-26 15:22:38 +0000-->
+                                </date>
+                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="News does not read itself" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EUO-5E-uV3">
+                                <rect key="frame" x="16" y="335" width="288" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set how long to receive a written notice" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjd-Ta-51U">
+                                <rect key="frame" x="16" y="381" width="288" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xwe-xJ-6bH" firstAttribute="trailing" secondItem="tVp-z7-UQT" secondAttribute="trailing" id="IHI-QR-WYN"/>
+                            <constraint firstItem="EUO-5E-uV3" firstAttribute="leading" secondItem="tVp-z7-UQT" secondAttribute="leading" constant="16" id="O4K-PB-Yfc"/>
+                            <constraint firstAttribute="trailing" secondItem="cjd-Ta-51U" secondAttribute="trailing" constant="16" id="Qfj-kA-rfg"/>
+                            <constraint firstItem="cjd-Ta-51U" firstAttribute="leading" secondItem="tVp-z7-UQT" secondAttribute="leading" constant="16" id="RpP-LA-7S2"/>
+                            <constraint firstItem="tVp-z7-UQT" firstAttribute="trailing" secondItem="EUO-5E-uV3" secondAttribute="trailing" constant="16" id="Van-Tf-YW0"/>
+                            <constraint firstItem="EUO-5E-uV3" firstAttribute="top" secondItem="xwe-xJ-6bH" secondAttribute="bottom" constant="8" id="f6y-If-Zzx"/>
+                            <constraint firstItem="xwe-xJ-6bH" firstAttribute="leading" secondItem="tVp-z7-UQT" secondAttribute="leading" id="nS0-Fb-DG5"/>
+                            <constraint firstItem="xwe-xJ-6bH" firstAttribute="top" secondItem="tVp-z7-UQT" secondAttribute="top" id="nz7-FZ-Gfb"/>
+                            <constraint firstItem="cjd-Ta-51U" firstAttribute="top" secondItem="EUO-5E-uV3" secondAttribute="bottom" constant="16" id="u3p-jq-Yr6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tVp-z7-UQT"/>
                     </view>
                     <navigationItem key="navigationItem" title="Reminder" id="9hV-hb-Ifd">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="2zl-2z-8Qw">
                             <connections>
-                                <action selector="cancelButtonPressed:" destination="AY2-fk-TEF" id="aHx-gn-RwN"/>
                                 <segue destination="Le0-DD-gUy" kind="unwind" identifier="unwindSegueFromReminder" unwindAction="closeWithSegue:" id="1bL-IE-6Ve"/>
                             </connections>
                         </barButtonItem>
@@ -179,11 +209,15 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="reminderDatePicker" destination="xwe-xJ-6bH" id="y2G-Xh-2IB"/>
+                        <outlet property="reminderTextField" destination="EUO-5E-uV3" id="kBO-x8-kCg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rq0-C5-2ia" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Le0-DD-gUy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1478" y="835"/>
+            <point key="canvasLocation" x="1477.5" y="834.50704225352115"/>
         </scene>
         <!--Main Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
