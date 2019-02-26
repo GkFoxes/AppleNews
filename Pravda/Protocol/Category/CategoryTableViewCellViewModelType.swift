@@ -10,4 +10,5 @@ import Foundation
 
 protocol CategoryTableViewCellViewModelType: class {
     var title: String { get }
+    var photoString: String { get }
 }

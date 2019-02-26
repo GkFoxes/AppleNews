@@ -156,6 +156,69 @@
             </objects>
             <point key="canvasLocation" x="708" y="128.18590704647679"/>
         </scene>
+        <!--Reminder-->
+        <scene sceneID="mal-6P-YTB">
+            <objects>
+                <viewController id="AY2-fk-TEF" customClass="FavoritesReminderViewController" customModule="Pravda" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tt8-5O-ogj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" countDownDuration="1" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwe-xJ-6bH">
+                                <rect key="frame" x="0.0" y="111" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="572887358.11127996">
+                                    <!--2019-02-26 15:22:38 +0000-->
+                                </date>
+                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="News does not read itself" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EUO-5E-uV3">
+                                <rect key="frame" x="16" y="335" width="288" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set how long to receive a written notice" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjd-Ta-51U">
+                                <rect key="frame" x="16" y="381" width="288" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xwe-xJ-6bH" firstAttribute="trailing" secondItem="tVp-z7-UQT" secondAttribute="trailing" id="IHI-QR-WYN"/>
+                            <constraint firstItem="EUO-5E-uV3" firstAttribute="leading" secondItem="tVp-z7-UQT" secondAttribute="leading" constant="16" id="O4K-PB-Yfc"/>
+                            <constraint firstAttribute="trailing" secondItem="cjd-Ta-51U" secondAttribute="trailing" constant="16" id="Qfj-kA-rfg"/>
+                            <constraint firstItem="cjd-Ta-51U" firstAttribute="leading" secondItem="tVp-z7-UQT" secondAttribute="leading" constant="16" id="RpP-LA-7S2"/>
+                            <constraint firstItem="tVp-z7-UQT" firstAttribute="trailing" secondItem="EUO-5E-uV3" secondAttribute="trailing" constant="16" id="Van-Tf-YW0"/>
+                            <constraint firstItem="EUO-5E-uV3" firstAttribute="top" secondItem="xwe-xJ-6bH" secondAttribute="bottom" constant="8" id="f6y-If-Zzx"/>
+                            <constraint firstItem="xwe-xJ-6bH" firstAttribute="leading" secondItem="tVp-z7-UQT" secondAttribute="leading" id="nS0-Fb-DG5"/>
+                            <constraint firstItem="xwe-xJ-6bH" firstAttribute="top" secondItem="tVp-z7-UQT" secondAttribute="top" id="nz7-FZ-Gfb"/>
+                            <constraint firstItem="cjd-Ta-51U" firstAttribute="top" secondItem="EUO-5E-uV3" secondAttribute="bottom" constant="16" id="u3p-jq-Yr6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tVp-z7-UQT"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reminder" id="9hV-hb-Ifd">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="2zl-2z-8Qw">
+                            <connections>
+                                <segue destination="Le0-DD-gUy" kind="unwind" identifier="unwindSegueFromReminder" unwindAction="closeWithSegue:" id="1bL-IE-6Ve"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="mYk-Zf-4qm">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="AY2-fk-TEF" id="kiB-Sy-J6b"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="reminderDatePicker" destination="xwe-xJ-6bH" id="y2G-Xh-2IB"/>
+                        <outlet property="reminderTextField" destination="EUO-5E-uV3" id="kBO-x8-kCg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rq0-C5-2ia" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Le0-DD-gUy" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1477.5" y="834.50704225352115"/>
+        </scene>
         <!--Main Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
             <objects>
@@ -434,12 +497,23 @@
                             <outlet property="delegate" destination="2eY-eG-O8E" id="B6q-iY-JLT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Favorites" id="eM2-rW-zkp"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="eM2-rW-zkp">
+                        <barButtonItem key="rightBarButtonItem" image="notification" id="84x-Zn-rcI">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="UeS-7w-FJx" kind="popoverPresentation" popoverAnchorBarButtonItem="84x-Zn-rcI" id="gzx-c2-Cb3">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="favoritesTableView" destination="A4D-b9-djb" id="SiO-ed-iiY"/>
+                        <segue destination="7xe-aM-pQr" kind="unwind" identifier="unwindSegueFromReminder" unwindAction="closeWithSegue:" id="UDM-8S-RMo"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9t-DD-fgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="7xe-aM-pQr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-136.875" y="835.56338028169012"/>
         </scene>
@@ -460,7 +534,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qo3-eJ-VK9">
-                                            <rect key="frame" x="16" y="11" width="288" height="38"/>
+                                            <rect key="frame" x="67" y="11" width="237" height="38"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" priority="750" constant="38" id="tSb-44-M42"/>
                                             </constraints>
@@ -468,16 +542,26 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pO5-in-x60">
+                                            <rect key="frame" x="16" y="12.5" width="35" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="35" id="dgg-3i-VXJ"/>
+                                                <constraint firstAttribute="height" constant="35" id="tfm-rR-bXw"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="pO5-in-x60" firstAttribute="centerY" secondItem="qo3-eJ-VK9" secondAttribute="centerY" id="1dz-Io-ksN"/>
+                                        <constraint firstItem="pO5-in-x60" firstAttribute="leading" secondItem="FMD-aY-3fE" secondAttribute="leading" constant="16" id="Bau-9h-Oco"/>
+                                        <constraint firstItem="qo3-eJ-VK9" firstAttribute="leading" secondItem="pO5-in-x60" secondAttribute="trailing" constant="16" id="XY5-3L-HJE"/>
                                         <constraint firstItem="qo3-eJ-VK9" firstAttribute="bottom" secondItem="FMD-aY-3fE" secondAttribute="bottomMargin" id="fH8-gl-MFY"/>
-                                        <constraint firstItem="qo3-eJ-VK9" firstAttribute="leading" secondItem="FMD-aY-3fE" secondAttribute="leadingMargin" id="l61-ru-PD1"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="qo3-eJ-VK9" secondAttribute="trailing" id="q0i-xx-B8g"/>
                                         <constraint firstItem="qo3-eJ-VK9" firstAttribute="top" secondItem="FMD-aY-3fE" secondAttribute="topMargin" id="uyu-4f-F9d"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="categoryLabel" destination="qo3-eJ-VK9" id="Aty-K1-6pK"/>
+                                    <outlet property="photoImageView" destination="pO5-in-x60" id="tpn-eX-3av"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -530,11 +614,38 @@
             </objects>
             <point key="canvasLocation" x="1647" y="-933"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tKX-cv-sla">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="UeS-7w-FJx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="RrU-Ls-oYb">
+                        <rect key="frame" x="0.0" y="20" width="320" height="91"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AY2-fk-TEF" kind="relationship" relationship="rootViewController" id="cjY-pc-xpd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e6n-ZQ-A5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="707" y="835"/>
+        </scene>
     </scenes>
     <resources>
         <image name="categories" width="45" height="45"/>
         <image name="favorite" width="37.5" height="37.5"/>
         <image name="news" width="37.5" height="37.5"/>
+        <image name="notification" width="37.5" height="37.5"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6S0-TO-JiA"/>

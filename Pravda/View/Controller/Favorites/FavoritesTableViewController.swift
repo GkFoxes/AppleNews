@@ -105,4 +105,9 @@ class FavoritesTableViewController: UITableViewController, NSFetchedResultsContr
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
+    
+    // MARK: - Button Action
+    
+    @IBAction func close(segue: UIStoryboardSegue) {
+    }
 }

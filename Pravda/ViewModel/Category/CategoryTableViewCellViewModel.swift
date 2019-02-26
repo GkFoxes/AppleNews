@@ -16,6 +16,10 @@ class CategoryTableViewCellViewModel: CategoryTableViewCellViewModelType {
         return category.name
     }
     
+    var photoString: String {
+        return category.nameAPI
+    }
+    
     init(category: Category) {
         self.category = category
     }
