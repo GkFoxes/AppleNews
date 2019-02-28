@@ -9,7 +9,7 @@
 import Foundation
 
 class NewsTableViewCellViewModel: NewsTableViewCellViewModelType {
-
+    
     private var article: NewsAPI
     
     var title: String? {

@@ -10,7 +10,7 @@ import UIKit
 import UserNotifications
 
 class Notifications: NSObject, UNUserNotificationCenterDelegate {
-
+    
     let notificationCenter = UNUserNotificationCenter.current()
     
     func requestAutorization() {
@@ -38,7 +38,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         content.sound = UNNotificationSound.default
         content.badge = 1
         content.categoryIdentifier = userAction
-
+        
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
         
         let identifire = "Local Notification"

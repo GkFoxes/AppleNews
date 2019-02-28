@@ -22,7 +22,7 @@ class CategoryViewModel: CategoryTableViewViewModelType {
         let category = categories[indexPath.row]
         return CategoryTableViewCellViewModel(category: category)
     }
-
+    
     init(categories: [Category]) {
         self.categories = categories
     }

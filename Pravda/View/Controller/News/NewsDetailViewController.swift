@@ -10,17 +10,16 @@ import UIKit
 import SafariServices
 
 class NewsDetailViewController: UIViewController, SFSafariViewControllerDelegate {
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var readButton: UIButton!
-    
     @IBOutlet weak var imageDetail: UIImageView!
     @IBOutlet weak var imageBlurDetail: UIImageView!
     @IBOutlet weak var activityPhotoView: UIActivityIndicatorView!
     
     var detailViewModel: NewsDetailViewModelType?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,6 +50,8 @@ class NewsDetailViewController: UIViewController, SFSafariViewControllerDelegate
             imageBlurDetail.image = UIImage(named: "noImage")
         }
     }
+    
+    // MARK: - Method
     
     @IBAction func openWithSafari(_ sender: Any) {
         guard let detailViewModel = detailViewModel, let link = detailViewModel.link else { return }

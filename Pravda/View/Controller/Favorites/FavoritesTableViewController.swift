@@ -109,5 +109,6 @@ class FavoritesTableViewController: UITableViewController, NSFetchedResultsContr
     // MARK: - Button Action
     
     @IBAction func close(segue: UIStoryboardSegue) {
+        //Work when dismiss Reminder View
     }
 }
