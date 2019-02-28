@@ -19,7 +19,7 @@ class NewsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? NewsDetailViewController
@@ -27,21 +27,21 @@ class NewsViewController: UITableViewController {
         newsTableView.tableFooterView = UIView()
         
         newsViewModel = NewsViewModel()
-
+        
         setInitialData()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }
     
     // MARK: - Table View
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsViewModel?.numberOfRows() ?? 0
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = newsTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? NewsTableViewCell
         
@@ -57,7 +57,7 @@ class NewsViewController: UITableViewController {
                 }
             }
         }
-
+        
         return newsCell
     }
     

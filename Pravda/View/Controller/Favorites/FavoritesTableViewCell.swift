@@ -43,7 +43,7 @@ class FavoritesTableViewCell: SwipeTableViewCell {
                 self.activityPhotoView.stopAnimating()
                 favoriteImageView.image = UIImage(named: "noImage")
             }
-
+            
             authorLabel.layer.cornerRadius = 20
             authorLabel.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             authorLabel.layer.masksToBounds = true

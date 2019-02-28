@@ -9,7 +9,7 @@
 import UIKit
 
 class CategoryTableViewController: UITableViewController {
-
+    
     @IBOutlet var tableCategories: UITableView!
     private let identifier = String(describing: CategoryTableViewCell.self)
     
@@ -32,9 +32,9 @@ class CategoryTableViewController: UITableViewController {
         
         categoriesViewModel = CategoryViewModel(categories: CategoryTableViewController.categories)
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let categoriesViewModel = categoriesViewModel else { return 0 }
         return categoriesViewModel.numberOfRows()

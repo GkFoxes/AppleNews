@@ -10,8 +10,6 @@ import UIKit
 
 class NewsViewModel: NewsTableViewViewModelType {
     
-    // MARK: Properties
-    
     var news: News?
     private var selectedIndexPath: IndexPath?
     var pageSearch = 1
@@ -100,7 +98,6 @@ class NewsViewModel: NewsTableViewViewModelType {
                 break
             }
         }
-        
         return category
     }
 }
