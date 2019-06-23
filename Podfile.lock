@@ -1,5 +1,5 @@
 PODS:
-  - SwipeCellKit (2.5.1)
+  - SwipeCellKit (2.6.0)
 
 DEPENDENCIES:
   - SwipeCellKit
@@ -9,7 +9,7 @@ SPEC REPOS:
     - SwipeCellKit
 
 SPEC CHECKSUMS:
-  SwipeCellKit: 30fd6a4f8a8b8ac864ea389c8b4c8bac5ba5471a
+  SwipeCellKit: 935ca28c187ec6e1ffb2b578cf8ddca842bfdcbb
 
 PODFILE CHECKSUM: 5f19dfc706833b47e2076954e644a8bb40ea5eef
 
