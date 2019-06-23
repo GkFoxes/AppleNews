@@ -13,11 +13,4 @@ struct Category {
     let name: String
     let nameAPI: String
     var isChoise: Bool
-    
-    init(id: Int, name: String, nameAPI: String, isChoise: Bool) {
-        self.id = id
-        self.name = name
-        self.nameAPI = nameAPI
-        self.isChoise = isChoise
-    }
 }

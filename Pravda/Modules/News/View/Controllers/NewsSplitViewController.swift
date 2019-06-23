@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainSplitViewController: UISplitViewController, UISplitViewControllerDelegate {
+class NewsSplitViewController: UISplitViewController, UISplitViewControllerDelegate {
     
     override func viewDidLoad() {
         self.delegate = self

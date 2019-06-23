@@ -12,10 +12,4 @@ struct News: Codable {
     var status: String?
     var totalResults: Int?
     var articles: [NewsAPI]?
-    
-    init(status: String?, totalResults: Int?, articles: [NewsAPI]?) {
-        self.status = status
-        self.totalResults = totalResults
-        self.articles = articles
-    }
 }
