@@ -1,6 +1,8 @@
 # Pravda
 Aggregator of news from newsapi.org
 
+Start ```pod install``` before run app!
+
 ## Available:
 * SplitView with Tab Bar interface, with infinite scrolling
 * Selection of articles from seven headings
