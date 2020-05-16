@@ -5,7 +5,7 @@ DEPENDENCIES:
   - SwipeCellKit
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - SwipeCellKit
 
 SPEC CHECKSUMS:
@@ -13,4 +13,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 5f19dfc706833b47e2076954e644a8bb40ea5eef
 
-COCOAPODS: 1.7.0
+COCOAPODS: 1.9.1
