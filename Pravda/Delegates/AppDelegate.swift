@@ -44,9 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 		saveContext()
 	}
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        UIApplication.shared.applicationIconBadgeNumber = 0
-    }
+	func applicationDidBecomeActive(_ application: UIApplication) {
+		UIApplication.shared.applicationIconBadgeNumber = 0
+	}
 
     // MARK: - Split view
 
