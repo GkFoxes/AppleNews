@@ -11,45 +11,45 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
-    
-    var window: UIWindow?
-    let notifications = Notifications()
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Thread.sleep(forTimeInterval: 0.5)
-        
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let splitViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainSplitViewController") as! UISplitViewController
-        UIApplication.shared.keyWindow?.rootViewController = splitViewController
-        
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-        splitViewController.delegate = self
-        
-        let tabBarViewController = self.window!.rootViewController as! UITabBarController
-        
-        for viewController in tabBarViewController.viewControllers! {
-            if viewController.title == "Detail" {
-                _ = viewController as? UISplitViewController
-            }
-        }
-        
-        notifications.requestAutorization()
-        notifications.notificationCenter.delegate = notifications
-        
-        return true
-    }
-    
-    func applicationWillTerminate(_ application: UIApplication) {
-        saveContext()
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        UIApplication.shared.applicationIconBadgeNumber = 0
-    }
-    
+
+	var window: UIWindow?
+	let notifications = Notifications()
+
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+		Thread.sleep(forTimeInterval: 0.5)
+
+		let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+		let splitViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainSplitViewController") as! UISplitViewController
+		UIApplication.shared.keyWindow?.rootViewController = splitViewController
+
+		let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
+		navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+		splitViewController.delegate = self
+
+		let tabBarViewController = self.window!.rootViewController as! UITabBarController
+
+		for viewController in tabBarViewController.viewControllers! {
+			if viewController.title == "Detail" {
+				_ = viewController as? UISplitViewController
+			}
+		}
+
+		notifications.requestAutorization()
+		notifications.notificationCenter.delegate = notifications
+
+		return true
+	}
+
+	func applicationWillTerminate(_ application: UIApplication) {
+		saveContext()
+	}
+
+	func applicationDidBecomeActive(_ application: UIApplication) {
+		UIApplication.shared.applicationIconBadgeNumber = 0
+	}
+
     // MARK: - Split view
-    
+
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
         guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
         guard let topAsDetailController = secondaryAsNavController.topViewController as? NewsDetailViewController else { return false }
