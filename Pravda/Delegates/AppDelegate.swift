@@ -39,17 +39,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
 		return true
 	}
-    
-    func applicationWillTerminate(_ application: UIApplication) {
-        saveContext()
-    }
-    
+
+	func applicationWillTerminate(_ application: UIApplication) {
+		saveContext()
+	}
+
     func applicationDidBecomeActive(_ application: UIApplication) {
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
-    
+
     // MARK: - Split view
-    
+
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
         guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
         guard let topAsDetailController = secondaryAsNavController.topViewController as? NewsDetailViewController else { return false }
