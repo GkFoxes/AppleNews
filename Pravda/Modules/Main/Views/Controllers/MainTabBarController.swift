@@ -9,11 +9,11 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
-    
-    @IBInspectable var defaultIndex: Int = 0
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        selectedIndex = defaultIndex
-    }
+
+	@IBInspectable var defaultIndex: Int = 0
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		selectedIndex = defaultIndex
+	}
 }
