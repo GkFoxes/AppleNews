@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F02842BB247172500056034B /* Pravda-MVC-MVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pravda-MVC-MVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F02842BB247172500056034B /* Pravda-MVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pravda-MVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02842BE247172500056034B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F02842C0247172500056034B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F02842C2247172500056034B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		F02842B2247172500056034B = {
 			isa = PBXGroup;
 			children = (
-				F02842BD247172500056034B /* Pravda */,
+				F02842BD247172500056034B /* Pravda-MVC */,
 				F02842BC247172500056034B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,12 +49,12 @@
 		F02842BC247172500056034B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F02842BB247172500056034B /* Pravda-MVC-MVC.app */,
+				F02842BB247172500056034B /* Pravda-MVC.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F02842BD247172500056034B /* Pravda */ = {
+		F02842BD247172500056034B /* Pravda-MVC */ = {
 			isa = PBXGroup;
 			children = (
 				F02842D22471727F0056034B /* Pravda.entitlements */,
@@ -66,7 +66,7 @@
 				F02842C9247172520056034B /* LaunchScreen.storyboard */,
 				F02842CC247172520056034B /* Info.plist */,
 			);
-			path = Pravda;
+			path = "Pravda-MVC";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,7 +86,7 @@
 			);
 			name = "Pravda-MVC";
 			productName = Pravda;
-			productReference = F02842BB247172500056034B /* Pravda-MVC-MVC.app */;
+			productReference = F02842BB247172500056034B /* Pravda-MVC.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -289,14 +289,14 @@
 				CODE_SIGN_ENTITLEMENTS = Pravda/Pravda.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2NKCB3S776;
-				INFOPLIST_FILE = Pravda/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Pravda-MVC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ru.GkFoxes.Pravda;
-				PRODUCT_NAME = "Pravda-MVC-MVC";
+				PRODUCT_NAME = "Pravda-MVC";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -310,14 +310,14 @@
 				CODE_SIGN_ENTITLEMENTS = Pravda/Pravda.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2NKCB3S776;
-				INFOPLIST_FILE = Pravda/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Pravda-MVC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ru.GkFoxes.Pravda;
-				PRODUCT_NAME = "Pravda-MVC-MVC";
+				PRODUCT_NAME = "Pravda-MVC";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
