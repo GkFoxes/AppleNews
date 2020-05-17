@@ -24,7 +24,7 @@
 		F02842C7247172520056034B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F02842CA247172520056034B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F02842CC247172520056034B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F02842D22471727F0056034B /* Pravda.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pravda.entitlements; sourceTree = "<group>"; };
+		F02842D22471727F0056034B /* Pravda-MVC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Pravda-MVC.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +57,7 @@
 		F02842BD247172500056034B /* Pravda-MVC */ = {
 			isa = PBXGroup;
 			children = (
-				F02842D22471727F0056034B /* Pravda.entitlements */,
+				F02842D22471727F0056034B /* Pravda-MVC.entitlements */,
 				F02842BE247172500056034B /* AppDelegate.swift */,
 				F02842C0247172500056034B /* SceneDelegate.swift */,
 				F02842C2247172500056034B /* ViewController.swift */,
@@ -79,6 +79,7 @@
 				F02842B7247172500056034B /* Sources */,
 				F02842B8247172500056034B /* Frameworks */,
 				F02842B9247172500056034B /* Resources */,
+				F02842D324719F700056034B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -134,6 +135,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F02842D324719F700056034B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "count=0\nfor file_path in $(git ls-files -om --exclude-from=.gitignore | grep \".swift$\"); do\n    export SCRIPT_INPUT_FILE_$count=$file_path\n    count=$((count + 1))\ndone\nfor file_path in $(git diff --cached --name-only | grep \".swift$\"); do\n    export SCRIPT_INPUT_FILE_$count=$file_path\n    count=$((count + 1))\ndone\n    export SCRIPT_INPUT_FILE_COUNT=$count\n    swiftlint lint --use-script-input-files\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F02842B7247172500056034B /* Sources */ = {
@@ -286,7 +307,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Pravda/Pravda.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Pravda-MVC/Pravda-MVC.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2NKCB3S776;
 				INFOPLIST_FILE = "$(SRCROOT)/Pravda-MVC/Info.plist";
@@ -307,7 +328,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Pravda/Pravda.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Pravda-MVC/Pravda-MVC.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2NKCB3S776;
 				INFOPLIST_FILE = "$(SRCROOT)/Pravda-MVC/Info.plist";

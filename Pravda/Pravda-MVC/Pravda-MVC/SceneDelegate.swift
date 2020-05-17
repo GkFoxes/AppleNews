@@ -16,7 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 	// MARK: UIWindowSceneDelegate
 
-	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-		guard let _ = (scene as? UIWindowScene) else { return }
+	func scene(_ scene: UIScene,
+			   willConnectTo session: UISceneSession,
+			   options connectionOptions: UIScene.ConnectionOptions) {
+		guard (scene as? UIWindowScene) != nil else { return }
 	}
 }
