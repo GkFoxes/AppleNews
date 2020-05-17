@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Pravda
+//  Pravda-MVC
 //
 //  Created by Матвеенко Дмитрий on 17.05.2020.
 //  Copyright © 2020 GkFoxes. All rights reserved.

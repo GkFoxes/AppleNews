@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F02842BB247172500056034B /* Pravda-MVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pravda-MVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F02842BB247172500056034B /* Pravda-MVC-MVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pravda-MVC-MVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02842BE247172500056034B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F02842C0247172500056034B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F02842C2247172500056034B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,7 +49,7 @@
 		F02842BC247172500056034B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F02842BB247172500056034B /* Pravda-MVC.app */,
+				F02842BB247172500056034B /* Pravda-MVC-MVC.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,9 +72,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F02842BA247172500056034B /* Pravda */ = {
+		F02842BA247172500056034B /* Pravda-MVC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F02842CF247172520056034B /* Build configuration list for PBXNativeTarget "Pravda" */;
+			buildConfigurationList = F02842CF247172520056034B /* Build configuration list for PBXNativeTarget "Pravda-MVC" */;
 			buildPhases = (
 				F02842B7247172500056034B /* Sources */,
 				F02842B8247172500056034B /* Frameworks */,
@@ -84,9 +84,9 @@
 			);
 			dependencies = (
 			);
-			name = Pravda;
+			name = "Pravda-MVC";
 			productName = Pravda;
-			productReference = F02842BB247172500056034B /* Pravda-MVC.app */;
+			productReference = F02842BB247172500056034B /* Pravda-MVC-MVC.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +104,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F02842B6247172500056034B /* Build configuration list for PBXProject "Pravda" */;
+			buildConfigurationList = F02842B6247172500056034B /* Build configuration list for PBXProject "Pravda-MVC" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -117,7 +117,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F02842BA247172500056034B /* Pravda */,
+				F02842BA247172500056034B /* Pravda-MVC */,
 			);
 		};
 /* End PBXProject section */
@@ -296,7 +296,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ru.GkFoxes.Pravda;
-				PRODUCT_NAME = "Pravda-MVC";
+				PRODUCT_NAME = "Pravda-MVC-MVC";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -317,7 +317,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ru.GkFoxes.Pravda;
-				PRODUCT_NAME = "Pravda-MVC";
+				PRODUCT_NAME = "Pravda-MVC-MVC";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -327,7 +327,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F02842B6247172500056034B /* Build configuration list for PBXProject "Pravda" */ = {
+		F02842B6247172500056034B /* Build configuration list for PBXProject "Pravda-MVC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F02842CD247172520056034B /* Debug */,
@@ -336,7 +336,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F02842CF247172520056034B /* Build configuration list for PBXNativeTarget "Pravda" */ = {
+		F02842CF247172520056034B /* Build configuration list for PBXNativeTarget "Pravda-MVC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F02842D0247172520056034B /* Debug */,
