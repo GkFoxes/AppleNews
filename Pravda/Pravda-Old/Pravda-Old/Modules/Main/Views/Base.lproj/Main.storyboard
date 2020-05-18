@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="20h-xH-iQk">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="DHn-8X-3ZR">
+            <objects>
+                <tabBarController id="20h-xH-iQk" customClass="MainTabBarController" customModule="Pravda" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kpg-ZO-hQr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="selectedImageTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="85Z-1V-sZu" kind="relationship" relationship="viewControllers" id="fFk-hv-M8n"/>
+                        <segue destination="QKf-yI-HdY" kind="relationship" relationship="viewControllers" id="EIp-j1-gTg"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="clN-Dd-FMB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1714" y="-331"/>
+        </scene>
+        <!--MainSplitViewController-->
+        <scene sceneID="g39-fl-11p">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MainSplitViewController" storyboardName="News" referencedIdentifier="MainSplitViewController" id="85Z-1V-sZu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="8Re-Hp-xGz"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JoY-KF-rDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1942" y="150"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="obu-bG-Oee">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Favorites" id="QKf-yI-HdY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="f9R-D2-ivo"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AzN-cd-iGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1530" y="150"/>
+        </scene>
+    </scenes>
+</document>
