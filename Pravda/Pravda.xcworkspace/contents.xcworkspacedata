@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Pravda-MVC/Pravda-MVC.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pravda-MVC/../Pravda-Old/Pravda-Old.xcodeproj">
+   </FileRef>
+</Workspace>
