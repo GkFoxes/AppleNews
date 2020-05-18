@@ -38,6 +38,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F00188352472F62A00518FF0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F02842C7247172520056034B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F00188362472F7EE00518FF0 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				F02842D22471727F0056034B /* Pravda-MVC.entitlements */,
+				F02842CC247172520056034B /* Info.plist */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		F00188372472FA4600518FF0 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F00188382472FA5600518FF0 /* Main */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F00188382472FA5600518FF0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F02842BE247172500056034B /* AppDelegate.swift */,
+				F02842C0247172500056034B /* SceneDelegate.swift */,
+				F02842C9247172520056034B /* LaunchScreen.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F00188392472FA7800518FF0 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F001883A2472FA9800518FF0 /* News */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		F001883A2472FA9800518FF0 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				F02842C2247172500056034B /* ViewController.swift */,
+				F02842C4247172500056034B /* Main.storyboard */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		F02842B2247172500056034B = {
 			isa = PBXGroup;
 			children = (
@@ -57,14 +109,10 @@
 		F02842BD247172500056034B /* Pravda-MVC */ = {
 			isa = PBXGroup;
 			children = (
-				F02842D22471727F0056034B /* Pravda-MVC.entitlements */,
-				F02842BE247172500056034B /* AppDelegate.swift */,
-				F02842C0247172500056034B /* SceneDelegate.swift */,
-				F02842C2247172500056034B /* ViewController.swift */,
-				F02842C4247172500056034B /* Main.storyboard */,
-				F02842C7247172520056034B /* Assets.xcassets */,
-				F02842C9247172520056034B /* LaunchScreen.storyboard */,
-				F02842CC247172520056034B /* Info.plist */,
+				F00188392472FA7800518FF0 /* Modules */,
+				F00188372472FA4600518FF0 /* Application */,
+				F00188352472F62A00518FF0 /* Resources */,
+				F00188362472F7EE00518FF0 /* Supports */,
 			);
 			path = "Pravda-MVC";
 			sourceTree = "<group>";
@@ -307,10 +355,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Pravda-MVC/Pravda-MVC.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Pravda-MVC/Supports/Pravda-MVC.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2NKCB3S776;
-				INFOPLIST_FILE = "$(SRCROOT)/Pravda-MVC/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Pravda-MVC/Supports/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -328,10 +376,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Pravda-MVC/Pravda-MVC.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Pravda-MVC/Supports/Pravda-MVC.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2NKCB3S776;
-				INFOPLIST_FILE = "$(SRCROOT)/Pravda-MVC/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Pravda-MVC/Supports/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
