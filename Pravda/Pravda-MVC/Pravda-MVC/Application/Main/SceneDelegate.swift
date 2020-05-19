@@ -19,6 +19,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	func scene(_ scene: UIScene,
 			   willConnectTo session: UISceneSession,
 			   options connectionOptions: UIScene.ConnectionOptions) {
-		guard (scene as? UIWindowScene) != nil else { return }
+		setupRootViewController(from: scene)
+	}
+}
+
+private extension SceneDelegate {
+	func setupRootViewController(from scene: UIScene) {
+		guard let windowScene = (scene as? UIWindowScene) else { return assertionFailure() }
+		window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+
+		guard let window = window else { return assertionFailure() }
+		window.windowScene = windowScene
+
+		let rootNavigationViewController = UINavigationController(rootViewController: ViewController())
+		window.rootViewController = rootNavigationViewController
+		window.makeKeyAndVisible()
 	}
 }
