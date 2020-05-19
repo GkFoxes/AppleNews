@@ -30,13 +30,37 @@ private extension SceneDelegate {
 
 		guard let window = window else { return assertionFailure() }
 		window.windowScene = windowScene
+		window.rootViewController = getRootViewController()
+		window.makeKeyAndVisible()
+	}
 
+	func getRootViewController() -> UIViewController {
 		let todayNavigationViewController = UINavigationController(rootViewController: TodayViewController())
 		let spotlightNavigationViewController = UINavigationController(rootViewController: SpotlightViewController())
-		let splitViewController = UISplitViewController()
-		splitViewController.viewControllers = [todayNavigationViewController, spotlightNavigationViewController]
+		let favoritesNavigationViewController = UINavigationController(rootViewController: FavoritesViewController())
 
-		window.rootViewController = splitViewController
-		window.makeKeyAndVisible()
+		switch UIDevice.current.userInterfaceIdiom {
+		case .phone:
+			let mainTabBarController = UITabBarController()
+			mainTabBarController.viewControllers = [
+				todayNavigationViewController,
+				spotlightNavigationViewController,
+				favoritesNavigationViewController
+			]
+
+			return mainTabBarController
+		case .pad:
+			let sectionsTabBarController = UITabBarController()
+			sectionsTabBarController.viewControllers = [spotlightNavigationViewController, favoritesNavigationViewController]
+
+			let splitViewController = UISplitViewController()
+			splitViewController.preferredDisplayMode = .allVisible
+			splitViewController.viewControllers = [sectionsTabBarController, todayNavigationViewController]
+			return splitViewController
+		case .unspecified, .tv, .carPlay:
+			fatalError()
+		@unknown default:
+			fatalError()
+		}
 	}
 }
