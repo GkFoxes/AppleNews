@@ -31,8 +31,12 @@ private extension SceneDelegate {
 		guard let window = window else { return assertionFailure() }
 		window.windowScene = windowScene
 
-		let rootNavigationViewController = UINavigationController(rootViewController: ViewController())
-		window.rootViewController = rootNavigationViewController
+		let todayNavigationViewController = UINavigationController(rootViewController: TodayViewController())
+		let spotlightNavigationViewController = UINavigationController(rootViewController: SpotlightViewController())
+		let splitViewController = UISplitViewController()
+		splitViewController.viewControllers = [todayNavigationViewController, spotlightNavigationViewController]
+
+		window.rootViewController = splitViewController
 		window.makeKeyAndVisible()
 	}
 }
