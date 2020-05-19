@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TodayViewController.swift
 //  Pravda-MVC
 //
 //  Created by Матвеенко Дмитрий on 17.05.2020.
@@ -8,10 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TodayViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.view.backgroundColor = .red
+
+		self.navigationItem.title = "News"
 	}
 }
