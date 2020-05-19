@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F001883D247414FC00518FF0 /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001883C247414FC00518FF0 /* SpotlightViewController.swift */; };
+		F0018840247420A900518FF0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001883F247420A900518FF0 /* FavoritesViewController.swift */; };
 		F02842BF247172500056034B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02842BE247172500056034B /* AppDelegate.swift */; };
 		F02842C1247172500056034B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02842C0247172500056034B /* SceneDelegate.swift */; };
 		F02842C3247172500056034B /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02842C2247172500056034B /* TodayViewController.swift */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		F001883C247414FC00518FF0 /* SpotlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightViewController.swift; sourceTree = "<group>"; };
+		F001883F247420A900518FF0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		F02842BB247172500056034B /* Pravda-MVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pravda-MVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02842BE247172500056034B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F02842C0247172500056034B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			children = (
 				F001883A2472FA9800518FF0 /* Today */,
 				F001883B2474079000518FF0 /* Spotlight */,
+				F001883E2474207E00518FF0 /* Favorites */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -96,6 +99,14 @@
 				F001883C247414FC00518FF0 /* SpotlightViewController.swift */,
 			);
 			path = Spotlight;
+			sourceTree = "<group>";
+		};
+		F001883E2474207E00518FF0 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				F001883F247420A900518FF0 /* FavoritesViewController.swift */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		F02842B2247172500056034B = {
@@ -219,6 +230,7 @@
 				F02842C3247172500056034B /* TodayViewController.swift in Sources */,
 				F001883D247414FC00518FF0 /* SpotlightViewController.swift in Sources */,
 				F02842BF247172500056034B /* AppDelegate.swift in Sources */,
+				F0018840247420A900518FF0 /* FavoritesViewController.swift in Sources */,
 				F02842C1247172500056034B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
