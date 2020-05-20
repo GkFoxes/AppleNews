@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F001883D247414FC00518FF0 /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001883C247414FC00518FF0 /* SpotlightViewController.swift */; };
 		F0018840247420A900518FF0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001883F247420A900518FF0 /* FavoritesViewController.swift */; };
+		F0018842247506A100518FF0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0018841247506A100518FF0 /* MainViewController.swift */; };
+		F00188452475945800518FF0 /* UIViewController+SizeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00188442475945800518FF0 /* UIViewController+SizeClass.swift */; };
 		F02842BF247172500056034B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02842BE247172500056034B /* AppDelegate.swift */; };
 		F02842C1247172500056034B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02842C0247172500056034B /* SceneDelegate.swift */; };
 		F02842C3247172500056034B /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02842C2247172500056034B /* TodayViewController.swift */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		F001883C247414FC00518FF0 /* SpotlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightViewController.swift; sourceTree = "<group>"; };
 		F001883F247420A900518FF0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		F0018841247506A100518FF0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F00188442475945800518FF0 /* UIViewController+SizeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SizeClass.swift"; sourceTree = "<group>"; };
 		F02842BB247172500056034B /* Pravda-MVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pravda-MVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02842BE247172500056034B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F02842C0247172500056034B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +64,7 @@
 		F00188372472FA4600518FF0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				F00188432475941700518FF0 /* Helpers */,
 				F00188382472FA5600518FF0 /* Main */,
 			);
 			path = Application;
@@ -68,9 +73,8 @@
 		F00188382472FA5600518FF0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				F02842BE247172500056034B /* AppDelegate.swift */,
-				F02842C0247172500056034B /* SceneDelegate.swift */,
-				F02842C9247172520056034B /* LaunchScreen.storyboard */,
+				F00188472475BA7100518FF0 /* Delegates */,
+				F00188462475BA5C00518FF0 /* Views */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -107,6 +111,32 @@
 				F001883F247420A900518FF0 /* FavoritesViewController.swift */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		F00188432475941700518FF0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F00188442475945800518FF0 /* UIViewController+SizeClass.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F00188462475BA5C00518FF0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F02842C9247172520056034B /* LaunchScreen.storyboard */,
+				F0018841247506A100518FF0 /* MainViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F00188472475BA7100518FF0 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				F02842BE247172500056034B /* AppDelegate.swift */,
+				F02842C0247172500056034B /* SceneDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		F02842B2247172500056034B = {
@@ -230,8 +260,10 @@
 				F02842C3247172500056034B /* TodayViewController.swift in Sources */,
 				F001883D247414FC00518FF0 /* SpotlightViewController.swift in Sources */,
 				F02842BF247172500056034B /* AppDelegate.swift in Sources */,
+				F0018842247506A100518FF0 /* MainViewController.swift in Sources */,
 				F0018840247420A900518FF0 /* FavoritesViewController.swift in Sources */,
 				F02842C1247172500056034B /* SceneDelegate.swift in Sources */,
+				F00188452475945800518FF0 /* UIViewController+SizeClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
