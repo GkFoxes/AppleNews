@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  MainContainerViewController.swift
 //  Pravda-MVC
 //
 //  Created by Матвеенко Дмитрий on 20.05.2020.
