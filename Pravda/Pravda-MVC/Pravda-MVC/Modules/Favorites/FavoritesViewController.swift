@@ -7,13 +7,56 @@
 //
 
 import UIKit
+import SafariServices
 
 class FavoritesViewController: UIViewController {
+
+	private var isNewsButtonTapped = false
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		self.view.backgroundColor = .green
 		self.navigationItem.title = "Favorites"
+	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		if isNewsButtonTapped {
+			isNewsButtonTapped = false
+
+			guard let rootViewController =
+				UIApplication.shared.windows.first?.rootViewController as? MainViewController else { return }
+			rootViewController.safariNewsClosed()
+		}
+	}
+}
+
+extension FavoritesViewController: SFSafariViewControllerDelegate {
+	private func openUrl() {
+		if let url = URL(string: "https://stackoverflow.com/questions") {
+			if  UIApplication.shared.canOpenURL(url) {
+				let svc = SFSafariViewController(url: url)
+				self.present(svc, animated: true, completion: {
+					print("keka")
+				})
+
+				isNewsButtonTapped = true
+				guard let rootViewController =
+					UIApplication.shared.windows.first?.rootViewController as? MainViewController else { return }
+				rootViewController.safariNewsTapped()
+			} else {
+				let alert = UIAlertController(title: "Can not open this website",
+											  message: "Please check the existence of the website",
+											  preferredStyle: .alert)
+
+				alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"),
+											  style: .default,
+											  handler: { _ in
+												NSLog("The \"OK\" alert occured.")
+				}))
+
+				self.present(alert, animated: true, completion: nil)
+			}
+		}
 	}
 }
