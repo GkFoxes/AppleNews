@@ -6,9 +6,7 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-import UIKit
-
-class MainViewController: UIViewController {
+public class MainContainerViewController: UIViewController {
 
 	// MARK: Properties
 
@@ -27,28 +25,42 @@ class MainViewController: UIViewController {
 	/// But in Regular interface Tab have only spotlight, favorites.
 	private var sectionsTabBarController = UITabBarController()
 
-	private let todayNavigationViewController = UINavigationController(rootViewController: TodayViewController())
-	private let spotlightNavigationViewController = UINavigationController(rootViewController: SpotlightViewController())
-	private let favoritesNavigationViewController = UINavigationController(rootViewController: FavoritesViewController())
+	private let todayNavigationViewController: UINavigationController
+	private let spotlightNavigationViewController: UINavigationController
+	private let favoritesNavigationViewController: UINavigationController
 
 	private var regularInterfaceSplitViewController: UISplitViewController?
 	private var compactInterfaceTabBarController: UITabBarController?
 
 	// MARK: Life Cycle
 
-	override func viewDidLoad() {
+	public init(todayNavigationViewController: UINavigationController,
+				spotlightNavigationViewController: UINavigationController,
+				favoritesNavigationViewController: UINavigationController) {
+		self.todayNavigationViewController = todayNavigationViewController
+		self.spotlightNavigationViewController = spotlightNavigationViewController
+		self.favoritesNavigationViewController = favoritesNavigationViewController
+		super.init(nibName: nil, bundle: nil)
+	}
+
+	@available(*, unavailable)
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+
+	public override func viewDidLoad() {
 		super.viewDidLoad()
 
 		initialInterface()
 	}
 
 	/// Change interface to compact or regular, when iPad change size classes.
-	override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+	public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 		changeInterfaceIfNeeded()
 	}
 
-	/// Write correct displayMode for correct display compact interface, when previous display regular
-	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+	/// Write displayMode for correct display compact interface, when previous display regular
+	public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 		super.viewWillTransition(to: size, with: coordinator)
 
 		guard let regularInterfaceSplitViewController = regularInterfaceSplitViewController else { return }
@@ -58,7 +70,7 @@ class MainViewController: UIViewController {
 
 // MARK: Changes From Child Views
 
-extension MainViewController {
+public extension MainContainerViewController {
 	func safariNewsTapped() {
 		isSafariNewsTapped = true
 	}
@@ -66,7 +78,7 @@ extension MainViewController {
 
 // MARK: Setup Interface
 
-private extension MainViewController {
+private extension MainContainerViewController {
 	func initialInterface() {
 		switch getHorizontalAndVerticalSizeClasses() {
 		case (.regular, .regular):
@@ -130,7 +142,7 @@ private extension MainViewController {
 
 // MARK: Size Class Change Interface
 
-private extension MainViewController {
+private extension MainContainerViewController {
 	func changeInterfaceIfNeeded() {
 		switch getHorizontalAndVerticalSizeClasses() {
 		case (.regular, .regular):
@@ -172,6 +184,7 @@ private extension MainViewController {
 
 		//When change interface from regular to compact
 		if sectionsTabBarController.viewControllers?.count == 2 {
+			//If change size classes when read news in Safari, show index where tap came from
 			if isSafariNewsTapped == true {
 				isSafariNewsTapped = false
 				selectedIndex += 1

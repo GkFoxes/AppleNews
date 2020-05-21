@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		F001883D247414FC00518FF0 /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001883C247414FC00518FF0 /* SpotlightViewController.swift */; };
 		F0018840247420A900518FF0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001883F247420A900518FF0 /* FavoritesViewController.swift */; };
-		F0018842247506A100518FF0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0018841247506A100518FF0 /* MainViewController.swift */; };
-		F00188452475945800518FF0 /* UIViewController+SizeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00188442475945800518FF0 /* UIViewController+SizeClass.swift */; };
+		F001887C2476EC9300518FF0 /* PravdaUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F001887B2476EC9300518FF0 /* PravdaUIKit.framework */; };
+		F001887D2476EC9300518FF0 /* PravdaUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F001887B2476EC9300518FF0 /* PravdaUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F02842BF247172500056034B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02842BE247172500056034B /* AppDelegate.swift */; };
 		F02842C1247172500056034B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02842C0247172500056034B /* SceneDelegate.swift */; };
 		F02842C3247172500056034B /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02842C2247172500056034B /* TodayViewController.swift */; };
@@ -18,11 +18,24 @@
 		F02842CB247172520056034B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F02842C9247172520056034B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F001887E2476EC9300518FF0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F001887D2476EC9300518FF0 /* PravdaUIKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		F001883C247414FC00518FF0 /* SpotlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightViewController.swift; sourceTree = "<group>"; };
 		F001883F247420A900518FF0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		F0018841247506A100518FF0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		F00188442475945800518FF0 /* UIViewController+SizeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SizeClass.swift"; sourceTree = "<group>"; };
+		F001887B2476EC9300518FF0 /* PravdaUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PravdaUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02842BB247172500056034B /* Pravda-MVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pravda-MVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02842BE247172500056034B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F02842C0247172500056034B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F001887C2476EC9300518FF0 /* PravdaUIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +78,6 @@
 		F00188372472FA4600518FF0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				F00188432475941700518FF0 /* Helpers */,
 				F00188382472FA5600518FF0 /* Main */,
 			);
 			path = Application;
@@ -113,19 +126,10 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
-		F00188432475941700518FF0 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				F00188442475945800518FF0 /* UIViewController+SizeClass.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		F00188462475BA5C00518FF0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				F02842C9247172520056034B /* LaunchScreen.storyboard */,
-				F0018841247506A100518FF0 /* MainViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -139,11 +143,20 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
+		F001887A2476EC9300518FF0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F001887B2476EC9300518FF0 /* PravdaUIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F02842B2247172500056034B = {
 			isa = PBXGroup;
 			children = (
 				F02842BD247172500056034B /* Pravda-MVC */,
 				F02842BC247172500056034B /* Products */,
+				F001887A2476EC9300518FF0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,6 +190,7 @@
 				F02842B8247172500056034B /* Frameworks */,
 				F02842B9247172500056034B /* Resources */,
 				F02842D324719F700056034B /* ShellScript */,
+				F001887E2476EC9300518FF0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -260,10 +274,8 @@
 				F02842C3247172500056034B /* TodayViewController.swift in Sources */,
 				F001883D247414FC00518FF0 /* SpotlightViewController.swift in Sources */,
 				F02842BF247172500056034B /* AppDelegate.swift in Sources */,
-				F0018842247506A100518FF0 /* MainViewController.swift in Sources */,
 				F0018840247420A900518FF0 /* FavoritesViewController.swift in Sources */,
 				F02842C1247172500056034B /* SceneDelegate.swift in Sources */,
-				F00188452475945800518FF0 /* UIViewController+SizeClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

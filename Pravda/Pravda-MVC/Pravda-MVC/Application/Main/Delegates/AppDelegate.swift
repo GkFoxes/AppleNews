@@ -6,7 +6,7 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-import UIKit
+import PravdaUIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

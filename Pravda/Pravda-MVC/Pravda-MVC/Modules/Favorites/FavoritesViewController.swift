@@ -6,7 +6,7 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-import UIKit
+import PravdaUIKit
 import SafariServices
 
 class FavoritesViewController: UIViewController {
@@ -16,10 +16,6 @@ class FavoritesViewController: UIViewController {
 
 		self.view.backgroundColor = .green
 		self.navigationItem.title = "Favorites"
-
-		DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-			self.openUrl()
-		}
 	}
 }
 
@@ -32,8 +28,7 @@ extension FavoritesViewController: SFSafariViewControllerDelegate {
 					print("keka")
 				})
 
-				guard let rootViewController =
-					UIApplication.shared.windows.first?.rootViewController as? MainViewController else { return }
+				guard let rootViewController = getRootViewController() as? MainContainerViewController else { return }
 				rootViewController.safariNewsTapped()
 			} else {
 				let alert = UIAlertController(title: "Can not open this website",

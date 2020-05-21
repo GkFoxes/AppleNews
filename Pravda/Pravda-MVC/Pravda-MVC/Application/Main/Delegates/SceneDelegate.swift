@@ -6,7 +6,7 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-import UIKit
+import PravdaUIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -30,7 +30,13 @@ private extension SceneDelegate {
 
 		guard let window = window else { return assertionFailure() }
 		window.windowScene = windowScene
-		window.rootViewController = MainViewController()
+
+		window.rootViewController = MainContainerViewController(
+			todayNavigationViewController: UINavigationController(rootViewController: TodayViewController()),
+			spotlightNavigationViewController: UINavigationController(rootViewController: SpotlightViewController()),
+			favoritesNavigationViewController: UINavigationController(rootViewController: FavoritesViewController())
+		)
+
 		window.makeKeyAndVisible()
 	}
 }
