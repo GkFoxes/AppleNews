@@ -32,7 +32,6 @@ extension FavoritesViewController: SFSafariViewControllerDelegate {
 					print("keka")
 				})
 
-				isNewsButtonTapped = true
 				guard let rootViewController =
 					UIApplication.shared.windows.first?.rootViewController as? MainViewController else { return }
 				rootViewController.safariNewsTapped()
