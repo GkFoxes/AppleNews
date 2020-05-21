@@ -62,10 +62,6 @@ extension MainViewController {
 	func safariNewsTapped() {
 		isSafariNewsTapped = true
 	}
-
-	func safariNewsClosed() {
-		isSafariNewsTapped = false
-	}
 }
 
 // MARK: Setup Interface
@@ -159,6 +155,7 @@ private extension MainViewController {
 		//Remove Today from sections and setup selected Index
 		if sectionsTabBarController.viewControllers?.count == 3 {
 			sectionsTabBarController.viewControllers?.removeLast()
+			isSafariNewsTapped = false
 			selectedIndex -= 1
 		}
 
@@ -176,6 +173,7 @@ private extension MainViewController {
 		//When change interface from regular to compact
 		if sectionsTabBarController.viewControllers?.count == 2 {
 			if isSafariNewsTapped == true {
+				isSafariNewsTapped = false
 				selectedIndex += 1
 			} else {
 				//If Master view hidden or Today in read, show Today in compact tab

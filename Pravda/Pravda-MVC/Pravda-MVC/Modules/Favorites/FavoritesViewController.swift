@@ -11,22 +11,14 @@ import SafariServices
 
 class FavoritesViewController: UIViewController {
 
-	private var isNewsButtonTapped = false
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		self.view.backgroundColor = .green
 		self.navigationItem.title = "Favorites"
-	}
 
-	override func viewWillAppear(_ animated: Bool) {
-		if isNewsButtonTapped {
-			isNewsButtonTapped = false
-
-			guard let rootViewController =
-				UIApplication.shared.windows.first?.rootViewController as? MainViewController else { return }
-			rootViewController.safariNewsClosed()
+		DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+			self.openUrl()
 		}
 	}
 }
