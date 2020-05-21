@@ -12,8 +12,11 @@ class MainViewController: UIViewController {
 
 	// MARK: Properties
 
-	/// The interface is always compact, except when the width and height are equal to (.regular, .regular)
+	/// The interface is always compact, except when the width and height are equal to (.regular, .regular).
 	var isInterfaceCompact: Bool?
+
+	/// The current arrangement of the split view controller’s contents Master and Detail views.
+	var regularInterfaceSplitDisplayMode: UISplitViewController.DisplayMode?
 
 	// MARK: View Controllers
 
@@ -33,8 +36,17 @@ class MainViewController: UIViewController {
 		initialInterface()
 	}
 
+	/// Change interface to compact or regular, when iPad change size classes.
 	override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 		changeInterfaceIfNeeded()
+	}
+
+	/// Write correct displayMode for correct display compact interface, when previous display regular
+	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+		super.viewWillTransition(to: size, with: coordinator)
+
+		guard let regularInterfaceSplitViewController = regularInterfaceSplitViewController else { return }
+		regularInterfaceSplitDisplayMode = regularInterfaceSplitViewController.displayMode
 	}
 }
 
@@ -53,7 +65,7 @@ private extension MainViewController {
 	}
 
 	func setupRegularInterfaceToFront(withSelectedIndex selectedIndex: Int = 0) {
-		//In regular always two sections in master view
+		//In regular always two sections in Master view
 		sectionsTabBarController.viewControllers = [
 			spotlightNavigationViewController,
 			favoritesNavigationViewController
@@ -71,7 +83,7 @@ private extension MainViewController {
 		add(asChild: regularInterfaceSplitViewController)
 	}
 
-	func setupCompactInterfaceToFront() {
+	func setupCompactInterfaceToFront(withSelectedIndex selectedIndex: Int = 0) {
 		//In compact always three sections in tab
 		sectionsTabBarController.viewControllers = [
 			todayNavigationViewController,
@@ -79,8 +91,7 @@ private extension MainViewController {
 			favoritesNavigationViewController
 		]
 
-		//To select first section, even after changing interface size class
-		sectionsTabBarController.selectedIndex = 0
+		sectionsTabBarController.selectedIndex = selectedIndex
 		compactInterfaceTabBarController = sectionsTabBarController
 
 		guard let compactInterfaceTabBarController = compactInterfaceTabBarController else { return }
@@ -124,10 +135,10 @@ private extension MainViewController {
 			remove(asChild: compactInterfaceTabBarController)
 		}
 
-		//To select the same section, even after changing interface size class
+		//To select the same section, even after changing interface to regular
 		var selectedIndex = sectionsTabBarController.selectedIndex
 
-		//When change interface from compact to regular
+		//Remove Today from sections and setup selected Index
 		if sectionsTabBarController.viewControllers?.count == 3 {
 			sectionsTabBarController.viewControllers?.removeLast()
 			selectedIndex -= 1
@@ -141,6 +152,19 @@ private extension MainViewController {
 			remove(asChild: regularInterfaceSplitViewController)
 		}
 
-		setupCompactInterfaceToFront()
+		//To select the same section, even after changing interface to compact
+		var selectedIndex = sectionsTabBarController.selectedIndex
+
+		//When change interface from regular to compact
+		if sectionsTabBarController.viewControllers?.count == 2 {
+			//If Master view hidden or Today in read, show Today in compact tab
+			if regularInterfaceSplitDisplayMode == .primaryHidden || regularInterfaceSplitDisplayMode == .allVisible {
+				selectedIndex = 0
+			} else {
+				selectedIndex += 1
+			}
+		}
+
+		setupCompactInterfaceToFront(withSelectedIndex: selectedIndex)
 	}
 }
