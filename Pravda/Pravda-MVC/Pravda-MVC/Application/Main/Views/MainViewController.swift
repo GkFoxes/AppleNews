@@ -12,15 +12,21 @@ class MainViewController: UIViewController {
 
 	// MARK: Properties
 
-	/// The interface is always compact, except when the width and height are equal to (.regular, .regular).
-	var isInterfaceCompact: Bool?
-
 	/// The current arrangement of the split view controller’s contents Master and Detail views.
-	var regularInterfaceSplitDisplayMode: UISplitViewController.DisplayMode?
+	private var regularInterfaceSplitDisplayMode: UISplitViewController.DisplayMode?
+
+	/// The interface is always compact, except when the width and height are equal to (.regular, .regular).
+	private var isInterfaceCompact: Bool?
+
+	/// When Safari news tapped from Spotlight or Favorites, block some changes in interface
+	private var isSafariNewsTapped: Bool?
 
 	// MARK: View Controllers
 
+	/// Sections Tab have today, spotlight, favorites in Compact interface.
+	/// But in Regular interface Tab have only spotlight, favorites.
 	private var sectionsTabBarController = UITabBarController()
+
 	private let todayNavigationViewController = UINavigationController(rootViewController: TodayViewController())
 	private let spotlightNavigationViewController = UINavigationController(rootViewController: SpotlightViewController())
 	private let favoritesNavigationViewController = UINavigationController(rootViewController: FavoritesViewController())
@@ -47,6 +53,18 @@ class MainViewController: UIViewController {
 
 		guard let regularInterfaceSplitViewController = regularInterfaceSplitViewController else { return }
 		regularInterfaceSplitDisplayMode = regularInterfaceSplitViewController.displayMode
+	}
+}
+
+// MARK: Changes From Child Views
+
+extension MainViewController {
+	func safariNewsTapped() {
+		isSafariNewsTapped = true
+	}
+
+	func safariNewsClosed() {
+		isSafariNewsTapped = false
 	}
 }
 
@@ -157,11 +175,15 @@ private extension MainViewController {
 
 		//When change interface from regular to compact
 		if sectionsTabBarController.viewControllers?.count == 2 {
-			//If Master view hidden or Today in read, show Today in compact tab
-			if regularInterfaceSplitDisplayMode == .primaryHidden || regularInterfaceSplitDisplayMode == .allVisible {
-				selectedIndex = 0
-			} else {
+			if isSafariNewsTapped == true {
 				selectedIndex += 1
+			} else {
+				//If Master view hidden or Today in read, show Today in compact tab
+				if regularInterfaceSplitDisplayMode == .primaryHidden || regularInterfaceSplitDisplayMode == .allVisible {
+					selectedIndex = 0
+				} else {
+					selectedIndex += 1
+				}
 			}
 		}
 
