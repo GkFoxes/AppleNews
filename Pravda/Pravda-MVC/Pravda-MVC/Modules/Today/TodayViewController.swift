@@ -14,7 +14,7 @@ class TodayViewController: UIViewController {
 		super.viewDidLoad()
 		self.view.backgroundColor = .red
 
-		self.navigationItem.title = "News"
+		self.navigationItem.title = StringConstants.todayNavigationTitle
 
 		if let splitController = self.splitViewController {
 			self.navigationItem.leftBarButtonItem = splitController.displayModeButtonItem

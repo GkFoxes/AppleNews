@@ -14,6 +14,6 @@ class SpotlightViewController: UIViewController {
 		super.viewDidLoad()
 
 		self.view.backgroundColor = .blue
-		self.navigationItem.title = "Spotlight"
+		self.navigationItem.title = StringConstants.spotlightTitle
 	}
 }

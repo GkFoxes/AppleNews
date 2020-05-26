@@ -15,7 +15,7 @@ class FavoritesViewController: UIViewController {
 		super.viewDidLoad()
 
 		self.view.backgroundColor = .green
-		self.navigationItem.title = "Favorites"
+		self.navigationItem.title = StringConstants.favoritesTitle
 	}
 }
 
