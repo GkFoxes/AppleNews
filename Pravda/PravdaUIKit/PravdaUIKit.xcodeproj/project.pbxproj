@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A9E415C2247D4B4000018A16 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E415C1247D4B4000018A16 /* StringConstants.swift */; };
+		A9E415C5247EE07D00018A16 /* SectionsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E415C4247EE07D00018A16 /* SectionsTabBarController.swift */; };
 		F00188712476EBE000518FF0 /* PravdaUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F001886F2476EBE000518FF0 /* PravdaUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F00188792476EC2D00518FF0 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00188782476EC2D00518FF0 /* MainContainerViewController.swift */; };
 		F00188832476F04500518FF0 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00188822476F04500518FF0 /* UIViewController+.swift */; };
@@ -15,6 +16,7 @@
 
 /* Begin PBXFileReference section */
 		A9E415C1247D4B4000018A16 /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		A9E415C4247EE07D00018A16 /* SectionsTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsTabBarController.swift; sourceTree = "<group>"; };
 		F001886C2476EBE000518FF0 /* PravdaUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PravdaUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F001886F2476EBE000518FF0 /* PravdaUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PravdaUIKit.h; sourceTree = "<group>"; };
 		F00188702476EBE000518FF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				F00188782476EC2D00518FF0 /* MainContainerViewController.swift */,
+				A9E415C4247EE07D00018A16 /* SectionsTabBarController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F00188832476F04500518FF0 /* UIViewController+.swift in Sources */,
+				A9E415C5247EE07D00018A16 /* SectionsTabBarController.swift in Sources */,
 				F00188792476EC2D00518FF0 /* MainContainerViewController.swift in Sources */,
 				A9E415C2247D4B4000018A16 /* StringConstants.swift in Sources */,
 			);
