@@ -34,12 +34,13 @@ public class MainContainerViewController: UIViewController {
 		favoritesNavigationViewController: UINavigationController
 	) {
 		self.todayNavigationViewController = todayNavigationViewController
-		self.isInterfaceCompact = true
 		self.sectionsTabBarController = SectionsTabBarController(
 			todayNavigationViewController: todayNavigationViewController,
 			spotlightNavigationViewController: spotlightNavigationViewController,
 			favoritesNavigationViewController: favoritesNavigationViewController
 		)
+
+		self.isInterfaceCompact = true
 
 		super.init(nibName: nil, bundle: nil)
 	}
