@@ -28,7 +28,7 @@ extension FavoritesViewController: SFSafariViewControllerDelegate {
 					print("keka")
 				})
 
-				guard let rootViewController = getRootViewController() as? MainContainerViewController else { return }
+				guard let rootViewController = getSectionsTabBarController() else { return }
 				rootViewController.safariNewsTapped()
 			} else {
 				let alert = UIAlertController(title: "Can not open this website",

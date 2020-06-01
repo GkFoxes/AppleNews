@@ -14,20 +14,14 @@ public class MainContainerViewController: UIViewController {
 	private var regularInterfaceSplitDisplayMode: UISplitViewController.DisplayMode?
 
 	/// The interface is always compact, except when the width and height are equal to (.regular, .regular).
-	private var isInterfaceCompact: Bool?
-
-	/// When Safari news tapped from Spotlight or Favorites, block some changes in interface
-	private var isSafariNewsTapped: Bool?
+	private var isInterfaceCompact: Bool
 
 	// MARK: View Controllers
 
-	/// Sections Tab have today, spotlight, favorites in Compact interface.
-	/// But in Regular interface Tab have only spotlight, favorites.
-	private var sectionsTabBarController = UITabBarController()
-
+	/// Main Tab have only Sections TabBar in Compact interface.
+	/// But in Regular interface have Sections in Master and Today in Detail.
 	private let todayNavigationViewController: UINavigationController
-	private let spotlightNavigationViewController: UINavigationController
-	private let favoritesNavigationViewController: UINavigationController
+	private var sectionsTabBarController: SectionsTabBarController
 
 	private var regularInterfaceSplitViewController: UISplitViewController?
 	private var compactInterfaceTabBarController: UITabBarController?
@@ -40,8 +34,13 @@ public class MainContainerViewController: UIViewController {
 		favoritesNavigationViewController: UINavigationController
 	) {
 		self.todayNavigationViewController = todayNavigationViewController
-		self.spotlightNavigationViewController = spotlightNavigationViewController
-		self.favoritesNavigationViewController = favoritesNavigationViewController
+		self.isInterfaceCompact = true
+		self.sectionsTabBarController = SectionsTabBarController(
+			todayNavigationViewController: todayNavigationViewController,
+			spotlightNavigationViewController: spotlightNavigationViewController,
+			favoritesNavigationViewController: favoritesNavigationViewController
+		)
+
 		super.init(nibName: nil, bundle: nil)
 	}
 
@@ -70,14 +69,6 @@ public class MainContainerViewController: UIViewController {
 	}
 }
 
-// MARK: Changes From Child Views
-
-public extension MainContainerViewController {
-	func safariNewsTapped() {
-		isSafariNewsTapped = true
-	}
-}
-
 // MARK: Setup Interface
 
 private extension MainContainerViewController {
@@ -92,34 +83,18 @@ private extension MainContainerViewController {
 		}
 	}
 
-	func setupRegularInterfaceToFront(withSelectedIndex selectedIndex: Int = 0) {
-		//In regular always two sections in Master view
-		sectionsTabBarController.viewControllers = [
-			spotlightNavigationViewController,
-			favoritesNavigationViewController
-		]
-
-		sectionsTabBarController.selectedIndex = selectedIndex
+	func setupRegularInterfaceToFront() {
 		regularInterfaceSplitViewController = UISplitViewController()
-
-		guard let regularInterfaceSplitViewController = regularInterfaceSplitViewController else { return }
-		regularInterfaceSplitViewController.viewControllers = [
+		regularInterfaceSplitViewController?.viewControllers = [
 			sectionsTabBarController,
 			todayNavigationViewController
 		]
 
+		guard let regularInterfaceSplitViewController = regularInterfaceSplitViewController else { return }
 		add(asChild: regularInterfaceSplitViewController)
 	}
 
-	func setupCompactInterfaceToFront(withSelectedIndex selectedIndex: Int = 0) {
-		//In compact always three sections in tab
-		sectionsTabBarController.viewControllers = [
-			todayNavigationViewController,
-			spotlightNavigationViewController,
-			favoritesNavigationViewController
-		]
-
-		sectionsTabBarController.selectedIndex = selectedIndex
+	func setupCompactInterfaceToFront() {
 		compactInterfaceTabBarController = sectionsTabBarController
 
 		guard let compactInterfaceTabBarController = compactInterfaceTabBarController else { return }
@@ -163,17 +138,8 @@ private extension MainContainerViewController {
 			remove(asChild: compactInterfaceTabBarController)
 		}
 
-		//To select the same section, even after changing interface to regular
-		var selectedIndex = sectionsTabBarController.selectedIndex
-
-		//Remove Today from sections and setup selected Index
-		if sectionsTabBarController.viewControllers?.count == 3 {
-			sectionsTabBarController.viewControllers?.removeLast()
-			isSafariNewsTapped = false
-			selectedIndex -= 1
-		}
-
-		setupRegularInterfaceToFront(withSelectedIndex: selectedIndex)
+		sectionsTabBarController.changeInterfaceToRegularAppearance()
+		setupRegularInterfaceToFront()
 	}
 
 	func changeInterfaceToCompactAppearance() {
@@ -181,25 +147,7 @@ private extension MainContainerViewController {
 			remove(asChild: regularInterfaceSplitViewController)
 		}
 
-		//To select the same section, even after changing interface to compact
-		var selectedIndex = sectionsTabBarController.selectedIndex
-
-		//When change interface from regular to compact
-		if sectionsTabBarController.viewControllers?.count == 2 {
-			//If change size classes when read news in Safari, show index where tap came from
-			if isSafariNewsTapped == true {
-				isSafariNewsTapped = false
-				selectedIndex += 1
-			} else {
-				//If Master view hidden or Today in read, show Today in compact tab
-				if regularInterfaceSplitDisplayMode == .primaryHidden || regularInterfaceSplitDisplayMode == .allVisible {
-					selectedIndex = 0
-				} else {
-					selectedIndex += 1
-				}
-			}
-		}
-
-		setupCompactInterfaceToFront(withSelectedIndex: selectedIndex)
+		sectionsTabBarController.changeInterfaceToCompactAppearance(with: regularInterfaceSplitDisplayMode)
+		setupCompactInterfaceToFront()
 	}
 }

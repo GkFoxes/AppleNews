@@ -10,8 +10,8 @@ public extension UIViewController {
 
 	// MARK: Child Views
 
-	func getRootViewController() -> UIViewController? {
-		return UIApplication.shared.windows.first?.rootViewController
+	func getSectionsTabBarController() -> SectionsTabBarController? {
+		return UIApplication.shared.windows.first?.rootViewController?.children.first as? SectionsTabBarController
 	}
 }
 
