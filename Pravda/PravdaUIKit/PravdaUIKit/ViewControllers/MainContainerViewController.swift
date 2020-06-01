@@ -34,9 +34,11 @@ public class MainContainerViewController: UIViewController {
 
 	// MARK: Life Cycle
 
-	public init(todayNavigationViewController: UINavigationController,
-				spotlightNavigationViewController: UINavigationController,
-				favoritesNavigationViewController: UINavigationController) {
+	public init(
+		todayNavigationViewController: UINavigationController,
+		spotlightNavigationViewController: UINavigationController,
+		favoritesNavigationViewController: UINavigationController
+	) {
 		self.todayNavigationViewController = todayNavigationViewController
 		self.spotlightNavigationViewController = spotlightNavigationViewController
 		self.favoritesNavigationViewController = favoritesNavigationViewController

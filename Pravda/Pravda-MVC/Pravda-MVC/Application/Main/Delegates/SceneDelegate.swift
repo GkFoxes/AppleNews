@@ -16,9 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 	// MARK: UIWindowSceneDelegate
 
-	func scene(_ scene: UIScene,
-			   willConnectTo session: UISceneSession,
-			   options connectionOptions: UIScene.ConnectionOptions) {
+	func scene(
+		_ scene: UIScene,
+		willConnectTo session: UISceneSession,
+		options connectionOptions: UIScene.ConnectionOptions
+	) {
 		setupRootViewController(from: scene)
 	}
 }

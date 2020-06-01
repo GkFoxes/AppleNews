@@ -1,5 +1,2 @@
-disabled_rules:
-- vertical_parameter_alignment
-
 excluded:
 - Pravda-Old
