@@ -13,12 +13,12 @@ public class SectionsTabBarController: UITabBarController {
 	// MARK: Properties
 
 	/// When Safari news tapped from Spotlight or Favorites, changes in selectedIndex
-	private var isSafariNewsTapped: Bool
+	private var isSafariNewsTapped = false
 
 	// MARK: View Controllers
 
-	/// Sections Tab have today, spotlight, favorites in Compact interface.
-	/// But in Regular interface Tab have only spotlight, favorites.
+	// Sections Tab have today, spotlight, favorites in Compact interface.
+	// But in Regular interface Tab have only spotlight, favorites.
 	private let todayNavigationViewController: UINavigationController
 	private let spotlightNavigationViewController: UINavigationController
 	private let favoritesNavigationViewController: UINavigationController
@@ -33,8 +33,6 @@ public class SectionsTabBarController: UITabBarController {
 		self.todayNavigationViewController = todayNavigationViewController
 		self.spotlightNavigationViewController = spotlightNavigationViewController
 		self.favoritesNavigationViewController = favoritesNavigationViewController
-
-		self.isSafariNewsTapped = false
 
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -63,30 +61,35 @@ public extension SectionsTabBarController {
 
 extension SectionsTabBarController {
 	func changeInterfaceToRegularAppearance() {
-		// Remove Today from sections and setup selected Index
-		guard viewControllers?.count == 3 else { return }
+		guard viewControllers?.count == 3 else {
+			//To select the same section, even after changing interface to regular
+			return setupRegularInterface(with: selectedIndex)
+		}
+
+		// Remove Today from sections and after setup selected Index
+		var selectedIndex = self.selectedIndex
 		viewControllers?.removeLast()
 		isSafariNewsTapped = false
+		selectedIndex -= 1
 
-		//To select the same section, even after changing interface to regular
-		let selectedIndex = self.selectedIndex - 1
 		setupRegularInterface(with: selectedIndex)
 	}
 
 	func changeInterfaceToCompactAppearance(with displayMode: UISplitViewController.DisplayMode?) {
-		// When change interface from regular to compact
-		guard viewControllers?.count == 2 else { return }
+		guard viewControllers?.count == 2 else {
+			// To select the same section, even after changing interface to compact
+			return setupCompactInterface(with: selectedIndex)
+		}
 
-		// To select the same section, even after changing interface to regular
 		var selectedIndex = self.selectedIndex
 
-		// If change size classes when read news in Safari, show index where tap came from
 		if isSafariNewsTapped == true {
+			// If change size classes when read news in Safari, show index where tap came from
 			isSafariNewsTapped = false
 			selectedIndex += 1
 		} else {
-			//If Master view hidden or Today in read, show Today in compact tab
 			if displayMode == .primaryHidden || displayMode == .allVisible {
+				//If Master view hidden or Today in read, show Today in compact tab
 				selectedIndex = 0
 			} else {
 				selectedIndex += 1
