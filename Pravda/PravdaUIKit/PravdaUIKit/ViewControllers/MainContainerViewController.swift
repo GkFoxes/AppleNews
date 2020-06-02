@@ -14,17 +14,16 @@ public class MainContainerViewController: UIViewController {
 	private var regularInterfaceSplitDisplayMode: UISplitViewController.DisplayMode?
 
 	/// The interface is always compact, except when the width and height are equal to (.regular, .regular).
-	private var isInterfaceCompact: Bool
+	/// default = true
+	private var isInterfaceCompact = true
 
 	// MARK: View Controllers
 
-	/// Main Tab have only Sections TabBar in Compact interface.
-	/// But in Regular interface have Sections in Master and Today in Detail.
+	// Main Tab have only Sections TabBar in Compact interface.
+	// But in Regular interface have Sections in Master and Today in Detail.
 	private let todayNavigationViewController: UINavigationController
-	private var sectionsTabBarController: SectionsTabBarController
-
+	private let sectionsTabBarController: SectionsTabBarController
 	private var regularInterfaceSplitViewController: UISplitViewController?
-	private var compactInterfaceTabBarController: UITabBarController?
 
 	// MARK: Life Cycle
 
@@ -39,8 +38,6 @@ public class MainContainerViewController: UIViewController {
 			spotlightNavigationViewController: spotlightNavigationViewController,
 			favoritesNavigationViewController: favoritesNavigationViewController
 		)
-
-		self.isInterfaceCompact = true
 
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -65,7 +62,7 @@ public class MainContainerViewController: UIViewController {
 	public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 		super.viewWillTransition(to: size, with: coordinator)
 
-		guard let regularInterfaceSplitViewController = regularInterfaceSplitViewController else { return }
+		guard let regularInterfaceSplitViewController = regularInterfaceSplitViewController else { return assertionFailure() }
 		regularInterfaceSplitDisplayMode = regularInterfaceSplitViewController.displayMode
 	}
 }
@@ -91,15 +88,12 @@ private extension MainContainerViewController {
 			todayNavigationViewController
 		]
 
-		guard let regularInterfaceSplitViewController = regularInterfaceSplitViewController else { return }
+		guard let regularInterfaceSplitViewController = regularInterfaceSplitViewController else { return assertionFailure() }
 		add(asChild: regularInterfaceSplitViewController)
 	}
 
 	func setupCompactInterfaceToFront() {
-		compactInterfaceTabBarController = sectionsTabBarController
-
-		guard let compactInterfaceTabBarController = compactInterfaceTabBarController else { return }
-		add(asChild: compactInterfaceTabBarController)
+		add(asChild: sectionsTabBarController)
 	}
 
 	func add(asChild childViewController: UIViewController) {
@@ -135,18 +129,15 @@ private extension MainContainerViewController {
 	}
 
 	func changeInterfaceToRegularAppearance() {
-		if let compactInterfaceTabBarController = compactInterfaceTabBarController {
-			remove(asChild: compactInterfaceTabBarController)
-		}
+		remove(asChild: sectionsTabBarController)
 
 		sectionsTabBarController.changeInterfaceToRegularAppearance()
 		setupRegularInterfaceToFront()
 	}
 
 	func changeInterfaceToCompactAppearance() {
-		if let regularInterfaceSplitViewController = regularInterfaceSplitViewController {
-			remove(asChild: regularInterfaceSplitViewController)
-		}
+		guard let regularInterfaceSplitViewController = regularInterfaceSplitViewController else { return assertionFailure() }
+		remove(asChild: regularInterfaceSplitViewController)
 
 		sectionsTabBarController.changeInterfaceToCompactAppearance(with: regularInterfaceSplitDisplayMode)
 		setupCompactInterfaceToFront()

@@ -13,6 +13,7 @@ public class SectionsTabBarController: UITabBarController {
 	// MARK: Properties
 
 	/// When Safari news tapped from Spotlight or Favorites, changes in selectedIndex
+	/// default = false
 	private var isSafariNewsTapped = false
 
 	// MARK: View Controllers
