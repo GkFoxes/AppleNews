@@ -8,7 +8,7 @@
 
 import PravdaUIKit
 
-class SpotlightViewController: UIViewController {
+final class SpotlightViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()

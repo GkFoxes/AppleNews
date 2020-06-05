@@ -6,7 +6,7 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-public class SectionsTabBarController: UITabBarController {
+public final class SectionsTabBarController: UITabBarController {
 
 	// MARK: Properties
 

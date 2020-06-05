@@ -6,7 +6,7 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-public class MainContainerViewController: UIViewController {
+public final class MainContainerViewController: UIViewController {
 
 	// MARK: Properties
 

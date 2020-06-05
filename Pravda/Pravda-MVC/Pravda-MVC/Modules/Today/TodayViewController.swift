@@ -8,7 +8,7 @@
 
 import PravdaUIKit
 
-class TodayViewController: UIViewController {
+final class TodayViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()

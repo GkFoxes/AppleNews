@@ -9,7 +9,7 @@
 import PravdaUIKit
 import SafariServices
 
-class FavoritesViewController: UIViewController {
+final class FavoritesViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
