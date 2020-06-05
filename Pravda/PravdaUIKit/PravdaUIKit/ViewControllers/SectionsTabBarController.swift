@@ -6,8 +6,6 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-import UIKit
-
 public class SectionsTabBarController: UITabBarController {
 
 	// MARK: Properties
@@ -20,16 +18,16 @@ public class SectionsTabBarController: UITabBarController {
 
 	// Sections Tab have today, spotlight, favorites in Compact interface.
 	// But in Regular interface Tab have only spotlight, favorites.
-	private let todayNavigationViewController: UINavigationController
-	private let spotlightNavigationViewController: UINavigationController
-	private let favoritesNavigationViewController: UINavigationController
+	private let todayNavigationViewController: UIViewController
+	private let spotlightNavigationViewController: UIViewController
+	private let favoritesNavigationViewController: UIViewController
 
 	// MARK: Life Cycle
 
 	init(
-		todayNavigationViewController: UINavigationController,
-		spotlightNavigationViewController: UINavigationController,
-		favoritesNavigationViewController: UINavigationController
+		todayNavigationViewController: UIViewController,
+		spotlightNavigationViewController: UIViewController,
+		favoritesNavigationViewController: UIViewController
 	) {
 		self.todayNavigationViewController = todayNavigationViewController
 		self.spotlightNavigationViewController = spotlightNavigationViewController

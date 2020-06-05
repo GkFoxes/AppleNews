@@ -21,16 +21,16 @@ public class MainContainerViewController: UIViewController {
 
 	// Main Tab have only Sections TabBar in Compact interface.
 	// But in Regular interface have Sections in Master and Today in Detail.
-	private let todayNavigationViewController: UINavigationController
+	private let todayNavigationViewController: UIViewController
 	private let sectionsTabBarController: SectionsTabBarController
 	private var regularInterfaceSplitViewController: UISplitViewController?
 
 	// MARK: Life Cycle
 
 	public init(
-		todayNavigationViewController: UINavigationController,
-		spotlightNavigationViewController: UINavigationController,
-		favoritesNavigationViewController: UINavigationController
+		todayNavigationViewController: UIViewController,
+		spotlightNavigationViewController: UIViewController,
+		favoritesNavigationViewController: UIViewController
 	) {
 		self.todayNavigationViewController = todayNavigationViewController
 		self.sectionsTabBarController = SectionsTabBarController(
