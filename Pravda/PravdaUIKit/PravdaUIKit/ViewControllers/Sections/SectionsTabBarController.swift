@@ -29,22 +29,28 @@ final class SectionsTabBarController: UITabBarController {
 
 	// Sections Tab have today, spotlight, favorites in Compact interface.
 	// But in Regular interface Tab have only spotlight, favorites.
-	private let todayNavigationViewController: UIViewController
-	private let spotlightNavigationViewController: UIViewController
-	private let favoritesNavigationViewController: UIViewController
+	private let todayViewController: UIViewController
+	private let spotlightViewController: UIViewController
+	private let favoritesViewController: UIViewController
 
 	// MARK: Life Cycle
 
 	init(
-		todayNavigationViewController: UIViewController,
-		spotlightNavigationViewController: UIViewController,
-		favoritesNavigationViewController: UIViewController
+		todayViewController: UIViewController,
+		spotlightViewController: UIViewController,
+		favoritesViewController: UIViewController
 	) {
-		self.todayNavigationViewController = todayNavigationViewController
-		self.spotlightNavigationViewController = spotlightNavigationViewController
-		self.favoritesNavigationViewController = favoritesNavigationViewController
+		self.todayViewController = todayViewController
+		self.spotlightViewController = spotlightViewController
+		self.favoritesViewController = favoritesViewController
 
 		super.init(nibName: nil, bundle: nil)
+	}
+
+	override func loadView() {
+		super.loadView()
+
+		initialInterface()
 	}
 
 	@available(*, unavailable)
@@ -67,8 +73,8 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 	func setupRegularInterface(with selectedIndex: Int) {
 		// In regular always two sections in tab
 		viewControllers = [
-			spotlightNavigationViewController,
-			favoritesNavigationViewController
+			spotlightViewController,
+			favoritesViewController
 		]
 
 		self.selectedIndex = selectedIndex
@@ -77,9 +83,9 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 	func setupCompactInterface(with selectedIndex: Int) {
 		// In compact always three sections in tab
 		viewControllers = [
-			todayNavigationViewController,
-			spotlightNavigationViewController,
-			favoritesNavigationViewController
+			todayViewController,
+			spotlightViewController,
+			favoritesViewController
 		]
 
 		self.selectedIndex = selectedIndex
@@ -122,5 +128,17 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 		}
 
 		setupCompactInterface(with: selectedIndex)
+	}
+}
+
+private extension SectionsTabBarController {
+	func initialInterface() {
+		let appearance = UITabBarAppearance()
+		appearance.backgroundColor = .systemBackground
+		appearance.stackedLayoutAppearance.selected.titleTextAttributes = [
+			NSAttributedString.Key.foregroundColor: UIColor.systemPink
+		]
+
+		tabBar.standardAppearance = appearance
 	}
 }

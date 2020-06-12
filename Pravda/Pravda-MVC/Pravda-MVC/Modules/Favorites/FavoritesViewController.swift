@@ -11,11 +11,21 @@ import SafariServices
 
 final class FavoritesViewController: UIViewController {
 
+	init() {
+		super.init(nibName: nil, bundle: nil)
+		self.title = StringConstants.favoritesTitle
+		self.navigationItem.title = StringConstants.favoritesTitle
+	}
+
+	@available(*, unavailable)
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		self.view.backgroundColor = .green
-		self.navigationItem.title = StringConstants.favoritesTitle
 	}
 }
 

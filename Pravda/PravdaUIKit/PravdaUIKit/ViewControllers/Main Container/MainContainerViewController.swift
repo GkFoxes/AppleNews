@@ -23,22 +23,22 @@ public final class MainContainerViewController: UIViewController {
 
 	// Main Tab have only Sections TabBar in Compact interface.
 	// But in Regular interface have Sections in Master and Today in Detail.
-	private let todayNavigationViewController: UIViewController
+	private let todayViewController: UIViewController
 	private let sectionsTabBarController: SectionsTabBarControllerProtocol
 	private var regularInterfaceSplitViewController = UISplitViewController()
 
 	// MARK: Life Cycle
 
 	public init(
-		todayNavigationViewController: UIViewController,
-		spotlightNavigationViewController: UIViewController,
-		favoritesNavigationViewController: UIViewController
+		todayViewController: UIViewController,
+		spotlightViewController: UIViewController,
+		favoritesViewController: UIViewController
 	) {
-		self.todayNavigationViewController = todayNavigationViewController
+		self.todayViewController = todayViewController
 		self.sectionsTabBarController = SectionsTabBarController(
-			todayNavigationViewController: todayNavigationViewController,
-			spotlightNavigationViewController: spotlightNavigationViewController,
-			favoritesNavigationViewController: favoritesNavigationViewController
+			todayViewController: todayViewController,
+			spotlightViewController: spotlightViewController,
+			favoritesViewController: favoritesViewController
 		)
 
 		super.init(nibName: nil, bundle: nil)
@@ -87,7 +87,7 @@ private extension MainContainerViewController {
 		regularInterfaceSplitViewController = UISplitViewController()
 		regularInterfaceSplitViewController.viewControllers = [
 			sectionsTabBarController,
-			todayNavigationViewController
+			todayViewController
 		]
 
 		add(asChild: regularInterfaceSplitViewController)

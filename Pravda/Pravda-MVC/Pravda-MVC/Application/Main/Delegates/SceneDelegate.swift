@@ -34,9 +34,9 @@ private extension SceneDelegate {
 		window.windowScene = windowScene
 
 		window.rootViewController = MainContainerViewController(
-			todayNavigationViewController: UINavigationController(rootViewController: TodayViewController()),
-			spotlightNavigationViewController: UINavigationController(rootViewController: SpotlightViewController()),
-			favoritesNavigationViewController: UINavigationController(rootViewController: FavoritesViewController())
+			todayViewController: UINavigationController(rootViewController: TodayViewController()),
+			spotlightViewController: UINavigationController(rootViewController: SpotlightViewController()),
+			favoritesViewController: UINavigationController(rootViewController: FavoritesViewController())
 		)
 
 		window.makeKeyAndVisible()
