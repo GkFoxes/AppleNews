@@ -6,16 +6,30 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-import UIKit
+protocol MainContainerViewProtocol: UIView {
+	func add(asChild childView: UIView)
+}
 
-class MainContainerView: UIView {
+final class MainContainerView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+	// MARK: Life Cycle
 
+	init() {
+		super.init(frame: .zero)
+	}
+
+	@available(*, unavailable)
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+}
+
+// MARK: Setup Protocol
+
+extension MainContainerView: MainContainerViewProtocol {
+	func add(asChild childView: UIView) {
+		self.addSubview(childView)
+		childView.frame = self.bounds
+		childView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+	}
 }

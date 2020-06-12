@@ -17,13 +17,15 @@ public final class MainContainerViewController: UIViewController {
 	/// default = true
 	private var isInterfaceCompact = true
 
-	// MARK: View Controllers
+	// MARK: Views
+
+	private let mainContainerView: MainContainerViewProtocol = MainContainerView()
 
 	// Main Tab have only Sections TabBar in Compact interface.
 	// But in Regular interface have Sections in Master and Today in Detail.
 	private let todayNavigationViewController: UIViewController
 	private let sectionsTabBarController: SectionsTabBarController
-	private var regularInterfaceSplitViewController: UISplitViewController?
+	private var regularInterfaceSplitViewController = UISplitViewController()
 
 	// MARK: Life Cycle
 
@@ -47,9 +49,8 @@ public final class MainContainerViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	public override func viewDidLoad() {
-		super.viewDidLoad()
-
+	public override func loadView() {
+		self.view = mainContainerView
 		initialInterface()
 	}
 
@@ -62,7 +63,6 @@ public final class MainContainerViewController: UIViewController {
 	public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 		super.viewWillTransition(to: size, with: coordinator)
 
-		guard let regularInterfaceSplitViewController = regularInterfaceSplitViewController else { return assertionFailure() }
 		regularInterfaceSplitDisplayMode = regularInterfaceSplitViewController.displayMode
 	}
 }
@@ -83,12 +83,11 @@ private extension MainContainerViewController {
 
 	func setupRegularInterfaceToFront() {
 		regularInterfaceSplitViewController = UISplitViewController()
-		regularInterfaceSplitViewController?.viewControllers = [
+		regularInterfaceSplitViewController.viewControllers = [
 			sectionsTabBarController,
 			todayNavigationViewController
 		]
 
-		guard let regularInterfaceSplitViewController = regularInterfaceSplitViewController else { return assertionFailure() }
 		add(asChild: regularInterfaceSplitViewController)
 	}
 
@@ -98,10 +97,7 @@ private extension MainContainerViewController {
 
 	func add(asChild childViewController: UIViewController) {
 		addChild(childViewController)
-		self.view.addSubview(childViewController.view)
-
-		childViewController.view.frame = self.view.bounds
-		childViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+		mainContainerView.add(asChild: childViewController.view)
 		childViewController.didMove(toParent: self)
 	}
 
@@ -136,7 +132,6 @@ private extension MainContainerViewController {
 	}
 
 	func changeInterfaceToCompactAppearance() {
-		guard let regularInterfaceSplitViewController = regularInterfaceSplitViewController else { return assertionFailure() }
 		remove(asChild: regularInterfaceSplitViewController)
 
 		sectionsTabBarController.changeInterfaceToCompactAppearance(with: regularInterfaceSplitDisplayMode)
