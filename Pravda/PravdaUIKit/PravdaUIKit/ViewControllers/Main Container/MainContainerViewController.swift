@@ -24,7 +24,7 @@ public final class MainContainerViewController: UIViewController {
 	// Main Tab have only Sections TabBar in Compact interface.
 	// But in Regular interface have Sections in Master and Today in Detail.
 	private let todayNavigationViewController: UIViewController
-	private let sectionsTabBarController: SectionsTabBarController
+	private let sectionsTabBarController: SectionsTabBarControllerProtocol
 	private var regularInterfaceSplitViewController = UISplitViewController()
 
 	// MARK: Life Cycle
@@ -74,9 +74,11 @@ private extension MainContainerViewController {
 		switch getHorizontalAndVerticalSizeClasses() {
 		case (.regular, .regular):
 			isInterfaceCompact = false
+			sectionsTabBarController.setupRegularInterface(with: 0)
 			setupRegularInterfaceToFront()
 		default:
 			isInterfaceCompact = true
+			sectionsTabBarController.setupCompactInterface(with: 0)
 			setupCompactInterfaceToFront()
 		}
 	}

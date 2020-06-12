@@ -6,7 +6,18 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-public final class SectionsTabBarController: UITabBarController {
+public protocol SafariNewsTappedProtocol: UIViewController {
+	func safariNewsTapped()
+}
+
+protocol SectionsTabBarControllerProtocol: UIViewController {
+	func setupRegularInterface(with selectedIndex: Int)
+	func setupCompactInterface(with selectedIndex: Int)
+	func changeInterfaceToRegularAppearance()
+	func changeInterfaceToCompactAppearance(with displayMode: UISplitViewController.DisplayMode?)
+}
+
+final class SectionsTabBarController: UITabBarController {
 
 	// MARK: Properties
 
@@ -40,17 +51,11 @@ public final class SectionsTabBarController: UITabBarController {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-
-	public override func viewDidLoad() {
-		super.viewDidLoad()
-
-		initialInterface()
-	}
 }
 
 // MARK: Changes From Sections
 
-public extension SectionsTabBarController {
+extension SectionsTabBarController: SafariNewsTappedProtocol {
 	func safariNewsTapped() {
 		isSafariNewsTapped = true
 	}
@@ -58,7 +63,28 @@ public extension SectionsTabBarController {
 
 // MARK: Changes From MainContainer
 
-extension SectionsTabBarController {
+extension SectionsTabBarController: SectionsTabBarControllerProtocol {
+	func setupRegularInterface(with selectedIndex: Int) {
+		// In regular always two sections in tab
+		viewControllers = [
+			spotlightNavigationViewController,
+			favoritesNavigationViewController
+		]
+
+		self.selectedIndex = selectedIndex
+	}
+
+	func setupCompactInterface(with selectedIndex: Int) {
+		// In compact always three sections in tab
+		viewControllers = [
+			todayNavigationViewController,
+			spotlightNavigationViewController,
+			favoritesNavigationViewController
+		]
+
+		self.selectedIndex = selectedIndex
+	}
+
 	func changeInterfaceToRegularAppearance() {
 		guard viewControllers?.count == 3 else {
 			//To select the same section, even after changing interface to regular
@@ -96,39 +122,5 @@ extension SectionsTabBarController {
 		}
 
 		setupCompactInterface(with: selectedIndex)
-	}
-}
-
-// MARK: Setup Interface
-
-private extension SectionsTabBarController {
-	func initialInterface() {
-		switch getHorizontalAndVerticalSizeClasses() {
-		case (.regular, .regular):
-			setupRegularInterface()
-		default:
-			setupCompactInterface()
-		}
-	}
-
-	func setupRegularInterface(with selectedIndex: Int = 0) {
-		// In regular always two sections in tab
-		viewControllers = [
-			spotlightNavigationViewController,
-			favoritesNavigationViewController
-		]
-
-		self.selectedIndex = selectedIndex
-	}
-
-	func setupCompactInterface(with selectedIndex: Int = 0) {
-		// In compact always three sections in tab
-		viewControllers = [
-			todayNavigationViewController,
-			spotlightNavigationViewController,
-			favoritesNavigationViewController
-		]
-
-		self.selectedIndex = selectedIndex
 	}
 }

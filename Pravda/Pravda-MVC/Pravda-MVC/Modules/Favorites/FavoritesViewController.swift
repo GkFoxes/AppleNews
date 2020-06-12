@@ -28,8 +28,8 @@ extension FavoritesViewController: SFSafariViewControllerDelegate {
 					print("keka")
 				})
 
-				guard let rootViewController = getSectionsTabBarController() else { return }
-				rootViewController.safariNewsTapped()
+				guard let safariNewsTappedController = getSafariNewsTappedController() else { return }
+				safariNewsTappedController.safariNewsTapped()
 			} else {
 				let alert = UIAlertController(title: "Can not open this website",
 											  message: "Please check the existence of the website",

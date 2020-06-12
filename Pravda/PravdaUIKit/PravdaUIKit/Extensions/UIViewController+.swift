@@ -10,8 +10,8 @@ public extension UIViewController {
 
 	// MARK: Child Views
 
-	func getSectionsTabBarController() -> SectionsTabBarController? {
-		return UIApplication.shared.windows.first?.rootViewController?.children.first as? SectionsTabBarController
+	func getSafariNewsTappedController() -> SafariNewsTappedProtocol? {
+		return UIApplication.shared.windows.first?.rootViewController?.children.first as? SafariNewsTappedProtocol
 	}
 }
 
