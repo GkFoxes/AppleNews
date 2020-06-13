@@ -15,7 +15,7 @@ final class FavoritesViewController: UIViewController {
 		super.init(nibName: nil, bundle: nil)
 
 		self.navigationItem.title = Strings.favoritesTitle.rawValue
-		self.title = Strings.favoritesTitle.rawValue
+		self.tabBarItem.title = Strings.favoritesTitle.rawValue
 		self.tabBarItem.image = Assets.favoritesTab.image
 	}
 
@@ -28,6 +28,7 @@ final class FavoritesViewController: UIViewController {
 		super.viewDidLoad()
 
 		self.view.backgroundColor = .green
+		self.navigationController?.setupBoldDesignAppearances()
 	}
 }
 

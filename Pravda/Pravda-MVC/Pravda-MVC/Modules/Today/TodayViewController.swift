@@ -14,7 +14,7 @@ final class TodayViewController: UIViewController {
 		super.init(nibName: nil, bundle: nil)
 
 		self.navigationItem.title = Strings.todayNavigationTitle.rawValue
-		self.title = Strings.todayTabTitle.rawValue
+		self.tabBarItem.title = Strings.todayTabTitle.rawValue
 		self.tabBarItem.image = Assets.todayTab.image
 	}
 
@@ -27,6 +27,7 @@ final class TodayViewController: UIViewController {
 		super.viewDidLoad()
 
 		self.view.backgroundColor = .red
+		self.navigationController?.setupBlackDesignAppearances()
 
 		if let splitController = self.splitViewController {
 			self.navigationItem.leftBarButtonItem = splitController.displayModeButtonItem

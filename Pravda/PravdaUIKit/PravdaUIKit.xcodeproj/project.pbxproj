@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A900A7192494F81300AC4341 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900A7182494F81300AC4341 /* Assets.swift */; };
 		A91BE9BB2495029E0068CDF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91BE9BA2495029E0068CDF6 /* Assets.xcassets */; };
+		A99D202F249525F2004A7BDD /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D202E249525F2004A7BDD /* UINavigationController+.swift */; };
 		A9E415C2247D4B4000018A16 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E415C1247D4B4000018A16 /* Strings.swift */; };
 		A9E415C5247EE07D00018A16 /* SectionsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E415C4247EE07D00018A16 /* SectionsTabBarController.swift */; };
 		F00188712476EBE000518FF0 /* PravdaUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F001886F2476EBE000518FF0 /* PravdaUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		A900A7182494F81300AC4341 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		A91BE9BA2495029E0068CDF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A99D202E249525F2004A7BDD /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		A9E415C1247D4B4000018A16 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A9E415C4247EE07D00018A16 /* SectionsTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsTabBarController.swift; sourceTree = "<group>"; };
 		F001886C2476EBE000518FF0 /* PravdaUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PravdaUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +49,15 @@
 				A91BE9BA2495029E0068CDF6 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A99D202D2495235F004A7BDD /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				F001886F2476EBE000518FF0 /* PravdaUIKit.h */,
+				F00188702476EBE000518FF0 /* Info.plist */,
+			);
+			path = Supports;
 			sourceTree = "<group>";
 		};
 		A9E415C0247D4B2A00018A16 /* Constants */ = {
@@ -81,8 +92,7 @@
 				F00188812476F02600518FF0 /* Extensions */,
 				F00188772476EC2000518FF0 /* ViewControllers */,
 				A900A7152494F0EA00AC4341 /* Resources */,
-				F001886F2476EBE000518FF0 /* PravdaUIKit.h */,
-				F00188702476EBE000518FF0 /* Info.plist */,
+				A99D202D2495235F004A7BDD /* Supports */,
 			);
 			path = PravdaUIKit;
 			sourceTree = "<group>";
@@ -100,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				F00188822476F04500518FF0 /* UIViewController+.swift */,
+				A99D202E249525F2004A7BDD /* UINavigationController+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -222,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A99D202F249525F2004A7BDD /* UINavigationController+.swift in Sources */,
 				F00188832476F04500518FF0 /* UIViewController+.swift in Sources */,
 				A9E415C5247EE07D00018A16 /* SectionsTabBarController.swift in Sources */,
 				F0806728248E68A00096DAF5 /* MainContainerView.swift in Sources */,
@@ -363,7 +375,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = PravdaUIKit/Info.plist;
+				INFOPLIST_FILE = PravdaUIKit/Supports/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -388,7 +400,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = PravdaUIKit/Info.plist;
+				INFOPLIST_FILE = PravdaUIKit/Supports/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

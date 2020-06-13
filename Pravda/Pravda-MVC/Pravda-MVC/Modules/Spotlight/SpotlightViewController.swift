@@ -14,7 +14,7 @@ final class SpotlightViewController: UIViewController {
 		super.init(nibName: nil, bundle: nil)
 
 		self.navigationItem.title = Strings.spotlightTitle.rawValue
-		self.title = Strings.spotlightTitle.rawValue
+		self.tabBarItem.title = Strings.spotlightTitle.rawValue
 		self.tabBarItem.image = Assets.spotlightTab.image
 	}
 
@@ -27,5 +27,6 @@ final class SpotlightViewController: UIViewController {
 		super.viewDidLoad()
 
 		self.view.backgroundColor = .blue
+		self.navigationController?.setupBoldDesignAppearances()
 	}
 }
