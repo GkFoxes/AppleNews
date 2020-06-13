@@ -12,8 +12,10 @@ final class TodayViewController: UIViewController {
 
 	init() {
 		super.init(nibName: nil, bundle: nil)
-		self.title = StringConstants.todayTabTitle
-		self.navigationItem.title = StringConstants.todayNavigationTitle
+
+		self.navigationItem.title = Strings.todayNavigationTitle.rawValue
+		self.title = Strings.todayTabTitle.rawValue
+		self.tabBarItem.image = Assets.todayTab.image
 	}
 
 	@available(*, unavailable)

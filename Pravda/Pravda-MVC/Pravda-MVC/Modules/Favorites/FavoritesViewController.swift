@@ -13,8 +13,10 @@ final class FavoritesViewController: UIViewController {
 
 	init() {
 		super.init(nibName: nil, bundle: nil)
-		self.title = StringConstants.favoritesTitle
-		self.navigationItem.title = StringConstants.favoritesTitle
+
+		self.navigationItem.title = Strings.favoritesTitle.rawValue
+		self.title = Strings.favoritesTitle.rawValue
+		self.tabBarItem.image = Assets.favoritesTab.image
 	}
 
 	@available(*, unavailable)

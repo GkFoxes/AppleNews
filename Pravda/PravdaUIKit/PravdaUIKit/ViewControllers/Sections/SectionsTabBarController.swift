@@ -133,10 +133,13 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 
 private extension SectionsTabBarController {
 	func initialInterface() {
+		let selectedColor = UIColor.systemPink
+
 		let appearance = UITabBarAppearance()
 		appearance.backgroundColor = .systemBackground
+		appearance.stackedLayoutAppearance.selected.iconColor = selectedColor
 		appearance.stackedLayoutAppearance.selected.titleTextAttributes = [
-			NSAttributedString.Key.foregroundColor: UIColor.systemPink
+			NSAttributedString.Key.foregroundColor: selectedColor
 		]
 
 		tabBar.standardAppearance = appearance
