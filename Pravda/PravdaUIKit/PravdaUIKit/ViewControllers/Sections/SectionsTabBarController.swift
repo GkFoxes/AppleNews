@@ -50,7 +50,7 @@ final class SectionsTabBarController: UITabBarController {
 	override func loadView() {
 		super.loadView()
 
-		initialInterface()
+		setupDeisgnAppearances()
 	}
 
 	@available(*, unavailable)
@@ -131,16 +131,26 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 	}
 }
 
-private extension SectionsTabBarController {
-	func initialInterface() {
-		let selectedColor = UIColor.systemPink
+// MARK: Design
 
+private extension SectionsTabBarController {
+	func setupDeisgnAppearances() {
 		let appearance = UITabBarAppearance()
 		appearance.backgroundColor = .systemBackground
+
+		let selectedColor = UIColor.systemPink
+
 		appearance.stackedLayoutAppearance.selected.iconColor = selectedColor
-		appearance.stackedLayoutAppearance.selected.titleTextAttributes = [
+		appearance.inlineLayoutAppearance.selected.iconColor = selectedColor
+		appearance.compactInlineLayoutAppearance.selected.iconColor = selectedColor
+
+		let selectedTitleTextAttributes = [
 			NSAttributedString.Key.foregroundColor: selectedColor
 		]
+
+		appearance.stackedLayoutAppearance.selected.titleTextAttributes = selectedTitleTextAttributes
+		appearance.inlineLayoutAppearance.selected.titleTextAttributes = selectedTitleTextAttributes
+		appearance.compactInlineLayoutAppearance.selected.titleTextAttributes = selectedTitleTextAttributes
 
 		tabBar.standardAppearance = appearance
 	}
