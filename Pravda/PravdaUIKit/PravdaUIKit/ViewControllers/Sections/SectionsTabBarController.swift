@@ -28,7 +28,7 @@ final class SectionsTabBarController: UITabBarController {
 	// MARK: View Controllers
 
 	// Sections Tab have first, second, third in Compact interface.
-	// But in Regular interface Tab have only second, thihrd.
+	// But in Regular interface Tab have only second, third.
 	private let firstSectionViewController: UIViewController
 	private let secondSectionViewController: UIViewController
 	private let thirdSectionViewController: UIViewController

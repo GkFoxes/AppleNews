@@ -12,6 +12,7 @@
 		A99D202F249525F2004A7BDD /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D202E249525F2004A7BDD /* UINavigationController+.swift */; };
 		A9E415C2247D4B4000018A16 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E415C1247D4B4000018A16 /* Strings.swift */; };
 		A9E415C5247EE07D00018A16 /* SectionsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E415C4247EE07D00018A16 /* SectionsTabBarController.swift */; };
+		A9E7F15E24992E470053E46F /* MainContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E7F15D24992E470053E46F /* MainContainerFactory.swift */; };
 		F00188712476EBE000518FF0 /* PravdaUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F001886F2476EBE000518FF0 /* PravdaUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F00188792476EC2D00518FF0 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00188782476EC2D00518FF0 /* MainContainerViewController.swift */; };
 		F00188832476F04500518FF0 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00188822476F04500518FF0 /* UIViewController+.swift */; };
@@ -24,6 +25,7 @@
 		A99D202E249525F2004A7BDD /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		A9E415C1247D4B4000018A16 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A9E415C4247EE07D00018A16 /* SectionsTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsTabBarController.swift; sourceTree = "<group>"; };
+		A9E7F15D24992E470053E46F /* MainContainerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerFactory.swift; sourceTree = "<group>"; };
 		F001886C2476EBE000518FF0 /* PravdaUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PravdaUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F001886F2476EBE000518FF0 /* PravdaUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PravdaUIKit.h; sourceTree = "<group>"; };
 		F00188702476EBE000518FF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		A9E7F15C24992E2C0053E46F /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				A9E7F15D24992E470053E46F /* MainContainerFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
 		F00188622476EBE000518FF0 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				A9E415C0247D4B2A00018A16 /* Constants */,
+				A9E7F15C24992E2C0053E46F /* Factories */,
 				F00188812476F02600518FF0 /* Extensions */,
 				F00188772476EC2000518FF0 /* ViewControllers */,
 				A900A7152494F0EA00AC4341 /* Resources */,
@@ -238,6 +249,7 @@
 				A9E415C5247EE07D00018A16 /* SectionsTabBarController.swift in Sources */,
 				F0806728248E68A00096DAF5 /* MainContainerView.swift in Sources */,
 				F00188792476EC2D00518FF0 /* MainContainerViewController.swift in Sources */,
+				A9E7F15E24992E470053E46F /* MainContainerFactory.swift in Sources */,
 				A900A7192494F81300AC4341 /* Assets.swift in Sources */,
 				A9E415C2247D4B4000018A16 /* Strings.swift in Sources */,
 			);

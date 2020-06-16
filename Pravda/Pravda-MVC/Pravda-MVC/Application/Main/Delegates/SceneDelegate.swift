@@ -33,10 +33,14 @@ private extension SceneDelegate {
 		guard let window = window else { return assertionFailure() }
 		window.windowScene = windowScene
 
-		window.rootViewController = MainContainerViewController(
-			todayViewController: UINavigationController(rootViewController: TodayViewController()),
-			spotlightViewController: UINavigationController(rootViewController: SpotlightViewController()),
-			favoritesViewController: UINavigationController(rootViewController: FavoritesViewController())
+		let todayNavigationViewController = UINavigationController(rootViewController: TodayViewController())
+		let spotlightNavigationViewController = UINavigationController(rootViewController: SpotlightViewController())
+		let favoritesNavigationViewController = UINavigationController(rootViewController: FavoritesViewController())
+
+		window.rootViewController = MainContainerFactory.make(
+			firstSection: todayNavigationViewController,
+			secondSection: spotlightNavigationViewController,
+			thirdSection: favoritesNavigationViewController
 		)
 
 		window.makeKeyAndVisible()
