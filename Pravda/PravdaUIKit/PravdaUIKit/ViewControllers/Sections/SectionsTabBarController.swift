@@ -21,28 +21,28 @@ final class SectionsTabBarController: UITabBarController {
 
 	// MARK: Properties
 
-	/// When Safari news tapped from Spotlight or Favorites, changes in selectedIndex
+	/// When Safari news tapped from second or third sections, changes in selectedIndex
 	/// default = false
 	private var isSafariNewsTapped = false
 
 	// MARK: View Controllers
 
-	// Sections Tab have today, spotlight, favorites in Compact interface.
-	// But in Regular interface Tab have only spotlight, favorites.
-	private let todayViewController: UIViewController
-	private let spotlightViewController: UIViewController
-	private let favoritesViewController: UIViewController
+	// Sections Tab have first, second, third in Compact interface.
+	// But in Regular interface Tab have only second, thihrd.
+	private let firstSectionViewController: UIViewController
+	private let secondSectionViewController: UIViewController
+	private let thirdSectionViewController: UIViewController
 
 	// MARK: Life Cycle
 
 	init(
-		todayViewController: UIViewController,
-		spotlightViewController: UIViewController,
-		favoritesViewController: UIViewController
+		firstSectionViewController: UIViewController,
+		secondSectionViewController: UIViewController,
+		thirdSectionViewController: UIViewController
 	) {
-		self.todayViewController = todayViewController
-		self.spotlightViewController = spotlightViewController
-		self.favoritesViewController = favoritesViewController
+		self.firstSectionViewController = firstSectionViewController
+		self.secondSectionViewController = secondSectionViewController
+		self.thirdSectionViewController = thirdSectionViewController
 
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -73,8 +73,8 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 	func setupRegularInterface(with selectedIndex: Int) {
 		// In regular always two sections in tab
 		viewControllers = [
-			spotlightViewController,
-			favoritesViewController
+			secondSectionViewController,
+			thirdSectionViewController
 		]
 
 		self.selectedIndex = selectedIndex
@@ -83,9 +83,9 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 	func setupCompactInterface(with selectedIndex: Int) {
 		// In compact always three sections in tab
 		viewControllers = [
-			todayViewController,
-			spotlightViewController,
-			favoritesViewController
+			firstSectionViewController,
+			secondSectionViewController,
+			thirdSectionViewController
 		]
 
 		self.selectedIndex = selectedIndex
@@ -97,7 +97,7 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 			return setupRegularInterface(with: selectedIndex)
 		}
 
-		// Remove Today from sections and after setup selected Index
+		// Remove first section from sections and after setup selected Index
 		var selectedIndex = self.selectedIndex
 		viewControllers?.removeLast()
 		isSafariNewsTapped = false
@@ -120,7 +120,7 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 			selectedIndex += 1
 		} else {
 			if displayMode == .primaryHidden || displayMode == .allVisible {
-				//If Master view hidden or Today in read, show Today in compact tab
+				//If Master view hidden or first section in read, show it in compact tab
 				selectedIndex = 0
 			} else {
 				selectedIndex += 1

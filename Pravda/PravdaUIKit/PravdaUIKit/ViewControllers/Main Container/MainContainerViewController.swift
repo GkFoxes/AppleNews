@@ -6,7 +6,7 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-public final class MainContainerViewController: UIViewController {
+final class MainContainerViewController: UIViewController {
 
 	// MARK: Properties
 
@@ -22,24 +22,19 @@ public final class MainContainerViewController: UIViewController {
 	private let mainContainerView: MainContainerViewProtocol = MainContainerView()
 
 	// Main Tab have only Sections TabBar in Compact interface.
-	// But in Regular interface have Sections in Master and Today in Detail.
-	private let todayViewController: UIViewController
+	// But in Regular interface have Sections in Master and first section in Detail.
+	private let firstSectionViewController: UIViewController
 	private let sectionsTabBarController: SectionsTabBarControllerProtocol
-	private var regularInterfaceSplitViewController = UISplitViewController()
+	private lazy var regularInterfaceSplitViewController = UISplitViewController()
 
 	// MARK: Life Cycle
 
-	public init(
-		todayViewController: UIViewController,
-		spotlightViewController: UIViewController,
-		favoritesViewController: UIViewController
+	init(
+		firstSectionViewController: UIViewController,
+		sectionsTabBarController: SectionsTabBarControllerProtocol
 	) {
-		self.todayViewController = todayViewController
-		self.sectionsTabBarController = SectionsTabBarController(
-			todayViewController: todayViewController,
-			spotlightViewController: spotlightViewController,
-			favoritesViewController: favoritesViewController
-		)
+		self.firstSectionViewController = firstSectionViewController
+		self.sectionsTabBarController = sectionsTabBarController
 
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -87,7 +82,7 @@ private extension MainContainerViewController {
 		regularInterfaceSplitViewController = UISplitViewController()
 		regularInterfaceSplitViewController.viewControllers = [
 			sectionsTabBarController,
-			todayViewController
+			firstSectionViewController
 		]
 
 		add(asChild: regularInterfaceSplitViewController)
