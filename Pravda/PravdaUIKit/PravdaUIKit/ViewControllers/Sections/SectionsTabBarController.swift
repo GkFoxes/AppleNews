@@ -123,7 +123,7 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 				//If Master view hidden or first section in read, show it in compact tab
 				selectedIndex = 0
 			} else {
-				selectedIndex += 1
+				selectedIndex = 0
 			}
 		}
 
@@ -136,8 +136,6 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 private extension SectionsTabBarController {
 	func setupDeisgnAppearances() {
 		let appearance = UITabBarAppearance()
-		appearance.backgroundColor = .systemBackground
-
 		let selectedColor = UIColor.systemPink
 
 		appearance.stackedLayoutAppearance.selected.iconColor = selectedColor

@@ -13,9 +13,8 @@ final class MainContainerViewController: UIViewController {
 	/// The current arrangement of the split view controller’s contents Master and Detail views.
 	private var regularInterfaceSplitDisplayMode: UISplitViewController.DisplayMode?
 
-	/// The interface is always compact, except when the width and height are equal to (.regular, .regular).
-	/// default = true
-	private var isInterfaceCompact = true
+	/// The interface is always compact, except when the width and height are equal to (.regular, .regular)
+	private var isInterfaceCompact: Bool?
 
 	// MARK: Views
 
@@ -37,6 +36,8 @@ final class MainContainerViewController: UIViewController {
 		self.sectionsTabBarController = sectionsTabBarController
 
 		super.init(nibName: nil, bundle: nil)
+
+		initialInterface()
 	}
 
 	@available(*, unavailable)
@@ -46,10 +47,9 @@ final class MainContainerViewController: UIViewController {
 
 	public override func loadView() {
 		self.view = mainContainerView
-		initialInterface()
 	}
 
-	/// Change interface to compact or regular, when iPad change size classes.
+	/// Change interface to compact or regular only on iPad.
 	public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 		changeInterfaceIfNeeded()
 	}

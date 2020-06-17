@@ -27,7 +27,6 @@ private extension UINavigationController {
 		self.navigationBar.prefersLargeTitles = true
 
 		let appearance = UINavigationBarAppearance()
-		appearance.backgroundColor = .systemBackground
 
 		let titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0, weight: weight)]
 		appearance.titleTextAttributes = titleTextAttributes
