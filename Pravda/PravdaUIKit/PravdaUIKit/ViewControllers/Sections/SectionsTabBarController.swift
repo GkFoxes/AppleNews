@@ -11,8 +11,6 @@ public protocol SafariNewsTappedProtocol: UIViewController {
 }
 
 protocol SectionsTabBarControllerProtocol: UIViewController {
-	func setupRegularInterface(with selectedIndex: Int)
-	func setupCompactInterface(with selectedIndex: Int)
 	func changeInterfaceToRegularAppearance()
 	func changeInterfaceToCompactAppearance(with displayMode: UISplitViewController.DisplayMode?)
 }
@@ -45,6 +43,8 @@ final class SectionsTabBarController: UITabBarController {
 		self.thirdSectionViewController = thirdSectionViewController
 
 		super.init(nibName: nil, bundle: nil)
+
+		initialInterface()
 	}
 
 	override func loadView() {
@@ -70,48 +70,16 @@ extension SectionsTabBarController: SafariNewsTappedProtocol {
 // MARK: Changes From MainContainer
 
 extension SectionsTabBarController: SectionsTabBarControllerProtocol {
-	func setupRegularInterface(with selectedIndex: Int) {
-		// In regular always two sections in tab
-		viewControllers = [
-			secondSectionViewController,
-			thirdSectionViewController
-		]
-
-		self.selectedIndex = selectedIndex
-	}
-
-	func setupCompactInterface(with selectedIndex: Int) {
-		// In compact always three sections in tab
-		viewControllers = [
-			firstSectionViewController,
-			secondSectionViewController,
-			thirdSectionViewController
-		]
-
-		self.selectedIndex = selectedIndex
-	}
-
 	func changeInterfaceToRegularAppearance() {
-		guard viewControllers?.count == 3 else {
-			//To select the same section, even after changing interface to regular
-			return setupRegularInterface(with: selectedIndex)
-		}
-
-		// Remove first section from sections and after setup selected Index
-		var selectedIndex = self.selectedIndex
-		viewControllers?.removeLast()
 		isSafariNewsTapped = false
+
+		var selectedIndex = self.selectedIndex
 		selectedIndex -= 1
 
 		setupRegularInterface(with: selectedIndex)
 	}
 
 	func changeInterfaceToCompactAppearance(with displayMode: UISplitViewController.DisplayMode?) {
-		guard viewControllers?.count == 2 else {
-			// To select the same section, even after changing interface to compact
-			return setupCompactInterface(with: selectedIndex)
-		}
-
 		var selectedIndex = self.selectedIndex
 
 		if isSafariNewsTapped == true {
@@ -119,11 +87,11 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 			isSafariNewsTapped = false
 			selectedIndex += 1
 		} else {
-			if displayMode == .primaryHidden || displayMode == .allVisible {
+			if displayMode == .primaryHidden || displayMode == .allVisible || displayMode == nil {
 				//If Master view hidden or first section in read, show it in compact tab
 				selectedIndex = 0
 			} else {
-				selectedIndex = 0
+				selectedIndex += 1
 			}
 		}
 
@@ -134,6 +102,36 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 // MARK: Design
 
 private extension SectionsTabBarController {
+	func initialInterface() {
+		switch getHorizontalAndVerticalSizeClasses() {
+		case (.regular, .regular):
+			setupRegularInterface()
+		default:
+			setupCompactInterface()
+		}
+	}
+
+	func setupRegularInterface(with selectedIndex: Int = 0) {
+		// In regular always two sections in tab
+		viewControllers = [
+			secondSectionViewController,
+			thirdSectionViewController
+		]
+
+		self.selectedIndex = selectedIndex
+	}
+
+	func setupCompactInterface(with selectedIndex: Int = 0) {
+		// In compact always three sections in tab
+		viewControllers = [
+			firstSectionViewController,
+			secondSectionViewController,
+			thirdSectionViewController
+		]
+
+		self.selectedIndex = selectedIndex
+	}
+
 	func setupDeisgnAppearances() {
 		let appearance = UITabBarAppearance()
 		let selectedColor = UIColor.systemPink

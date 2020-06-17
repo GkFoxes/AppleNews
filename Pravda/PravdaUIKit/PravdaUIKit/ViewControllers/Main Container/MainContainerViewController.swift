@@ -69,11 +69,9 @@ private extension MainContainerViewController {
 		switch getHorizontalAndVerticalSizeClasses() {
 		case (.regular, .regular):
 			isInterfaceCompact = false
-			sectionsTabBarController.setupRegularInterface(with: 0)
 			setupRegularInterfaceToFront()
 		default:
 			isInterfaceCompact = true
-			sectionsTabBarController.setupCompactInterface(with: 0)
 			setupCompactInterfaceToFront()
 		}
 	}
