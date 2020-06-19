@@ -73,10 +73,7 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 	func changeInterfaceToRegularAppearance() {
 		isSafariNewsTapped = false
 
-		var selectedIndex = self.selectedIndex
-		selectedIndex -= 1
-
-		setupRegularInterface(with: selectedIndex)
+		self.viewControllers?.removeFirst()
 	}
 
 	func changeInterfaceToCompactAppearance(with displayMode: UISplitViewController.DisplayMode?) {
@@ -95,11 +92,12 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 			}
 		}
 
-		setupCompactInterface(with: selectedIndex)
+		self.viewControllers?.insert(firstSectionViewController, at: 0)
+		self.selectedIndex = selectedIndex
 	}
 }
 
-// MARK: Design
+// MARK: Setup Interface
 
 private extension SectionsTabBarController {
 	func initialInterface() {
@@ -111,31 +109,28 @@ private extension SectionsTabBarController {
 		}
 	}
 
-	func setupRegularInterface(with selectedIndex: Int = 0) {
+	func setupRegularInterface() {
 		// In regular always two sections in tab
 		viewControllers = [
 			secondSectionViewController,
 			thirdSectionViewController
 		]
-
-		self.selectedIndex = selectedIndex
 	}
 
-	func setupCompactInterface(with selectedIndex: Int = 0) {
+	func setupCompactInterface() {
 		// In compact always three sections in tab
 		viewControllers = [
 			firstSectionViewController,
 			secondSectionViewController,
 			thirdSectionViewController
 		]
-
-		self.selectedIndex = selectedIndex
 	}
 
 	func setupDeisgnAppearances() {
 		let appearance = UITabBarAppearance()
 		let selectedColor = UIColor.systemPink
 
+		appearance.backgroundColor = .systemBackground
 		appearance.stackedLayoutAppearance.selected.iconColor = selectedColor
 		appearance.inlineLayoutAppearance.selected.iconColor = selectedColor
 		appearance.compactInlineLayoutAppearance.selected.iconColor = selectedColor

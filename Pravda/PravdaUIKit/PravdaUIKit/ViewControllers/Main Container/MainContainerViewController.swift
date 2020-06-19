@@ -24,7 +24,7 @@ final class MainContainerViewController: UIViewController {
 	// But in Regular interface have Sections in Master and first section in Detail.
 	private let firstSectionViewController: UIViewController
 	private let sectionsTabBarController: SectionsTabBarControllerProtocol
-	private lazy var regularInterfaceSplitViewController = UISplitViewController()
+	private let regularInterfaceSplitViewController = UISplitViewController()
 
 	// MARK: Life Cycle
 
@@ -77,7 +77,6 @@ private extension MainContainerViewController {
 	}
 
 	func setupRegularInterfaceToFront() {
-		regularInterfaceSplitViewController = UISplitViewController()
 		regularInterfaceSplitViewController.viewControllers = [
 			sectionsTabBarController,
 			firstSectionViewController
@@ -88,18 +87,6 @@ private extension MainContainerViewController {
 
 	func setupCompactInterfaceToFront() {
 		add(asChild: sectionsTabBarController)
-	}
-
-	func add(asChild childViewController: UIViewController) {
-		addChild(childViewController)
-		mainContainerView.add(asChild: childViewController.view)
-		childViewController.didMove(toParent: self)
-	}
-
-	func remove(asChild childViewController: UIViewController) {
-		childViewController.willMove(toParent: nil)
-		childViewController.view.removeFromSuperview()
-		childViewController.removeFromParent()
 	}
 }
 
@@ -120,16 +107,37 @@ private extension MainContainerViewController {
 	}
 
 	func changeInterfaceToRegularAppearance() {
+		sectionsTabBarController.changeInterfaceToRegularAppearance()
 		remove(asChild: sectionsTabBarController)
 
-		sectionsTabBarController.changeInterfaceToRegularAppearance()
-		setupRegularInterfaceToFront()
+		// Check if there are not two of them, we haven't added controllers to the array before
+		if regularInterfaceSplitViewController.viewControllers.count != 2 {
+			regularInterfaceSplitViewController.viewControllers.append(sectionsTabBarController)
+			regularInterfaceSplitViewController.viewControllers.append(firstSectionViewController)
+		}
+
+		add(asChild: regularInterfaceSplitViewController)
 	}
 
 	func changeInterfaceToCompactAppearance() {
-		remove(asChild: regularInterfaceSplitViewController)
-
 		sectionsTabBarController.changeInterfaceToCompactAppearance(with: regularInterfaceSplitDisplayMode)
-		setupCompactInterfaceToFront()
+		remove(asChild: regularInterfaceSplitViewController)
+		add(asChild: sectionsTabBarController)
+	}
+}
+
+// MARK: Changing Hierarchy
+
+private extension MainContainerViewController {
+	func add(asChild childViewController: UIViewController) {
+		addChild(childViewController)
+		mainContainerView.add(asChild: childViewController.view)
+		childViewController.didMove(toParent: self)
+	}
+
+	func remove(asChild childViewController: UIViewController) {
+		childViewController.willMove(toParent: nil)
+		childViewController.view.removeFromSuperview()
+		childViewController.removeFromParent()
 	}
 }
