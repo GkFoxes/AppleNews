@@ -23,14 +23,18 @@ final class TodayViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
+	override func loadView() {
+		super.loadView()
 
 		self.view.backgroundColor = .red
 		self.navigationController?.setupBlackDesignAppearances()
+	}
 
-		if let splitController = self.splitViewController {
-			self.navigationItem.leftBarButtonItem = splitController.displayModeButtonItem
-		}
+	override func viewDidLoad() {
+		super.viewDidLoad()
+
+//		if let splitController = self.splitViewController {
+//			self.navigationItem.leftBarButtonItem = splitController.displayModeButtonItem
+//		}
 	}
 }
