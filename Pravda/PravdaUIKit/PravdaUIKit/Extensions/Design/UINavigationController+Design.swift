@@ -1,5 +1,5 @@
 //
-//  UINavigationController+.swift
+//  UINavigationController+Design.swift
 //  PravdaUIKit
 //
 //  Created by Дмитрий Матвеенко on 13.06.2020.

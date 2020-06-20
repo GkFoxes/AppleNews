@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A900A7192494F81300AC4341 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900A7182494F81300AC4341 /* Assets.swift */; };
 		A91BE9BB2495029E0068CDF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91BE9BA2495029E0068CDF6 /* Assets.xcassets */; };
-		A99D202F249525F2004A7BDD /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D202E249525F2004A7BDD /* UINavigationController+.swift */; };
+		A99D202F249525F2004A7BDD /* UINavigationController+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D202E249525F2004A7BDD /* UINavigationController+Design.swift */; };
 		A9E415C2247D4B4000018A16 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E415C1247D4B4000018A16 /* Strings.swift */; };
 		A9E415C5247EE07D00018A16 /* SectionsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E415C4247EE07D00018A16 /* SectionsTabBarController.swift */; };
 		A9E7F15E24992E470053E46F /* MainContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E7F15D24992E470053E46F /* MainContainerFactory.swift */; };
@@ -22,7 +22,7 @@
 /* Begin PBXFileReference section */
 		A900A7182494F81300AC4341 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		A91BE9BA2495029E0068CDF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A99D202E249525F2004A7BDD /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
+		A99D202E249525F2004A7BDD /* UINavigationController+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Design.swift"; sourceTree = "<group>"; };
 		A9E415C1247D4B4000018A16 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A9E415C4247EE07D00018A16 /* SectionsTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsTabBarController.swift; sourceTree = "<group>"; };
 		A9E7F15D24992E470053E46F /* MainContainerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerFactory.swift; sourceTree = "<group>"; };
@@ -51,6 +51,14 @@
 				A91BE9BA2495029E0068CDF6 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A9533900249E285F000AD0B9 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				A99D202E249525F2004A7BDD /* UINavigationController+Design.swift */,
+			);
+			path = Design;
 			sourceTree = "<group>";
 		};
 		A99D202D2495235F004A7BDD /* Supports */ = {
@@ -120,8 +128,8 @@
 		F00188812476F02600518FF0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A9533900249E285F000AD0B9 /* Design */,
 				F00188822476F04500518FF0 /* UIViewController+.swift */,
-				A99D202E249525F2004A7BDD /* UINavigationController+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -244,7 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A99D202F249525F2004A7BDD /* UINavigationController+.swift in Sources */,
+				A99D202F249525F2004A7BDD /* UINavigationController+Design.swift in Sources */,
 				F00188832476F04500518FF0 /* UIViewController+.swift in Sources */,
 				A9E415C5247EE07D00018A16 /* SectionsTabBarController.swift in Sources */,
 				F0806728248E68A00096DAF5 /* MainContainerView.swift in Sources */,

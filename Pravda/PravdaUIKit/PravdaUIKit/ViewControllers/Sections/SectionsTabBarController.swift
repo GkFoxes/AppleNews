@@ -111,7 +111,7 @@ private extension SectionsTabBarController {
 
 	func setupRegularInterface() {
 		// In regular always two sections in tab
-		viewControllers = [
+		self.viewControllers = [
 			secondSectionViewController,
 			thirdSectionViewController
 		]
@@ -119,7 +119,7 @@ private extension SectionsTabBarController {
 
 	func setupCompactInterface() {
 		// In compact always three sections in tab
-		viewControllers = [
+		self.viewControllers = [
 			firstSectionViewController,
 			secondSectionViewController,
 			thirdSectionViewController
