@@ -79,14 +79,6 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		A9E7F15C24992E2C0053E46F /* Factories */ = {
-			isa = PBXGroup;
-			children = (
-				A9E7F15D24992E470053E46F /* MainContainerFactory.swift */,
-			);
-			path = Factories;
-			sourceTree = "<group>";
-		};
 		F00188622476EBE000518FF0 = {
 			isa = PBXGroup;
 			children = (
@@ -107,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				A9E415C0247D4B2A00018A16 /* Constants */,
-				A9E7F15C24992E2C0053E46F /* Factories */,
 				F00188812476F02600518FF0 /* Extensions */,
 				F00188772476EC2000518FF0 /* ViewControllers */,
 				A900A7152494F0EA00AC4341 /* Resources */,
@@ -137,6 +128,7 @@
 		F0806725248E68750096DAF5 /* Main Container */ = {
 			isa = PBXGroup;
 			children = (
+				A9E7F15D24992E470053E46F /* MainContainerFactory.swift */,
 				F0806727248E68A00096DAF5 /* MainContainerView.swift */,
 				F00188782476EC2D00518FF0 /* MainContainerViewController.swift */,
 			);
