@@ -100,6 +100,7 @@
 			children = (
 				A9E415C0247D4B2A00018A16 /* Constants */,
 				F00188812476F02600518FF0 /* Extensions */,
+				F0EBC93D24BCC11E005CFE7F /* Components */,
 				F00188772476EC2000518FF0 /* ViewControllers */,
 				A900A7152494F0EA00AC4341 /* Resources */,
 				A99D202D2495235F004A7BDD /* Supports */,
@@ -141,6 +142,13 @@
 				A9E415C4247EE07D00018A16 /* SectionsTabBarController.swift */,
 			);
 			path = Sections;
+			sourceTree = "<group>";
+		};
+		F0EBC93D24BCC11E005CFE7F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
