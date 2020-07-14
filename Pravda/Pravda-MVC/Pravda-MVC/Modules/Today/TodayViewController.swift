@@ -10,6 +10,8 @@ import PravdaUIKit
 
 final class TodayViewController: UIViewController {
 
+	// MARK: Life Cycle
+
 	init() {
 		super.init(nibName: nil, bundle: nil)
 
@@ -38,6 +40,8 @@ final class TodayViewController: UIViewController {
 //		}
 	}
 }
+
+// MARK: Setup Canvas
 
 import SwiftUI
 
