@@ -38,3 +38,25 @@ final class TodayViewController: UIViewController {
 //		}
 	}
 }
+
+import SwiftUI
+
+struct MyProvider: PreviewProvider {
+
+	static var previews: some View {
+		ContainerView().edgesIgnoringSafeArea(.all)
+	}
+
+	struct ContainerView: UIViewControllerRepresentable {
+		func makeUIViewController(
+			context: UIViewControllerRepresentableContext<MyProvider.ContainerView>
+		) -> TodayViewController {
+			return TodayViewController()
+		}
+
+		func updateUIViewController(
+			_ uiViewController: MyProvider.ContainerView.UIViewControllerType,
+			context: UIViewControllerRepresentableContext<MyProvider.ContainerView>
+		) { }
+	}
+}
