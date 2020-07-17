@@ -19,7 +19,7 @@ final class TodayViewController: UIViewController {
 	// MARK: Views
 
 	private lazy var collectionView: UICollectionView = {
-		return UICollectionView(frame: view.bounds, collectionViewLayout: makeCollectionViewCompositionalLayout())
+		return UICollectionView(frame: .zero, collectionViewLayout: makeCollectionViewCompositionalLayout())
 	}()
 
 	// MARK: Life Cycle
@@ -98,17 +98,21 @@ private extension TodayViewController {
 	}
 
 	func makeCollectionViewCompositionalLayout() -> UICollectionViewLayout {
-		let titleNewsTopicItem = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
+		let estimatedHeight = TitleNewsTopicCollectionViewCell.getEstimatedHeight()
+		let topStoriesLayoutSize = NSCollectionLayoutSize(
 			widthDimension: .fractionalWidth(1.0),
-			heightDimension: .fractionalHeight(1.0)
-		))
+			heightDimension: .estimated(estimatedHeight)
+		)
 
-		titleNewsTopicItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
+		let titleNewsTopicItem = NSCollectionLayoutItem(layoutSize: topStoriesLayoutSize)
+		let horizontalInsets: CGFloat = 16
+		titleNewsTopicItem.contentInsets = NSDirectionalEdgeInsets(
+			top: 0, leading: horizontalInsets, bottom: 0, trailing: horizontalInsets
+		)
 
-		let topStoriesGroup = NSCollectionLayoutGroup.vertical(layoutSize: NSCollectionLayoutSize(
-			widthDimension: .fractionalWidth(1.0),
-			heightDimension: .estimated(236)
-		), subitems: [titleNewsTopicItem])
+		let topStoriesGroup = NSCollectionLayoutGroup.vertical(
+			layoutSize: topStoriesLayoutSize, subitem: titleNewsTopicItem, count: 1
+		)
 
 		let section = NSCollectionLayoutSection(group: topStoriesGroup)
 		let layout = UICollectionViewCompositionalLayout(section: section)

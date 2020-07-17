@@ -20,7 +20,12 @@ struct TodayNewsItem {
 extension TodayNewsItem {
 	static func makeMock() -> [Self] {
 		return [
-			TodayNewsItem(imageURL: nil, source: "foo1", title: "foo2", timePublication: "foo3"),
+			TodayNewsItem(
+				imageURL: nil,
+				source: "foo1",
+				title: "foo2 foo2 foo2 foo2 foo2 foo2 foo2 foo2 foo2 foo2 foo2",
+				timePublication: "foo3"
+			),
 			TodayNewsItem(imageURL: nil, source: "bar1", title: "bar2", timePublication: "bar3"),
 			TodayNewsItem(imageURL: nil, source: "baz1", title: "baz2", timePublication: "baz3"),
 			TodayNewsItem(imageURL: nil, source: "foo1", title: "bar2", timePublication: "baz3")

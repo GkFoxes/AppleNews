@@ -11,6 +11,8 @@ import PravdaUIKit
 protocol TitleNewsTopicCollectionViewCellProtocol: UICollectionViewCell {
 	static var reuseIdentifer: String { get }
 
+	static func getEstimatedHeight() -> CGFloat
+
 	func setupContent(image: UIImage?, source: String, title: String, timePublication: String)
 }
 
@@ -38,13 +40,19 @@ class TitleNewsTopicCollectionViewCell: UICollectionViewCell {
 	}
 }
 
+// MARK: Setup Views TitleNewsTopicCollectionViewCellProtocol
+
 extension TitleNewsTopicCollectionViewCell: TitleNewsTopicCollectionViewCellProtocol {
 	static var reuseIdentifer: String {
 		return String(describing: TitleNewsTopicCollectionViewCell.self)
 	}
 
+	static func getEstimatedHeight() -> CGFloat {
+		return 216.0
+	}
+
 	func setupContent(image: UIImage?, source: String, title: String, timePublication: String) {
-		imageView.image = Assets.todayTab.image
+		imageView.image = Assets.todayTab.image //temp
 		sourceLabel.text = source
 		titleLabel.text = title
 		timePublicationLabel.text = timePublication
@@ -71,10 +79,11 @@ private extension TitleNewsTopicCollectionViewCell {
 
 	func setupTitleLabelAppearances() {
 		titleLabel.font = UIFont.systemFont(ofSize: 21.0, weight: .bold)
+		titleLabel.numberOfLines = 0
 	}
 
 	func setupTimePublicationLabelAppearances() {
-		titleLabel.font = UIFont.systemFont(ofSize: 11.0, weight: .regular)
+		timePublicationLabel.font = UIFont.systemFont(ofSize: 11.0, weight: .regular)
 	}
 }
 
@@ -85,6 +94,7 @@ private extension TitleNewsTopicCollectionViewCell {
 		setupImageViewLayout()
 		setupSourceLabelLayout()
 		setupTitleLabelLayout()
+		setupTimePublicationLabelLayout()
 	}
 
 	func setupImageViewLayout() {
@@ -92,14 +102,11 @@ private extension TitleNewsTopicCollectionViewCell {
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
-			// Aspect ratio 4:3
-			imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 4/3),
-
 			imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-
 			imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-			imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+			// Aspect ratio height 3, weight 4
+			imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 3/4)
 		])
 	}
 
@@ -110,8 +117,8 @@ private extension TitleNewsTopicCollectionViewCell {
 		NSLayoutConstraint.activate([
 			sourceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			sourceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-
-			imageView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 4)
+			sourceLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 4),
+			sourceLabel.heightAnchor.constraint(equalToConstant: 18)
 		])
 	}
 
@@ -122,8 +129,8 @@ private extension TitleNewsTopicCollectionViewCell {
 		NSLayoutConstraint.activate([
 			titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-
-			titleLabel.topAnchor.constraint(equalTo: sourceLabel.bottomAnchor, constant: 4)
+			titleLabel.topAnchor.constraint(equalTo: sourceLabel.bottomAnchor, constant: 4),
+			titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 26)
 		])
 	}
 
@@ -134,32 +141,9 @@ private extension TitleNewsTopicCollectionViewCell {
 		NSLayoutConstraint.activate([
 			timePublicationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			timePublicationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-
-			timePublicationLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8)
+			timePublicationLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+			timePublicationLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+			timePublicationLabel.heightAnchor.constraint(equalToConstant: 14)
 		])
-	}
-}
-
-// MARK: Setup Canvas
-
-import SwiftUI
-
-struct TitleNewsTopicCollectionViewCellProvider: PreviewProvider {
-
-	static var previews: some View {
-		ContainerView().edgesIgnoringSafeArea(.all)
-	}
-
-	struct ContainerView: UIViewControllerRepresentable {
-		func makeUIViewController(
-			context: UIViewControllerRepresentableContext<TitleNewsTopicCollectionViewCellProvider.ContainerView>
-		) -> TodayViewController {
-			return TodayViewController()
-		}
-
-		func updateUIViewController(
-			_ uiViewController: TitleNewsTopicCollectionViewCellProvider.ContainerView.UIViewControllerType,
-			context: UIViewControllerRepresentableContext<TitleNewsTopicCollectionViewCellProvider.ContainerView>
-		) { }
 	}
 }
