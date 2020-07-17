@@ -8,19 +8,32 @@
 
 import Foundation
 
-struct TodayNewsItem: Hashable {
+struct TodayNewsItem {
 	let imageURL: URL?
 	let source: String
 	let title: String
 	let timePublication: String
 
 	private let identifier = UUID()
+}
 
+extension TodayNewsItem {
+	static func makeMock() -> [Self] {
+		return [
+			TodayNewsItem(imageURL: nil, source: "foo1", title: "foo2", timePublication: "foo3"),
+			TodayNewsItem(imageURL: nil, source: "bar1", title: "bar2", timePublication: "bar3"),
+			TodayNewsItem(imageURL: nil, source: "baz1", title: "baz2", timePublication: "baz3"),
+			TodayNewsItem(imageURL: nil, source: "foo1", title: "bar2", timePublication: "baz3")
+		]
+	}
+}
+
+extension TodayNewsItem: Hashable {
 	func hash(into hasher: inout Hasher) {
 		hasher.combine(identifier)
 	}
 
-	static func == (lhs: TodayNewsItem, rhs: TodayNewsItem) -> Bool {
+	static func == (lhs: Self, rhs: Self) -> Bool {
 		return lhs.identifier == rhs.identifier
 	}
 }

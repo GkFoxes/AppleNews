@@ -12,15 +12,14 @@ final class TodayViewController: UIViewController {
 
 	// MARK: Properties
 
-//	private lazy var dataSource: UICollectionViewDiffableDataSource<TodaySections, TodayNewsItem> = {
-//		setupCollectionViewDataSource()
-//	}()
-	private var dataSource: UICollectionViewDiffableDataSource<TodaySections, TodayNewsItem>!
+	private lazy var dataSource: UICollectionViewDiffableDataSource<TodaySections, TodayNewsItem> = {
+		makeCollectionViewDiffableDataSource()
+	}()
 
 	// MARK: Views
 
 	private lazy var collectionView: UICollectionView = {
-		return UICollectionView(frame: view.bounds, collectionViewLayout: setupCollectionViewCompositionalLayout())
+		return UICollectionView(frame: view.bounds, collectionViewLayout: makeCollectionViewCompositionalLayout())
 	}()
 
 	// MARK: Life Cycle
@@ -45,7 +44,7 @@ final class TodayViewController: UIViewController {
 
 		setupCollectionViewAppearances()
 		setupCollectionViewLayout()
-		setupCollectionViewDataSource()
+		setupCurrentStateSnapshot()
 	}
 
 	override func viewDidLoad() {
@@ -98,7 +97,7 @@ private extension TodayViewController {
 		])
 	}
 
-	func setupCollectionViewCompositionalLayout() -> UICollectionViewLayout {
+	func makeCollectionViewCompositionalLayout() -> UICollectionViewLayout {
 		let titleNewsTopicItem = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
 			widthDimension: .fractionalWidth(1.0),
 			heightDimension: .fractionalHeight(1.0)
@@ -108,7 +107,7 @@ private extension TodayViewController {
 
 		let topStoriesGroup = NSCollectionLayoutGroup.vertical(layoutSize: NSCollectionLayoutSize(
 			widthDimension: .fractionalWidth(1.0),
-			heightDimension: .fractionalHeight(1/3)
+			heightDimension: .estimated(236)
 		), subitems: [titleNewsTopicItem])
 
 		let section = NSCollectionLayoutSection(group: topStoriesGroup)
@@ -120,8 +119,8 @@ private extension TodayViewController {
 // MARK: Setup Data Source
 
 private extension TodayViewController {
-	func setupCollectionViewDataSource() {
-		dataSource = UICollectionViewDiffableDataSource<TodaySections, TodayNewsItem>(
+	func makeCollectionViewDiffableDataSource() -> UICollectionViewDiffableDataSource<TodaySections, TodayNewsItem> {
+		return UICollectionViewDiffableDataSource<TodaySections, TodayNewsItem>(
 			collectionView: collectionView
 		) { (collectionView: UICollectionView, indexPath: IndexPath, detailItem: TodayNewsItem)
 			-> UICollectionViewCell? in
@@ -142,7 +141,9 @@ private extension TodayViewController {
 			)
 			return titleNewsTopicCell
 		}
+	}
 
+	func setupCurrentStateSnapshot() {
 		let snapshot = getCurrentStateSnapshot()
 		dataSource.apply(snapshot, animatingDifferences: true)
 	}
@@ -151,38 +152,8 @@ private extension TodayViewController {
 		var snapshot = NSDiffableDataSourceSnapshot<TodaySections, TodayNewsItem>()
 		snapshot.appendSections([TodaySections.topStories])
 
-		let todayNewsItems = [
-			TodayNewsItem(imageURL: nil, source: "foo", title: "foo", timePublication: "foo"),
-			TodayNewsItem(imageURL: nil, source: "bar", title: "bar", timePublication: "bar"),
-			TodayNewsItem(imageURL: nil, source: "baz", title: "baz", timePublication: "baz"),
-			TodayNewsItem(imageURL: nil, source: "foo", title: "bar", timePublication: "baz")
-		]
-
+		let todayNewsItems = TodayNewsItem.makeMock()
 		snapshot.appendItems(todayNewsItems)
 		return snapshot
-	}
-}
-
-// MARK: Setup Canvas
-
-import SwiftUI
-
-struct TodayViewControllerProvider: PreviewProvider {
-
-	static var previews: some View {
-		ContainerView().edgesIgnoringSafeArea(.all)
-	}
-
-	struct ContainerView: UIViewControllerRepresentable {
-		func makeUIViewController(
-			context: UIViewControllerRepresentableContext<TodayViewControllerProvider.ContainerView>
-		) -> TodayViewController {
-			return TodayViewController()
-		}
-
-		func updateUIViewController(
-			_ uiViewController: TodayViewControllerProvider.ContainerView.UIViewControllerType,
-			context: UIViewControllerRepresentableContext<TodayViewControllerProvider.ContainerView>
-		) { }
 	}
 }
