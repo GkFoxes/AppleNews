@@ -18,6 +18,15 @@ protocol TitleNewsTopicCollectionViewCellProtocol: UICollectionViewCell {
 
 class TitleNewsTopicCollectionViewCell: UICollectionViewCell {
 
+	// MARK: Properties
+
+	private enum Constants: CGFloat {
+		case labelsDistance = 8
+		case sourceLabelHeight = 17
+		case titleLabelHeight = 32
+		case timePublicationLabelHeight = 12
+	}
+
 	// MARK: Views
 
 	private let imageView = UIImageView()
@@ -52,7 +61,7 @@ extension TitleNewsTopicCollectionViewCell: TitleNewsTopicCollectionViewCellProt
 	}
 
 	func setupContent(image: UIImage?, source: String, title: String, timePublication: String) {
-		imageView.image = UIImage(systemName: "pencil.and.outline") //temp
+		imageView.image = Assets.test.image //temp
 		sourceLabel.text = source
 		titleLabel.text = title
 		timePublicationLabel.text = timePublication
@@ -76,16 +85,18 @@ private extension TitleNewsTopicCollectionViewCell {
 	}
 
 	func setupSourceLabelAppearances() {
-		sourceLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .medium)
+		sourceLabel.font = .systemFont(ofSize: 14.0, weight: .semibold)
+		sourceLabel.textColor = .darkGray
 	}
 
 	func setupTitleLabelAppearances() {
-		titleLabel.font = UIFont.systemFont(ofSize: 21.0, weight: .bold)
+		titleLabel.font = .systemFont(ofSize: 26.0, weight: .heavy)
 		titleLabel.numberOfLines = 0
 	}
 
 	func setupTimePublicationLabelAppearances() {
-		timePublicationLabel.font = UIFont.systemFont(ofSize: 11.0, weight: .regular)
+		timePublicationLabel.font = .systemFont(ofSize: 10.0, weight: .medium)
+		timePublicationLabel.textColor = .gray
 	}
 }
 
@@ -119,8 +130,8 @@ private extension TitleNewsTopicCollectionViewCell {
 		NSLayoutConstraint.activate([
 			sourceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			sourceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-			sourceLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 4),
-			sourceLabel.heightAnchor.constraint(equalToConstant: 18)
+			sourceLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: Constants.labelsDistance.rawValue),
+			sourceLabel.heightAnchor.constraint(equalToConstant: Constants.sourceLabelHeight.rawValue)
 		])
 	}
 
@@ -131,8 +142,8 @@ private extension TitleNewsTopicCollectionViewCell {
 		NSLayoutConstraint.activate([
 			titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-			titleLabel.topAnchor.constraint(equalTo: sourceLabel.bottomAnchor, constant: 4),
-			titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 26)
+			titleLabel.topAnchor.constraint(equalTo: sourceLabel.bottomAnchor, constant: Constants.labelsDistance.rawValue),
+			titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: Constants.titleLabelHeight.rawValue)
 		])
 	}
 
@@ -143,9 +154,13 @@ private extension TitleNewsTopicCollectionViewCell {
 		NSLayoutConstraint.activate([
 			timePublicationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			timePublicationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-			timePublicationLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-			timePublicationLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-			timePublicationLabel.heightAnchor.constraint(equalToConstant: 14)
+			timePublicationLabel.topAnchor.constraint(
+				equalTo: titleLabel.bottomAnchor, constant: Constants.labelsDistance.rawValue
+			),
+			timePublicationLabel.bottomAnchor.constraint(
+				equalTo: contentView.bottomAnchor, constant: -2 * Constants.labelsDistance.rawValue
+			),
+			timePublicationLabel.heightAnchor.constraint(equalToConstant: Constants.timePublicationLabelHeight.rawValue)
 		])
 	}
 }

@@ -13,6 +13,7 @@ public enum Assets: String {
 	case todayTab
 	case spotlightTab
 	case favoritesTab
+	case test
 
 	var name: String {
 		return self.rawValue
