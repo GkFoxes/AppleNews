@@ -24,8 +24,7 @@ extension TodayNewsItem {
 				imageURL: nil,
 				source: "USA TODAY",
 				title: "Rep. John Lewis, a civil rights icon who began pushing for racial justice in the Jim Crow south, has died",
-				timePublication: "57m ago"
-			),
+				timePublication: "57m ago"),
 			TodayNewsItem(imageURL: nil, source: "bar1", title: "bar2", timePublication: "bar3"),
 			TodayNewsItem(imageURL: nil, source: "baz1", title: "baz2", timePublication: "baz3"),
 			TodayNewsItem(imageURL: nil, source: "foo1", title: "bar2", timePublication: "baz3")

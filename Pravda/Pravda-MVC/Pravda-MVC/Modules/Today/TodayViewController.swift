@@ -74,8 +74,7 @@ private extension TodayViewController {
 		collectionView.delegate = self
 		collectionView.register(
 			TitleNewsTopicCollectionViewCell.self,
-			forCellWithReuseIdentifier: TitleNewsTopicCollectionViewCell.reuseIdentifer
-		)
+			forCellWithReuseIdentifier: TitleNewsTopicCollectionViewCell.reuseIdentifer)
 
 		collectionView.backgroundColor = .systemBackground
 	}
@@ -104,12 +103,10 @@ private extension TodayViewController {
 		let titleNewsTopicItem = NSCollectionLayoutItem(layoutSize: topStoriesLayoutSize)
 
 		let topStoriesGroup = NSCollectionLayoutGroup.horizontal(
-			layoutSize: topStoriesLayoutSize, subitem: titleNewsTopicItem, count: 1
-		)
+			layoutSize: topStoriesLayoutSize, subitem: titleNewsTopicItem, count: 1)
 		let horizontalInsets: CGFloat = 21
 		topStoriesGroup.contentInsets = NSDirectionalEdgeInsets(
-			top: 0, leading: horizontalInsets, bottom: 0, trailing: horizontalInsets
-		)
+			top: 0, leading: horizontalInsets, bottom: 0, trailing: horizontalInsets)
 
 		let section = NSCollectionLayoutSection(group: topStoriesGroup)
 		let layout = UICollectionViewCompositionalLayout(section: section)
@@ -127,8 +124,7 @@ private extension TodayViewController {
 			-> UICollectionViewCell? in
 			guard let titleNewsTopicCell = collectionView.dequeueReusableCell(
 				withReuseIdentifier: TitleNewsTopicCollectionViewCell.reuseIdentifer,
-				for: indexPath
-				) as? TitleNewsTopicCollectionViewCellProtocol
+				for: indexPath) as? TitleNewsTopicCollectionViewCellProtocol
 			else {
 				assertionFailure("Couldn't create TitleNewsTopic Cell")
 				return UICollectionViewCell()
@@ -138,8 +134,7 @@ private extension TodayViewController {
 				image: nil,
 				source: detailItem.source,
 				title: detailItem.title,
-				timePublication: detailItem.timePublication
-			)
+				timePublication: detailItem.timePublication)
 			return titleNewsTopicCell
 		}
 	}

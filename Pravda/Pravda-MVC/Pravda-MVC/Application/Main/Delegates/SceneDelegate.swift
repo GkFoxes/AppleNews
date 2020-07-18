@@ -40,9 +40,7 @@ private extension SceneDelegate {
 		window.rootViewController = MainContainerFactory.make(
 			firstSection: todayNavigationViewController,
 			secondSection: spotlightNavigationViewController,
-			thirdSection: favoritesNavigationViewController
-		)
-
+			thirdSection: favoritesNavigationViewController)
 		window.makeKeyAndVisible()
 	}
 }
