@@ -98,20 +98,18 @@ private extension TodayViewController {
 	}
 
 	func makeCollectionViewCompositionalLayout() -> UICollectionViewLayout {
-		let estimatedHeight = TitleNewsTopicCollectionViewCell.getEstimatedHeight()
 		let topStoriesLayoutSize = NSCollectionLayoutSize(
 			widthDimension: .fractionalWidth(1.0),
-			heightDimension: .estimated(estimatedHeight)
+			heightDimension: .estimated(TitleNewsTopicCollectionViewCell.getEstimatedHeight())
 		)
-
 		let titleNewsTopicItem = NSCollectionLayoutItem(layoutSize: topStoriesLayoutSize)
-		let horizontalInsets: CGFloat = 16
-		titleNewsTopicItem.contentInsets = NSDirectionalEdgeInsets(
-			top: 0, leading: horizontalInsets, bottom: 0, trailing: horizontalInsets
-		)
 
-		let topStoriesGroup = NSCollectionLayoutGroup.vertical(
+		let topStoriesGroup = NSCollectionLayoutGroup.horizontal(
 			layoutSize: topStoriesLayoutSize, subitem: titleNewsTopicItem, count: 1
+		)
+		let horizontalInsets: CGFloat = 16
+		topStoriesGroup.contentInsets = NSDirectionalEdgeInsets(
+			top: 0, leading: horizontalInsets, bottom: 0, trailing: horizontalInsets
 		)
 
 		let section = NSCollectionLayoutSection(group: topStoriesGroup)

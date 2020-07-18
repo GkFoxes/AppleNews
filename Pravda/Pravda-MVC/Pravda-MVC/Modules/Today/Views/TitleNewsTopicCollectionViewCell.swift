@@ -52,7 +52,7 @@ extension TitleNewsTopicCollectionViewCell: TitleNewsTopicCollectionViewCellProt
 	}
 
 	func setupContent(image: UIImage?, source: String, title: String, timePublication: String) {
-		imageView.image = Assets.todayTab.image //temp
+		imageView.image = UIImage(systemName: "pencil.and.outline") //temp
 		sourceLabel.text = source
 		titleLabel.text = title
 		timePublicationLabel.text = timePublication
@@ -71,6 +71,8 @@ private extension TitleNewsTopicCollectionViewCell {
 
 	func setupImageViewAppearances() {
 		imageView.layer.cornerRadius = 4
+		imageView.contentMode = .scaleAspectFill
+		imageView.clipsToBounds = true
 	}
 
 	func setupSourceLabelAppearances() {
