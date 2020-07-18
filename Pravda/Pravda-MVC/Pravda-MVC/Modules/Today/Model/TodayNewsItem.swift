@@ -17,20 +17,31 @@ struct TodayNewsItem {
 	private let identifier = UUID()
 }
 
+// MARK: Mock Data
+
 extension TodayNewsItem {
-	static func makeMock() -> [Self] {
+	static func makeTopStoriesMock() -> [Self] {
 		return [
 			TodayNewsItem(
 				imageURL: nil,
 				source: "USA TODAY",
-				title: "Rep. John Lewis, a civil rights icon who began pushing for racial justice in the Jim Crow south, has died",
-				timePublication: "57m ago"),
-			TodayNewsItem(imageURL: nil, source: "bar1", title: "bar2", timePublication: "bar3"),
-			TodayNewsItem(imageURL: nil, source: "baz1", title: "baz2", timePublication: "baz3"),
-			TodayNewsItem(imageURL: nil, source: "foo1", title: "bar2", timePublication: "baz3")
+				title: "Rep. John Lewis, a civil rights icon who began pushing for racial justice in south, has died",
+				timePublication: "57m ago")
+		]
+	}
+
+	static func makeScienceMock() -> [Self] {
+		return [
+			TodayNewsItem(
+				imageURL: nil,
+				source: "Science alert",
+				title: "Study of Over 1 Million People Finds Intriguing",
+				timePublication: "2h ago")
 		]
 	}
 }
+
+// MARK: Hashable Protocol
 
 extension TodayNewsItem: Hashable {
 	func hash(into hasher: inout Hasher) {

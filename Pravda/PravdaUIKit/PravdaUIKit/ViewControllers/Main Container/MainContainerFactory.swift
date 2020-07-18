@@ -15,13 +15,11 @@ public final class MainContainerFactory {
 		let sectionsTabBarController: SectionsTabBarControllerProtocol = SectionsTabBarController(
 			firstSectionViewController: firstSection,
 			secondSectionViewController: secondSection,
-			thirdSectionViewController: thirdSection
-		)
+			thirdSectionViewController: thirdSection)
 
 		let mainContainerViewController = MainContainerViewController(
 			firstSectionViewController: firstSection,
-			sectionsTabBarController: sectionsTabBarController
-		)
+			sectionsTabBarController: sectionsTabBarController)
 
 		return mainContainerViewController
 	}

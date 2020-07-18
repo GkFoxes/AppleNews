@@ -44,7 +44,7 @@ final class TodayViewController: UIViewController {
 
 		setupCollectionViewAppearances()
 		setupCollectionViewLayout()
-		setupCurrentStateSnapshot()
+		setupDataSource()
 	}
 
 	override func viewDidLoad() {
@@ -72,9 +72,14 @@ extension TodayViewController: UICollectionViewDelegate {
 private extension TodayViewController {
 	func setupCollectionViewAppearances() {
 		collectionView.delegate = self
+
 		collectionView.register(
 			TitleNewsTopicCollectionViewCell.self,
 			forCellWithReuseIdentifier: TitleNewsTopicCollectionViewCell.reuseIdentifer)
+		collectionView.register(
+			TodaySectionHeaderCollectionReusableView.self,
+			forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+			withReuseIdentifier: TodaySectionHeaderCollectionReusableView.reuseIdentifer)
 
 		collectionView.backgroundColor = .systemBackground
 	}
@@ -109,8 +114,22 @@ private extension TodayViewController {
 			top: 0, leading: horizontalInsets, bottom: 0, trailing: horizontalInsets)
 
 		let section = NSCollectionLayoutSection(group: topStoriesGroup)
+		section.boundarySupplementaryItems = [makeSectionHeaderLayout()]
+
 		let layout = UICollectionViewCompositionalLayout(section: section)
 		return layout
+	}
+
+	func makeSectionHeaderLayout() -> NSCollectionLayoutBoundarySupplementaryItem {
+		let sectionHeaderLayoutSize = NSCollectionLayoutSize(
+			widthDimension: .fractionalWidth(1.0),
+			heightDimension: .estimated(TodaySectionHeaderCollectionReusableView.getEstimatedHeight()))
+
+		let sectionHeaderLayout = NSCollectionLayoutBoundarySupplementaryItem(
+			layoutSize: sectionHeaderLayoutSize,
+			elementKind: UICollectionView.elementKindSectionHeader,
+			alignment: .top)
+		return sectionHeaderLayout
 	}
 }
 
@@ -139,17 +158,41 @@ private extension TodayViewController {
 		}
 	}
 
-	func setupCurrentStateSnapshot() {
-		let snapshot = getCurrentStateSnapshot()
-		dataSource.apply(snapshot, animatingDifferences: true)
+	func setupDataSource() {
+		setupSectionHeaderProvider()
+		dataSource.apply(getCurrentStateSnapshot(), animatingDifferences: true)
 	}
 
 	func getCurrentStateSnapshot() -> NSDiffableDataSourceSnapshot<TodaySections, TodayNewsItem> {
 		var snapshot = NSDiffableDataSourceSnapshot<TodaySections, TodayNewsItem>()
-		snapshot.appendSections([TodaySections.topStories])
+		snapshot.appendSections([.topStories, .science])
 
-		let todayNewsItems = TodayNewsItem.makeMock()
-		snapshot.appendItems(todayNewsItems)
+		let topStoriesItems = TodayNewsItem.makeTopStoriesMock()
+		snapshot.appendItems(topStoriesItems, toSection: .topStories)
+
+		let scienceItems = TodayNewsItem.makeScienceMock()
+		snapshot.appendItems(scienceItems, toSection: .science)
+
 		return snapshot
+	}
+
+	func setupSectionHeaderProvider() {
+		dataSource.supplementaryViewProvider = {
+			(collectionView: UICollectionView, kind: String, indexPath: IndexPath) -> UICollectionReusableView? in
+			guard
+				let sectionItem = self.dataSource.itemIdentifier(for: indexPath),
+				let section = self.dataSource.snapshot().sectionIdentifier(containingItem: sectionItem),
+				let sectionHeader = collectionView.dequeueReusableSupplementaryView(
+					ofKind: kind,
+					withReuseIdentifier: TodaySectionHeaderCollectionReusableView.reuseIdentifer,
+					for: indexPath) as? TodaySectionHeaderCollectionReusableViewProtocol
+				else {
+					assertionFailure("Couldn't create TodaySectionHeader")
+					return nil
+			}
+
+			sectionHeader.setupContent(title: section.rawValue, textColor: section.color)
+			return sectionHeader
+		}
 	}
 }

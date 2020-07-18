@@ -23,7 +23,7 @@ class TitleNewsTopicCollectionViewCell: UICollectionViewCell {
 	private enum Constants: CGFloat {
 		case labelsDistance = 8
 		case sourceLabelHeight = 17
-		case titleLabelHeight = 32
+		case titleLabelHeight = 31
 		case timePublicationLabelHeight = 12
 	}
 
@@ -49,7 +49,7 @@ class TitleNewsTopicCollectionViewCell: UICollectionViewCell {
 	}
 }
 
-// MARK: Setup Views TitleNewsTopicCollectionViewCellProtocol
+// MARK: Setup TitleNewsTopicCollectionViewCellProtocol
 
 extension TitleNewsTopicCollectionViewCell: TitleNewsTopicCollectionViewCellProtocol {
 	static var reuseIdentifer: String {
@@ -57,7 +57,7 @@ extension TitleNewsTopicCollectionViewCell: TitleNewsTopicCollectionViewCellProt
 	}
 
 	static func getEstimatedHeight() -> CGFloat {
-		return 216.0
+		return 350.0
 	}
 
 	func setupContent(image: UIImage?, source: String, title: String, timePublication: String) {
@@ -86,7 +86,7 @@ private extension TitleNewsTopicCollectionViewCell {
 
 	func setupSourceLabelAppearances() {
 		sourceLabel.font = .systemFont(ofSize: 14.0, weight: .semibold)
-		sourceLabel.textColor = .darkGray
+		sourceLabel.textColor = .systemGray
 	}
 
 	func setupTitleLabelAppearances() {
@@ -96,7 +96,7 @@ private extension TitleNewsTopicCollectionViewCell {
 
 	func setupTimePublicationLabelAppearances() {
 		timePublicationLabel.font = .systemFont(ofSize: 10.0, weight: .medium)
-		timePublicationLabel.textColor = .gray
+		timePublicationLabel.textColor = .systemGray2
 	}
 }
 
@@ -155,11 +155,9 @@ private extension TitleNewsTopicCollectionViewCell {
 			timePublicationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			timePublicationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 			timePublicationLabel.topAnchor.constraint(
-				equalTo: titleLabel.bottomAnchor, constant: Constants.labelsDistance.rawValue
-			),
+				equalTo: titleLabel.bottomAnchor, constant: Constants.labelsDistance.rawValue),
 			timePublicationLabel.bottomAnchor.constraint(
-				equalTo: contentView.bottomAnchor, constant: -2 * Constants.labelsDistance.rawValue
-			),
+				equalTo: contentView.bottomAnchor, constant: -2 * Constants.labelsDistance.rawValue),
 			timePublicationLabel.heightAnchor.constraint(equalToConstant: Constants.timePublicationLabelHeight.rawValue)
 		])
 	}
