@@ -58,7 +58,7 @@ extension TodaySectionHeaderCollectionReusableView: TodaySectionHeaderCollection
 
 private extension TodaySectionHeaderCollectionReusableView {
 	func setupSectionHeaderLabelAppearances() {
-		sectionHeaderLabel.font = .systemFont(ofSize: 32.0, weight: .black)
+		sectionHeaderLabel.font = .systemFont(ofSize: 30.0, weight: .black)
 	}
 }
 
@@ -70,10 +70,14 @@ private extension TodaySectionHeaderCollectionReusableView {
 		sectionHeaderLabel.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
-			sectionHeaderLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-			sectionHeaderLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-			sectionHeaderLabel.topAnchor.constraint(equalTo: topAnchor),
-			sectionHeaderLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+			sectionHeaderLabel.leadingAnchor.constraint(
+				equalTo: leadingAnchor, constant: TodayLayout.horizontalInsets.rawValue),
+			sectionHeaderLabel.trailingAnchor.constraint(
+				equalTo: trailingAnchor, constant: TodayLayout.horizontalInsets.rawValue),
+			sectionHeaderLabel.topAnchor.constraint(
+				equalTo: topAnchor, constant: TodayLayout.labelsDistance.rawValue),
+			sectionHeaderLabel.bottomAnchor.constraint(
+				equalTo: bottomAnchor, constant: -2 * TodayLayout.labelsDistance.rawValue)
 		])
 	}
 }

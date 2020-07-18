@@ -109,9 +109,11 @@ private extension TodayViewController {
 
 		let topStoriesGroup = NSCollectionLayoutGroup.horizontal(
 			layoutSize: topStoriesLayoutSize, subitem: titleNewsTopicItem, count: 1)
-		let horizontalInsets: CGFloat = 21
 		topStoriesGroup.contentInsets = NSDirectionalEdgeInsets(
-			top: 0, leading: horizontalInsets, bottom: 0, trailing: horizontalInsets)
+			top: 0,
+			leading: TodayLayout.horizontalInsets.rawValue,
+			bottom: 0,
+			trailing: TodayLayout.horizontalInsets.rawValue)
 
 		let section = NSCollectionLayoutSection(group: topStoriesGroup)
 		section.boundarySupplementaryItems = [makeSectionHeaderLayout()]

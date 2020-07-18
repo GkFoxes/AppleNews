@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A900A7192494F81300AC4341 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900A7182494F81300AC4341 /* Assets.swift */; };
 		A91BE9BB2495029E0068CDF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91BE9BA2495029E0068CDF6 /* Assets.xcassets */; };
+		A97C7CA324C3690000EFFCA3 /* TodayLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C7CA224C3690000EFFCA3 /* TodayLayout.swift */; };
 		A99D202F249525F2004A7BDD /* UINavigationController+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D202E249525F2004A7BDD /* UINavigationController+Design.swift */; };
 		A9E415C2247D4B4000018A16 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E415C1247D4B4000018A16 /* Strings.swift */; };
 		A9E415C5247EE07D00018A16 /* SectionsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E415C4247EE07D00018A16 /* SectionsTabBarController.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		A900A7182494F81300AC4341 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		A91BE9BA2495029E0068CDF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A97C7CA224C3690000EFFCA3 /* TodayLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayLayout.swift; sourceTree = "<group>"; };
 		A99D202E249525F2004A7BDD /* UINavigationController+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Design.swift"; sourceTree = "<group>"; };
 		A9E415C1247D4B4000018A16 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A9E415C4247EE07D00018A16 /* SectionsTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsTabBarController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,14 @@
 			path = Design;
 			sourceTree = "<group>";
 		};
+		A97C7CA124C368E900EFFCA3 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				A97C7CA224C3690000EFFCA3 /* TodayLayout.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
 		A99D202D2495235F004A7BDD /* Supports */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +85,7 @@
 			children = (
 				A9E415C1247D4B4000018A16 /* Strings.swift */,
 				A900A7182494F81300AC4341 /* Assets.swift */,
+				A97C7CA124C368E900EFFCA3 /* Layout */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -259,6 +270,7 @@
 				F00188792476EC2D00518FF0 /* MainContainerViewController.swift in Sources */,
 				A9E7F15E24992E470053E46F /* MainContainerFactory.swift in Sources */,
 				A900A7192494F81300AC4341 /* Assets.swift in Sources */,
+				A97C7CA324C3690000EFFCA3 /* TodayLayout.swift in Sources */,
 				A9E415C2247D4B4000018A16 /* Strings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,7 +21,6 @@ class TitleNewsTopicCollectionViewCell: UICollectionViewCell {
 	// MARK: Properties
 
 	private enum Constants: CGFloat {
-		case labelsDistance = 8
 		case sourceLabelHeight = 17
 		case titleLabelHeight = 31
 		case timePublicationLabelHeight = 12
@@ -130,7 +129,7 @@ private extension TitleNewsTopicCollectionViewCell {
 		NSLayoutConstraint.activate([
 			sourceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			sourceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-			sourceLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: Constants.labelsDistance.rawValue),
+			sourceLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: TodayLayout.labelsDistance.rawValue),
 			sourceLabel.heightAnchor.constraint(equalToConstant: Constants.sourceLabelHeight.rawValue)
 		])
 	}
@@ -142,7 +141,7 @@ private extension TitleNewsTopicCollectionViewCell {
 		NSLayoutConstraint.activate([
 			titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-			titleLabel.topAnchor.constraint(equalTo: sourceLabel.bottomAnchor, constant: Constants.labelsDistance.rawValue),
+			titleLabel.topAnchor.constraint(equalTo: sourceLabel.bottomAnchor, constant: TodayLayout.labelsDistance.rawValue),
 			titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: Constants.titleLabelHeight.rawValue)
 		])
 	}
@@ -155,9 +154,9 @@ private extension TitleNewsTopicCollectionViewCell {
 			timePublicationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			timePublicationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 			timePublicationLabel.topAnchor.constraint(
-				equalTo: titleLabel.bottomAnchor, constant: Constants.labelsDistance.rawValue),
+				equalTo: titleLabel.bottomAnchor, constant: TodayLayout.labelsDistance.rawValue),
 			timePublicationLabel.bottomAnchor.constraint(
-				equalTo: contentView.bottomAnchor, constant: -2 * Constants.labelsDistance.rawValue),
+				equalTo: contentView.bottomAnchor, constant: -2 * TodayLayout.labelsDistance.rawValue),
 			timePublicationLabel.heightAnchor.constraint(equalToConstant: Constants.timePublicationLabelHeight.rawValue)
 		])
 	}
