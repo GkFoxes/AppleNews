@@ -8,7 +8,7 @@
 
 import PravdaUIKit
 
-enum TodaySections: String {
+enum TodaySections: String, CaseIterable {
 	case topStories = "Top Stories"
 	case science = "Science"
 	case fashion = "Fashion"

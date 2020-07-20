@@ -102,24 +102,49 @@ private extension TodayViewController {
 	}
 
 	func makeCollectionViewCompositionalLayout() -> UICollectionViewLayout {
-		let topStoriesLayoutSize = NSCollectionLayoutSize(
-			widthDimension: .fractionalWidth(1.0),
-			heightDimension: .estimated(TitleNewsTopicCollectionViewCell.getEstimatedHeight()))
-		let titleNewsTopicItem = NSCollectionLayoutItem(layoutSize: topStoriesLayoutSize)
+		let nestedGroup = NSCollectionLayoutGroup.vertical(
+			layoutSize: NSCollectionLayoutSize(
+				widthDimension: .fractionalWidth(1.0),
+				heightDimension: .estimated(TitleNewsTopicCollectionViewCell.getEstimatedHeight() + 300)), //temp
+			subitems: [makeTitleNewsGroup(), makeNewsGroup()])
 
-		let topStoriesGroup = NSCollectionLayoutGroup.horizontal(
-			layoutSize: topStoriesLayoutSize, subitem: titleNewsTopicItem, count: 1)
-		topStoriesGroup.contentInsets = NSDirectionalEdgeInsets(
-			top: 0,
-			leading: TodayLayout.horizontalInsets.rawValue,
-			bottom: 0,
-			trailing: TodayLayout.horizontalInsets.rawValue)
-
-		let section = NSCollectionLayoutSection(group: topStoriesGroup)
+		let section = NSCollectionLayoutSection(group: nestedGroup)
 		section.boundarySupplementaryItems = [makeSectionHeaderLayout()]
 
 		let layout = UICollectionViewCompositionalLayout(section: section)
 		return layout
+	}
+
+	func makeTitleNewsGroup() -> NSCollectionLayoutGroup {
+		let titleNewsLayoutSize = NSCollectionLayoutSize(
+			widthDimension: .fractionalWidth(1.0),
+			heightDimension: .estimated(TitleNewsTopicCollectionViewCell.getEstimatedHeight()))
+		let titleNewsTopicItem = NSCollectionLayoutItem(layoutSize: titleNewsLayoutSize)
+
+		let titleNewsGroup = NSCollectionLayoutGroup.horizontal(
+			layoutSize: titleNewsLayoutSize, subitem: titleNewsTopicItem, count: 1)
+		titleNewsGroup.contentInsets = NSDirectionalEdgeInsets(
+			top: 0,
+			leading: TodayLayout.horizontalInsets.rawValue,
+			bottom: 0,
+			trailing: TodayLayout.horizontalInsets.rawValue)
+		return titleNewsGroup
+	}
+
+	func makeNewsGroup() -> NSCollectionLayoutGroup {
+		let newsLayoutSize = NSCollectionLayoutSize(
+			widthDimension: .fractionalWidth(0.8),
+			heightDimension: .estimated(TitleNewsTopicCollectionViewCell.getEstimatedHeight()))
+		let newsTopicItem = NSCollectionLayoutItem(layoutSize: newsLayoutSize)
+
+		let newsGroup = NSCollectionLayoutGroup.horizontal(
+			layoutSize: newsLayoutSize, subitem: newsTopicItem, count: 2)
+		newsGroup.contentInsets = NSDirectionalEdgeInsets(
+			top: 0,
+			leading: TodayLayout.horizontalInsets.rawValue,
+			bottom: 0,
+			trailing: TodayLayout.horizontalInsets.rawValue)
+		return newsGroup
 	}
 
 	func makeSectionHeaderLayout() -> NSCollectionLayoutBoundarySupplementaryItem {
