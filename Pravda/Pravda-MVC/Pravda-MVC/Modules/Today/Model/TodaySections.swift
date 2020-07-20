@@ -10,8 +10,9 @@ import PravdaUIKit
 
 enum TodaySections: String, CaseIterable {
 	case topStories = "Top Stories"
+	case otherTopStories
 	case science = "Science"
-	case fashion = "Fashion"
+	case otherScience
 }
 
 // MARK: Setup UIColor
@@ -21,7 +22,7 @@ extension TodaySections {
 		switch self {
 		case .topStories: return .systemRed
 		case .science: return .systemIndigo
-		case .fashion: return .systemTeal
+		default: return .systemBackground
 		}
 	}
 }

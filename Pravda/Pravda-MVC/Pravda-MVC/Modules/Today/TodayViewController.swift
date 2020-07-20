@@ -77,6 +77,9 @@ private extension TodayViewController {
 			TitleNewsTopicCollectionViewCell.self,
 			forCellWithReuseIdentifier: TitleNewsTopicCollectionViewCell.reuseIdentifer)
 		collectionView.register(
+			OtherNewsTopicCollectionViewCell.self,
+			forCellWithReuseIdentifier: OtherNewsTopicCollectionViewCell.reuseIdentifer)
+		collectionView.register(
 			TodaySectionHeaderCollectionReusableView.self,
 			forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
 			withReuseIdentifier: TodaySectionHeaderCollectionReusableView.reuseIdentifer)
@@ -102,49 +105,56 @@ private extension TodayViewController {
 	}
 
 	func makeCollectionViewCompositionalLayout() -> UICollectionViewLayout {
-		let nestedGroup = NSCollectionLayoutGroup.vertical(
-			layoutSize: NSCollectionLayoutSize(
-				widthDimension: .fractionalWidth(1.0),
-				heightDimension: .estimated(TitleNewsTopicCollectionViewCell.getEstimatedHeight() + 300)), //temp
-			subitems: [makeTitleNewsGroup(), makeNewsGroup()])
+		let layout = UICollectionViewCompositionalLayout { [weak self] (sectionIndex, _) -> NSCollectionLayoutSection? in
+			guard let self = self else {
+				assertionFailure()
+				return nil
+			}
 
-		let section = NSCollectionLayoutSection(group: nestedGroup)
-		section.boundarySupplementaryItems = [makeSectionHeaderLayout()]
+			switch TodaySections.allCases[sectionIndex] {
+			case .topStories, .science: return self.makeTitleNewsLayoutSection()
+			case .otherTopStories, .otherScience: return self.makeOtherNewsLayoutSection()
+			}
+		}
 
-		let layout = UICollectionViewCompositionalLayout(section: section)
 		return layout
 	}
 
-	func makeTitleNewsGroup() -> NSCollectionLayoutGroup {
-		let titleNewsLayoutSize = NSCollectionLayoutSize(
+	func makeTitleNewsLayoutSection() -> NSCollectionLayoutSection {
+		let topStoriesLayoutSize = NSCollectionLayoutSize(
 			widthDimension: .fractionalWidth(1.0),
 			heightDimension: .estimated(TitleNewsTopicCollectionViewCell.getEstimatedHeight()))
-		let titleNewsTopicItem = NSCollectionLayoutItem(layoutSize: titleNewsLayoutSize)
+		let titleNewsTopicItem = NSCollectionLayoutItem(layoutSize: topStoriesLayoutSize)
 
-		let titleNewsGroup = NSCollectionLayoutGroup.horizontal(
-			layoutSize: titleNewsLayoutSize, subitem: titleNewsTopicItem, count: 1)
-		titleNewsGroup.contentInsets = NSDirectionalEdgeInsets(
+		let topStoriesGroup = NSCollectionLayoutGroup.horizontal(
+			layoutSize: topStoriesLayoutSize, subitem: titleNewsTopicItem, count: 1)
+		topStoriesGroup.contentInsets = NSDirectionalEdgeInsets(
 			top: 0,
 			leading: TodayLayout.horizontalInsets.rawValue,
 			bottom: 0,
 			trailing: TodayLayout.horizontalInsets.rawValue)
-		return titleNewsGroup
+
+		let section = NSCollectionLayoutSection(group: topStoriesGroup)
+		section.boundarySupplementaryItems = [makeSectionHeaderLayout()]
+		return section
 	}
 
-	func makeNewsGroup() -> NSCollectionLayoutGroup {
+	func makeOtherNewsLayoutSection() -> NSCollectionLayoutSection {
 		let newsLayoutSize = NSCollectionLayoutSize(
 			widthDimension: .fractionalWidth(0.8),
-			heightDimension: .estimated(TitleNewsTopicCollectionViewCell.getEstimatedHeight()))
+			heightDimension: .estimated(OtherNewsTopicCollectionViewCell.getEstimatedHeight()))
 		let newsTopicItem = NSCollectionLayoutItem(layoutSize: newsLayoutSize)
 
-		let newsGroup = NSCollectionLayoutGroup.horizontal(
+		let newsGroup = NSCollectionLayoutGroup.vertical(
 			layoutSize: newsLayoutSize, subitem: newsTopicItem, count: 2)
 		newsGroup.contentInsets = NSDirectionalEdgeInsets(
 			top: 0,
 			leading: TodayLayout.horizontalInsets.rawValue,
 			bottom: 0,
 			trailing: TodayLayout.horizontalInsets.rawValue)
-		return newsGroup
+
+		let section = NSCollectionLayoutSection(group: newsGroup)
+		return section
 	}
 
 	func makeSectionHeaderLayout() -> NSCollectionLayoutBoundarySupplementaryItem {
@@ -168,20 +178,38 @@ private extension TodayViewController {
 			collectionView: collectionView
 		) { (collectionView: UICollectionView, indexPath: IndexPath, detailItem: TodayNewsItem)
 			-> UICollectionViewCell? in
-			guard let titleNewsTopicCell = collectionView.dequeueReusableCell(
-				withReuseIdentifier: TitleNewsTopicCollectionViewCell.reuseIdentifer,
-				for: indexPath) as? TitleNewsTopicCollectionViewCellProtocol
-			else {
-				assertionFailure("Couldn't create TitleNewsTopic Cell")
-				return UICollectionViewCell()
-			}
+			switch TodaySections.allCases[indexPath.section] {
+			case .topStories, .science:
+				guard let titleNewsTopicCell = collectionView.dequeueReusableCell(
+					withReuseIdentifier: TitleNewsTopicCollectionViewCell.reuseIdentifer,
+					for: indexPath) as? TitleNewsTopicCollectionViewCellProtocol
+				else {
+					assertionFailure("Couldn't create TitleNewsTopic Cell")
+					return UICollectionViewCell()
+				}
 
-			titleNewsTopicCell.setupContent(
-				image: nil,
-				source: detailItem.source,
-				title: detailItem.title,
-				timePublication: detailItem.timePublication)
-			return titleNewsTopicCell
+				titleNewsTopicCell.setupContent(
+					image: nil,
+					source: detailItem.source,
+					title: detailItem.title,
+					timePublication: detailItem.timePublication)
+				return titleNewsTopicCell
+			case .otherTopStories, .otherScience:
+				guard let newsTopicCell = collectionView.dequeueReusableCell(
+					withReuseIdentifier: OtherNewsTopicCollectionViewCell.reuseIdentifer,
+					for: indexPath) as? OtherNewsTopicCollectionViewCellProtocol
+				else {
+					assertionFailure("Couldn't create OtherNewsTopic Cell")
+					return UICollectionViewCell()
+				}
+
+				newsTopicCell.setupContent(
+					image: nil,
+					source: detailItem.source,
+					title: detailItem.title,
+					timePublication: detailItem.timePublication)
+				return newsTopicCell
+			}
 		}
 	}
 
@@ -192,13 +220,17 @@ private extension TodayViewController {
 
 	func getCurrentStateSnapshot() -> NSDiffableDataSourceSnapshot<TodaySections, TodayNewsItem> {
 		var snapshot = NSDiffableDataSourceSnapshot<TodaySections, TodayNewsItem>()
-		snapshot.appendSections([.topStories, .science])
+		snapshot.appendSections([.topStories, .otherTopStories, .science, .otherScience])
 
 		let topStoriesItems = TodayNewsItem.makeTopStoriesMock()
 		snapshot.appendItems(topStoriesItems, toSection: .topStories)
+		let otherTopStoriesItems = TodayNewsItem.makeOtherTopStoriesMock()
+		snapshot.appendItems(otherTopStoriesItems, toSection: .otherTopStories)
 
 		let scienceItems = TodayNewsItem.makeScienceMock()
 		snapshot.appendItems(scienceItems, toSection: .science)
+		let otherScienceItems = TodayNewsItem.makeOtherScienceMock()
+		snapshot.appendItems(otherScienceItems, toSection: .otherScience)
 
 		return snapshot
 	}
