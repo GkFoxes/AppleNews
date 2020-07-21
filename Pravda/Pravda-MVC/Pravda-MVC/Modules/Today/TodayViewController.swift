@@ -154,6 +154,7 @@ private extension TodayViewController {
 			trailing: TodayLayout.horizontalInsets.rawValue)
 
 		let section = NSCollectionLayoutSection(group: newsGroup)
+		section.orthogonalScrollingBehavior = .groupPaging
 		return section
 	}
 
