@@ -21,9 +21,9 @@ final class OtherNewsTopicCollectionViewCell: UICollectionViewCell {
 	// MARK: Properties
 
 	private enum Constants: CGFloat {
-		case imageViewSizeSquare = 120
-		case sourceLabelHeight = 10
-		case titleLabelHeight = 22
+		case labelsDistance = 4
+		case sourceLabelHeight = 14
+		case titleLabelHeight = 86
 		case timePublicationLabelHeight = 12
 	}
 
@@ -57,7 +57,7 @@ extension OtherNewsTopicCollectionViewCell: OtherNewsTopicCollectionViewCellProt
 	}
 
 	static func getEstimatedHeight() -> CGFloat {
-		return 350.0
+		return 132
 	}
 
 	func setupContent(image: UIImage?, source: String, title: String, timePublication: String) {
@@ -85,12 +85,12 @@ private extension OtherNewsTopicCollectionViewCell {
 	}
 
 	func setupSourceLabelAppearances() {
-		sourceLabel.font = .systemFont(ofSize: 8.0, weight: .semibold)
+		sourceLabel.font = .systemFont(ofSize: 11.0, weight: .semibold)
 		sourceLabel.textColor = .systemGray
 	}
 
 	func setupTitleLabelAppearances() {
-		titleLabel.font = .systemFont(ofSize: 18.0, weight: .heavy)
+		titleLabel.font = .systemFont(ofSize: 18.0, weight: .bold)
 		titleLabel.numberOfLines = 4
 	}
 
@@ -104,22 +104,10 @@ private extension OtherNewsTopicCollectionViewCell {
 
 private extension OtherNewsTopicCollectionViewCell {
 	func setupViewsLayout() {
-		setupImageViewLayout()
 		setupSourceLabelLayout()
 		setupTitleLabelLayout()
 		setupTimePublicationLabelLayout()
-	}
-
-	func setupImageViewLayout() {
-		contentView.addSubview(imageView)
-		imageView.translatesAutoresizingMaskIntoConstraints = false
-
-		NSLayoutConstraint.activate([
-			imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-			imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-			imageView.heightAnchor.constraint(equalToConstant: Constants.imageViewSizeSquare.rawValue),
-			imageView.widthAnchor.constraint(equalToConstant: Constants.imageViewSizeSquare.rawValue)
-		])
+		setupImageViewLayout()
 	}
 
 	func setupSourceLabelLayout() {
@@ -128,8 +116,7 @@ private extension OtherNewsTopicCollectionViewCell {
 
 		NSLayoutConstraint.activate([
 			sourceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-			sourceLabel.trailingAnchor.constraint(
-				equalTo: imageView.leadingAnchor, constant: TodayLayout.labelsDistance.rawValue),
+			sourceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 			sourceLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
 			sourceLabel.heightAnchor.constraint(equalToConstant: Constants.sourceLabelHeight.rawValue)
 		])
@@ -141,11 +128,9 @@ private extension OtherNewsTopicCollectionViewCell {
 
 		NSLayoutConstraint.activate([
 			titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-			titleLabel.trailingAnchor.constraint(
-				equalTo: imageView.leadingAnchor, constant: TodayLayout.labelsDistance.rawValue),
 			titleLabel.topAnchor.constraint(
-				equalTo: sourceLabel.bottomAnchor, constant: TodayLayout.labelsDistance.rawValue),
-			titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: Constants.titleLabelHeight.rawValue)
+				equalTo: sourceLabel.bottomAnchor, constant: Constants.labelsDistance.rawValue),
+			titleLabel.heightAnchor.constraint(lessThanOrEqualToConstant: Constants.titleLabelHeight.rawValue)
 		])
 	}
 
@@ -155,13 +140,26 @@ private extension OtherNewsTopicCollectionViewCell {
 
 		NSLayoutConstraint.activate([
 			timePublicationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-			timePublicationLabel.trailingAnchor.constraint(
-				equalTo: imageView.leadingAnchor, constant: TodayLayout.labelsDistance.rawValue),
-			timePublicationLabel.topAnchor.constraint(
-				equalTo: titleLabel.bottomAnchor, constant: TodayLayout.labelsDistance.rawValue),
-			timePublicationLabel.bottomAnchor.constraint(
-				equalTo: contentView.bottomAnchor, constant: TodayLayout.labelsDistance.rawValue),
+			timePublicationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+			timePublicationLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 			timePublicationLabel.heightAnchor.constraint(equalToConstant: Constants.timePublicationLabelHeight.rawValue)
+		])
+	}
+
+	func setupImageViewLayout() {
+		contentView.addSubview(imageView)
+		imageView.translatesAutoresizingMaskIntoConstraints = false
+
+		NSLayoutConstraint.activate([
+			imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+			imageView.leadingAnchor.constraint(
+				equalTo: titleLabel.trailingAnchor, constant: Constants.labelsDistance.rawValue),
+			imageView.topAnchor.constraint(
+				equalTo: sourceLabel.bottomAnchor, constant: Constants.labelsDistance.rawValue),
+			imageView.bottomAnchor.constraint(
+				equalTo: timePublicationLabel.topAnchor, constant: -Constants.labelsDistance.rawValue),
+			// Aspect ratio 1 : 1 == Square
+			imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1/1)
 		])
 	}
 }

@@ -81,7 +81,7 @@ extension TodayNewsItem {
 				imageURL: nil,
 				source: "Science alert",
 				title: "Study of Over 1 Million People Finds Intriguing Finds Intriguing Finds Intriguing",
-				timePublication: "2h ago 2h ago 2h ago 2h ago 2h ago 2h ago"),
+				timePublication: "2h ago 2h ago 2h ago 2h ago 2h ago 2h ago 2h ago 2h ago 2h ago 2h ago 2h ago"),
 			TodayNewsItem(
 				imageURL: nil,
 				source: "Science alert",
