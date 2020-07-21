@@ -156,11 +156,6 @@ private extension TodayViewController {
 			widthDimension: .fractionalWidth(1.0),
 			heightDimension: .estimated(OtherNewsTopicCollectionViewCell.getEstimatedHeight()))
 		let newsTopicItem = NSCollectionLayoutItem(layoutSize: newsTopicItemLayoutSize)
-		newsTopicItem.contentInsets = NSDirectionalEdgeInsets(
-			top: 0,
-			leading: TodayLayout.safeHorizontalDistance.rawValue,
-			bottom: TodayLayout.topicBottomDistance.rawValue,
-			trailing: TodayLayout.topicTrailingDistance.rawValue)
 
 		let newsItemsInGroupCount = 2
 		let newsGroupLayoutSize = NSCollectionLayoutSize(
@@ -169,9 +164,18 @@ private extension TodayViewController {
 				CGFloat(newsItemsInGroupCount) * OtherNewsTopicCollectionViewCell.getEstimatedHeight()))
 		let newsGroup = NSCollectionLayoutGroup.vertical(
 			layoutSize: newsGroupLayoutSize, subitem: newsTopicItem, count: newsItemsInGroupCount)
+		newsGroup.interItemSpacing = .fixed(TodayLayout.topicHorizontalDistance.rawValue)
+		newsGroup.contentInsets = NSDirectionalEdgeInsets(
+			top: 0, leading: 0, bottom: 0, trailing: TodayLayout.safeHorizontalDistance.rawValue)
 
 		let section = NSCollectionLayoutSection(group: newsGroup)
 		section.orthogonalScrollingBehavior = .groupPaging
+		section.contentInsets = NSDirectionalEdgeInsets(
+			top: 0,
+			leading: TodayLayout.safeHorizontalDistance.rawValue,
+			bottom: TodayLayout.topicHorizontalDistance.rawValue,
+			trailing: TodayLayout.safeHorizontalDistance.rawValue)
+
 		return section
 	}
 }
