@@ -120,44 +120,6 @@ private extension TodayViewController {
 		return layout
 	}
 
-	func makeTitleNewsLayoutSection() -> NSCollectionLayoutSection {
-		let topStoriesLayoutSize = NSCollectionLayoutSize(
-			widthDimension: .fractionalWidth(1.0),
-			heightDimension: .estimated(TitleNewsTopicCollectionViewCell.getEstimatedHeight()))
-		let titleNewsTopicItem = NSCollectionLayoutItem(layoutSize: topStoriesLayoutSize)
-
-		let topStoriesGroup = NSCollectionLayoutGroup.horizontal(
-			layoutSize: topStoriesLayoutSize, subitem: titleNewsTopicItem, count: 1)
-		topStoriesGroup.contentInsets = NSDirectionalEdgeInsets(
-			top: 0,
-			leading: TodayLayout.horizontalInsets.rawValue,
-			bottom: 0,
-			trailing: TodayLayout.horizontalInsets.rawValue)
-
-		let section = NSCollectionLayoutSection(group: topStoriesGroup)
-		section.boundarySupplementaryItems = [makeSectionHeaderLayout()]
-		return section
-	}
-
-	func makeOtherNewsLayoutSection() -> NSCollectionLayoutSection {
-		let newsLayoutSize = NSCollectionLayoutSize(
-			widthDimension: .fractionalWidth(0.8),
-			heightDimension: .estimated(OtherNewsTopicCollectionViewCell.getEstimatedHeight()))
-		let newsTopicItem = NSCollectionLayoutItem(layoutSize: newsLayoutSize)
-
-		let newsGroup = NSCollectionLayoutGroup.vertical(
-			layoutSize: newsLayoutSize, subitem: newsTopicItem, count: 2)
-		newsGroup.contentInsets = NSDirectionalEdgeInsets(
-			top: 0,
-			leading: TodayLayout.horizontalInsets.rawValue,
-			bottom: 0,
-			trailing: TodayLayout.horizontalInsets.rawValue)
-
-		let section = NSCollectionLayoutSection(group: newsGroup)
-		section.orthogonalScrollingBehavior = .groupPaging
-		return section
-	}
-
 	func makeSectionHeaderLayout() -> NSCollectionLayoutBoundarySupplementaryItem {
 		let sectionHeaderLayoutSize = NSCollectionLayoutSize(
 			widthDimension: .fractionalWidth(1.0),
@@ -168,6 +130,49 @@ private extension TodayViewController {
 			elementKind: UICollectionView.elementKindSectionHeader,
 			alignment: .top)
 		return sectionHeaderLayout
+	}
+
+	func makeTitleNewsLayoutSection() -> NSCollectionLayoutSection {
+		let topStoriesLayoutSize = NSCollectionLayoutSize(
+			widthDimension: .fractionalWidth(1.0),
+			heightDimension: .estimated(TitleNewsTopicCollectionViewCell.getEstimatedHeight()))
+		let titleNewsTopicItem = NSCollectionLayoutItem(layoutSize: topStoriesLayoutSize)
+
+		let topStoriesGroup = NSCollectionLayoutGroup.horizontal(
+			layoutSize: topStoriesLayoutSize, subitem: titleNewsTopicItem, count: 1)
+		topStoriesGroup.contentInsets = NSDirectionalEdgeInsets(
+			top: 0,
+			leading: TodayLayout.safeHorizontalDistance.rawValue,
+			bottom: 0,
+			trailing: TodayLayout.safeHorizontalDistance.rawValue)
+
+		let section = NSCollectionLayoutSection(group: topStoriesGroup)
+		section.boundarySupplementaryItems = [makeSectionHeaderLayout()]
+		return section
+	}
+
+	func makeOtherNewsLayoutSection() -> NSCollectionLayoutSection {
+		let newsTopicItemLayoutSize = NSCollectionLayoutSize(
+			widthDimension: .fractionalWidth(1.0),
+			heightDimension: .estimated(OtherNewsTopicCollectionViewCell.getEstimatedHeight()))
+		let newsTopicItem = NSCollectionLayoutItem(layoutSize: newsTopicItemLayoutSize)
+		newsTopicItem.contentInsets = NSDirectionalEdgeInsets(
+			top: 0,
+			leading: TodayLayout.safeHorizontalDistance.rawValue,
+			bottom: TodayLayout.topicBottomDistance.rawValue,
+			trailing: TodayLayout.topicTrailingDistance.rawValue)
+
+		let newsItemsInGroupCount = 2
+		let newsGroupLayoutSize = NSCollectionLayoutSize(
+			widthDimension: .fractionalWidth(0.85),
+			heightDimension: .estimated(
+				CGFloat(newsItemsInGroupCount) * OtherNewsTopicCollectionViewCell.getEstimatedHeight()))
+		let newsGroup = NSCollectionLayoutGroup.vertical(
+			layoutSize: newsGroupLayoutSize, subitem: newsTopicItem, count: newsItemsInGroupCount)
+
+		let section = NSCollectionLayoutSection(group: newsGroup)
+		section.orthogonalScrollingBehavior = .groupPaging
+		return section
 	}
 }
 

@@ -18,6 +18,12 @@ protocol TodaySectionHeaderCollectionReusableViewProtocol: UICollectionReusableV
 
 final class TodaySectionHeaderCollectionReusableView: UICollectionReusableView {
 
+	// MARK: Properties
+
+	private enum Constants: CGFloat {
+		case horizontalDistance = 16
+	}
+
 	// MARK: Views
 
 	private let sectionHeaderLabel = UILabel()
@@ -45,7 +51,7 @@ extension TodaySectionHeaderCollectionReusableView: TodaySectionHeaderCollection
 	}
 
 	static func getEstimatedHeight() -> CGFloat {
-		return 44.0
+		return 44
 	}
 
 	func setupContent(title: String, textColor: UIColor) {
@@ -71,13 +77,13 @@ private extension TodaySectionHeaderCollectionReusableView {
 
 		NSLayoutConstraint.activate([
 			sectionHeaderLabel.leadingAnchor.constraint(
-				equalTo: leadingAnchor, constant: TodayLayout.horizontalInsets.rawValue),
+				equalTo: leadingAnchor, constant: TodayLayout.safeHorizontalDistance.rawValue),
 			sectionHeaderLabel.trailingAnchor.constraint(
-				equalTo: trailingAnchor, constant: TodayLayout.horizontalInsets.rawValue),
+				equalTo: trailingAnchor, constant: TodayLayout.safeHorizontalDistance.rawValue),
 			sectionHeaderLabel.topAnchor.constraint(
-				equalTo: topAnchor, constant: TodayLayout.labelsDistance.rawValue),
+				equalTo: topAnchor, constant: Constants.horizontalDistance.rawValue),
 			sectionHeaderLabel.bottomAnchor.constraint(
-				equalTo: bottomAnchor, constant: -2 * TodayLayout.labelsDistance.rawValue)
+				equalTo: bottomAnchor, constant: -Constants.horizontalDistance.rawValue)
 		])
 	}
 }

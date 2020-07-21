@@ -7,6 +7,7 @@
 //
 
 public enum TodayLayout: CGFloat {
-	case labelsDistance = 8
-	case horizontalInsets = 21
+	case safeHorizontalDistance = 21
+	case topicBottomDistance = 12
+	case topicTrailingDistance = 6
 }
