@@ -20,7 +20,7 @@ enum TodaySections: String, CaseIterable {
 extension TodaySections {
 	var color: UIColor {
 		switch self {
-		case .topStories: return .systemRed
+		case .topStories: return .systemPink
 		case .science: return .systemIndigo
 		default: return .systemBackground
 		}
