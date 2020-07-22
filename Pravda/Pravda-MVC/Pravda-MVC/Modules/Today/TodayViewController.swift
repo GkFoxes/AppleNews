@@ -16,6 +16,13 @@ final class TodayViewController: UIViewController {
 		makeCollectionViewDiffableDataSource()
 	}()
 
+	private var isInterfaceCompact: Bool {
+		switch getHorizontalAndVerticalSizeClasses() {
+		case (.compact, .regular): return true
+		default: return false
+		}
+	}
+
 	// MARK: Views
 
 	private lazy var collectionView: UICollectionView = {
@@ -47,6 +54,12 @@ final class TodayViewController: UIViewController {
 		setupDataSource()
 	}
 
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		collectionView.reloadData()
+		collectionView.collectionViewLayout.invalidateLayout()
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -54,6 +67,10 @@ final class TodayViewController: UIViewController {
 		if let splitController = self.splitViewController {
 			self.navigationItem.leftBarButtonItem = splitController.displayModeButtonItem
 		}*/
+	}
+
+	override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+		dataSource.apply(getCurrentStateSnapshot(), animatingDifferences: false)
 	}
 }
 
@@ -139,7 +156,8 @@ private extension TodayViewController {
 		let titleNewsTopicItem = NSCollectionLayoutItem(layoutSize: topStoriesLayoutSize)
 
 		let topStoriesGroup = NSCollectionLayoutGroup.horizontal(
-			layoutSize: topStoriesLayoutSize, subitem: titleNewsTopicItem, count: 1)
+			layoutSize: topStoriesLayoutSize, subitem: titleNewsTopicItem, count: isInterfaceCompact ? 1 : 2)
+		topStoriesGroup.interItemSpacing = .fixed(TodayLayout.safeHorizontalDistance.rawValue)
 		topStoriesGroup.contentInsets = NSDirectionalEdgeInsets(
 			top: 0,
 			leading: TodayLayout.safeHorizontalDistance.rawValue,
@@ -159,7 +177,7 @@ private extension TodayViewController {
 
 		let newsItemsInGroupCount = 2
 		let newsGroupLayoutSize = NSCollectionLayoutSize(
-			widthDimension: .fractionalWidth(0.85),
+			widthDimension: .fractionalWidth(isInterfaceCompact ? 0.85 : 0.425),
 			heightDimension: .estimated(
 				CGFloat(newsItemsInGroupCount) * OtherNewsTopicCollectionViewCell.getEstimatedHeight()))
 		let newsGroup = NSCollectionLayoutGroup.vertical(
@@ -232,12 +250,12 @@ private extension TodayViewController {
 		var snapshot = NSDiffableDataSourceSnapshot<TodaySections, TodayNewsItem>()
 		snapshot.appendSections([.topStories, .otherTopStories, .science, .otherScience])
 
-		let topStoriesItems = TodayNewsItem.makeTopStoriesMock()
+		let topStoriesItems = TodayNewsItem.makeTopStoriesMock(isOnlyOneItem: isInterfaceCompact)
 		snapshot.appendItems(topStoriesItems, toSection: .topStories)
 		let otherTopStoriesItems = TodayNewsItem.makeOtherTopStoriesMock()
 		snapshot.appendItems(otherTopStoriesItems, toSection: .otherTopStories)
 
-		let scienceItems = TodayNewsItem.makeScienceMock()
+		let scienceItems = TodayNewsItem.makeScienceMock(isOnlyOneItem: isInterfaceCompact)
 		snapshot.appendItems(scienceItems, toSection: .science)
 		let otherScienceItems = TodayNewsItem.makeOtherScienceMock()
 		snapshot.appendItems(otherScienceItems, toSection: .otherScience)

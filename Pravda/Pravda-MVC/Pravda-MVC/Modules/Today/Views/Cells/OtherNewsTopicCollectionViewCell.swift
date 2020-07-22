@@ -141,6 +141,9 @@ private extension OtherNewsTopicCollectionViewCell {
 		NSLayoutConstraint.activate([
 			timePublicationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			timePublicationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+			timePublicationLabel.topAnchor.constraint(
+				greaterThanOrEqualTo: titleLabel.bottomAnchor,
+				constant: Constants.labelsDistance.rawValue),
 			timePublicationLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 			timePublicationLabel.heightAnchor.constraint(equalToConstant: Constants.timePublicationLabelHeight.rawValue)
 		])
@@ -159,7 +162,7 @@ private extension OtherNewsTopicCollectionViewCell {
 			imageView.bottomAnchor.constraint(
 				equalTo: timePublicationLabel.topAnchor, constant: -Constants.labelsDistance.rawValue),
 			// Aspect ratio 1 : 1 == Square
-			imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1/1)
+			imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
 		])
 	}
 }

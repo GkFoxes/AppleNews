@@ -15,7 +15,7 @@ public extension UIViewController {
 	}
 }
 
-extension UIViewController {
+public extension UIViewController { //temp public
 
 	// MARK: Size Classes
 

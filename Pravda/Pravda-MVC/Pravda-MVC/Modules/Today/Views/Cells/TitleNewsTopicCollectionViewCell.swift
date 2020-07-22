@@ -23,7 +23,6 @@ final class TitleNewsTopicCollectionViewCell: UICollectionViewCell {
 	private enum Constants: CGFloat {
 		case labelsDistance = 8
 		case sourceLabelHeight = 17
-		case titleLabelHeight = 31
 		case timePublicationLabelHeight = 12
 	}
 
@@ -57,7 +56,7 @@ extension TitleNewsTopicCollectionViewCell: TitleNewsTopicCollectionViewCellProt
 	}
 
 	static func getEstimatedHeight() -> CGFloat {
-		return 350
+		return 650
 	}
 
 	func setupContent(image: UIImage?, source: String, title: String, timePublication: String) {
@@ -91,7 +90,7 @@ private extension TitleNewsTopicCollectionViewCell {
 
 	func setupTitleLabelAppearances() {
 		titleLabel.font = .systemFont(ofSize: 26.0, weight: .heavy)
-		titleLabel.numberOfLines = 0
+		titleLabel.numberOfLines = 4
 	}
 
 	func setupTimePublicationLabelAppearances() {
@@ -144,8 +143,7 @@ private extension TitleNewsTopicCollectionViewCell {
 			titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 			titleLabel.topAnchor.constraint(
-				equalTo: sourceLabel.bottomAnchor, constant: Constants.labelsDistance.rawValue),
-			titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: Constants.titleLabelHeight.rawValue)
+				equalTo: sourceLabel.bottomAnchor, constant: Constants.labelsDistance.rawValue)
 		])
 	}
 
