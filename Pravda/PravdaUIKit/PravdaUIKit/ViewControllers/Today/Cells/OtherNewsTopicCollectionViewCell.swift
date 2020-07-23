@@ -1,22 +1,12 @@
 //
-//  NewsTopicCollectionViewCell.swift
-//  Pravda-MVC
+//  OtherNewsTopicCollectionViewCell.swift
+//  PravdaUIKit
 //
-//  Created by Дмитрий Матвеенко on 20.07.2020.
+//  Created by Дмитрий Матвеенко on 23.07.2020.
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-import PravdaUIKit
-
-protocol OtherNewsTopicCollectionViewCellProtocol: UICollectionViewCell {
-	static var reuseIdentifer: String { get }
-
-	static func getEstimatedHeight() -> CGFloat
-
-	func setupContent(image: UIImage?, source: String, title: String, timePublication: String)
-}
-
-final class OtherNewsTopicCollectionViewCell: UICollectionViewCell {
+public final class OtherNewsTopicCollectionViewCell: UICollectionViewCell {
 
 	// MARK: Properties
 
@@ -51,16 +41,16 @@ final class OtherNewsTopicCollectionViewCell: UICollectionViewCell {
 
 // MARK: Setup OtherNewsTopicCollectionViewCell
 
-extension OtherNewsTopicCollectionViewCell: OtherNewsTopicCollectionViewCellProtocol {
-	static var reuseIdentifer: String {
+extension OtherNewsTopicCollectionViewCell: TodayCollectionViewCellProtocol {
+	public static var reuseIdentifer: String {
 		return String(describing: OtherNewsTopicCollectionViewCell.self)
 	}
 
-	static func getEstimatedHeight() -> CGFloat {
+	public static func getEstimatedHeight() -> CGFloat {
 		return 132
 	}
 
-	func setupContent(image: UIImage?, source: String, title: String, timePublication: String) {
+	public func setupContent(image: UIImage?, source: String, title: String, timePublication: String) {
 		imageView.image = Assets.test.image //temp
 		sourceLabel.text = source
 		titleLabel.text = title

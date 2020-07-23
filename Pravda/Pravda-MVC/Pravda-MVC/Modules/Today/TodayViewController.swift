@@ -210,7 +210,7 @@ private extension TodayViewController {
 			case .topStories, .science:
 				guard let titleNewsTopicCell = collectionView.dequeueReusableCell(
 					withReuseIdentifier: TitleNewsTopicCollectionViewCell.reuseIdentifer,
-					for: indexPath) as? TitleNewsTopicCollectionViewCellProtocol
+					for: indexPath) as? TodayCollectionViewCellProtocol
 				else {
 					assertionFailure("Couldn't create TitleNewsTopic Cell")
 					return UICollectionViewCell()
@@ -225,7 +225,7 @@ private extension TodayViewController {
 			case .otherTopStories, .otherScience:
 				guard let newsTopicCell = collectionView.dequeueReusableCell(
 					withReuseIdentifier: OtherNewsTopicCollectionViewCell.reuseIdentifer,
-					for: indexPath) as? OtherNewsTopicCollectionViewCellProtocol
+					for: indexPath) as? TodayCollectionViewCellProtocol
 				else {
 					assertionFailure("Couldn't create OtherNewsTopic Cell")
 					return UICollectionViewCell()
