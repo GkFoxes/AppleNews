@@ -6,7 +6,7 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-public protocol TodaySectionHeaderCollectionReusableViewProtocol: UICollectionReusableView {
+protocol TodaySectionHeaderCollectionReusableViewProtocol: UICollectionReusableView {
 	static var reuseIdentifer: String { get }
 
 	static func getEstimatedHeight() -> CGFloat
@@ -14,7 +14,7 @@ public protocol TodaySectionHeaderCollectionReusableViewProtocol: UICollectionRe
 	func setupContent(title: String, textColor: UIColor)
 }
 
-public final class TodaySectionHeaderCollectionReusableView: UICollectionReusableView {
+final class TodaySectionHeaderCollectionReusableView: UICollectionReusableView {
 
 	// MARK: Properties
 
@@ -44,15 +44,15 @@ public final class TodaySectionHeaderCollectionReusableView: UICollectionReusabl
 // MARK: Setup Today SectionHeader Protocol
 
 extension TodaySectionHeaderCollectionReusableView: TodaySectionHeaderCollectionReusableViewProtocol {
-	public static var reuseIdentifer: String {
+	static var reuseIdentifer: String {
 		return String(describing: TodaySectionHeaderCollectionReusableView.self)
 	}
 
-	public static func getEstimatedHeight() -> CGFloat {
+	static func getEstimatedHeight() -> CGFloat {
 		return 44
 	}
 
-	public func setupContent(title: String, textColor: UIColor) {
+	func setupContent(title: String, textColor: UIColor) {
 		sectionHeaderLabel.text = title
 		sectionHeaderLabel.textColor = textColor
 	}

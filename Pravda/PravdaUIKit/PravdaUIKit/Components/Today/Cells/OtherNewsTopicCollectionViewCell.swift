@@ -6,7 +6,7 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-public final class OtherNewsTopicCollectionViewCell: UICollectionViewCell {
+final class OtherNewsTopicCollectionViewCell: UICollectionViewCell {
 
 	// MARK: Properties
 
@@ -42,15 +42,15 @@ public final class OtherNewsTopicCollectionViewCell: UICollectionViewCell {
 // MARK: Setup Today Cell Protocol
 
 extension OtherNewsTopicCollectionViewCell: TodayCollectionViewCellProtocol {
-	public static var reuseIdentifer: String {
+	static var reuseIdentifer: String {
 		return String(describing: OtherNewsTopicCollectionViewCell.self)
 	}
 
-	public static func getEstimatedHeight() -> CGFloat {
+	static func getEstimatedHeight() -> CGFloat {
 		return 132
 	}
 
-	public func setupContent(image: UIImage?, source: String, title: String, timePublication: String) {
+	func setupContent(image: UIImage?, source: String, title: String, timePublication: String) {
 		imageView.image = Assets.test.image //temp
 		sourceLabel.text = source
 		titleLabel.text = title

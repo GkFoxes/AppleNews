@@ -7,10 +7,10 @@
 //
 
 public struct TodayNewsItem {
-	let imageURL: URL?
-	let source: String
-	let title: String
-	let timePublication: String
+	public let imageURL: URL?
+	public let source: String
+	public let title: String
+	public let timePublication: String
 
 	private let identifier = UUID()
 }
