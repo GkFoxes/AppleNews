@@ -1,14 +1,12 @@
 //
 //  TodaySectionHeaderCollectionReusableView.swift
-//  Pravda-MVC
+//  PravdaUIKit
 //
-//  Created by Дмитрий Матвеенко on 18.07.2020.
+//  Created by Дмитрий Матвеенко on 23.07.2020.
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-import PravdaUIKit
-
-protocol TodaySectionHeaderCollectionReusableViewProtocol: UICollectionReusableView {
+public protocol TodaySectionHeaderCollectionReusableViewProtocol: UICollectionReusableView {
 	static var reuseIdentifer: String { get }
 
 	static func getEstimatedHeight() -> CGFloat
@@ -16,7 +14,7 @@ protocol TodaySectionHeaderCollectionReusableViewProtocol: UICollectionReusableV
 	func setupContent(title: String, textColor: UIColor)
 }
 
-final class TodaySectionHeaderCollectionReusableView: UICollectionReusableView {
+public final class TodaySectionHeaderCollectionReusableView: UICollectionReusableView {
 
 	// MARK: Properties
 
@@ -46,15 +44,15 @@ final class TodaySectionHeaderCollectionReusableView: UICollectionReusableView {
 // MARK: Setup TodaySectionHeaderCollectionReusableViewProtocol
 
 extension TodaySectionHeaderCollectionReusableView: TodaySectionHeaderCollectionReusableViewProtocol {
-	static var reuseIdentifer: String {
+	public static var reuseIdentifer: String {
 		return String(describing: TodaySectionHeaderCollectionReusableView.self)
 	}
 
-	static func getEstimatedHeight() -> CGFloat {
+	public static func getEstimatedHeight() -> CGFloat {
 		return 44
 	}
 
-	func setupContent(title: String, textColor: UIColor) {
+	public func setupContent(title: String, textColor: UIColor) {
 		sectionHeaderLabel.text = title
 		sectionHeaderLabel.textColor = textColor
 	}

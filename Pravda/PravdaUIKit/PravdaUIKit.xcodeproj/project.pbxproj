@@ -17,6 +17,7 @@
 		A9FE6E1924C9EBE90022FB3B /* TitleNewsTopicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FE6E1824C9EBE90022FB3B /* TitleNewsTopicCollectionViewCell.swift */; };
 		A9FE6E1B24C9EC010022FB3B /* OtherNewsTopicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FE6E1A24C9EC010022FB3B /* OtherNewsTopicCollectionViewCell.swift */; };
 		A9FE6E1D24C9EC760022FB3B /* TodayCollectionViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FE6E1C24C9EC760022FB3B /* TodayCollectionViewCellProtocol.swift */; };
+		A9FE6E1F24C9EE930022FB3B /* TodaySectionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FE6E1E24C9EE930022FB3B /* TodaySectionHeaderCollectionReusableView.swift */; };
 		F00188712476EBE000518FF0 /* PravdaUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F001886F2476EBE000518FF0 /* PravdaUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F00188792476EC2D00518FF0 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00188782476EC2D00518FF0 /* MainContainerViewController.swift */; };
 		F00188832476F04500518FF0 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00188822476F04500518FF0 /* UIViewController+.swift */; };
@@ -34,6 +35,7 @@
 		A9FE6E1824C9EBE90022FB3B /* TitleNewsTopicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleNewsTopicCollectionViewCell.swift; sourceTree = "<group>"; };
 		A9FE6E1A24C9EC010022FB3B /* OtherNewsTopicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherNewsTopicCollectionViewCell.swift; sourceTree = "<group>"; };
 		A9FE6E1C24C9EC760022FB3B /* TodayCollectionViewCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCollectionViewCellProtocol.swift; sourceTree = "<group>"; };
+		A9FE6E1E24C9EE930022FB3B /* TodaySectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaySectionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		F001886C2476EBE000518FF0 /* PravdaUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PravdaUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F001886F2476EBE000518FF0 /* PravdaUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PravdaUIKit.h; sourceTree = "<group>"; };
 		F00188702476EBE000518FF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				A9FE6E1C24C9EC760022FB3B /* TodayCollectionViewCellProtocol.swift */,
 				A9FE6E1824C9EBE90022FB3B /* TitleNewsTopicCollectionViewCell.swift */,
 				A9FE6E1A24C9EC010022FB3B /* OtherNewsTopicCollectionViewCell.swift */,
+				A9FE6E1E24C9EE930022FB3B /* TodaySectionHeaderCollectionReusableView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -135,21 +138,21 @@
 			children = (
 				A9E415C0247D4B2A00018A16 /* Constants */,
 				F00188812476F02600518FF0 /* Extensions */,
-				F00188772476EC2000518FF0 /* ViewControllers */,
+				F00188772476EC2000518FF0 /* Components */,
 				A900A7152494F0EA00AC4341 /* Resources */,
 				A99D202D2495235F004A7BDD /* Supports */,
 			);
 			path = PravdaUIKit;
 			sourceTree = "<group>";
 		};
-		F00188772476EC2000518FF0 /* ViewControllers */ = {
+		F00188772476EC2000518FF0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				F0806725248E68750096DAF5 /* Main Container */,
 				F0806726248E68840096DAF5 /* Sections */,
 				A94F112524C9E9CC00A32883 /* Today */,
 			);
-			path = ViewControllers;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		F00188812476F02600518FF0 /* Extensions */ = {
@@ -289,6 +292,7 @@
 				A9E7F15E24992E470053E46F /* MainContainerFactory.swift in Sources */,
 				A9FE6E1924C9EBE90022FB3B /* TitleNewsTopicCollectionViewCell.swift in Sources */,
 				A900A7192494F81300AC4341 /* Assets.swift in Sources */,
+				A9FE6E1F24C9EE930022FB3B /* TodaySectionHeaderCollectionReusableView.swift in Sources */,
 				A97C7CA324C3690000EFFCA3 /* TodayLayout.swift in Sources */,
 				A9FE6E1D24C9EC760022FB3B /* TodayCollectionViewCellProtocol.swift in Sources */,
 				A9E415C2247D4B4000018A16 /* Strings.swift in Sources */,
