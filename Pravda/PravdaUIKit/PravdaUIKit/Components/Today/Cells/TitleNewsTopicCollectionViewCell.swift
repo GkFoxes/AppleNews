@@ -38,7 +38,7 @@ public final class TitleNewsTopicCollectionViewCell: UICollectionViewCell {
 	}
 }
 
-// MARK: Setup TitleNewsTopicCollectionViewCellProtocol
+// MARK: Setup Today Cell Protocol
 
 extension TitleNewsTopicCollectionViewCell: TodayCollectionViewCellProtocol {
 	public static var reuseIdentifer: String {

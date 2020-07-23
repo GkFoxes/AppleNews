@@ -14,11 +14,3 @@ public extension UIViewController {
 		return UIApplication.shared.windows.first?.rootViewController?.children.first as? SafariNewsTappedProtocol
 	}
 }
-
-// MARK: Size Classes
-
-public extension UIViewController { //temp public
-	func getHorizontalAndVerticalSizeClasses() -> (UIUserInterfaceSizeClass, UIUserInterfaceSizeClass) {
-		return (self.traitCollection.horizontalSizeClass, self.traitCollection.verticalSizeClass)
-	}
-}

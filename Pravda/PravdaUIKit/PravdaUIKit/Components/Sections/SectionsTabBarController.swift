@@ -50,7 +50,7 @@ final class SectionsTabBarController: UITabBarController {
 	override func loadView() {
 		super.loadView()
 
-		setupDeisgnAppearances()
+		setupDesignAppearances()
 	}
 
 	@available(*, unavailable)
@@ -126,7 +126,7 @@ private extension SectionsTabBarController {
 		]
 	}
 
-	func setupDeisgnAppearances() {
+	func setupDesignAppearances() {
 		let appearance = UITabBarAppearance()
 		let selectedColor = UIColor.systemPink
 

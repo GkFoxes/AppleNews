@@ -41,7 +41,7 @@ public final class TodaySectionHeaderCollectionReusableView: UICollectionReusabl
 	}
 }
 
-// MARK: Setup TodaySectionHeaderCollectionReusableViewProtocol
+// MARK: Setup Today SectionHeader Protocol
 
 extension TodaySectionHeaderCollectionReusableView: TodaySectionHeaderCollectionReusableViewProtocol {
 	public static var reuseIdentifer: String {
