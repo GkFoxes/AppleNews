@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A900A7192494F81300AC4341 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900A7182494F81300AC4341 /* Assets.swift */; };
 		A91BE9BB2495029E0068CDF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91BE9BA2495029E0068CDF6 /* Assets.xcassets */; };
+		A93A86D024C9F8BB007A5645 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93A86CF24C9F8BB007A5645 /* Models.framework */; };
+		A93A86D124C9F8BB007A5645 /* Models.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93A86CF24C9F8BB007A5645 /* Models.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A97C7CA324C3690000EFFCA3 /* TodayLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C7CA224C3690000EFFCA3 /* TodayLayout.swift */; };
 		A99D202F249525F2004A7BDD /* UINavigationController+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D202E249525F2004A7BDD /* UINavigationController+Design.swift */; };
 		A9E415C2247D4B4000018A16 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E415C1247D4B4000018A16 /* Strings.swift */; };
@@ -26,9 +28,24 @@
 		F0806728248E68A00096DAF5 /* MainContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0806727248E68A00096DAF5 /* MainContainerView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A93A86D224C9F8BB007A5645 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A93A86D124C9F8BB007A5645 /* Models.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A900A7182494F81300AC4341 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		A91BE9BA2495029E0068CDF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A93A86CF24C9F8BB007A5645 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97C7CA224C3690000EFFCA3 /* TodayLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayLayout.swift; sourceTree = "<group>"; };
 		A99D202E249525F2004A7BDD /* UINavigationController+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Design.swift"; sourceTree = "<group>"; };
 		A9E415C1247D4B4000018A16 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -53,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A93A86D024C9F8BB007A5645 /* Models.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +83,14 @@
 				A91BE9BA2495029E0068CDF6 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A93A86CE24C9F8BA007A5645 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A93A86CF24C9F8BB007A5645 /* Models.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A94F112524C9E9CC00A32883 /* Today */ = {
@@ -127,6 +153,7 @@
 			children = (
 				F001886E2476EBE000518FF0 /* PravdaUIKit */,
 				F001886D2476EBE000518FF0 /* Products */,
+				A93A86CE24C9F8BA007A5645 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -211,6 +238,7 @@
 				F00188692476EBE000518FF0 /* Frameworks */,
 				F001886A2476EBE000518FF0 /* Resources */,
 				A9E415C3247D4F3400018A16 /* ShellScript */,
+				A93A86D224C9F8BB007A5645 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -361,7 +389,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -418,7 +446,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

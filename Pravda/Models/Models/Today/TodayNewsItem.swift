@@ -1,14 +1,12 @@
 //
 //  TodayNewsItem.swift
-//  Pravda-MVC
+//  Models
 //
-//  Created by Матвеенко Дмитрий Владимирович on 15.07.2020.
+//  Created by Дмитрий Матвеенко on 23.07.2020.
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-import Foundation
-
-struct TodayNewsItem {
+public struct TodayNewsItem {
 	let imageURL: URL?
 	let source: String
 	let title: String
@@ -19,7 +17,7 @@ struct TodayNewsItem {
 
 // MARK: Mock Data
 
-extension TodayNewsItem {
+public extension TodayNewsItem {
 	static func makeTopStoriesMock(isOnlyOneItem: Bool) -> [Self] {
 		let todayNewsItem = [
 			TodayNewsItem(
@@ -121,11 +119,11 @@ extension TodayNewsItem {
 // MARK: Hashable Protocol
 
 extension TodayNewsItem: Hashable {
-	func hash(into hasher: inout Hasher) {
+	public func hash(into hasher: inout Hasher) {
 		hasher.combine(identifier)
 	}
 
-	static func == (lhs: Self, rhs: Self) -> Bool {
+	public static func == (lhs: Self, rhs: Self) -> Bool {
 		return lhs.identifier == rhs.identifier
 	}
 }

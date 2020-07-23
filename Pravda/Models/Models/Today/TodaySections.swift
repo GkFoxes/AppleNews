@@ -1,14 +1,14 @@
 //
 //  TodaySections.swift
-//  Pravda-MVC
+//  Models
 //
-//  Created by Матвеенко Дмитрий Владимирович on 15.07.2020.
+//  Created by Дмитрий Матвеенко on 23.07.2020.
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-import PravdaUIKit
+import UIKit
 
-enum TodaySections: String, CaseIterable {
+public enum TodaySections: String, CaseIterable {
 	case topStories = "Top Stories"
 	case otherTopStories
 	case science = "Science"
@@ -17,7 +17,7 @@ enum TodaySections: String, CaseIterable {
 
 // MARK: Setup UIColor
 
-extension TodaySections {
+public extension TodaySections {
 	var color: UIColor {
 		switch self {
 		case .topStories: return .systemPink
