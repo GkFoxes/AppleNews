@@ -15,10 +15,9 @@ public extension UIViewController {
 	}
 }
 
+// MARK: Size Classes
+
 public extension UIViewController { //temp public
-
-	// MARK: Size Classes
-
 	func getHorizontalAndVerticalSizeClasses() -> (UIUserInterfaceSizeClass, UIUserInterfaceSizeClass) {
 		return (self.traitCollection.horizontalSizeClass, self.traitCollection.verticalSizeClass)
 	}

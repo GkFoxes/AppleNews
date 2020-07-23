@@ -19,9 +19,9 @@ public extension UINavigationController {
 	}
 }
 
-private extension UINavigationController {
+// MARK: Design Appearances
 
-	// MARK: Setup Design
+private extension UINavigationController {
 
 	func setupDesignAppearances(weight: UIFont.Weight) {
 		self.navigationBar.prefersLargeTitles = true
