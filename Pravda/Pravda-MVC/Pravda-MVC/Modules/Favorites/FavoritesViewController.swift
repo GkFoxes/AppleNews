@@ -24,15 +24,11 @@ final class FavoritesViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	override func loadView() {
-		super.loadView()
-
-		self.view.backgroundColor = .green
-		self.navigationController?.setupBoldDesignAppearances()
-	}
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		self.navigationController?.setupBoldDesignAppearances()
+		self.view.backgroundColor = .green
 	}
 }
 

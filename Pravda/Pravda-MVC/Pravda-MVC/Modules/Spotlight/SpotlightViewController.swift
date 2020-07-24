@@ -23,14 +23,10 @@ final class SpotlightViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	override func loadView() {
-		super.loadView()
-
-		self.view.backgroundColor = .blue
-		self.navigationController?.setupBoldDesignAppearances()
-	}
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		self.navigationController?.setupBoldDesignAppearances()
+		self.view.backgroundColor = .blue
 	}
 }

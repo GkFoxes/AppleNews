@@ -36,8 +36,6 @@ final class MainContainerViewController: UIViewController {
 		self.sectionsTabBarController = sectionsTabBarController
 
 		super.init(nibName: nil, bundle: nil)
-
-		initialInterface()
 	}
 
 	@available(*, unavailable)
@@ -48,6 +46,14 @@ final class MainContainerViewController: UIViewController {
 	public override func loadView() {
 		self.view = mainContainerView
 	}
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+
+		setupInterface()
+	}
+
+	// MARK: Changes Cycle
 
 	/// Change interface to compact or regular only on iPad.
 	public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -65,13 +71,15 @@ final class MainContainerViewController: UIViewController {
 // MARK: Setup Interface
 
 private extension MainContainerViewController {
-	func initialInterface() {
+	func setupInterface() {
 		switch getHorizontalAndVerticalSizeClasses() {
 		case (.regular, .regular):
 			isInterfaceCompact = false
+			sectionsTabBarController.setupRegularInterface()
 			setupRegularInterfaceToFront()
 		default:
 			isInterfaceCompact = true
+			sectionsTabBarController.setupCompactInterface()
 			setupCompactInterfaceToFront()
 		}
 	}
