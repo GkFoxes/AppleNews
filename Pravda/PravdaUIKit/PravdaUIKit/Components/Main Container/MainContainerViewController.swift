@@ -21,17 +21,18 @@ final class MainContainerViewController: UIViewController {
 	// But in Regular interface have Sections in Master and first section in Detail.
 	private let firstSectionViewController: UIViewController
 	private let sectionsTabBarController: SectionsTabBarControllerProtocol
-	private let regularInterfaceSplitViewController: RegularInterfaceSplitViewControllerProtocol =
-		RegularInterfaceSplitViewController()
+	private let regularInterfaceSplitViewController: RegularInterfaceSplitViewControllerProtocol
 
 	// MARK: Life Cycle
 
 	init(
 		firstSectionViewController: UIViewController,
-		sectionsTabBarController: SectionsTabBarControllerProtocol
+		sectionsTabBarController: SectionsTabBarControllerProtocol,
+		regularInterfaceSplitViewController: RegularInterfaceSplitViewControllerProtocol
 	) {
 		self.firstSectionViewController = firstSectionViewController
 		self.sectionsTabBarController = sectionsTabBarController
+		self.regularInterfaceSplitViewController = regularInterfaceSplitViewController
 
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -64,23 +65,20 @@ final class MainContainerViewController: UIViewController {
 private extension MainContainerViewController {
 	func setupInterface() {
 		switch getHorizontalAndVerticalSizeClasses() {
-		case (.regular, .regular):
-			isInterfaceCompact = false
-			sectionsTabBarController.setupRegularInterface()
-			setupRegularInterfaceToFront()
-		default:
-			isInterfaceCompact = true
-			sectionsTabBarController.setupCompactInterface()
-			setupCompactInterfaceToFront()
+		case (.regular, .regular): setupRegularInterfaceToFront()
+		default: setupCompactInterfaceToFront()
 		}
 	}
 
 	func setupRegularInterfaceToFront() {
-		regularInterfaceSplitViewController.setViewControllers([sectionsTabBarController, firstSectionViewController])
+		isInterfaceCompact = false
+		sectionsTabBarController.setupRegularInterface()
 		add(asChild: regularInterfaceSplitViewController)
 	}
 
 	func setupCompactInterfaceToFront() {
+		isInterfaceCompact = true
+		sectionsTabBarController.setupCompactInterface()
 		add(asChild: sectionsTabBarController)
 	}
 }
@@ -92,27 +90,29 @@ private extension MainContainerViewController {
 		switch getHorizontalAndVerticalSizeClasses() {
 		case (.regular, .regular):
 			guard isInterfaceCompact != false else { return }
-			isInterfaceCompact = false
 			changeInterfaceToRegularAppearance()
 		default:
 			guard isInterfaceCompact != true else { return }
-			isInterfaceCompact = true
 			changeInterfaceToCompactAppearance()
 		}
 	}
 
 	func changeInterfaceToRegularAppearance() {
+		isInterfaceCompact = false
+
 		sectionsTabBarController.changeInterfaceToRegularAppearance()
 		remove(asChild: sectionsTabBarController)
-		regularInterfaceSplitViewController.setupRegularInterfaceViewControllersIfNeeded(
-			sectionsTabBarController: sectionsTabBarController,
-			firstSectionViewController: firstSectionViewController)
+
+		regularInterfaceSplitViewController.setupRegularInterfaceViewControllersIfNeeded()
 		add(asChild: regularInterfaceSplitViewController)
 	}
 
 	func changeInterfaceToCompactAppearance() {
+		isInterfaceCompact = true
+
 		sectionsTabBarController.changeInterfaceToCompactAppearance(
 			with: regularInterfaceSplitViewController.previousSplitDisplayMode)
+
 		remove(asChild: regularInterfaceSplitViewController)
 		add(asChild: sectionsTabBarController)
 	}

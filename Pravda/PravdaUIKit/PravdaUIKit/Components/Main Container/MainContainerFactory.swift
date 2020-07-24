@@ -17,9 +17,15 @@ public final class MainContainerFactory {
 			secondSectionViewController: secondSection,
 			thirdSectionViewController: thirdSection)
 
+		let regularInterfaceSplitViewController: RegularInterfaceSplitViewControllerProtocol =
+			RegularInterfaceSplitViewController(
+				sectionsTabBarController: sectionsTabBarController,
+				firstSectionViewController: firstSection)
+
 		let mainContainerViewController = MainContainerViewController(
 			firstSectionViewController: firstSection,
-			sectionsTabBarController: sectionsTabBarController)
+			sectionsTabBarController: sectionsTabBarController,
+			regularInterfaceSplitViewController: regularInterfaceSplitViewController)
 
 		return mainContainerViewController
 	}

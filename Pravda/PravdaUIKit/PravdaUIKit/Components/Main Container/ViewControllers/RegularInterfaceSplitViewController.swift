@@ -8,16 +8,43 @@
 
 protocol RegularInterfaceSplitViewControllerProtocol: UIViewController {
 	var previousSplitDisplayMode: UISplitViewController.DisplayMode? { get }
-	func setViewControllers(_ viewControllers: [UIViewController])
-	func setupRegularInterfaceViewControllersIfNeeded(
-		sectionsTabBarController: UIViewController,
-		firstSectionViewController: UIViewController)
+	func setupRegularInterfaceViewControllersIfNeeded()
 }
 
 final class RegularInterfaceSplitViewController: UISplitViewController {
 
+	// MARK: Properties
+
 	/// Arrangement of the split view controller’s contents Master and Detail views.
 	public var previousSplitDisplayMode: UISplitViewController.DisplayMode?
+
+	// MARK: View Controllers
+
+	let sectionsTabBarController: UIViewController
+	let firstSectionViewController: UIViewController
+
+	// MARK: Life Cycle
+
+	init(
+		sectionsTabBarController: UIViewController,
+		firstSectionViewController: UIViewController
+	) {
+		self.sectionsTabBarController = sectionsTabBarController
+		self.firstSectionViewController = firstSectionViewController
+
+		super.init(nibName: nil, bundle: nil)
+	}
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+
+		viewControllers = [sectionsTabBarController, firstSectionViewController]
+	}
+
+	@available(*, unavailable)
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 
 	// MARK: Changes Cycle
 
@@ -29,15 +56,10 @@ final class RegularInterfaceSplitViewController: UISplitViewController {
 	}
 }
 
-extension RegularInterfaceSplitViewController: RegularInterfaceSplitViewControllerProtocol {
-	func setViewControllers(_ viewControllers: [UIViewController]) {
-		self.viewControllers = viewControllers
-	}
+// MARK: Changes From MainContainer
 
-	func setupRegularInterfaceViewControllersIfNeeded(
-		sectionsTabBarController: UIViewController,
-		firstSectionViewController: UIViewController
-	) {
+extension RegularInterfaceSplitViewController: RegularInterfaceSplitViewControllerProtocol {
+	func setupRegularInterfaceViewControllersIfNeeded() {
 		// Check if there are not two of them, we haven't added controllers to the array before
 		if viewControllers.count != 2 {
 			viewControllers.append(sectionsTabBarController)
