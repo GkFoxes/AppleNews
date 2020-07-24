@@ -116,7 +116,7 @@ public extension TodayNewsItem {
 	}
 }
 
-// MARK: Hashable Protocol
+// MARK: Setup Hashable Protocol
 
 extension TodayNewsItem: Hashable {
 	public func hash(into hasher: inout Hasher) {

@@ -24,7 +24,7 @@ final class MainContainerView: UIView {
 	}
 }
 
-// MARK: Setup Protocol
+// MARK: Setup Interface
 
 extension MainContainerView: MainContainerViewProtocol {
 	func add(asChild childView: UIView) {

@@ -20,7 +20,7 @@ final class TodayCollectionViewLayout: UICollectionViewLayout {
 	var isInterfaceCompact = true
 }
 
-// MARK: Setup Protocol
+// MARK: Setup Interface
 
 extension TodayCollectionViewLayout: TodayCollectionViewLayoutProtocol {
 	func setIsInterfaceCompact(_ isInterfaceCompact: Bool) {

@@ -38,7 +38,7 @@ final class TitleNewsTopicCollectionViewCell: UICollectionViewCell {
 	}
 }
 
-// MARK: Setup Today Cell Protocol
+// MARK: Setup Interface
 
 extension TitleNewsTopicCollectionViewCell: TodayCollectionViewCellProtocol {
 	static var reuseIdentifer: String {

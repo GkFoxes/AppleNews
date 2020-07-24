@@ -13,7 +13,7 @@ final class TodayCollectionViewDiffableDataSource: UICollectionViewDiffableDataS
 	// MARK: Properties
 }
 
-// MARK: Setup Today DataSource Protocol
+// MARK: Setup Interface
 
 extension TodayCollectionViewDiffableDataSource {
 
