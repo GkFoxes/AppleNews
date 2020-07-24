@@ -6,9 +6,10 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-// MARK: Size Classes
+public extension UITraitEnvironment {
 
-extension UITraitEnvironment {
+	// MARK: Size Classes
+
 	func getHorizontalAndVerticalSizeClasses() -> (UIUserInterfaceSizeClass, UIUserInterfaceSizeClass) {
 		return (self.traitCollection.horizontalSizeClass, self.traitCollection.verticalSizeClass)
 	}

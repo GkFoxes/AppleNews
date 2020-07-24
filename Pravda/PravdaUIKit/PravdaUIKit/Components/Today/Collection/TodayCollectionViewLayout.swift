@@ -9,26 +9,26 @@
 import Models
 
 protocol TodayCollectionViewLayoutProtocol: UICollectionViewLayout {
-	func setIsInterfaceCompact(_ isInterfaceCompact: Bool)
-	func makeCollectionViewCompositionalLayout(isInterfaceCompact: Bool) -> UICollectionViewLayout
+	func setIsCollectionCompact(_ isCollectionCompact: Bool)
+	func makeCollectionViewCompositionalLayout(isCollectionCompact: Bool) -> UICollectionViewLayout
 }
 
 final class TodayCollectionViewLayout: UICollectionViewLayout {
 
 	// MARK: Properties
 
-	var isInterfaceCompact = true
+	var isCollectionCompact = true
 }
 
 // MARK: Setup Interface
 
 extension TodayCollectionViewLayout: TodayCollectionViewLayoutProtocol {
-	func setIsInterfaceCompact(_ isInterfaceCompact: Bool) {
-		self.isInterfaceCompact = isInterfaceCompact
+	func setIsCollectionCompact(_ isCollectionCompact: Bool) {
+		self.isCollectionCompact = isCollectionCompact
 	}
 
-	func makeCollectionViewCompositionalLayout(isInterfaceCompact: Bool) -> UICollectionViewLayout {
-		self.isInterfaceCompact = isInterfaceCompact
+	func makeCollectionViewCompositionalLayout(isCollectionCompact: Bool) -> UICollectionViewLayout {
+		self.isCollectionCompact = isCollectionCompact
 
 		let layout = UICollectionViewCompositionalLayout { [weak self] (sectionIndex, _) -> NSCollectionLayoutSection? in
 			guard let self = self else {
@@ -66,7 +66,7 @@ private extension TodayCollectionViewLayout {
 		let titleNewsTopicItem = NSCollectionLayoutItem(layoutSize: topStoriesLayoutSize)
 
 		let topStoriesGroup = NSCollectionLayoutGroup.horizontal(
-			layoutSize: topStoriesLayoutSize, subitem: titleNewsTopicItem, count: isInterfaceCompact ? 1 : 2)
+			layoutSize: topStoriesLayoutSize, subitem: titleNewsTopicItem, count: isCollectionCompact ? 1 : 2)
 		topStoriesGroup.interItemSpacing = .fixed(TodayLayout.safeHorizontalDistance.rawValue)
 		topStoriesGroup.contentInsets = NSDirectionalEdgeInsets(
 			top: 0,
@@ -87,7 +87,7 @@ private extension TodayCollectionViewLayout {
 
 		let newsItemsInGroupCount = 2
 		let newsGroupLayoutSize = NSCollectionLayoutSize(
-			widthDimension: .fractionalWidth(isInterfaceCompact ? 0.85 : 0.425),
+			widthDimension: .fractionalWidth(isCollectionCompact ? 0.85 : 0.425),
 			heightDimension: .estimated(
 				CGFloat(newsItemsInGroupCount) * OtherNewsTopicCollectionViewCell.getEstimatedHeight()))
 		let newsGroup = NSCollectionLayoutGroup.vertical(

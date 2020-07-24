@@ -10,6 +10,15 @@ import PravdaUIKit
 
 final class TodayViewController: UIViewController {
 
+	// MARK: Properties
+
+	private var isCollectionCompact: Bool {
+		switch getHorizontalAndVerticalSizeClasses() {
+		case (.compact, .regular): return true
+		default: return false
+		}
+	}
+
 	// MARK: Life Cycle
 
 	init() {
@@ -29,7 +38,7 @@ final class TodayViewController: UIViewController {
 		super.viewDidLoad()
 
 		self.navigationController?.setupBlackDesignAppearances()
-		self.view = TodayView(frame: self.view.bounds)
+		self.view = TodayView(isCollectionCompact: isCollectionCompact, frame: self.view.bounds)
 
 		/*
 		if let splitController = self.splitViewController {
