@@ -14,6 +14,7 @@
 		A97C7CA324C3690000EFFCA3 /* TodayLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C7CA224C3690000EFFCA3 /* TodayLayout.swift */; };
 		A99D202F249525F2004A7BDD /* UINavigationController+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D202E249525F2004A7BDD /* UINavigationController+Design.swift */; };
 		A9C8B6C824C9FCA900DD4ABA /* TodayCollectionViewDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8B6C724C9FCA900DD4ABA /* TodayCollectionViewDiffableDataSource.swift */; };
+		A9C8B6CD24CB054700DD4ABA /* RegularInterfaceSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8B6CC24CB054700DD4ABA /* RegularInterfaceSplitViewController.swift */; };
 		A9E415C2247D4B4000018A16 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E415C1247D4B4000018A16 /* Strings.swift */; };
 		A9E415C5247EE07D00018A16 /* SectionsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E415C4247EE07D00018A16 /* SectionsTabBarController.swift */; };
 		A9E7F15E24992E470053E46F /* MainContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E7F15D24992E470053E46F /* MainContainerFactory.swift */; };
@@ -50,6 +51,7 @@
 		A97C7CA224C3690000EFFCA3 /* TodayLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayLayout.swift; sourceTree = "<group>"; };
 		A99D202E249525F2004A7BDD /* UINavigationController+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Design.swift"; sourceTree = "<group>"; };
 		A9C8B6C724C9FCA900DD4ABA /* TodayCollectionViewDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCollectionViewDiffableDataSource.swift; sourceTree = "<group>"; };
+		A9C8B6CC24CB054700DD4ABA /* RegularInterfaceSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularInterfaceSplitViewController.swift; sourceTree = "<group>"; };
 		A9E415C1247D4B4000018A16 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A9E415C4247EE07D00018A16 /* SectionsTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsTabBarController.swift; sourceTree = "<group>"; };
 		A9E7F15D24992E470053E46F /* MainContainerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerFactory.swift; sourceTree = "<group>"; };
@@ -184,7 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				F0806725248E68750096DAF5 /* Main Container */,
-				F0806726248E68840096DAF5 /* Sections */,
 				A94F112524C9E9CC00A32883 /* Today */,
 			);
 			path = Components;
@@ -203,6 +204,7 @@
 		F0806725248E68750096DAF5 /* Main Container */ = {
 			isa = PBXGroup;
 			children = (
+				F0806726248E68840096DAF5 /* ViewControllers */,
 				A9E7F15D24992E470053E46F /* MainContainerFactory.swift */,
 				F0806727248E68A00096DAF5 /* MainContainerView.swift */,
 				F00188782476EC2D00518FF0 /* MainContainerViewController.swift */,
@@ -210,12 +212,13 @@
 			path = "Main Container";
 			sourceTree = "<group>";
 		};
-		F0806726248E68840096DAF5 /* Sections */ = {
+		F0806726248E68840096DAF5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A9C8B6CC24CB054700DD4ABA /* RegularInterfaceSplitViewController.swift */,
 				A9E415C4247EE07D00018A16 /* SectionsTabBarController.swift */,
 			);
-			path = Sections;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +333,7 @@
 				A9FE6E2324C9F5040022FB3B /* UITraitEnvironment+.swift in Sources */,
 				A9E7F15E24992E470053E46F /* MainContainerFactory.swift in Sources */,
 				A9FE6E1924C9EBE90022FB3B /* TitleNewsTopicCollectionViewCell.swift in Sources */,
+				A9C8B6CD24CB054700DD4ABA /* RegularInterfaceSplitViewController.swift in Sources */,
 				A900A7192494F81300AC4341 /* Assets.swift in Sources */,
 				A9FE6E1F24C9EE930022FB3B /* TodaySectionHeaderCollectionReusableView.swift in Sources */,
 				A9FE6E2124C9F1520022FB3B /* TodayView.swift in Sources */,

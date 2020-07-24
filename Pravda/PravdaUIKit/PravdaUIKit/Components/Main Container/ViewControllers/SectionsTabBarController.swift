@@ -11,6 +11,8 @@ public protocol SafariNewsTappedProtocol: UIViewController {
 }
 
 protocol SectionsTabBarControllerProtocol: UIViewController {
+	func setupRegularInterface()
+	func setupCompactInterface()
 	func changeInterfaceToRegularAppearance()
 	func changeInterfaceToCompactAppearance(with displayMode: UISplitViewController.DisplayMode?)
 }
@@ -43,13 +45,12 @@ final class SectionsTabBarController: UITabBarController {
 		self.thirdSectionViewController = thirdSectionViewController
 
 		super.init(nibName: nil, bundle: nil)
-
-		initialInterface()
 	}
 
-	override func loadView() {
-		super.loadView()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
+		//setupRegularInterface()
 		setupDesignAppearances()
 	}
 
@@ -70,6 +71,23 @@ extension SectionsTabBarController: SafariNewsTappedProtocol {
 // MARK: Changes From MainContainer
 
 extension SectionsTabBarController: SectionsTabBarControllerProtocol {
+	func setupRegularInterface() {
+		// In regular always two sections in tab
+		self.viewControllers = [
+			secondSectionViewController,
+			thirdSectionViewController
+		]
+	}
+
+	func setupCompactInterface() {
+		// In compact always three sections in tab
+		self.viewControllers = [
+			firstSectionViewController,
+			secondSectionViewController,
+			thirdSectionViewController
+		]
+	}
+
 	func changeInterfaceToRegularAppearance() {
 		isSafariNewsTapped = false
 
@@ -97,40 +115,13 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 	}
 }
 
-// MARK: Setup Interface
+// MARK: Setup Design Appearances
 
 private extension SectionsTabBarController {
-	func initialInterface() {
-		switch getHorizontalAndVerticalSizeClasses() {
-		case (.regular, .regular):
-			setupRegularInterface()
-		default:
-			setupCompactInterface()
-		}
-	}
-
-	func setupRegularInterface() {
-		// In regular always two sections in tab
-		self.viewControllers = [
-			secondSectionViewController,
-			thirdSectionViewController
-		]
-	}
-
-	func setupCompactInterface() {
-		// In compact always three sections in tab
-		self.viewControllers = [
-			firstSectionViewController,
-			secondSectionViewController,
-			thirdSectionViewController
-		]
-	}
-
 	func setupDesignAppearances() {
 		let appearance = UITabBarAppearance()
 		let selectedColor = UIColor.systemPink
 
-		appearance.backgroundColor = .systemBackground
 		appearance.stackedLayoutAppearance.selected.iconColor = selectedColor
 		appearance.inlineLayoutAppearance.selected.iconColor = selectedColor
 		appearance.compactInlineLayoutAppearance.selected.iconColor = selectedColor
