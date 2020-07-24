@@ -10,10 +10,6 @@ import PravdaUIKit
 
 final class TodayViewController: UIViewController {
 
-	// MARK: Views
-
-	private let todayView: TodayViewProtocol = TodayView()
-
 	// MARK: Life Cycle
 
 	init() {
@@ -29,21 +25,11 @@ final class TodayViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	override func loadView() {
-		super.loadView()
-
-		self.navigationController?.setupBlackDesignAppearances()
-		self.view = todayView
-	}
-
-	override func viewDidLayoutSubviews() {
-		super.viewDidLayoutSubviews()
-
-		todayView.refreshLayout()
-	}
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		self.navigationController?.setupBlackDesignAppearances()
+		self.view = TodayView(frame: self.view.bounds)
 
 		/*
 		if let splitController = self.splitViewController {

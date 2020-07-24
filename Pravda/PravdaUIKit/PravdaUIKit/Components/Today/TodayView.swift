@@ -8,10 +8,6 @@
 
 import Models
 
-public protocol TodayViewProtocol: UIView {
-	func refreshLayout()
-}
-
 public final class TodayView: UIView {
 
 	// MARK: Properties
@@ -27,16 +23,21 @@ public final class TodayView: UIView {
 		setupSectionsDataSource()
 	}()
 
+	private let collectionViewLayout: TodayCollectionViewLayoutProtocol = TodayCollectionViewLayout()
+
 	// MARK: Views
 
 	private lazy var collectionView: UICollectionView = {
-		return UICollectionView(frame: .zero, collectionViewLayout: makeCollectionViewCompositionalLayout())
+		return UICollectionView(
+			frame: .zero,
+			collectionViewLayout: collectionViewLayout.makeCollectionViewCompositionalLayout(
+				isInterfaceCompact: isInterfaceCompact))
 	}()
 
 	// MARK: Life Cycle
 
-	public init() {
-		super.init(frame: .zero)
+	public override init(frame: CGRect) {
+		super.init(frame: frame)
 
 		setupCollectionViewAppearances()
 		setupCollectionViewLayout()
@@ -48,17 +49,17 @@ public final class TodayView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-		dataSource.apply(getCurrentStateSnapshot(), animatingDifferences: false)
+	public override func layoutSubviews() {
+		super.layoutSubviews()
+
+		refreshLayout()
 	}
-}
 
-// MARK: Setup View Protocol
+	// MARK: Changes Cycle
 
-extension TodayView: TodayViewProtocol {
-	public func refreshLayout() {
-		collectionView.reloadData()
-		collectionView.collectionViewLayout.invalidateLayout()
+	public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+		collectionViewLayout.setIsInterfaceCompact(isInterfaceCompact)
+		dataSource.apply(getCurrentStateSnapshot(), animatingDifferences: false)
 	}
 }
 
@@ -72,7 +73,7 @@ extension TodayView: UICollectionViewDelegate {
 	}
 }
 
-// MARK: Setup Collection Appearances
+// MARK: Setup Collection View
 
 private extension TodayView {
 	func setupCollectionViewAppearances() {
@@ -91,11 +92,7 @@ private extension TodayView {
 
 		collectionView.backgroundColor = .systemBackground
 	}
-}
 
-// MARK: Setup Collection Layout
-
-private extension TodayView {
 	func setupCollectionViewLayout() {
 		self.addSubview(collectionView)
 		collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -109,80 +106,9 @@ private extension TodayView {
 		])
 	}
 
-	func makeCollectionViewCompositionalLayout() -> UICollectionViewLayout {
-		let layout = UICollectionViewCompositionalLayout { [weak self] (sectionIndex, _) -> NSCollectionLayoutSection? in
-			guard let self = self else {
-				assertionFailure()
-				return nil
-			}
-
-			switch TodaySections.allCases[sectionIndex] {
-			case .topStories, .science: return self.makeTitleNewsLayoutSection()
-			case .otherTopStories, .otherScience: return self.makeOtherNewsLayoutSection()
-			}
-		}
-
-		return layout
-	}
-
-	func makeSectionHeaderLayout() -> NSCollectionLayoutBoundarySupplementaryItem {
-		let sectionHeaderLayoutSize = NSCollectionLayoutSize(
-			widthDimension: .fractionalWidth(1.0),
-			heightDimension: .estimated(TodaySectionHeaderCollectionReusableView.getEstimatedHeight()))
-
-		let sectionHeaderLayout = NSCollectionLayoutBoundarySupplementaryItem(
-			layoutSize: sectionHeaderLayoutSize,
-			elementKind: UICollectionView.elementKindSectionHeader,
-			alignment: .top)
-		return sectionHeaderLayout
-	}
-
-	func makeTitleNewsLayoutSection() -> NSCollectionLayoutSection {
-		let topStoriesLayoutSize = NSCollectionLayoutSize(
-			widthDimension: .fractionalWidth(1.0),
-			heightDimension: .estimated(TitleNewsTopicCollectionViewCell.getEstimatedHeight()))
-		let titleNewsTopicItem = NSCollectionLayoutItem(layoutSize: topStoriesLayoutSize)
-
-		let topStoriesGroup = NSCollectionLayoutGroup.horizontal(
-			layoutSize: topStoriesLayoutSize, subitem: titleNewsTopicItem, count: isInterfaceCompact ? 1 : 2)
-		topStoriesGroup.interItemSpacing = .fixed(TodayLayout.safeHorizontalDistance.rawValue)
-		topStoriesGroup.contentInsets = NSDirectionalEdgeInsets(
-			top: 0,
-			leading: TodayLayout.safeHorizontalDistance.rawValue,
-			bottom: 0,
-			trailing: TodayLayout.safeHorizontalDistance.rawValue)
-
-		let section = NSCollectionLayoutSection(group: topStoriesGroup)
-		section.boundarySupplementaryItems = [makeSectionHeaderLayout()]
-		return section
-	}
-
-	func makeOtherNewsLayoutSection() -> NSCollectionLayoutSection {
-		let newsTopicItemLayoutSize = NSCollectionLayoutSize(
-			widthDimension: .fractionalWidth(1.0),
-			heightDimension: .estimated(OtherNewsTopicCollectionViewCell.getEstimatedHeight()))
-		let newsTopicItem = NSCollectionLayoutItem(layoutSize: newsTopicItemLayoutSize)
-
-		let newsItemsInGroupCount = 2
-		let newsGroupLayoutSize = NSCollectionLayoutSize(
-			widthDimension: .fractionalWidth(isInterfaceCompact ? 0.85 : 0.425),
-			heightDimension: .estimated(
-				CGFloat(newsItemsInGroupCount) * OtherNewsTopicCollectionViewCell.getEstimatedHeight()))
-		let newsGroup = NSCollectionLayoutGroup.vertical(
-			layoutSize: newsGroupLayoutSize, subitem: newsTopicItem, count: newsItemsInGroupCount)
-		newsGroup.interItemSpacing = .fixed(TodayLayout.topicHorizontalDistance.rawValue)
-		newsGroup.contentInsets = NSDirectionalEdgeInsets(
-			top: 0, leading: 0, bottom: 0, trailing: TodayLayout.safeHorizontalDistance.rawValue)
-
-		let section = NSCollectionLayoutSection(group: newsGroup)
-		section.orthogonalScrollingBehavior = .groupPaging
-		section.contentInsets = NSDirectionalEdgeInsets(
-			top: 0,
-			leading: TodayLayout.safeHorizontalDistance.rawValue,
-			bottom: TodayLayout.topicHorizontalDistance.rawValue,
-			trailing: TodayLayout.safeHorizontalDistance.rawValue)
-
-		return section
+	func refreshLayout() {
+		collectionView.reloadData()
+		collectionView.collectionViewLayout.invalidateLayout()
 	}
 }
 
