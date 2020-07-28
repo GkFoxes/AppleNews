@@ -12,6 +12,10 @@ public final class TodayView: UIView {
 
 	// MARK: Properties
 
+	public override class var requiresConstraintBasedLayout: Bool { return true }
+
+	public var selectedItemHandler: ((IndexPath) -> Void)?
+	private let output: CollectionViewDelegateProtocol = TodayCollectionViewDelegate()
 	private var isCollectionCompact: Bool {
 		switch getHorizontalAndVerticalSizeClasses() {
 		case (.compact, .regular): return true
@@ -74,11 +78,11 @@ extension TodayView: UICollectionViewDelegate {
 	}
 }
 
-// MARK: Collection View Interface
+// MARK: View Layout
 
 private extension TodayView {
 	func setupCollectionViewAppearances() {
-		collectionView.delegate = self
+		collectionView.delegate = output
 
 		collectionView.register(
 			TitleNewsTopicCollectionViewCell.self,
@@ -110,5 +114,16 @@ private extension TodayView {
 	func refreshLayout() {
 		collectionView.reloadData()
 		collectionView.collectionViewLayout.invalidateLayout()
+	}
+}
+
+// MARK: Collection Delegate
+
+private extension TodayView {
+	func setupCollectionViewDelegate() {
+		self.output.selectedItemHandler = { [weak self] indexPath in
+			guard let self = self else { return assertionFailure() }
+			self.selectedItemHandler?(indexPath)
+		}
 	}
 }
