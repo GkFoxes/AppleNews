@@ -11,13 +11,7 @@ import Models
 typealias TodayDiffableDataSource = UICollectionViewDiffableDataSource<TodaySections, TodayNewsItem>
 
 protocol TodayCollectionViewDiffableDataSourceProtocol: TodayDiffableDataSource {
-	static func setupCellsDataSource(
-		collectionView: UICollectionView,
-		indexPath: IndexPath,
-		detailItem: TodayNewsItem
-	) -> UICollectionViewCell?
-
-	func setupSectionHeaderProvider()
+	func setupDataSourceForView(isCollectionCompact: Bool)
 	func applyCurrentStateSnapshot(isCollectionCompact: Bool)
 }
 
@@ -39,6 +33,19 @@ final class TodayCollectionViewDiffableDataSource: TodayDiffableDataSource {
 // MARK: Setup Interface
 
 extension TodayCollectionViewDiffableDataSource: TodayCollectionViewDiffableDataSourceProtocol {
+	func setupDataSourceForView(isCollectionCompact: Bool) {
+		setupSectionHeaderProvider()
+		applyCurrentStateSnapshot(isCollectionCompact: isCollectionCompact)
+	}
+
+	func applyCurrentStateSnapshot(isCollectionCompact: Bool) {
+		self.apply(self.getCurrentStateSnapshot(isCollectionCompact: isCollectionCompact), animatingDifferences: false)
+	}
+}
+
+// MARK: Data Snapshot
+
+private extension TodayCollectionViewDiffableDataSource {
 	static func setupCellsDataSource(
 		collectionView: UICollectionView,
 		indexPath: IndexPath,
@@ -92,14 +99,6 @@ extension TodayCollectionViewDiffableDataSource: TodayCollectionViewDiffableData
 		}
 	}
 
-	func applyCurrentStateSnapshot(isCollectionCompact: Bool) {
-		self.apply(self.getCurrentStateSnapshot(isCollectionCompact: isCollectionCompact), animatingDifferences: false)
-	}
-}
-
-// MARK: Snapshot
-
-private extension TodayCollectionViewDiffableDataSource {
 	func getCurrentStateSnapshot(isCollectionCompact: Bool) -> NSDiffableDataSourceSnapshot<TodaySections, TodayNewsItem> {
 		var snapshot = NSDiffableDataSourceSnapshot<TodaySections, TodayNewsItem>()
 		snapshot.appendSections([.topStories, .otherTopStories, .science, .otherScience])

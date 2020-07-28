@@ -41,7 +41,7 @@ public final class TodayView: UIView {
 
 		setupCollectionViewAppearances()
 		setupCollectionViewLayout()
-		setupDataSource()
+		dataSource.setupDataSourceForView(isCollectionCompact: isCollectionCompact)
 	}
 
 	@available(*, unavailable)
@@ -49,13 +49,14 @@ public final class TodayView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 
+	// MARK: Changes Cycle
+
 	public override func layoutSubviews() {
 		super.layoutSubviews()
 
+		setupCollectionViewLayout()
 		refreshLayout()
 	}
-
-	// MARK: Changes Cycle
 
 	public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 		collectionViewLayout.setIsCollectionCompact(isCollectionCompact)
@@ -109,14 +110,5 @@ private extension TodayView {
 	func refreshLayout() {
 		collectionView.reloadData()
 		collectionView.collectionViewLayout.invalidateLayout()
-	}
-}
-
-// MARK: Setup Data Source
-
-private extension TodayView {
-	func setupDataSource() {
-		dataSource.setupSectionHeaderProvider()
-		dataSource.applyCurrentStateSnapshot(isCollectionCompact: isCollectionCompact)
 	}
 }
