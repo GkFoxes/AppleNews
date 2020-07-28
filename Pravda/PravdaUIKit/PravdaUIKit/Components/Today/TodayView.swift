@@ -50,7 +50,6 @@ public final class TodayView: UIView {
 
 		setupCollectionViewAppearances()
 		setupCollectionViewLayout()
-		dataSource.setupDataSourceForView()
 		setupCollectionViewDelegate()
 	}
 

@@ -31,12 +31,12 @@ public struct TodayNewsItems {
 		self.otherScienceItems = otherScienceItems
 	}
 
-	/// Empty initializer, where each item in the array has an one empty item
+	/// Empty initializer, where each array items is empty
 	public init() {
-		self.topStoriesItems = [TodayNewsItem(imageURL: nil, source: "", title: "", timePublication: "")]
-		self.otherTopStoriesItems = [TodayNewsItem(imageURL: nil, source: "", title: "", timePublication: "")]
-		self.scienceItems = [TodayNewsItem(imageURL: nil, source: "", title: "", timePublication: "")]
-		self.otherScienceItems = [TodayNewsItem(imageURL: nil, source: "", title: "", timePublication: "")]
+		self.topStoriesItems = []
+		self.otherTopStoriesItems = []
+		self.scienceItems = []
+		self.otherScienceItems = []
 	}
 }
 
