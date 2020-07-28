@@ -11,11 +11,15 @@ import Models
 typealias TodayDiffableDataSource = UICollectionViewDiffableDataSource<TodaySections, TodayNewsItem>
 
 protocol TodayCollectionViewDiffableDataSourceProtocol: TodayDiffableDataSource {
-	func setupDataSourceForView(isCollectionCompact: Bool)
-	func applyCurrentStateSnapshot(isCollectionCompact: Bool)
+	func setItems(_ todayNewsItems: TodayNewsItems)
+	func getItem(for indexPath: IndexPath) -> TodayNewsItem?
+	func setupDataSourceForView()
+	func applyCurrentStateSnapshot()
 }
 
 final class TodayCollectionViewDiffableDataSource: TodayDiffableDataSource {
+
+	private var todayNewsItems = TodayNewsItems()
 
 	// MARK: Life Cycle
 
@@ -33,13 +37,22 @@ final class TodayCollectionViewDiffableDataSource: TodayDiffableDataSource {
 // MARK: Setup Interface
 
 extension TodayCollectionViewDiffableDataSource: TodayCollectionViewDiffableDataSourceProtocol {
-	func setupDataSourceForView(isCollectionCompact: Bool) {
-		setupSectionHeaderProvider()
-		applyCurrentStateSnapshot(isCollectionCompact: isCollectionCompact)
+	func setItems(_ todayNewsItems: TodayNewsItems) {
+		self.todayNewsItems = todayNewsItems
+		applyCurrentStateSnapshot()
 	}
 
-	func applyCurrentStateSnapshot(isCollectionCompact: Bool) {
-		self.apply(self.getCurrentStateSnapshot(isCollectionCompact: isCollectionCompact), animatingDifferences: false)
+	func getItem(for indexPath: IndexPath) -> TodayNewsItem? {
+		return self.itemIdentifier(for: indexPath)
+	}
+
+	func setupDataSourceForView() {
+		setupSectionHeaderProvider()
+		applyCurrentStateSnapshot()
+	}
+
+	func applyCurrentStateSnapshot() {
+		self.apply(self.getCurrentStateSnapshot(), animatingDifferences: true)
 	}
 }
 
@@ -99,19 +112,14 @@ private extension TodayCollectionViewDiffableDataSource {
 		}
 	}
 
-	func getCurrentStateSnapshot(isCollectionCompact: Bool) -> NSDiffableDataSourceSnapshot<TodaySections, TodayNewsItem> {
+	func getCurrentStateSnapshot() -> NSDiffableDataSourceSnapshot<TodaySections, TodayNewsItem> {
 		var snapshot = NSDiffableDataSourceSnapshot<TodaySections, TodayNewsItem>()
 		snapshot.appendSections([.topStories, .otherTopStories, .science, .otherScience])
 
-		let topStoriesItems = TodayNewsItem.makeTopStoriesMock(isOnlyOneItem: isCollectionCompact)
-		snapshot.appendItems(topStoriesItems, toSection: .topStories)
-		let otherTopStoriesItems = TodayNewsItem.makeOtherTopStoriesMock()
-		snapshot.appendItems(otherTopStoriesItems, toSection: .otherTopStories)
-
-		let scienceItems = TodayNewsItem.makeScienceMock(isOnlyOneItem: isCollectionCompact)
-		snapshot.appendItems(scienceItems, toSection: .science)
-		let otherScienceItems = TodayNewsItem.makeOtherScienceMock()
-		snapshot.appendItems(otherScienceItems, toSection: .otherScience)
+		snapshot.appendItems(todayNewsItems.topStoriesItems, toSection: .topStories)
+		snapshot.appendItems(todayNewsItems.otherTopStoriesItems, toSection: .otherTopStories)
+		snapshot.appendItems(todayNewsItems.scienceItems, toSection: .science)
+		snapshot.appendItems(todayNewsItems.otherScienceItems, toSection: .otherScience)
 
 		return snapshot
 	}

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A981051524D090C700EB6160 /* TodayNewsItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = A981051424D090C700EB6160 /* TodayNewsItems.swift */; };
 		A9A0841E24C9F77700207792 /* TodaySections.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A0841D24C9F77700207792 /* TodaySections.swift */; };
 		A9A0842024C9F79700207792 /* TodayNewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A0841F24C9F79700207792 /* TodayNewsItem.swift */; };
 		A9FE6E3324C9F6610022FB3B /* Models.h in Headers */ = {isa = PBXBuildFile; fileRef = A9FE6E3124C9F6610022FB3B /* Models.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,6 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A981051424D090C700EB6160 /* TodayNewsItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayNewsItems.swift; sourceTree = "<group>"; };
 		A9A0841D24C9F77700207792 /* TodaySections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaySections.swift; sourceTree = "<group>"; };
 		A9A0841F24C9F79700207792 /* TodayNewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayNewsItem.swift; sourceTree = "<group>"; };
 		A9FE6E2E24C9F6610022FB3B /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +67,7 @@
 			children = (
 				A9A0841D24C9F77700207792 /* TodaySections.swift */,
 				A9A0841F24C9F79700207792 /* TodayNewsItem.swift */,
+				A981051424D090C700EB6160 /* TodayNewsItems.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A981051524D090C700EB6160 /* TodayNewsItems.swift in Sources */,
 				A9A0841E24C9F77700207792 /* TodaySections.swift in Sources */,
 				A9A0842024C9F79700207792 /* TodayNewsItem.swift in Sources */,
 			);

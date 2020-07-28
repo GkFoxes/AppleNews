@@ -8,6 +8,11 @@
 
 import Models
 
+public protocol TodayViewProtocol: CollectionViewProtocol {
+	func setItems(_ todayNewsItems: TodayNewsItems)
+	func getItem(for indexPath: IndexPath) -> TodayNewsItem?
+}
+
 public final class TodayView: UIView {
 
 	// MARK: Properties
@@ -15,17 +20,17 @@ public final class TodayView: UIView {
 	public override class var requiresConstraintBasedLayout: Bool { return true }
 
 	public var selectedItemHandler: ((IndexPath) -> Void)?
+
+	private let collectionViewLayout: TodayCollectionViewLayoutProtocol = TodayCollectionViewLayout()
+	private let dataSource: TodayCollectionViewDiffableDataSourceProtocol
 	private let output: CollectionViewDelegateProtocol = TodayCollectionViewDelegate()
+
 	private var isCollectionCompact: Bool {
 		switch getHorizontalAndVerticalSizeClasses() {
 		case (.compact, .regular): return true
 		default: return false
 		}
 	}
-
-	private let dataSource: TodayCollectionViewDiffableDataSourceProtocol
-
-	private let collectionViewLayout: TodayCollectionViewLayoutProtocol = TodayCollectionViewLayout()
 
 	// MARK: Views
 
@@ -45,7 +50,8 @@ public final class TodayView: UIView {
 
 		setupCollectionViewAppearances()
 		setupCollectionViewLayout()
-		dataSource.setupDataSourceForView(isCollectionCompact: isCollectionCompact)
+		dataSource.setupDataSourceForView()
+		setupCollectionViewDelegate()
 	}
 
 	@available(*, unavailable)
@@ -58,23 +64,24 @@ public final class TodayView: UIView {
 	public override func layoutSubviews() {
 		super.layoutSubviews()
 
-		setupCollectionViewLayout()
+		//setupCollectionViewLayout()
 		refreshLayout()
 	}
 
 	public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 		collectionViewLayout.setIsCollectionCompact(isCollectionCompact)
-		dataSource.applyCurrentStateSnapshot(isCollectionCompact: isCollectionCompact)
 	}
 }
 
-// MARK: Collection View Delegate
+// MARK: Setup Interface
 
-extension TodayView: UICollectionViewDelegate {
-	public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//		guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
-//		let photoDetailVC = PhotoDetailViewController(photoURL: item.photoURL)
-//		navigationController?.pushViewController(photoDetailVC, animated: true)
+extension TodayView: TodayViewProtocol {
+	public func setItems(_ todayNewsItems: TodayNewsItems) {
+		dataSource.setItems(todayNewsItems)
+	}
+
+	public func getItem(for indexPath: IndexPath) -> TodayNewsItem? {
+		dataSource.getItem(for: indexPath)
 	}
 }
 
