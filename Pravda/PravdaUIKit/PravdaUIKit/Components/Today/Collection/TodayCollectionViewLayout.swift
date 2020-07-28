@@ -17,6 +17,8 @@ final class TodayCollectionViewLayout: UICollectionViewLayout {
 
 	// MARK: Properties
 
+	/// The collection is compact, when the width and height are equal to (.compact, .regular)
+	/// default = true
 	var isCollectionCompact = true
 }
 
@@ -31,11 +33,7 @@ extension TodayCollectionViewLayout: TodayCollectionViewLayoutProtocol {
 		self.isCollectionCompact = isCollectionCompact
 
 		let layout = UICollectionViewCompositionalLayout { [weak self] (sectionIndex, _) -> NSCollectionLayoutSection? in
-			guard let self = self else {
-				assertionFailure()
-				return nil
-			}
-
+			guard let self = self else { assertionFailure(); return nil }
 			switch TodaySections.allCases[sectionIndex] {
 			case .topStories, .science: return self.makeTitleNewsLayoutSection()
 			case .otherTopStories, .otherScience: return self.makeOtherNewsLayoutSection()
