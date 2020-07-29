@@ -11,6 +11,7 @@ import Models
 public protocol TodayViewProtocol: CollectionViewProtocol {
 	func setItems(_ todayNewsItems: TodayNewsItems)
 	func getItem(for indexPath: IndexPath) -> TodayNewsItem?
+	func updateCollectionView(isCollectionCompact: Bool, items: TodayNewsItems)
 }
 
 public final class TodayView: UIView {
@@ -24,13 +25,6 @@ public final class TodayView: UIView {
 	private let collectionViewLayout: TodayCollectionViewLayoutProtocol = TodayCollectionViewLayout()
 	private let dataSource: TodayCollectionViewDiffableDataSourceProtocol
 	private let output: CollectionViewDelegateProtocol = TodayCollectionViewDelegate()
-
-	private var isCollectionCompact: Bool {
-		switch getHorizontalAndVerticalSizeClasses() {
-		case (.compact, .regular): return true
-		default: return false
-		}
-	}
 
 	// MARK: Views
 
@@ -63,12 +57,7 @@ public final class TodayView: UIView {
 	public override func layoutSubviews() {
 		super.layoutSubviews()
 
-		//setupCollectionViewLayout()
-		refreshLayout()
-	}
-
-	public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-		collectionViewLayout.setIsCollectionCompact(isCollectionCompact)
+		refreshCollectionViewLayout()
 	}
 }
 
@@ -81,6 +70,11 @@ extension TodayView: TodayViewProtocol {
 
 	public func getItem(for indexPath: IndexPath) -> TodayNewsItem? {
 		dataSource.getItem(for: indexPath)
+	}
+
+	public func updateCollectionView(isCollectionCompact: Bool, items: TodayNewsItems) {
+		collectionViewLayout.setIsCollectionCompact(isCollectionCompact)
+		dataSource.setItems(items)
 	}
 }
 
@@ -117,7 +111,7 @@ private extension TodayView {
 		])
 	}
 
-	func refreshLayout() {
+	func refreshCollectionViewLayout() {
 		collectionView.reloadData()
 		collectionView.collectionViewLayout.invalidateLayout()
 	}

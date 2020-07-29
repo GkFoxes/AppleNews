@@ -11,6 +11,13 @@ import PravdaUIKit
 
 final class TodayViewController: UIViewController {
 
+	// MARK: Views
+
+	var todayView: TodayViewProtocol {
+		guard let todayView = view as? TodayViewProtocol else { fatalError() }
+		return todayView
+	}
+
 	// MARK: Properties
 
 	private var isCollectionCompact: Bool {
@@ -35,48 +42,54 @@ final class TodayViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-//	override func loadView() {
-//		view = shareView
-//	}
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		self.navigationController?.setupBlackDesignAppearances()
-		self.view = createTodayView(isCollectionCompact: isCollectionCompact, frame: self.view.bounds)
+		self.view = createTodayView()
 
-		/*
-		if let splitController = self.splitViewController {
-			self.navigationItem.leftBarButtonItem = splitController.displayModeButtonItem
-		}*/
+		
+		//if let splitController = self.splitViewController {
+			self.navigationItem.leftBarButtonItem = self.displayModeButtonItem
+			//change button
+		//}
+	}
+
+	// MARK: Changes Cycle
+
+	public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+		todayView.updateCollectionView(isCollectionCompact: isCollectionCompact, items: getTodayNewsItems())
 	}
 }
 
-// MARK: Setup View
+// MARK: Setup Today View
 
 private extension TodayViewController {
-	func createTodayView(isCollectionCompact: Bool, frame: CGRect) -> UIView {
-		let view: TodayViewProtocol = TodayView(isCollectionCompact: isCollectionCompact, frame: self.view.bounds)
+	func createTodayView() -> UIView {
+		let todayView: TodayViewProtocol = TodayView(isCollectionCompact: isCollectionCompact, frame: view.bounds)
+		todayView.setItems(getTodayNewsItems())
+		todayView.selectedItemHandler = { [weak self] indexPath in
+			guard let self = self else { return assertionFailure() }
+			self.pushTodayDetailViewController(with: indexPath)
+		}
 
-		let todayNewsItems = TodayNewsItems(
+		return todayView
+	}
+
+	func pushTodayDetailViewController(with indexPath: IndexPath) {
+		guard let item = todayView.getItem(for: indexPath) else { return }
+		print(item)
+	}
+}
+
+// MARK: News Items Interface
+
+private extension TodayViewController {
+	func getTodayNewsItems() -> TodayNewsItems {
+		return TodayNewsItems(
 			topStoriesItems: TodayNewsItem.makeTopStoriesMock(isOnlyOneItem: isCollectionCompact),
 			otherTopStoriesItems: TodayNewsItem.makeOtherTopStoriesMock(),
 			scienceItems: TodayNewsItem.makeScienceMock(isOnlyOneItem: isCollectionCompact),
 			otherScienceItems: TodayNewsItem.makeOtherScienceMock())
-
-		view.setItems(todayNewsItems)
-		view.selectedItemHandler = { [weak self] indexPath in
-			guard let self = self else { return assertionFailure() }
-			self.pushTodayDetailViewController(from: view, with: indexPath)
-		}
-
-		return view
-	}
-
-	func pushTodayDetailViewController(from view: TodayViewProtocol, with indexPath: IndexPath) {
-		guard let item = view.getItem(for: indexPath) else { return }
-		print(item)
-		//let photoDetailVC = PhotoDetailViewController(photoURL: item.photoURL)
-		//navigationController?.pushViewController(photoDetailVC, animated: true)
 	}
 }

@@ -13,7 +13,6 @@ typealias TodayDiffableDataSource = UICollectionViewDiffableDataSource<TodaySect
 protocol TodayCollectionViewDiffableDataSourceProtocol: TodayDiffableDataSource {
 	func setItems(_ todayNewsItems: TodayNewsItems)
 	func getItem(for indexPath: IndexPath) -> TodayNewsItem?
-	func applyCurrentStateSnapshot()
 }
 
 final class TodayCollectionViewDiffableDataSource: TodayDiffableDataSource {
@@ -46,10 +45,6 @@ extension TodayCollectionViewDiffableDataSource: TodayCollectionViewDiffableData
 
 	func getItem(for indexPath: IndexPath) -> TodayNewsItem? {
 		return self.itemIdentifier(for: indexPath)
-	}
-
-	func applyCurrentStateSnapshot() {
-		self.apply(self.getCurrentStateSnapshot(), animatingDifferences: true)
 	}
 }
 
@@ -107,6 +102,10 @@ private extension TodayCollectionViewDiffableDataSource {
 			sectionHeader.setupContent(title: section.rawValue, textColor: section.color)
 			return sectionHeader
 		}
+	}
+
+	func applyCurrentStateSnapshot() {
+		self.apply(self.getCurrentStateSnapshot(), animatingDifferences: true)
 	}
 
 	func getCurrentStateSnapshot() -> NSDiffableDataSourceSnapshot<TodaySections, TodayNewsItem> {
