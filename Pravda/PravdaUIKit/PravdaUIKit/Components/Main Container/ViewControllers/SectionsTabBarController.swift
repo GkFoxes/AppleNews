@@ -101,11 +101,11 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 			isSafariNewsTapped = false
 			selectedIndex += 1
 		} else {
-			if displayMode == .primaryHidden || displayMode == .allVisible || displayMode == nil {
-				//If Master view hidden or first section in read, show it in compact tab
-				selectedIndex = 0
-			} else {
+			if displayMode == .primaryOverlay {
+				//If Master view in read, show it in tabs
 				selectedIndex += 1
+			} else {
+				selectedIndex = 0
 			}
 		}
 

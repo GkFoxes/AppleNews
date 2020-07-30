@@ -45,20 +45,51 @@ final class TodayViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		setupSplitViewAppearances()
 		self.navigationController?.setupBlackDesignAppearances()
 		self.view = createTodayView()
-
-		
-		//if let splitController = self.splitViewController {
-			self.navigationItem.leftBarButtonItem = self.displayModeButtonItem
-			//change button
-		//}
 	}
 
 	// MARK: Changes Cycle
 
 	public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+		setupSplitViewAppearancesIfNeeded()
 		todayView.updateCollectionView(isCollectionCompact: isCollectionCompact, items: getTodayNewsItems())
+	}
+}
+
+// MARK: Setup Split View
+
+extension TodayViewController: UISplitViewControllerDelegate {
+	func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewController.DisplayMode) {
+		setNavigationItem(svc, displayMode: displayMode)
+	}
+
+	private func setupSplitViewAppearances() {
+		splitViewController?.delegate = self
+
+		setNavigationItem(splitViewController, displayMode: splitViewController?.displayMode)
+	}
+
+	/// It is only necessary at the moment when the view is loaded in compact, and after rise to regular
+	private func setupSplitViewAppearancesIfNeeded() {
+		if splitViewController?.delegate == nil {
+			splitViewController?.delegate = self
+		}
+
+		setNavigationItem(splitViewController, displayMode: splitViewController?.displayMode)
+	}
+
+	private func setNavigationItem(
+		_ splitViewController: UISplitViewController?,
+		displayMode: UISplitViewController.DisplayMode?
+	) {
+		if let splitViewController = splitViewController as? SplitViewDisplayModeButtonItem,
+			displayMode == .primaryHidden {
+			navigationItem.leftBarButtonItem = splitViewController.getDisplayModeButtonItem()
+		} else {
+			navigationItem.leftBarButtonItem = nil
+		}
 	}
 }
 

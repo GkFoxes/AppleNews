@@ -23,7 +23,6 @@ public final class MainContainerFactory {
 				firstSectionViewController: firstSection)
 
 		let mainContainerViewController = MainContainerViewController(
-			firstSectionViewController: firstSection,
 			sectionsTabBarController: sectionsTabBarController,
 			regularInterfaceSplitViewController: regularInterfaceSplitViewController)
 

@@ -19,18 +19,15 @@ final class MainContainerViewController: UIViewController {
 
 	// Main Tab have only Sections TabBar in Compact interface.
 	// But in Regular interface have Sections in Master and first section in Detail.
-	private let firstSectionViewController: UIViewController
 	private let sectionsTabBarController: SectionsTabBarControllerProtocol
 	private let regularInterfaceSplitViewController: RegularInterfaceSplitViewControllerProtocol
 
 	// MARK: Life Cycle
 
 	init(
-		firstSectionViewController: UIViewController,
 		sectionsTabBarController: SectionsTabBarControllerProtocol,
 		regularInterfaceSplitViewController: RegularInterfaceSplitViewControllerProtocol
 	) {
-		self.firstSectionViewController = firstSectionViewController
 		self.sectionsTabBarController = sectionsTabBarController
 		self.regularInterfaceSplitViewController = regularInterfaceSplitViewController
 
@@ -55,8 +52,15 @@ final class MainContainerViewController: UIViewController {
 	// MARK: Changes Cycle
 
 	/// Change interface to compact or regular only on iPad.
-	public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-		changeInterfaceIfNeeded()
+	override func willTransition(
+		to newCollection: UITraitCollection,
+		with coordinator: UIViewControllerTransitionCoordinator
+	) {
+		changeInterfaceIfNeeded(
+			horizontalSizeClass: newCollection.horizontalSizeClass,
+			verticalSizeClass: newCollection.verticalSizeClass)
+
+		super.willTransition(to: newCollection, with: coordinator)
 	}
 }
 
@@ -86,8 +90,11 @@ private extension MainContainerViewController {
 // MARK: Size Class Change Interface
 
 private extension MainContainerViewController {
-	func changeInterfaceIfNeeded() {
-		switch getHorizontalAndVerticalSizeClasses() {
+	func changeInterfaceIfNeeded(
+		horizontalSizeClass: UIUserInterfaceSizeClass,
+		verticalSizeClass: UIUserInterfaceSizeClass
+	) {
+		switch (horizontalSizeClass, verticalSizeClass) {
 		case (.regular, .regular):
 			guard isInterfaceCompact != false else { return }
 			changeInterfaceToRegularAppearance()
@@ -111,7 +118,7 @@ private extension MainContainerViewController {
 		isInterfaceCompact = true
 
 		sectionsTabBarController.changeInterfaceToCompactAppearance(
-			with: regularInterfaceSplitViewController.previousSplitDisplayMode)
+			with: regularInterfaceSplitViewController.displayMode)
 
 		remove(asChild: regularInterfaceSplitViewController)
 		add(asChild: sectionsTabBarController)
