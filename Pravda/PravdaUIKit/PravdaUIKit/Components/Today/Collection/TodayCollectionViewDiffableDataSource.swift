@@ -95,7 +95,7 @@ private extension TodayCollectionViewDiffableDataSource {
 					withReuseIdentifier: TodaySectionHeaderCollectionReusableView.reuseIdentifer,
 					for: indexPath) as? TodaySectionHeaderCollectionReusableViewProtocol
 				else {
-					assertionFailure("Couldn't create TodaySectionHeader")
+					assertionFailure()
 					return nil
 			}
 

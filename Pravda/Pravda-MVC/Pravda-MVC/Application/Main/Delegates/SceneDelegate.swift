@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 private extension SceneDelegate {
 	func setupRootViewController(from scene: UIScene) {
-		guard let windowScene = (scene as? UIWindowScene) else { return assertionFailure() }
+		guard let windowScene = scene as? UIWindowScene else { return assertionFailure() }
 		window = UIWindow(frame: windowScene.coordinateSpace.bounds)
 
 		guard let window = window else { return assertionFailure() }

@@ -18,7 +18,7 @@ extension UICollectionView {
 			withReuseIdentifier: reuseIdentifer,
 			for: indexPath) as? TodayCollectionViewCellProtocol
 		else {
-			assertionFailure("Couldn't create Today Cell")
+			assertionFailure()
 			return nil
 		}
 

@@ -68,7 +68,7 @@ extension RegularInterfaceSplitViewController: SplitViewDisplayModeButtonItem {
 	}
 }
 
-// MARK: ViewControllers
+// MARK: Change ViewControllers
 
 private extension RegularInterfaceSplitViewController {
 	func setViewControllers() {

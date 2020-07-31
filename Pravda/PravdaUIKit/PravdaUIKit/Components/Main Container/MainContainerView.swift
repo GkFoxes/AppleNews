@@ -8,6 +8,7 @@
 
 protocol MainContainerViewProtocol: UIView {
 	func add(asChild childView: UIView)
+	func remove(asChild childView: UIView)
 }
 
 final class MainContainerView: UIView {
@@ -31,5 +32,9 @@ extension MainContainerView: MainContainerViewProtocol {
 		self.addSubview(childView)
 		childView.frame = self.bounds
 		childView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+	}
+
+	func remove(asChild childView: UIView) {
+		childView.removeFromSuperview()
 	}
 }

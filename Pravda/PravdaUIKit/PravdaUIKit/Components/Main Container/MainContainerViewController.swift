@@ -136,7 +136,7 @@ private extension MainContainerViewController {
 
 	func remove(asChild childViewController: UIViewController) {
 		childViewController.willMove(toParent: nil)
-		childViewController.view.removeFromSuperview()
+		mainContainerView.remove(asChild: childViewController.view)
 		childViewController.removeFromParent()
 	}
 }
