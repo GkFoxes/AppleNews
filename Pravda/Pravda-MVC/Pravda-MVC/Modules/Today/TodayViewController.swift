@@ -45,7 +45,7 @@ final class TodayViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		setupSplitViewAppearances()
+		setupSplitViewAppearancesIfNeeded()
 		self.navigationController?.setupBlackDesignAppearances()
 		self.view = createTodayView()
 	}
@@ -65,14 +65,8 @@ extension TodayViewController: UISplitViewControllerDelegate {
 		setNavigationItem(svc, displayMode: displayMode)
 	}
 
-	private func setupSplitViewAppearances() {
-		splitViewController?.delegate = self
-
-		setNavigationItem(splitViewController, displayMode: splitViewController?.displayMode)
-	}
-
-	/// It is only necessary at the moment when the view is loaded in compact, and after rise to regular
 	private func setupSplitViewAppearancesIfNeeded() {
+		// After viewDidLoad() delegate == nil, at the moment when view is loaded in compact, and after rise to regular
 		if splitViewController?.delegate == nil {
 			splitViewController?.delegate = self
 		}
