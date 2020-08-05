@@ -104,6 +104,9 @@ private extension TodayViewController {
 	func pushTodayDetailViewController(with indexPath: IndexPath) {
 		guard let item = todayView.getItem(for: indexPath) else { return }
 		print(item)
+
+		let detailNewsViewController = DetailNewsViewController()
+		navigationController?.pushViewController(detailNewsViewController, animated: true)
 	}
 }
 

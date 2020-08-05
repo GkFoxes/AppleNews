@@ -39,7 +39,7 @@ final class MainContainerViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	public override func loadView() {
+	override func loadView() {
 		self.view = mainContainerView
 	}
 
