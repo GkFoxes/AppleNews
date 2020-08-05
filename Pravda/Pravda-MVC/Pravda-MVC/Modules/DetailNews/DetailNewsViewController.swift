@@ -17,18 +17,21 @@ class DetailNewsViewController: UIViewController {
 
 	// MARK: Views
 
-	private let detailNewsView: DetailNewsViewProtocol = DetailNewsView()
+	private var detailNewsView: DetailNewsViewProtocol {
+		guard let detailNewsView = view as? DetailNewsViewProtocol else { fatalError() }
+		return detailNewsView
+	}
 
 	// MARK: Life Cycle
 
 	public override func loadView() {
-		self.view = detailNewsView
+		self.view = DetailNewsView()
 	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		self.navigationController?.setupCompactDesignAppearances()
+		navigationItem.largeTitleDisplayMode = .never
 	}
 }
 

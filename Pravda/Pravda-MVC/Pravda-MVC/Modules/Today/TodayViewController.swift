@@ -13,7 +13,7 @@ final class TodayViewController: UIViewController {
 
 	// MARK: Views
 
-	var todayView: TodayViewProtocol {
+	private var todayView: TodayViewProtocol {
 		guard let todayView = view as? TodayViewProtocol else { fatalError() }
 		return todayView
 	}

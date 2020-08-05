@@ -23,8 +23,8 @@ public final class DetailNewsView: UIView {
 
 	// MARK: Life Cycle
 
-	public init() {
-		super.init(frame: .zero)
+	public override init(frame: CGRect) {
+		super.init(frame: frame)
 
 		setupViewsAppearances()
 		setupViewsLayout()

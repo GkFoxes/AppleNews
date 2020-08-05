@@ -24,10 +24,14 @@ public extension UINavigationController {
 private extension UINavigationController {
 
 	func setupDesignAppearances(weight: UIFont.Weight) {
-		self.navigationBar.prefersLargeTitles = true
+		navigationBar.prefersLargeTitles = true
 
 		let appearance = UINavigationBarAppearance()
 		appearance.backgroundColor = .systemBackground
+
+		let backButtonAppearance = UIBarButtonItemAppearance()
+		backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
+		appearance.buttonAppearance = backButtonAppearance
 
 		let titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0, weight: weight)]
 		appearance.titleTextAttributes = titleTextAttributes
@@ -35,8 +39,9 @@ private extension UINavigationController {
 		let largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 34.0, weight: weight)]
 		appearance.largeTitleTextAttributes = largeTitleTextAttributes
 
-		self.navigationBar.standardAppearance = appearance
-		self.navigationBar.compactAppearance = appearance
-		self.navigationBar.scrollEdgeAppearance = appearance
+		navigationBar.tintColor = .systemPink
+		navigationBar.standardAppearance = appearance
+		navigationBar.compactAppearance = appearance
+		navigationBar.scrollEdgeAppearance = appearance
 	}
 }
