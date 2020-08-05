@@ -1,0 +1,28 @@
+//
+//  DetailNewsItem.swift
+//  Models
+//
+//  Created by Дмитрий Матвеенко on 05.08.2020.
+//  Copyright © 2020 GkFoxes. All rights reserved.
+//
+
+public struct DetailNewsItem {
+	public let image: Data?
+	public let title: String
+	public let timePublication: String
+	public let text: String?
+
+	// MARK: Life Cycle
+
+	public init(
+		image: Data?,
+		title: String,
+		timePublication: String,
+		text: String?
+	) {
+		self.image = image
+		self.title = title
+		self.timePublication = timePublication
+		self.text = text
+	}
+}
