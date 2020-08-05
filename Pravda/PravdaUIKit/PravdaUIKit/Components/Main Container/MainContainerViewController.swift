@@ -15,7 +15,10 @@ final class MainContainerViewController: UIViewController {
 
 	// MARK: Views
 
-	private let mainContainerView: MainContainerViewProtocol = MainContainerView()
+	private var mainContainerView: MainContainerViewProtocol {
+		guard let mainContainerView = view as? MainContainerViewProtocol else { fatalError() }
+		return mainContainerView
+	}
 
 	// Main Tab have only Sections TabBar in Compact interface.
 	// But in Regular interface have Sections in Master and first section in Detail.
@@ -40,7 +43,7 @@ final class MainContainerViewController: UIViewController {
 	}
 
 	override func loadView() {
-		self.view = mainContainerView
+		self.view = MainContainerView()
 	}
 
 	override func viewDidLoad() {
@@ -96,10 +99,10 @@ private extension MainContainerViewController {
 	) {
 		switch (horizontalSizeClass, verticalSizeClass) {
 		case (.regular, .regular):
-			guard isInterfaceCompact != false else { return }
+			guard isInterfaceCompact != nil && isInterfaceCompact != false else { return }
 			changeInterfaceToRegularAppearance()
 		default:
-			guard isInterfaceCompact != true else { return }
+			guard isInterfaceCompact != nil && isInterfaceCompact != true else { return }
 			changeInterfaceToCompactAppearance()
 		}
 	}

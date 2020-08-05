@@ -15,8 +15,8 @@ final class MainContainerView: UIView {
 
 	// MARK: Life Cycle
 
-	init() {
-		super.init(frame: .zero)
+	override init(frame: CGRect) {
+		super.init(frame: frame)
 	}
 
 	@available(*, unavailable)

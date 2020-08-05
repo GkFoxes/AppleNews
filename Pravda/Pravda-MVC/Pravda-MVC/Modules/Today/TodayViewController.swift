@@ -53,6 +53,8 @@ final class TodayViewController: UIViewController {
 	// MARK: Changes Cycle
 
 	public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+		super.traitCollectionDidChange(previousTraitCollection)
+
 		setupSplitViewAppearancesIfNeeded()
 		todayView.updateCollectionView(isCollectionCompact: isCollectionCompact, items: getTodayNewsItems())
 	}
