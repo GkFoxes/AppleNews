@@ -64,7 +64,6 @@ public extension TodayNewsItem {
 						2Rep. John Lewis, a civil rights icon who began pushing for racial justice in south, has died
 						2Rep. John Lewis, a civil rights icon who began pushing for racial justice in south, has died
 						2Rep. John Lewis, a civil rights icon who began pushing for racial justice in south, has died
-						2Rep. John Lewis, a civil rights icon who began pushing for racial justice in south, has died
 						"""),
 			TodayNewsItem(
 				imageURL: nil,

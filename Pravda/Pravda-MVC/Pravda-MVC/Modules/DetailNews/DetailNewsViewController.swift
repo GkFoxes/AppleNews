@@ -9,7 +9,7 @@
 import Models
 import PravdaUIKit
 
-public protocol DetailNewsViewControllerProtocol: UIViewController {
+protocol DetailNewsViewControllerProtocol: UIViewController {
 	func setItem(_ detailNews: DetailNewsItem)
 }
 
@@ -27,13 +27,15 @@ class DetailNewsViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		self.navigationController?.setupCompactDesignAppearances()
 	}
 }
 
 // MARK: Setup Interface
 
 extension DetailNewsViewController: DetailNewsViewControllerProtocol {
-	public func setItem(_ detailNews: DetailNewsItem) {
+	func setItem(_ detailNews: DetailNewsItem) {
 		detailNewsView.setItem(detailNews)
 	}
 }
