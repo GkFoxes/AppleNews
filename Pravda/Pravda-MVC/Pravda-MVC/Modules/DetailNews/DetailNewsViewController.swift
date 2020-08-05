@@ -6,13 +6,18 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
+import Models
 import PravdaUIKit
+
+public protocol DetailNewsViewControllerProtocol: UIViewController {
+	func setItem(_ detailNews: DetailNewsItem)
+}
 
 class DetailNewsViewController: UIViewController {
 
 	// MARK: Views
 
-	private let detailNewsView = DetailNewsView()
+	private let detailNewsView: DetailNewsViewProtocol = DetailNewsView()
 
 	// MARK: Life Cycle
 
@@ -22,5 +27,13 @@ class DetailNewsViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+	}
+}
+
+// MARK: Setup Interface
+
+extension DetailNewsViewController: DetailNewsViewControllerProtocol {
+	public func setItem(_ detailNews: DetailNewsItem) {
+		detailNewsView.setItem(detailNews)
 	}
 }

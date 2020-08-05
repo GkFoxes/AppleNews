@@ -105,7 +105,12 @@ private extension TodayViewController {
 		guard let item = todayView.getItem(for: indexPath) else { return }
 		print(item)
 
-		let detailNewsViewController = DetailNewsViewController()
+		let detailNewsViewController: DetailNewsViewControllerProtocol = DetailNewsViewController()
+		detailNewsViewController.setItem(DetailNewsItem(
+			image: Assets.test.image.pngData(),
+			title: item.title,
+			timePublication: item.timePublication,
+			text: item.text))
 		navigationController?.pushViewController(detailNewsViewController, animated: true)
 	}
 }
