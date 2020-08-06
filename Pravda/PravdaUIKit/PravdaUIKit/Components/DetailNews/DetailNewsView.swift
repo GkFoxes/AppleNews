@@ -16,6 +16,7 @@ public final class DetailNewsView: UIView {
 
 	// MARK: Views
 
+	private let scrollView = UIScrollView()
 	private let imageView = UIImageView()
 	private let titleLabel = UILabel()
 	private let timePublicationLabel = UILabel()
@@ -86,60 +87,70 @@ private extension DetailNewsView {
 
 private extension DetailNewsView {
 	func setupViewsLayout() {
+		setupScrollViewLayout()
 		setupImageViewLayout()
 		setupTitleLabelLayout()
 		setupTimePublicationLabelLayout()
 		setupTextLabelLayout()
 	}
 
+	func setupScrollViewLayout() {
+		addSubview(scrollView)
+		scrollView.translatesAutoresizingMaskIntoConstraints = false
+
+		NSLayoutConstraint.activate([
+			scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+			scrollView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+			scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+			scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
+		])
+	}
+
 	func setupImageViewLayout() {
-		addSubview(imageView)
+		scrollView.addSubview(imageView)
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
-			imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-			imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-			imageView.topAnchor.constraint(equalTo: self.topAnchor),
+			imageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+			imageView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+			imageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
 			// Aspect ratio height 3, weight 4
 			imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 3/4)
 		])
 	}
 
 	func setupTitleLabelLayout() {
-		addSubview(titleLabel)
+		scrollView.addSubview(titleLabel)
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
-			titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-			titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-			titleLabel.topAnchor.constraint(
-				equalTo: imageView.bottomAnchor, constant: 8)
+			titleLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+			titleLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+			titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8)
 		])
 	}
 
 	func setupTimePublicationLabelLayout() {
-		addSubview(timePublicationLabel)
+		scrollView.addSubview(timePublicationLabel)
 		timePublicationLabel.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
 			timePublicationLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
 			timePublicationLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-			timePublicationLabel.topAnchor.constraint(
-				equalTo: titleLabel.bottomAnchor, constant: 8),
+			timePublicationLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
 			//timePublicationLabel.heightAnchor.constraint(equalToConstant: Constants.timePublicationLabelHeight.rawValue)
 		])
 	}
 
 	func setupTextLabelLayout() {
-		addSubview(textLabel)
+		scrollView.addSubview(textLabel)
 		textLabel.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
 			textLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
 			textLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-			textLabel.topAnchor.constraint(
-				equalTo: timePublicationLabel.bottomAnchor, constant: 24),
-			//textLabel.heightAnchor.constraint(equalToConstant: Constants.sourceLabelHeight.rawValue)
+			textLabel.topAnchor.constraint(equalTo: timePublicationLabel.bottomAnchor, constant: 24),
+			textLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
 		])
 	}
 }
