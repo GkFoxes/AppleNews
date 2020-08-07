@@ -21,7 +21,7 @@ final class TodayViewController: UIViewController {
 	// MARK: Properties
 
 	private var isCollectionCompact: Bool {
-		switch getHorizontalAndVerticalSizeClasses() {
+		switch (traitCollection.horizontalSizeClass, traitCollection.verticalSizeClass) {
 		case (.compact, .regular): return true
 		default: return false
 		}

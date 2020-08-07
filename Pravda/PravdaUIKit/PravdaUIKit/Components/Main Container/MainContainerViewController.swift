@@ -49,7 +49,7 @@ final class MainContainerViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		setupInterface()
+		setupInterface(traitCollection: traitCollection)
 	}
 
 	// MARK: Changes Cycle
@@ -68,8 +68,8 @@ final class MainContainerViewController: UIViewController {
 // MARK: Setup Interface
 
 private extension MainContainerViewController {
-	func setupInterface() {
-		switch getHorizontalAndVerticalSizeClasses() {
+	func setupInterface(traitCollection: UITraitCollection) {
+		switch (traitCollection.horizontalSizeClass, traitCollection.verticalSizeClass) {
 		case (.regular, .regular): setupRegularInterfaceToFront()
 		default: setupCompactInterfaceToFront()
 		}
