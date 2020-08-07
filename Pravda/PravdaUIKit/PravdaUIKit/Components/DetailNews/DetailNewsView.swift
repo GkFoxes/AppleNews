@@ -14,6 +14,16 @@ public protocol DetailNewsViewProtocol: UIView {
 
 public final class DetailNewsView: UIView {
 
+	// MARK: Properties
+
+	/// The interface is always regular, except when the width and height are equal to (.compact, .regular)
+	/// default = true
+	private var isLayoutCompact = true
+
+	private var sharedConstraints: [NSLayoutConstraint] = []
+	private var compactConstraints: [NSLayoutConstraint] = []
+	private var regularConstraints: [NSLayoutConstraint] = []
+
 	// MARK: Views
 
 	private let scrollView = UIScrollView()
@@ -28,12 +38,21 @@ public final class DetailNewsView: UIView {
 		super.init(frame: frame)
 
 		setupViewsAppearances()
-		setupViewsLayout()
+		setupSharedViewsLayout()
+		changeLayoutIfNeeded(traitCollection: traitCollection)
 	}
 
 	@available(*, unavailable)
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+	// MARK: Changes Cycle
+
+	public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+		super.traitCollectionDidChange(previousTraitCollection)
+
+		changeLayoutIfNeeded(traitCollection: traitCollection)
 	}
 }
 
@@ -64,7 +83,7 @@ private extension DetailNewsView {
 	}
 
 	func setupImageViewAppearances() {
-		imageView.contentMode = .scaleAspectFit
+		imageView.contentMode = .scaleAspectFill
 	}
 
 	func setupTitleLabelAppearances() {
@@ -83,22 +102,36 @@ private extension DetailNewsView {
 	}
 }
 
-// MARK: Setup Layout
+// MARK: Setup Shared Layout
 
 private extension DetailNewsView {
-	func setupViewsLayout() {
+	func changeLayoutIfNeeded(traitCollection: UITraitCollection) {
+		switch (traitCollection.horizontalSizeClass, traitCollection.verticalSizeClass) {
+		case (.compact, .regular):
+			isLayoutCompact = true
+			setupCompactViewsLayout()
+		default:
+			guard isLayoutCompact != false else { return }
+			isLayoutCompact = false
+			setupRegularViewsLayout()
+		}
+	}
+
+	func setupSharedViewsLayout() {
 		setupScrollViewLayout()
 		setupImageViewLayout()
 		setupTitleLabelLayout()
 		setupTimePublicationLabelLayout()
 		setupTextLabelLayout()
+
+		NSLayoutConstraint.activate(sharedConstraints)
 	}
 
 	func setupScrollViewLayout() {
 		addSubview(scrollView)
 		scrollView.translatesAutoresizingMaskIntoConstraints = false
 
-		NSLayoutConstraint.activate([
+		sharedConstraints.append(contentsOf: [
 			scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
 			scrollView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
 			scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
@@ -110,12 +143,8 @@ private extension DetailNewsView {
 		scrollView.addSubview(imageView)
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 
-		NSLayoutConstraint.activate([
-			imageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-			imageView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-			imageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-			// Aspect ratio height 3, weight 4
-			imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 3/4)
+		sharedConstraints.append(contentsOf: [
+			imageView.topAnchor.constraint(equalTo: scrollView.topAnchor)
 		])
 	}
 
@@ -123,10 +152,8 @@ private extension DetailNewsView {
 		scrollView.addSubview(titleLabel)
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
 
-		NSLayoutConstraint.activate([
-			titleLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-			titleLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-			titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8)
+		sharedConstraints.append(contentsOf: [
+			titleLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 16)
 		])
 	}
 
@@ -134,11 +161,12 @@ private extension DetailNewsView {
 		scrollView.addSubview(timePublicationLabel)
 		timePublicationLabel.translatesAutoresizingMaskIntoConstraints = false
 
-		NSLayoutConstraint.activate([
+		sharedConstraints.append(contentsOf: [
 			timePublicationLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
 			timePublicationLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
 			timePublicationLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
 			//timePublicationLabel.heightAnchor.constraint(equalToConstant: Constants.timePublicationLabelHeight.rawValue)
+			// Make Constants enum
 		])
 	}
 
@@ -146,11 +174,65 @@ private extension DetailNewsView {
 		scrollView.addSubview(textLabel)
 		textLabel.translatesAutoresizingMaskIntoConstraints = false
 
-		NSLayoutConstraint.activate([
-			textLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-			textLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+		sharedConstraints.append(contentsOf: [
+			textLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+			textLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 16),
 			textLabel.topAnchor.constraint(equalTo: timePublicationLabel.bottomAnchor, constant: 24),
 			textLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+		])
+	}
+}
+
+// MARK: Setup Compact Layout
+
+private extension DetailNewsView {
+	func setupCompactViewsLayout() {
+		setupImageViewCompactLayout()
+		setupTitleLabelCompactLayout()
+
+		NSLayoutConstraint.deactivate(regularConstraints)
+		NSLayoutConstraint.activate(compactConstraints)
+	}
+
+	func setupImageViewCompactLayout() {
+		compactConstraints.append(contentsOf: [
+			imageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+			imageView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+			// Aspect ratio height 3, weight 4
+			imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 3/4)
+		])
+	}
+
+	func setupTitleLabelCompactLayout() {
+		compactConstraints.append(contentsOf: [
+			titleLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+			titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8)
+		])
+	}
+}
+// MARK: Setup Regular Layout
+
+private extension DetailNewsView {
+	func setupRegularViewsLayout() {
+		setupImageViewRegularLayout()
+		setupTitleLabelRegularLayout()
+
+		NSLayoutConstraint.deactivate(compactConstraints)
+		NSLayoutConstraint.activate(regularConstraints)
+	}
+
+	func setupImageViewRegularLayout() {()
+		regularConstraints.append(contentsOf: [
+			imageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+			imageView.heightAnchor.constraint(equalToConstant: 150),
+			imageView.widthAnchor.constraint(equalToConstant: 200)
+		])
+	}
+
+	func setupTitleLabelRegularLayout() {
+		regularConstraints.append(contentsOf: [
+			titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 16),
+			titleLabel.topAnchor.constraint(equalTo: imageView.topAnchor)
 		])
 	}
 }

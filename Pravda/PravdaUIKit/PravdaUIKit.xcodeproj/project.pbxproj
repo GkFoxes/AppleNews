@@ -240,8 +240,8 @@
 			children = (
 				A9533900249E285F000AD0B9 /* Design */,
 				A9FE6E2224C9F5040022FB3B /* UITraitEnvironment+.swift */,
-				F00188822476F04500518FF0 /* UIViewController+.swift */,
 				A988552724CB7202002421F6 /* UICollectionView+.swift */,
+				F00188822476F04500518FF0 /* UIViewController+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
