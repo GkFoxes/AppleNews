@@ -38,8 +38,8 @@ public final class DetailNewsView: UIView {
 		super.init(frame: frame)
 
 		setupViewsAppearances()
-		setupSharedViewsLayout()
-		changeLayoutIfNeeded(traitCollection: traitCollection)
+		setupViewsLayout()
+		changeViewsLayoutIfNeeded(traitCollection: traitCollection)
 	}
 
 	@available(*, unavailable)
@@ -52,7 +52,7 @@ public final class DetailNewsView: UIView {
 	public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 		super.traitCollectionDidChange(previousTraitCollection)
 
-		changeLayoutIfNeeded(traitCollection: traitCollection)
+		changeViewsLayoutIfNeeded(traitCollection: traitCollection)
 	}
 }
 
@@ -102,32 +102,43 @@ private extension DetailNewsView {
 	}
 }
 
-// MARK: Setup Shared Layout
-
+// MARK: Setup Layout
 private extension DetailNewsView {
-	func changeLayoutIfNeeded(traitCollection: UITraitCollection) {
+	func setupViewsLayout() {
+		setupSharedViewsLayout()
+		configureCompactViewsLayout()
+		configureRegularViewsLayout()
+	}
+
+	func changeViewsLayoutIfNeeded(traitCollection: UITraitCollection) {
 		switch (traitCollection.horizontalSizeClass, traitCollection.verticalSizeClass) {
 		case (.compact, .regular):
 			isLayoutCompact = true
-			setupCompactViewsLayout()
+			NSLayoutConstraint.deactivate(regularConstraints)
+			NSLayoutConstraint.activate(compactConstraints)
 		default:
 			guard isLayoutCompact != false else { return }
 			isLayoutCompact = false
-			setupRegularViewsLayout()
+			NSLayoutConstraint.deactivate(compactConstraints)
+			NSLayoutConstraint.activate(regularConstraints)
 		}
 	}
+}
 
+// MARK: Setup Shared Layout
+
+private extension DetailNewsView {
 	func setupSharedViewsLayout() {
-		setupScrollViewLayout()
-		setupImageViewLayout()
-		setupTitleLabelLayout()
-		setupTimePublicationLabelLayout()
-		setupTextLabelLayout()
+		setupScrollViewSharedLayout()
+		setupImageViewSharedLayout()
+		setupTitleLabelSharedLayout()
+		setupTimePublicationLabelSharedLayout()
+		setupTextLabelSharedLayout()
 
 		NSLayoutConstraint.activate(sharedConstraints)
 	}
 
-	func setupScrollViewLayout() {
+	func setupScrollViewSharedLayout() {
 		addSubview(scrollView)
 		scrollView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -139,7 +150,7 @@ private extension DetailNewsView {
 		])
 	}
 
-	func setupImageViewLayout() {
+	func setupImageViewSharedLayout() {
 		scrollView.addSubview(imageView)
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -148,7 +159,7 @@ private extension DetailNewsView {
 		])
 	}
 
-	func setupTitleLabelLayout() {
+	func setupTitleLabelSharedLayout() {
 		scrollView.addSubview(titleLabel)
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
 
@@ -157,7 +168,7 @@ private extension DetailNewsView {
 		])
 	}
 
-	func setupTimePublicationLabelLayout() {
+	func setupTimePublicationLabelSharedLayout() {
 		scrollView.addSubview(timePublicationLabel)
 		timePublicationLabel.translatesAutoresizingMaskIntoConstraints = false
 
@@ -170,7 +181,7 @@ private extension DetailNewsView {
 		])
 	}
 
-	func setupTextLabelLayout() {
+	func setupTextLabelSharedLayout() {
 		scrollView.addSubview(textLabel)
 		textLabel.translatesAutoresizingMaskIntoConstraints = false
 
@@ -186,12 +197,9 @@ private extension DetailNewsView {
 // MARK: Setup Compact Layout
 
 private extension DetailNewsView {
-	func setupCompactViewsLayout() {
+	func configureCompactViewsLayout() {
 		setupImageViewCompactLayout()
 		setupTitleLabelCompactLayout()
-
-		NSLayoutConstraint.deactivate(regularConstraints)
-		NSLayoutConstraint.activate(compactConstraints)
 	}
 
 	func setupImageViewCompactLayout() {
@@ -213,12 +221,9 @@ private extension DetailNewsView {
 // MARK: Setup Regular Layout
 
 private extension DetailNewsView {
-	func setupRegularViewsLayout() {
+	func configureRegularViewsLayout() {
 		setupImageViewRegularLayout()
 		setupTitleLabelRegularLayout()
-
-		NSLayoutConstraint.deactivate(compactConstraints)
-		NSLayoutConstraint.activate(regularConstraints)
 	}
 
 	func setupImageViewRegularLayout() {()
