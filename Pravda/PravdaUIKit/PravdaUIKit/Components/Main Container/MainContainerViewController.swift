@@ -54,14 +54,12 @@ final class MainContainerViewController: UIViewController {
 
 	// MARK: Changes Cycle
 
-	/// Change interface to compact or regular only on iPad.
+	/// Change interface to compact or regular only on iPad
 	override func willTransition(
 		to newCollection: UITraitCollection,
 		with coordinator: UIViewControllerTransitionCoordinator
 	) {
-		changeInterfaceIfNeeded(
-			horizontalSizeClass: newCollection.horizontalSizeClass,
-			verticalSizeClass: newCollection.verticalSizeClass)
+		changeInterfaceIfNeeded(traitCollection: newCollection)
 
 		super.willTransition(to: newCollection, with: coordinator)
 	}
@@ -93,11 +91,8 @@ private extension MainContainerViewController {
 // MARK: Size Class Change Interface
 
 private extension MainContainerViewController {
-	func changeInterfaceIfNeeded(
-		horizontalSizeClass: UIUserInterfaceSizeClass,
-		verticalSizeClass: UIUserInterfaceSizeClass
-	) {
-		switch (horizontalSizeClass, verticalSizeClass) {
+	func changeInterfaceIfNeeded(traitCollection: UITraitCollection) {
+		switch (traitCollection.horizontalSizeClass, traitCollection.verticalSizeClass) {
 		case (.regular, .regular):
 			guard isInterfaceCompact != nil && isInterfaceCompact != false else { return }
 			changeInterfaceToRegularAppearance()
