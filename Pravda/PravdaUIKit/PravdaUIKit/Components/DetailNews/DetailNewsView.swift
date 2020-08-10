@@ -24,6 +24,16 @@ public final class DetailNewsView: UIView {
 	private var compactConstraints: [NSLayoutConstraint] = []
 	private var regularConstraints: [NSLayoutConstraint] = []
 
+	private enum Constants: CGFloat {
+		case contentVerticalDistance = 19
+		case timePublicationVerticalDistance = 10
+		case upperBlockCompactVerticalDistance = 26
+		case upperBlockRegularVerticalDistance = 12
+		case imageViewHeight = 150
+		case imageViewWidth = 200
+		case timePublicationLabelHeight = 15
+	}
+
 	// MARK: Views
 
 	private let scrollView = UIScrollView()
@@ -84,20 +94,21 @@ private extension DetailNewsView {
 
 	func setupImageViewAppearances() {
 		imageView.contentMode = .scaleAspectFill
+		imageView.clipsToBounds = true
 	}
 
 	func setupTitleLabelAppearances() {
-		titleLabel.font = .systemFont(ofSize: 22.0, weight: .heavy)
+		titleLabel.font = .systemFont(ofSize: 26.0, weight: .heavy)
 		titleLabel.numberOfLines = 0
 	}
 
 	func setupTimePublicationLabelAppearances() {
-		timePublicationLabel.font = .systemFont(ofSize: 10.0, weight: .medium)
+		timePublicationLabel.font = .systemFont(ofSize: 12.0, weight: .medium)
 		timePublicationLabel.textColor = .systemGray2
 	}
 
 	func setupTextLabelAppearances() {
-		textLabel.font = .systemFont(ofSize: 17.0, weight: .semibold)
+		textLabel.font = .systemFont(ofSize: 17.0, weight: .regular)
 		textLabel.numberOfLines = 0
 	}
 }
@@ -153,10 +164,6 @@ private extension DetailNewsView {
 	func setupImageViewSharedLayout() {
 		scrollView.addSubview(imageView)
 		imageView.translatesAutoresizingMaskIntoConstraints = false
-
-		sharedConstraints.append(contentsOf: [
-			imageView.topAnchor.constraint(equalTo: scrollView.topAnchor)
-		])
 	}
 
 	func setupTitleLabelSharedLayout() {
@@ -164,7 +171,8 @@ private extension DetailNewsView {
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
 
 		sharedConstraints.append(contentsOf: [
-			titleLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 16)
+			titleLabel.trailingAnchor.constraint(
+				equalTo: self.trailingAnchor, constant: -Constants.contentVerticalDistance.rawValue)
 		])
 	}
 
@@ -175,9 +183,7 @@ private extension DetailNewsView {
 		sharedConstraints.append(contentsOf: [
 			timePublicationLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
 			timePublicationLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-			timePublicationLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-			//timePublicationLabel.heightAnchor.constraint(equalToConstant: Constants.timePublicationLabelHeight.rawValue)
-			// Make Constants enum
+			timePublicationLabel.heightAnchor.constraint(equalToConstant: Constants.timePublicationLabelHeight.rawValue)
 		])
 	}
 
@@ -186,9 +192,10 @@ private extension DetailNewsView {
 		textLabel.translatesAutoresizingMaskIntoConstraints = false
 
 		sharedConstraints.append(contentsOf: [
-			textLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-			textLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 16),
-			textLabel.topAnchor.constraint(equalTo: timePublicationLabel.bottomAnchor, constant: 24),
+			textLabel.leadingAnchor.constraint(
+				equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: Constants.contentVerticalDistance.rawValue),
+			textLabel.trailingAnchor.constraint(
+				equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -Constants.contentVerticalDistance.rawValue),
 			textLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
 		])
 	}
@@ -200,12 +207,15 @@ private extension DetailNewsView {
 	func configureCompactViewsLayout() {
 		setupImageViewCompactLayout()
 		setupTitleLabelCompactLayout()
+		setupTextLabelCompactLayout()
+		setupTimePublicationLabelCompactLayout()
 	}
 
 	func setupImageViewCompactLayout() {
 		compactConstraints.append(contentsOf: [
 			imageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
 			imageView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+			imageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
 			// Aspect ratio height 3, weight 4
 			imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 3/4)
 		])
@@ -213,8 +223,26 @@ private extension DetailNewsView {
 
 	func setupTitleLabelCompactLayout() {
 		compactConstraints.append(contentsOf: [
-			titleLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-			titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8)
+			titleLabel.leadingAnchor.constraint(
+				equalTo: self.leadingAnchor, constant: Constants.contentVerticalDistance.rawValue),
+			titleLabel.topAnchor.constraint(
+				equalTo: imageView.bottomAnchor,
+				constant: Constants.upperBlockCompactVerticalDistance.rawValue)
+		])
+	}
+
+	func setupTimePublicationLabelCompactLayout() {
+		compactConstraints.append(contentsOf: [
+			timePublicationLabel.topAnchor.constraint(
+				equalTo: titleLabel.bottomAnchor, constant: Constants.timePublicationVerticalDistance.rawValue)
+		])
+	}
+
+	func setupTextLabelCompactLayout() {
+		compactConstraints.append(contentsOf: [
+			textLabel.topAnchor.constraint(
+				equalTo: timePublicationLabel.bottomAnchor,
+				constant: Constants.upperBlockCompactVerticalDistance.rawValue)
 		])
 	}
 }
@@ -224,20 +252,43 @@ private extension DetailNewsView {
 	func configureRegularViewsLayout() {
 		setupImageViewRegularLayout()
 		setupTitleLabelRegularLayout()
+		setupTextLabelRegularLayout()
+		setupTimePublicationLabelRegularLayout()
 	}
 
-	func setupImageViewRegularLayout() {()
+	func setupImageViewRegularLayout() {
 		regularConstraints.append(contentsOf: [
-			imageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-			imageView.heightAnchor.constraint(equalToConstant: 150),
-			imageView.widthAnchor.constraint(equalToConstant: 200)
+			imageView.leadingAnchor.constraint(
+				equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: Constants.contentVerticalDistance.rawValue),
+			imageView.topAnchor.constraint(
+				equalTo: scrollView.topAnchor, constant: Constants.upperBlockRegularVerticalDistance.rawValue),
+			imageView.heightAnchor.constraint(equalToConstant: Constants.imageViewHeight.rawValue),
+			imageView.widthAnchor.constraint(equalToConstant: Constants.imageViewWidth.rawValue)
 		])
 	}
 
 	func setupTitleLabelRegularLayout() {
 		regularConstraints.append(contentsOf: [
-			titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 16),
+			titleLabel.leadingAnchor.constraint(
+				equalTo: imageView.trailingAnchor, constant: Constants.contentVerticalDistance.rawValue),
 			titleLabel.topAnchor.constraint(equalTo: imageView.topAnchor)
+		])
+	}
+
+	func setupTimePublicationLabelRegularLayout() {
+		regularConstraints.append(contentsOf: [
+			timePublicationLabel.topAnchor.constraint(
+				greaterThanOrEqualTo: titleLabel.bottomAnchor,
+				constant: Constants.timePublicationVerticalDistance.rawValue),
+			timePublicationLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor)
+		])
+	}
+
+	func setupTextLabelRegularLayout() {
+		regularConstraints.append(contentsOf: [
+			textLabel.topAnchor.constraint(
+				equalTo: imageView.bottomAnchor,
+				constant: Constants.upperBlockRegularVerticalDistance.rawValue)
 		])
 	}
 }
