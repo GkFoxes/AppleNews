@@ -11,7 +11,7 @@ final class TitleNewsTopicCollectionViewCell: UICollectionViewCell {
 	// MARK: Properties
 
 	private enum Constants: CGFloat {
-		case labelsDistance = 8
+		case labelsVerticalDistance = 8
 		case sourceLabelHeight = 17
 		case timePublicationLabelHeight = 12
 	}
@@ -120,7 +120,7 @@ private extension TitleNewsTopicCollectionViewCell {
 			sourceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			sourceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 			sourceLabel.topAnchor.constraint(
-				equalTo: imageView.bottomAnchor, constant: Constants.labelsDistance.rawValue),
+				equalTo: imageView.bottomAnchor, constant: Constants.labelsVerticalDistance.rawValue),
 			sourceLabel.heightAnchor.constraint(equalToConstant: Constants.sourceLabelHeight.rawValue)
 		])
 	}
@@ -133,7 +133,7 @@ private extension TitleNewsTopicCollectionViewCell {
 			titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 			titleLabel.topAnchor.constraint(
-				equalTo: sourceLabel.bottomAnchor, constant: Constants.labelsDistance.rawValue)
+				equalTo: sourceLabel.bottomAnchor, constant: Constants.labelsVerticalDistance.rawValue)
 		])
 	}
 
@@ -145,9 +145,9 @@ private extension TitleNewsTopicCollectionViewCell {
 			timePublicationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			timePublicationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 			timePublicationLabel.topAnchor.constraint(
-				equalTo: titleLabel.bottomAnchor, constant: Constants.labelsDistance.rawValue),
+				equalTo: titleLabel.bottomAnchor, constant: Constants.labelsVerticalDistance.rawValue),
 			timePublicationLabel.bottomAnchor.constraint(
-				equalTo: contentView.bottomAnchor, constant: -2 * Constants.labelsDistance.rawValue),
+				equalTo: contentView.bottomAnchor, constant: -2 * Constants.labelsVerticalDistance.rawValue),
 			timePublicationLabel.heightAnchor.constraint(equalToConstant: Constants.timePublicationLabelHeight.rawValue)
 		])
 	}

@@ -11,7 +11,7 @@ final class OtherNewsTopicCollectionViewCell: UICollectionViewCell {
 	// MARK: Properties
 
 	private enum Constants: CGFloat {
-		case labelsDistance = 4
+		case labelsVerticalDistance = 4
 		case sourceLabelHeight = 14
 		case titleLabelHeight = 86
 		case timePublicationLabelHeight = 12
@@ -119,7 +119,7 @@ private extension OtherNewsTopicCollectionViewCell {
 		NSLayoutConstraint.activate([
 			titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			titleLabel.topAnchor.constraint(
-				equalTo: sourceLabel.bottomAnchor, constant: Constants.labelsDistance.rawValue),
+				equalTo: sourceLabel.bottomAnchor, constant: Constants.labelsVerticalDistance.rawValue),
 			titleLabel.heightAnchor.constraint(lessThanOrEqualToConstant: Constants.titleLabelHeight.rawValue)
 		])
 	}
@@ -133,7 +133,7 @@ private extension OtherNewsTopicCollectionViewCell {
 			timePublicationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 			timePublicationLabel.topAnchor.constraint(
 				greaterThanOrEqualTo: titleLabel.bottomAnchor,
-				constant: Constants.labelsDistance.rawValue),
+				constant: Constants.labelsVerticalDistance.rawValue),
 			timePublicationLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 			timePublicationLabel.heightAnchor.constraint(equalToConstant: Constants.timePublicationLabelHeight.rawValue)
 		])
@@ -146,11 +146,11 @@ private extension OtherNewsTopicCollectionViewCell {
 		NSLayoutConstraint.activate([
 			imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 			imageView.leadingAnchor.constraint(
-				equalTo: titleLabel.trailingAnchor, constant: Constants.labelsDistance.rawValue),
+				equalTo: titleLabel.trailingAnchor, constant: Constants.labelsVerticalDistance.rawValue),
 			imageView.topAnchor.constraint(
-				equalTo: sourceLabel.bottomAnchor, constant: Constants.labelsDistance.rawValue),
+				equalTo: sourceLabel.bottomAnchor, constant: Constants.labelsVerticalDistance.rawValue),
 			imageView.bottomAnchor.constraint(
-				equalTo: timePublicationLabel.topAnchor, constant: -Constants.labelsDistance.rawValue),
+				equalTo: timePublicationLabel.topAnchor, constant: -Constants.labelsVerticalDistance.rawValue),
 			// Aspect ratio 1 : 1 == Square
 			imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
 		])
