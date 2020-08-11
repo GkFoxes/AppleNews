@@ -6,14 +6,23 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-final class TodayCollectionViewDelegate: NSObject {
-	var selectedItemHandler: ((IndexPath) -> Void)?
+protocol TodayCollectionViewDelegateProtocol: CollectionViewDelegateProtocol {
+	var detailNewsViewController: ((IndexPath) -> UIViewController?)? { get set }
 }
 
-extension TodayCollectionViewDelegate: CollectionViewDelegateProtocol {
+final class TodayCollectionViewDelegate: NSObject {
+
+	// MARK: Properties
+
+	var selectedItemHandler: ((IndexPath) -> Void)?
+	var detailNewsViewController: ((IndexPath) -> UIViewController?)?
+}
+
+extension TodayCollectionViewDelegate: TodayCollectionViewDelegateProtocol {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		self.selectedItemHandler?(indexPath)
 	}
+
 	func collectionView(
 		_ collectionView: UICollectionView,
 		contextMenuConfigurationForItemAt indexPath: IndexPath,

@@ -95,17 +95,27 @@ private extension TodayViewController {
 	func createTodayView() -> UIView {
 		let todayView: TodayViewProtocol = TodayView(isCollectionCompact: isCollectionCompact, frame: view.bounds)
 		todayView.setItems(getTodayNewsItems())
+
 		todayView.selectedItemHandler = { [weak self] indexPath in
 			guard let self = self else { return assertionFailure() }
 			self.pushTodayDetailViewController(with: indexPath)
 		}
 
+		todayView.detailNewsViewController = { [weak self] indexPath in
+			guard let self = self else { assertionFailure(); return UIViewController() }
+			return self.makeDetailNewsViewController(with: indexPath)
+		}
+
 		return todayView
 	}
 
+	func makeDetailNewsViewController(with indexPath: IndexPath) -> UIViewController {
+		guard let item = todayView.getItem(for: indexPath) else { assertionFailure(); return UIViewController() }
+		return DetailNewsFactory.make(detailNews: item)
+	}
+
 	func pushTodayDetailViewController(with indexPath: IndexPath) {
-		guard let item = todayView.getItem(for: indexPath) else { return }
-		navigationController?.pushViewController(DetailNewsFactory.make(detailNews: item), animated: true)
+		navigationController?.pushViewController(makeDetailNewsViewController(with: indexPath), animated: true)
 	}
 }
 
