@@ -7,7 +7,7 @@
 //
 
 protocol TodayCollectionViewDelegateProtocol: CollectionViewDelegateProtocol {
-	var detailNewsViewController: ((IndexPath) -> UIViewController?)? { get set }
+	var detailNewsViewController: ((IndexPath) -> UIViewController)? { get set }
 }
 
 final class TodayCollectionViewDelegate: NSObject {
@@ -15,7 +15,7 @@ final class TodayCollectionViewDelegate: NSObject {
 	// MARK: Properties
 
 	var selectedItemHandler: ((IndexPath) -> Void)?
-	var detailNewsViewController: ((IndexPath) -> UIViewController?)?
+	var detailNewsViewController: ((IndexPath) -> UIViewController)?
 }
 
 extension TodayCollectionViewDelegate: TodayCollectionViewDelegateProtocol {
@@ -28,14 +28,27 @@ extension TodayCollectionViewDelegate: TodayCollectionViewDelegateProtocol {
 		contextMenuConfigurationForItemAt indexPath: IndexPath,
 		point: CGPoint
 	) -> UIContextMenuConfiguration? {
-		let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: { () -> UIViewController? in
-			return self.detailNewsViewController?(indexPath)
-		}) { _ -> UIMenu? in
-			let action = UIAction(title: "Favorite", image: UIImage(systemName: "archivebox.fill")) { _ in
-				//self.selectedItemHandler(<#IndexPath#>)
-			}
+		let configuration = UIContextMenuConfiguration(identifier: indexPath as NSIndexPath, previewProvider: {
+			[weak self] () -> UIViewController? in
+				guard let self = self else { assertionFailure(); return nil }
+				return self.detailNewsViewController?(indexPath)
+			}, actionProvider: { _ -> UIMenu? in
+				let action = UIAction(title: "Favorite", image: UIImage(systemName: "archivebox.fill")) { _ in
+				// Tap Favorite
+				}
 			return UIMenu(title: "", children: [action])
-		}
+		})
 		return configuration
+	}
+
+	func collectionView(
+		_ collectionView: UICollectionView,
+		willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration,
+		animator: UIContextMenuInteractionCommitAnimating
+	) {
+		guard let indexPath = configuration.identifier as? IndexPath else { assertionFailure(); return }
+		animator.addCompletion {
+			self.selectedItemHandler?(indexPath)
+		}
 	}
 }
