@@ -137,9 +137,14 @@ private extension TodayView {
 
 	func setupDetailNewsViewController() {
 		self.output.detailNewsViewController  = { [weak self] indexPath in
-			guard let self = self,
+			guard
+				let self = self,
 				let detailNewsViewController = self.detailNewsViewController
-				else { assertionFailure(); return UIViewController() }
+				else {
+					assertionFailure()
+					return UIViewController()
+			}
+
 			return detailNewsViewController(indexPath)
 		}
 	}
