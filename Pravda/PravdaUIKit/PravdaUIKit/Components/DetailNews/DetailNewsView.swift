@@ -30,7 +30,7 @@ public final class DetailNewsView: UIView {
 		case upperBlockCompactVerticalDistance = 26
 		case upperBlockRegularVerticalDistance = 12
 		case timePublicationLabelHeight = 15
-		case readOriginalStoryViewHeight = 170
+		case readOriginalStoryViewHeight = 115
 		case regularImageViewHeight = 150
 		case regularImageViewWidth = 200
 	}
@@ -42,7 +42,7 @@ public final class DetailNewsView: UIView {
 	private let titleLabel = UILabel()
 	private let timePublicationLabel = UILabel()
 	private let textLabel = UILabel()
-	private let readOriginalStoryView = ReadOriginalStoryView()
+	private let readOriginalStoryView: ReadOriginalStoryViewProtocol = ReadOriginalStoryView()
 
 	// MARK: Life Cycle
 
@@ -76,6 +76,7 @@ extension DetailNewsView: DetailNewsViewProtocol {
 		titleLabel.text = detailNews.title
 		timePublicationLabel.text = detailNews.timePublication
 		textLabel.text = detailNews.text
+		readOriginalStoryView.setLink(detailNews.link)
 	}
 }
 
@@ -105,7 +106,7 @@ private extension DetailNewsView {
 	}
 
 	func setupTimePublicationLabelAppearances() {
-		timePublicationLabel.font = .systemFont(ofSize: 12.0, weight: .medium)
+		timePublicationLabel.font = .systemFont(ofSize: 12.0, weight: .semibold)
 		timePublicationLabel.textColor = .systemGray2
 	}
 

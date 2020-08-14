@@ -47,23 +47,36 @@ extension ReadOriginalStoryView: ReadOriginalStoryViewProtocol {
 		linkLabel.text = link
 	}
 }
+
+// MARK: Button Actions
+
+private extension ReadOriginalStoryView {
+	@objc func tapOnViewAction(_ sender: UIButton) {
+		print("Button tapped")
+	}
+}
+
 // MARK: Views Appearances
 
 private extension ReadOriginalStoryView {
 	func setupViewsAppearances() {
 		setupSuggestionLabelAppearances()
 		setupLinkLabelAppearances()
+		setupTapOnViewButtonAppearances()
 	}
 
 	func setupSuggestionLabelAppearances() {
-		suggestionLabel.text = "Read Original Story"
-		suggestionLabel.font = .systemFont(ofSize: 18.0, weight: .heavy)
+		suggestionLabel.text = "Read Full Story"
+		suggestionLabel.font = .systemFont(ofSize: 16.0, weight: .medium)
 	}
 
 	func setupLinkLabelAppearances() {
-		linkLabel.text = "www.test.com"
-		linkLabel.font = .systemFont(ofSize: 14.0, weight: .heavy)
+		linkLabel.font = .systemFont(ofSize: 11.0, weight: .medium)
 		linkLabel.textColor = UIColor.systemPink
+	}
+
+	func setupTapOnViewButtonAppearances() {
+		tapOnViewButton.addTarget(self, action: #selector(tapOnViewAction), for: .touchUpInside)
 	}
 }
 
@@ -81,9 +94,9 @@ private extension ReadOriginalStoryView {
 		suggestionLabel.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
-			suggestionLabel.centerXAnchor.constraint(
-				equalTo: self.centerXAnchor, constant: Constants.suggestionLabelCenterXConstant.rawValue),
-			suggestionLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+			suggestionLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+			suggestionLabel.centerYAnchor.constraint(
+				equalTo: self.centerYAnchor, constant: Constants.suggestionLabelCenterXConstant.rawValue)
 		])
 	}
 
