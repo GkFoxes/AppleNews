@@ -58,14 +58,9 @@ extension ReadOriginalStoryView: ReadOriginalStoryViewProtocol {
 
 private extension ReadOriginalStoryView {
 	@objc func tapOnViewAction(_ sender: UIButton) {
-		guard
-			let detailsNewsViewController = viewControleller,
+		guard let detailsNewsViewController = viewControleller,
 			let link = link
-		else {
-			assertionFailure()
-			return
-		}
-
+			else { assertionFailure(); return }
 		detailsNewsViewController.presentUrl(link: link)
 	}
 }

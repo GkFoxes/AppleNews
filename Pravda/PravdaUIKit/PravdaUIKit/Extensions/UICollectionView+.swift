@@ -17,11 +17,7 @@ extension UICollectionView {
 		guard let cell = self.dequeueReusableCell(
 			withReuseIdentifier: reuseIdentifer,
 			for: indexPath) as? TodayCollectionViewCellProtocol
-		else {
-			assertionFailure()
-			return nil
-		}
-
+			else { assertionFailure(); return nil }
 		return cell
 	}
 }

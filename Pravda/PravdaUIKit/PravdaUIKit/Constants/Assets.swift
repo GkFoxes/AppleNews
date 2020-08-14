@@ -25,25 +25,15 @@ public enum Assets: String {
 	}
 
 	public var image: UIImage {
-		guard
-			let bundle = Bundle(identifier: "ru.GkFoxes.PravdaUIKit"),
+		guard let bundle = Bundle(identifier: "ru.GkFoxes.PravdaUIKit"),
 			let image = UIImage(named: self.name, in: bundle, compatibleWith: nil)
-		else {
-			assertionFailure()
-			return UIImage()
-		}
+			else { assertionFailure(); return UIImage() }
 
 		return image
 	}
 
 	public var systemImage: UIImage {
-		guard
-			let image = UIImage(systemName: self.name)
-		else {
-			assertionFailure()
-			return UIImage()
-		}
-
+		guard let image = UIImage(systemName: self.name) else { assertionFailure(); return UIImage() }
 		return image
 	}
 }

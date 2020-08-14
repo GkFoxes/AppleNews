@@ -25,7 +25,6 @@ private extension SafariViewControllerDelegate {
 				title: "Can not open this website",
 				message: nil,
 				preferredStyle: .alert)
-
 			alert.addAction(UIAlertAction(title: "OK", style: .default))
 			return self.present(alert, animated: true, completion: nil)
 		}

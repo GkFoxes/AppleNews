@@ -87,17 +87,13 @@ private extension TodayCollectionViewDiffableDataSource {
 	func setupSectionHeaderProvider() {
 		self.supplementaryViewProvider = {
 			(collectionView: UICollectionView, kind: String, indexPath: IndexPath) -> UICollectionReusableView? in
-			guard
-				let sectionItem = self.itemIdentifier(for: indexPath),
+			guard let sectionItem = self.itemIdentifier(for: indexPath),
 				let section = self.snapshot().sectionIdentifier(containingItem: sectionItem),
 				let sectionHeader = collectionView.dequeueReusableSupplementaryView(
 					ofKind: kind,
 					withReuseIdentifier: TodaySectionHeaderCollectionReusableView.reuseIdentifer,
 					for: indexPath) as? TodaySectionHeaderCollectionReusableViewProtocol
-				else {
-					assertionFailure()
-					return nil
-			}
+				else { assertionFailure(); return nil }
 
 			sectionHeader.setupContent(title: section.rawValue, textColor: section.color)
 			return sectionHeader
