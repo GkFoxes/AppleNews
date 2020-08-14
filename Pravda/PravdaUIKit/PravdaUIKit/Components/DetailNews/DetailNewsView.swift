@@ -29,9 +29,9 @@ public final class DetailNewsView: UIView {
 		case timePublicationVerticalDistance = 10
 		case upperBlockCompactVerticalDistance = 26
 		case upperBlockRegularVerticalDistance = 12
-		case imageViewHeight = 150
-		case imageViewWidth = 200
 		case timePublicationLabelHeight = 15
+		case regularImageViewHeight = 150
+		case regularImageViewWidth = 200
 	}
 
 	// MARK: Views
@@ -262,8 +262,8 @@ private extension DetailNewsView {
 				equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: Constants.contentVerticalDistance.rawValue),
 			imageView.topAnchor.constraint(
 				equalTo: scrollView.topAnchor, constant: Constants.upperBlockRegularVerticalDistance.rawValue),
-			imageView.heightAnchor.constraint(equalToConstant: Constants.imageViewHeight.rawValue),
-			imageView.widthAnchor.constraint(equalToConstant: Constants.imageViewWidth.rawValue)
+			imageView.heightAnchor.constraint(equalToConstant: Constants.regularImageViewHeight.rawValue),
+			imageView.widthAnchor.constraint(equalToConstant: Constants.regularImageViewWidth.rawValue)
 		])
 	}
 
