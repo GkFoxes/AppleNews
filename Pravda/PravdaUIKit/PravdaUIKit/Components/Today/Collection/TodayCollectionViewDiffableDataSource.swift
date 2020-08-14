@@ -34,7 +34,7 @@ final class TodayCollectionViewDiffableDataSource: TodayDiffableDataSource {
 	}
 }
 
-// MARK: Setup Interface
+// MARK: Interface
 
 extension TodayCollectionViewDiffableDataSource: TodayCollectionViewDiffableDataSourceProtocol {
 	func setItems(_ todayNewsItems: TodayNewsItems) {

@@ -114,7 +114,7 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 	}
 }
 
-// MARK: Setup Design Appearances
+// MARK: Design Appearances
 
 private extension SectionsTabBarController {
 	func setupDesignAppearances() {

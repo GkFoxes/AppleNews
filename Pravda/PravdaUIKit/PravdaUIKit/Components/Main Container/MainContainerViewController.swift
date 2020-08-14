@@ -65,7 +65,7 @@ final class MainContainerViewController: UIViewController {
 	}
 }
 
-// MARK: Setup Interface
+// MARK: Interface
 
 private extension MainContainerViewController {
 	func setupInterface(traitCollection: UITraitCollection) {

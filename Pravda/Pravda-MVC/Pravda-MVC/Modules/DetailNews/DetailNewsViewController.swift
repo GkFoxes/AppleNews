@@ -35,7 +35,7 @@ class DetailNewsViewController: UIViewController {
 	}
 }
 
-// MARK: Setup Interface
+// MARK: Interface
 
 extension DetailNewsViewController: DetailNewsViewControllerProtocol {
 	func setItem(_ detailNews: DetailNewsItem) {

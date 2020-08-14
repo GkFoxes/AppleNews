@@ -41,7 +41,7 @@ final class TodaySectionHeaderCollectionReusableView: UICollectionReusableView {
 	}
 }
 
-// MARK: Setup Interface
+// MARK: Interface
 
 extension TodaySectionHeaderCollectionReusableView: TodaySectionHeaderCollectionReusableViewProtocol {
 	static var reuseIdentifer: String {
@@ -58,7 +58,7 @@ extension TodaySectionHeaderCollectionReusableView: TodaySectionHeaderCollection
 	}
 }
 
-// MARK: Setup Views Appearances
+// MARK: Views Appearances
 
 private extension TodaySectionHeaderCollectionReusableView {
 	func setupSectionHeaderLabelAppearances() {
@@ -66,7 +66,7 @@ private extension TodaySectionHeaderCollectionReusableView {
 	}
 }
 
-// MARK: Setup ReusableView Layout
+// MARK: ReusableView Layout
 
 private extension TodaySectionHeaderCollectionReusableView {
 	func setupSectionHeaderLabelLayout() {

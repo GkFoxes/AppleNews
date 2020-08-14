@@ -38,7 +38,7 @@ final class TitleNewsTopicCollectionViewCell: UICollectionViewCell {
 	}
 }
 
-// MARK: Setup Interface
+// MARK: Interface
 
 extension TitleNewsTopicCollectionViewCell: TodayCollectionViewCellProtocol {
 	static var reuseIdentifer: String {
@@ -57,7 +57,7 @@ extension TitleNewsTopicCollectionViewCell: TodayCollectionViewCellProtocol {
 	}
 }
 
-// MARK: Setup Views Appearances
+// MARK: Views Appearances
 
 private extension TitleNewsTopicCollectionViewCell {
 	func setupViewsAppearances() {
@@ -89,7 +89,7 @@ private extension TitleNewsTopicCollectionViewCell {
 	}
 }
 
-// MARK: Setup Cell Layout
+// MARK: Views Layout
 
 private extension TitleNewsTopicCollectionViewCell {
 	func setupViewsLayout() {

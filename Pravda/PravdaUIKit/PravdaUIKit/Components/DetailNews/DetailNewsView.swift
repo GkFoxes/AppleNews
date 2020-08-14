@@ -66,7 +66,7 @@ public final class DetailNewsView: UIView {
 	}
 }
 
-// MARK: Setup Interface
+// MARK: Interface
 
 extension DetailNewsView: DetailNewsViewProtocol {
 	public func setItem(_ detailNews: DetailNewsItem) {
@@ -77,7 +77,7 @@ extension DetailNewsView: DetailNewsViewProtocol {
 	}
 }
 
-// MARK: Setup Views Appearances
+// MARK: Views Appearances
 
 private extension DetailNewsView {
 	func setupViewsAppearances() {
@@ -113,7 +113,8 @@ private extension DetailNewsView {
 	}
 }
 
-// MARK: Setup Layout
+// MARK: Views Layout
+
 private extension DetailNewsView {
 	func setupViewsLayout() {
 		setupSharedViewsLayout()
@@ -136,7 +137,7 @@ private extension DetailNewsView {
 	}
 }
 
-// MARK: Setup Shared Layout
+// MARK: Shared Layout
 
 private extension DetailNewsView {
 	func setupSharedViewsLayout() {
@@ -201,7 +202,7 @@ private extension DetailNewsView {
 	}
 }
 
-// MARK: Setup Compact Layout
+// MARK: Compact Layout
 
 private extension DetailNewsView {
 	func configureCompactViewsLayout() {
@@ -246,7 +247,8 @@ private extension DetailNewsView {
 		])
 	}
 }
-// MARK: Setup Regular Layout
+
+// MARK: Regular Layout
 
 private extension DetailNewsView {
 	func configureRegularViewsLayout() {

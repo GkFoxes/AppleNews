@@ -64,7 +64,7 @@ public final class TodayView: UIView {
 	}
 }
 
-// MARK: Setup Interface
+// MARK: Interface
 
 extension TodayView: TodayViewProtocol {
 	public func setItems(_ todayNewsItems: TodayNewsItems) {
@@ -81,7 +81,7 @@ extension TodayView: TodayViewProtocol {
 	}
 }
 
-// MARK: View Layout
+// MARK: Views Appearances
 
 private extension TodayView {
 	func setupCollectionViewAppearances() {
@@ -100,7 +100,11 @@ private extension TodayView {
 
 		collectionView.backgroundColor = .systemBackground
 	}
+}
 
+// MARK: View Layout
+
+private extension TodayView {
 	func setupCollectionViewLayout() {
 		self.addSubview(collectionView)
 		collectionView.translatesAutoresizingMaskIntoConstraints = false

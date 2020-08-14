@@ -60,7 +60,7 @@ final class TodayViewController: UIViewController {
 	}
 }
 
-// MARK: Setup Split View
+// MARK: Split View
 
 extension TodayViewController: UISplitViewControllerDelegate {
 	func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewController.DisplayMode) {
@@ -89,7 +89,7 @@ extension TodayViewController: UISplitViewControllerDelegate {
 	}
 }
 
-// MARK: Setup Today View
+// MARK: Today View
 
 private extension TodayViewController {
 	func createTodayView() -> UIView {

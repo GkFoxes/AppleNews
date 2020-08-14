@@ -39,7 +39,7 @@ final class OtherNewsTopicCollectionViewCell: UICollectionViewCell {
 	}
 }
 
-// MARK: Setup Interface
+// MARK: Interface
 
 extension OtherNewsTopicCollectionViewCell: TodayCollectionViewCellProtocol {
 	static var reuseIdentifer: String {
@@ -58,7 +58,7 @@ extension OtherNewsTopicCollectionViewCell: TodayCollectionViewCellProtocol {
 	}
 }
 
-// MARK: Setup Views Appearances
+// MARK: Views Appearances
 
 private extension OtherNewsTopicCollectionViewCell {
 	func setupViewsAppearances() {
@@ -90,7 +90,7 @@ private extension OtherNewsTopicCollectionViewCell {
 	}
 }
 
-// MARK: Setup Cell Layout
+// MARK: Views Layout
 
 private extension OtherNewsTopicCollectionViewCell {
 	func setupViewsLayout() {
