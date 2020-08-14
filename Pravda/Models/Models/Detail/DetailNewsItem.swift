@@ -11,6 +11,7 @@ public struct DetailNewsItem {
 	public let title: String
 	public let timePublication: String
 	public let text: String?
+	public let link: String
 
 	// MARK: Life Cycle
 
@@ -18,11 +19,13 @@ public struct DetailNewsItem {
 		image: Data?,
 		title: String,
 		timePublication: String,
-		text: String?
+		text: String?,
+		link: String
 	) {
 		self.image = image
 		self.title = title
 		self.timePublication = timePublication
 		self.text = text
+		self.link = link
 	}
 }

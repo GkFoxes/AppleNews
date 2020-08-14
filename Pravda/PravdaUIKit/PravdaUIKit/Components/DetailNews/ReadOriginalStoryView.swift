@@ -6,6 +6,10 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
+protocol ReadOriginalStoryViewProtocol: UIView {
+	func setLink(_ link: String)
+}
+
 public final class ReadOriginalStoryView: UIView {
 
 	// MARK: Properties
@@ -36,6 +40,13 @@ public final class ReadOriginalStoryView: UIView {
 	}
 }
 
+// MARK: Interface
+
+extension ReadOriginalStoryView: ReadOriginalStoryViewProtocol {
+	public func setLink(_ link: String) {
+		linkLabel.text = link
+	}
+}
 // MARK: Views Appearances
 
 private extension ReadOriginalStoryView {

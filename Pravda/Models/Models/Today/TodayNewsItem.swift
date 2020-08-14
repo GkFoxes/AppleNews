@@ -12,6 +12,7 @@ public struct TodayNewsItem {
 	public let title: String
 	public let timePublication: String
 	public let text: String?
+	public let link: String
 
 	private let identifier = UUID()
 }
@@ -26,13 +27,15 @@ public extension TodayNewsItem {
 				source: "USA TODAY",
 				title: "Rep. John Lewis, a civil rights icon who began pushing for racial justice in south, has died1",
 				timePublication: "57m ago",
-				text: "Rep. John Lewis, a civil rights icon who began pushing, has died1"),
+				text: "Rep. John Lewis, a civil rights icon who began pushing, has died1",
+				link: "https://github.com/GkFoxes"),
 			TodayNewsItem(
 				imageURL: nil,
 				source: "USA TODAYYYYY",
 				title: "Rep. John Lewis, a civil rights icon who began pushing, has died2",
 				timePublication: "2d ago",
-				text: "Rep. John Lewis, a civil rights icon who began pushing, has died2")
+				text: "Rep. John Lewis, a civil rights icon who began pushing, has died2",
+				link: "https://github.com/GkFoxes")
 		]
 
 		if isOnlyOneItem {
@@ -49,7 +52,8 @@ public extension TodayNewsItem {
 				source: "1USA TODAY",
 				title: "1Rep. John Lewis, a civil rights icon who began pushing",
 				timePublication: "157m ago",
-				text: "1Rep. John Lewis, a civil rights icon who began pushing 1Rep. John icon who began pushing"),
+				text: "1Rep. John Lewis, a civil rights icon who began pushing 1Rep. John icon who began pushing",
+				link: "https://github.com/GkFoxes"),
 			TodayNewsItem(
 				imageURL: nil,
 				source: "2USA TODAY",
@@ -64,25 +68,15 @@ public extension TodayNewsItem {
 						2Rep. John Lewis, a civil rights icon who began pushing for racial justice in south, has died
 						2Rep. John Lewis, a civil rights icon who began pushing for racial justice in south, has died
 						2Rep. John Lewis, a civil rights icon who began pushing for racial justice in south, has died
-						"""),
+						""",
+				link: "https://github.com/GkFoxes"),
 			TodayNewsItem(
 				imageURL: nil,
 				source: "3USA TODAY",
 				title: "3Rep. John Lewis, a civil rights",
 				timePublication: "357m ago",
-				text: "3Rep. John Lewis, a civil rights"),
-			TodayNewsItem(
-				imageURL: nil,
-				source: "4USA TODAY USA TODAY USA TODAY USA TODAY USA TODAY",
-				title: "4Rep. John Lewis, a civil rights icon who began pushing for racial justice in south, has died",
-				timePublication: "457m ago",
-				text: "4Rep. John Lewis, a civil rights icon who began pushing for racial justice in south, has died"),
-			TodayNewsItem(
-				imageURL: nil,
-				source: "5USA TODAY",
-				title: "5Rep. John Lewis, a civil rights icon who began pushing for racial justice in south, has died",
-				timePublication: "557m ago",
-				text: "5Rep. John Lewis, a civil rights icon who began pushing for racial justice in south, has died")
+				text: "3Rep. John Lewis, a civil rights",
+				link: "https://github.com/GkFoxes")
 		]
 }
 
@@ -93,13 +87,15 @@ public extension TodayNewsItem {
 				source: "Science alert",
 				title: "Study of Over 1 Million People Finds Intriguing1",
 				timePublication: "2h ago",
-				text: "Study of Over 1 Million People Finds Intriguing1"),
+				text: "Study of Over 1 Million People Finds Intriguing1",
+				link: "https://github.com/GkFoxes"),
 			TodayNewsItem(
 				imageURL: nil,
 				source: "Science aler talert alert",
 				title: "Study of Over 1 Million People Finds Intriguing2",
 				timePublication: "245 ago",
-				text: "Study of Over 1 Million People Finds Intriguing2")
+				text: "Study of Over 1 Million People Finds Intriguing2",
+				link: "https://github.com/GkFoxes")
 		]
 
 		if isOnlyOneItem {
@@ -116,25 +112,29 @@ public extension TodayNewsItem {
 				source: "1Science alert Science alert Science alert Science alert Science alert",
 				title: "1Study of Over 1 Million People Finds Intriguing",
 				timePublication: "12h ago",
-				text: "1Study of Over 1 Million People Finds Intriguing"),
+				text: "1Study of Over 1 Million People Finds Intriguing",
+				link: "https://github.com/GkFoxes"),
 			TodayNewsItem(
 				imageURL: nil,
 				source: "2Science alert",
 				title: "2Study of Over 1 Million People Finds Intriguing Finds Intriguing Finds Intriguing",
 				timePublication: "22h ago 2h ago 2h ago 2h ago 2h ago 2h ago 2h ago 2h ago 2h ago 2h ago 2h ago",
-				text: "2Study of Over 1 Million People Finds Intriguing Finds Intriguing Finds Intriguing"),
+				text: "2Study of Over 1 Million People Finds Intriguing Finds Intriguing Finds Intriguing",
+				link: "https://github.com/GkFoxes"),
 			TodayNewsItem(
 				imageURL: nil,
 				source: "3Science alert",
 				title: "3Study of Over 1 Million",
 				timePublication: "32h ago",
-				text: "3Study of Over 1 Million"),
+				text: "3Study of Over 1 Million",
+				link: "https://github.com/GkFoxes"),
 			TodayNewsItem(
 				imageURL: nil,
 				source: "4Science alert",
 				title: "4Study of Over 1 Million People Finds Intriguing",
 				timePublication: "42h ago",
-				text: "4Study of Over 1 Million People Finds Intriguing")
+				text: "4Study of Over 1 Million People Finds Intriguing",
+				link: "https://github.com/GkFoxes")
 		]
 	}
 }

@@ -19,7 +19,8 @@ public final class DetailNewsFactory {
 			image: Assets.test.image.pngData(), //temp
 			title: detailNews.title,
 			timePublication: detailNews.timePublication,
-			text: detailNews.text))
+			text: detailNews.text,
+			link: detailNews.link))
 		detailNewsViewController.navigationItem.title = detailNews.source
 
 		return detailNewsViewController
