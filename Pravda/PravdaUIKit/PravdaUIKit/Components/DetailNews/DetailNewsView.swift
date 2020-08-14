@@ -42,12 +42,14 @@ public final class DetailNewsView: UIView {
 	private let titleLabel = UILabel()
 	private let timePublicationLabel = UILabel()
 	private let textLabel = UILabel()
-	private let readOriginalStoryView: ReadOriginalStoryViewProtocol = ReadOriginalStoryView()
+	private let readOriginalStoryView: ReadOriginalStoryViewProtocol
 
 	// MARK: Life Cycle
 
-	public override init(frame: CGRect) {
-		super.init(frame: frame)
+	public init(viewController: SafariViewControllerDelegate) {
+		readOriginalStoryView = ReadOriginalStoryView(viewControleller: viewController)
+
+		super.init(frame: .zero)
 
 		setupViewsAppearances()
 		setupViewsLayout()

@@ -14,6 +14,9 @@ public final class ReadOriginalStoryView: UIView {
 
 	// MARK: Properties
 
+	private weak var viewControleller: SafariViewControllerDelegate?
+	private var link: String?
+
 	private enum Constants: CGFloat {
 		case suggestionLabelCenterXConstant = -10
 		case linkLabelTopAnchorConstant = 2
@@ -27,8 +30,10 @@ public final class ReadOriginalStoryView: UIView {
 
 	// MARK: Life Cycle
 
-	public override init(frame: CGRect) {
-		super.init(frame: frame)
+	public init(viewControleller: SafariViewControllerDelegate) {
+		self.viewControleller = viewControleller
+
+		super.init(frame: .zero)
 
 		setupViewsAppearances()
 		setupViewsLayout()
@@ -44,6 +49,7 @@ public final class ReadOriginalStoryView: UIView {
 
 extension ReadOriginalStoryView: ReadOriginalStoryViewProtocol {
 	public func setLink(_ link: String) {
+		self.link = link
 		linkLabel.text = link
 	}
 }
@@ -52,7 +58,15 @@ extension ReadOriginalStoryView: ReadOriginalStoryViewProtocol {
 
 private extension ReadOriginalStoryView {
 	@objc func tapOnViewAction(_ sender: UIButton) {
-		print("Button tapped")
+		guard
+			let detailsNewsViewController = viewControleller,
+			let link = link
+		else {
+			assertionFailure()
+			return
+		}
+
+		detailsNewsViewController.presentUrl(link: link)
 	}
 }
 

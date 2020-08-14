@@ -25,7 +25,7 @@ class DetailNewsViewController: UIViewController {
 	// MARK: Life Cycle
 
 	public override func loadView() {
-		self.view = DetailNewsView()
+		self.view = DetailNewsView(viewController: self)
 	}
 
 	override func viewDidLoad() {
@@ -37,7 +37,7 @@ class DetailNewsViewController: UIViewController {
 
 // MARK: Interface
 
-extension DetailNewsViewController: DetailNewsViewControllerProtocol {
+extension DetailNewsViewController: DetailNewsViewControllerProtocol, SafariViewControllerDelegate {
 	func setItem(_ detailNews: DetailNewsItem) {
 		detailNewsView.setItem(detailNews)
 	}

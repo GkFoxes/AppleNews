@@ -7,7 +7,6 @@
 //
 
 import PravdaUIKit
-import SafariServices
 
 final class FavoritesViewController: UIViewController {
 
@@ -29,33 +28,5 @@ final class FavoritesViewController: UIViewController {
 
 		self.navigationController?.setupBoldDesignAppearances()
 		self.view.backgroundColor = .green
-	}
-}
-
-extension FavoritesViewController: SFSafariViewControllerDelegate {
-	private func openUrl() {
-		if let url = URL(string: "https://stackoverflow.com/questions") {
-			if  UIApplication.shared.canOpenURL(url) {
-				let svc = SFSafariViewController(url: url)
-				self.present(svc, animated: true, completion: {
-					print("keka")
-				})
-
-				guard let safariNewsTappedController = getSafariNewsTappedController() else { return }
-				safariNewsTappedController.safariNewsTapped()
-			} else {
-				let alert = UIAlertController(title: "Can not open this website",
-											  message: "Please check the existence of the website",
-											  preferredStyle: .alert)
-
-				alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"),
-											  style: .default,
-											  handler: { _ in
-												NSLog("The \"OK\" alert occured.")
-				}))
-
-				self.present(alert, animated: true, completion: nil)
-			}
-		}
 	}
 }
