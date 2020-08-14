@@ -57,7 +57,7 @@ extension RegularInterfaceSplitViewController: RegularInterfaceSplitViewControll
 
 extension RegularInterfaceSplitViewController: SplitViewDisplayModeButtonItem {
 	public func getDisplayModeButtonItem() -> UIBarButtonItem {
-		let buttonItemImage = UIImage(systemName: "square.righthalf.fill")?.withTintColor(
+		let buttonItemImage = Assets.squareRighthalfFill.systemImage.withTintColor(
 			.systemPink, renderingMode: .alwaysOriginal)
 		let buttonItem = UIBarButtonItem(
 			image: buttonItemImage,

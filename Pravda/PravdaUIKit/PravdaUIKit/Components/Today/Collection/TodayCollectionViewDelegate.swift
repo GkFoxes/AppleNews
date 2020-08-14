@@ -33,7 +33,7 @@ extension TodayCollectionViewDelegate: TodayCollectionViewDelegateProtocol {
 				guard let self = self else { assertionFailure(); return nil }
 				return self.detailNewsViewController?(indexPath)
 			}, actionProvider: { _ -> UIMenu? in
-				let action = UIAction(title: "Favorite", image: UIImage(systemName: "archivebox.fill")) { _ in
+				let action = UIAction(title: "Favorite", image: Assets.archiveboxFill.systemImage) { _ in
 				// Tap Favorite
 				}
 			return UIMenu(title: "", children: [action])

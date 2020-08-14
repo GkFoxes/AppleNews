@@ -15,6 +15,12 @@ public enum Assets: String {
 	case favoritesTab
 	case test
 
+	// MARK: System Images
+
+	case squareRighthalfFill = "square.righthalf.fill"
+	case archiveboxFill = "archivebox.fill"
+	case chevronCompactUp = "chevron.compact.up"
+
 	var name: String {
 		return self.rawValue
 	}
@@ -22,9 +28,21 @@ public enum Assets: String {
 	public var image: UIImage {
 		guard
 			let bundle = Bundle(identifier: "ru.GkFoxes.PravdaUIKit"),
-			let image = UIImage(named: self.name, in: bundle, compatibleWith: nil) else {
-				assertionFailure()
-				return UIImage()
+			let image = UIImage(named: self.name, in: bundle, compatibleWith: nil)
+		else {
+			assertionFailure()
+			return UIImage()
+		}
+
+		return image
+	}
+
+	public var systemImage: UIImage {
+		guard
+			let image = UIImage(systemName: self.name)
+		else {
+			assertionFailure()
+			return UIImage()
 		}
 
 		return image
