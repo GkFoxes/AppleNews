@@ -19,9 +19,8 @@ public enum Assets: String {
 
 	case squareRighthalfFill = "square.righthalf.fill"
 	case archiveboxFill = "archivebox.fill"
-	case chevronCompactUp = "chevron.compact.up"
 
-	var name: String {
+	private var name: String {
 		return self.rawValue
 	}
 

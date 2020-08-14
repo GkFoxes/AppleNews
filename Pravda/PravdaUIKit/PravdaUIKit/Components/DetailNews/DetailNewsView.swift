@@ -30,6 +30,7 @@ public final class DetailNewsView: UIView {
 		case upperBlockCompactVerticalDistance = 26
 		case upperBlockRegularVerticalDistance = 12
 		case timePublicationLabelHeight = 15
+		case readOriginalStoryViewHeight = 170
 		case regularImageViewHeight = 150
 		case regularImageViewWidth = 200
 	}
@@ -41,6 +42,7 @@ public final class DetailNewsView: UIView {
 	private let titleLabel = UILabel()
 	private let timePublicationLabel = UILabel()
 	private let textLabel = UILabel()
+	private let readOriginalStoryView = ReadOriginalStoryView()
 
 	// MARK: Life Cycle
 
@@ -146,6 +148,7 @@ private extension DetailNewsView {
 		setupTitleLabelSharedLayout()
 		setupTimePublicationLabelSharedLayout()
 		setupTextLabelSharedLayout()
+		setupReadOriginalStoryViewLayout()
 
 		NSLayoutConstraint.activate(sharedConstraints)
 	}
@@ -196,8 +199,21 @@ private extension DetailNewsView {
 			textLabel.leadingAnchor.constraint(
 				equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: Constants.contentVerticalDistance.rawValue),
 			textLabel.trailingAnchor.constraint(
-				equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -Constants.contentVerticalDistance.rawValue),
-			textLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+				equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -Constants.contentVerticalDistance.rawValue)
+		])
+	}
+
+	func setupReadOriginalStoryViewLayout() {
+		scrollView.addSubview(readOriginalStoryView)
+		readOriginalStoryView.translatesAutoresizingMaskIntoConstraints = false
+
+		sharedConstraints.append(contentsOf: [
+			readOriginalStoryView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+			readOriginalStoryView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+			readOriginalStoryView.topAnchor.constraint(equalTo: textLabel.bottomAnchor),
+			readOriginalStoryView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+			readOriginalStoryView.heightAnchor.constraint(
+				equalToConstant: Constants.readOriginalStoryViewHeight.rawValue)
 		])
 	}
 }

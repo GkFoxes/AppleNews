@@ -33,6 +33,7 @@
 		F00188712476EBE000518FF0 /* PravdaUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F001886F2476EBE000518FF0 /* PravdaUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F00188792476EC2D00518FF0 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00188782476EC2D00518FF0 /* MainContainerViewController.swift */; };
 		F00188832476F04500518FF0 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00188822476F04500518FF0 /* UIViewController+.swift */; };
+		F05265AB24E69AC20036C3B3 /* ReadOriginalStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05265AA24E69AC20036C3B3 /* ReadOriginalStoryView.swift */; };
 		F0806728248E68A00096DAF5 /* MainContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0806727248E68A00096DAF5 /* MainContainerView.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		F00188702476EBE000518FF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F00188782476EC2D00518FF0 /* MainContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainContainerViewController.swift; sourceTree = "<group>"; };
 		F00188822476F04500518FF0 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		F05265AA24E69AC20036C3B3 /* ReadOriginalStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadOriginalStoryView.swift; sourceTree = "<group>"; };
 		F0806727248E68A00096DAF5 /* MainContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 		A996365424DAF70E004430C9 /* DetailNews */ = {
 			isa = PBXGroup;
 			children = (
+				F05265AA24E69AC20036C3B3 /* ReadOriginalStoryView.swift */,
 				A996365524DAF748004430C9 /* DetailNewsView.swift */,
 			);
 			path = DetailNews;
@@ -376,6 +379,7 @@
 				A9C8B6C824C9FCA900DD4ABA /* TodayCollectionViewDiffableDataSource.swift in Sources */,
 				A996365624DAF748004430C9 /* DetailNewsView.swift in Sources */,
 				A9E7F15E24992E470053E46F /* MainContainerFactory.swift in Sources */,
+				F05265AB24E69AC20036C3B3 /* ReadOriginalStoryView.swift in Sources */,
 				A9FE6E1924C9EBE90022FB3B /* TitleNewsTopicCollectionViewCell.swift in Sources */,
 				A9C8B6CD24CB054700DD4ABA /* RegularInterfaceSplitViewController.swift in Sources */,
 				A988552B24CB73AD002421F6 /* CollectionViewCellProtocol.swift in Sources */,
