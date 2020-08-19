@@ -69,22 +69,26 @@ private extension OtherNewsTopicCollectionViewCell {
 	}
 
 	func setupImageViewAppearances() {
+		imageView.backgroundColor = .systemBackground
 		imageView.layer.cornerRadius = 4
 		imageView.contentMode = .scaleAspectFill
 		imageView.clipsToBounds = true
 	}
 
 	func setupSourceLabelAppearances() {
+		sourceLabel.backgroundColor = .systemBackground
 		sourceLabel.font = .systemFont(ofSize: 11.0, weight: .semibold)
 		sourceLabel.textColor = .systemGray
 	}
 
 	func setupTitleLabelAppearances() {
+		titleLabel.backgroundColor = .systemBackground
 		titleLabel.font = .systemFont(ofSize: 18.0, weight: .bold)
 		titleLabel.numberOfLines = 4
 	}
 
 	func setupTimePublicationLabelAppearances() {
+		timePublicationLabel.backgroundColor = .systemBackground
 		timePublicationLabel.font = .systemFont(ofSize: 10.0, weight: .medium)
 		timePublicationLabel.textColor = .systemGray2
 	}

@@ -75,11 +75,13 @@ private extension ReadOriginalStoryView {
 	}
 
 	func setupSuggestionLabelAppearances() {
+		suggestionLabel.backgroundColor = .systemBackground
 		suggestionLabel.text = "Read Full Story"
 		suggestionLabel.font = .systemFont(ofSize: 16.0, weight: .medium)
 	}
 
 	func setupLinkLabelAppearances() {
+		linkLabel.backgroundColor = .systemBackground
 		linkLabel.font = .systemFont(ofSize: 11.0, weight: .medium)
 		linkLabel.textColor = UIColor.systemPink
 	}

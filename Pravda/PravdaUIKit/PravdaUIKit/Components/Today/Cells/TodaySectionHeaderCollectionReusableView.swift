@@ -62,6 +62,7 @@ extension TodaySectionHeaderCollectionReusableView: TodaySectionHeaderCollection
 
 private extension TodaySectionHeaderCollectionReusableView {
 	func setupSectionHeaderLabelAppearances() {
+		sectionHeaderLabel.backgroundColor = .systemBackground
 		sectionHeaderLabel.font = .systemFont(ofSize: 30.0, weight: .black)
 	}
 }

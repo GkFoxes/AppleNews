@@ -98,21 +98,25 @@ private extension DetailNewsView {
 	}
 
 	func setupImageViewAppearances() {
+		imageView.backgroundColor = .systemBackground
 		imageView.contentMode = .scaleAspectFill
 		imageView.clipsToBounds = true
 	}
 
 	func setupTitleLabelAppearances() {
+		titleLabel.backgroundColor = .systemBackground
 		titleLabel.font = .systemFont(ofSize: 26.0, weight: .heavy)
 		titleLabel.numberOfLines = 0
 	}
 
 	func setupTimePublicationLabelAppearances() {
+		timePublicationLabel.backgroundColor = .systemBackground
 		timePublicationLabel.font = .systemFont(ofSize: 12.0, weight: .semibold)
 		timePublicationLabel.textColor = .systemGray2
 	}
 
 	func setupTextLabelAppearances() {
+		textLabel.backgroundColor = .systemBackground
 		textLabel.font = .systemFont(ofSize: 17.0, weight: .regular)
 		textLabel.numberOfLines = 0
 	}
