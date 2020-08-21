@@ -21,7 +21,7 @@ final class MainContainerViewController: UIViewController {
 	}
 
 	// Main Tab have only Sections TabBar in Compact interface.
-	// But in Regular interface have Sections in Master and first section in Detail.
+	// But in Regular interface have Section in Master and first section in Detail.
 	private let sectionsTabBarController: SectionsTabBarControllerProtocol
 	private let regularInterfaceSplitViewController: RegularInterfaceSplitViewControllerProtocol
 
@@ -65,7 +65,7 @@ final class MainContainerViewController: UIViewController {
 	}
 }
 
-// MARK: Interface
+// MARK: Initial Interface
 
 private extension MainContainerViewController {
 	func setupInterface(traitCollection: UITraitCollection) {
@@ -104,21 +104,17 @@ private extension MainContainerViewController {
 
 	func changeInterfaceToRegularAppearance() {
 		isInterfaceCompact = false
-
 		sectionsTabBarController.changeInterfaceToRegularAppearance()
 		remove(asChild: sectionsTabBarController)
-
-		regularInterfaceSplitViewController.setupRegularInterfaceViewControllersIfNeeded()
+		regularInterfaceSplitViewController.setViewControllers()
 		add(asChild: regularInterfaceSplitViewController)
 	}
 
 	func changeInterfaceToCompactAppearance() {
 		isInterfaceCompact = true
-
+		remove(asChild: regularInterfaceSplitViewController)
 		sectionsTabBarController.changeInterfaceToCompactAppearance(
 			with: regularInterfaceSplitViewController.displayMode)
-
-		remove(asChild: regularInterfaceSplitViewController)
 		add(asChild: sectionsTabBarController)
 	}
 }

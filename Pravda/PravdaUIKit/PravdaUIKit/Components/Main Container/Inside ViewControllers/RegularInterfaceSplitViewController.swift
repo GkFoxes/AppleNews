@@ -11,24 +11,24 @@ public protocol SplitViewDisplayModeButtonItem: UISplitViewController {
 }
 
 protocol RegularInterfaceSplitViewControllerProtocol: UISplitViewController {
-	func setupRegularInterfaceViewControllersIfNeeded()
+	func setViewControllers()
 }
 
 final class RegularInterfaceSplitViewController: UISplitViewController {
 
 	// MARK: View Controllers
 
-	let sectionsTabBarController: UIViewController
-	let firstSectionViewController: UIViewController
+	private let secondaryViewController: UIViewController
+	private let mainViewController: UIViewController
 
 	// MARK: Life Cycle
 
 	init(
-		sectionsTabBarController: UIViewController,
-		firstSectionViewController: UIViewController
+		secondaryViewController: UIViewController,
+		mainViewController: UIViewController
 	) {
-		self.sectionsTabBarController = sectionsTabBarController
-		self.firstSectionViewController = firstSectionViewController
+		self.secondaryViewController = secondaryViewController
+		self.mainViewController = mainViewController
 
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -48,8 +48,8 @@ final class RegularInterfaceSplitViewController: UISplitViewController {
 // MARK: Changes From MainContainer
 
 extension RegularInterfaceSplitViewController: RegularInterfaceSplitViewControllerProtocol {
-	public func setupRegularInterfaceViewControllersIfNeeded() {
-		setViewControllers()
+	public func setViewControllers() {
+		viewControllers = [secondaryViewController, mainViewController]
 	}
 }
 
@@ -65,13 +65,5 @@ extension RegularInterfaceSplitViewController: SplitViewDisplayModeButtonItem {
 			target: self.displayModeButtonItem.target,
 			action: self.displayModeButtonItem.action)
 		return buttonItem
-	}
-}
-
-// MARK: Change ViewControllers
-
-private extension RegularInterfaceSplitViewController {
-	func setViewControllers() {
-		viewControllers = [sectionsTabBarController, firstSectionViewController]
 	}
 }

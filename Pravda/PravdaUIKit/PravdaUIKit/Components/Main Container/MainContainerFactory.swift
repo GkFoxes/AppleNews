@@ -8,19 +8,18 @@
 
 public final class MainContainerFactory {
 	public static func make(
-		firstSection: UIViewController,
-		secondSection: UIViewController,
-		thirdSection: UIViewController
+		firstSectionViewController: UIViewController,
+		secondSectionViewController: UIViewController
 	) -> UIViewController {
-		let sectionsTabBarController: SectionsTabBarControllerProtocol = SectionsTabBarController(
-			firstSectionViewController: firstSection,
-			secondSectionViewController: secondSection,
-			thirdSectionViewController: thirdSection)
+		let sectionsTabBarController: SectionsTabBarControllerProtocol =
+			SectionsTabBarController(
+				firstSectionViewController: firstSectionViewController,
+				secondSectionViewController: secondSectionViewController)
 
 		let regularInterfaceSplitViewController: RegularInterfaceSplitViewControllerProtocol =
 			RegularInterfaceSplitViewController(
-				sectionsTabBarController: sectionsTabBarController,
-				firstSectionViewController: firstSection)
+				secondaryViewController: sectionsTabBarController,
+				mainViewController: firstSectionViewController)
 
 		let mainContainerViewController = MainContainerViewController(
 			sectionsTabBarController: sectionsTabBarController,
