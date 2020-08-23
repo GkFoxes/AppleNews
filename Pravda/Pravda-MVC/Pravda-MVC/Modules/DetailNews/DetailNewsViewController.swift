@@ -13,7 +13,7 @@ protocol DetailNewsViewControllerProtocol: UIViewController {
 	func setItem(_ detailNews: DetailNewsItem)
 }
 
-class DetailNewsViewController: UIViewController {
+final class DetailNewsViewController: UIViewController {
 
 	// MARK: Views
 
