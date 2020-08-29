@@ -7,7 +7,7 @@
 //
 
 public struct DetailNewsItem {
-	public let image: Data?
+	public let headerImage: Data?
 	public let title: String
 	public let timePublication: String
 	public let text: String?
@@ -22,7 +22,7 @@ public struct DetailNewsItem {
 		text: String?,
 		link: String
 	) {
-		self.image = image
+		self.headerImage = image
 		self.title = title
 		self.timePublication = timePublication
 		self.text = text

@@ -7,5 +7,5 @@
 //
 
 protocol TodayCollectionViewCellProtocol: CollectionViewCellProtocol {
-	func setupContent(image: UIImage?, source: String, title: String, timePublication: String)
+	func setupContent(headerImage: UIImage?, source: String, title: String, timePublication: String)
 }

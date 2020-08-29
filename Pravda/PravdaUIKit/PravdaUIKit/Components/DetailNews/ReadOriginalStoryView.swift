@@ -24,8 +24,8 @@ public final class ReadOriginalStoryView: UIView {
 
 	// MARK: Views
 
-	private let suggestionLabel = UILabel()
-	private let linkLabel = UILabel()
+	private let suggestionLabel = initSuggestionLabel()
+	private let linkLabel = initLinkLabel()
 	private let tapOnViewButton = UIButton()
 
 	// MARK: Life Cycle
@@ -35,8 +35,8 @@ public final class ReadOriginalStoryView: UIView {
 
 		super.init(frame: .zero)
 
-		setupViewsAppearances()
 		setupViewsLayout()
+		setupActions()
 	}
 
 	@available(*, unavailable)
@@ -54,40 +54,23 @@ extension ReadOriginalStoryView: ReadOriginalStoryViewProtocol {
 	}
 }
 
-// MARK: Button Actions
-
-private extension ReadOriginalStoryView {
-	@objc func tapOnViewAction(_ sender: UIButton) {
-		guard let detailsNewsViewController = viewControleller,
-			let link = link
-			else { assertionFailure(); return }
-		detailsNewsViewController.presentUrl(link: link)
-	}
-}
-
 // MARK: Views Appearances
 
 private extension ReadOriginalStoryView {
-	func setupViewsAppearances() {
-		setupSuggestionLabelAppearances()
-		setupLinkLabelAppearances()
-		setupTapOnViewButtonAppearances()
-	}
-
-	func setupSuggestionLabelAppearances() {
+	static func initSuggestionLabel() -> UILabel {
+		let suggestionLabel = UILabel()
 		suggestionLabel.backgroundColor = .systemBackground
 		suggestionLabel.text = "Read Full Story"
 		suggestionLabel.font = .systemFont(ofSize: 16.0, weight: .medium)
+		return suggestionLabel
 	}
 
-	func setupLinkLabelAppearances() {
+	static func initLinkLabel() -> UILabel {
+		let linkLabel = UILabel()
 		linkLabel.backgroundColor = .systemBackground
 		linkLabel.font = .systemFont(ofSize: 11.0, weight: .medium)
 		linkLabel.textColor = UIColor.systemPink
-	}
-
-	func setupTapOnViewButtonAppearances() {
-		tapOnViewButton.addTarget(self, action: #selector(tapOnViewAction), for: .touchUpInside)
+		return linkLabel
 	}
 }
 
@@ -132,5 +115,20 @@ private extension ReadOriginalStoryView {
 			tapOnViewButton.topAnchor.constraint(equalTo: self.topAnchor),
 			tapOnViewButton.bottomAnchor.constraint(equalTo: self.bottomAnchor)
 		])
+	}
+}
+
+// MARK: Button Actions
+
+private extension ReadOriginalStoryView {
+	func setupActions() {
+		tapOnViewButton.addTarget(self, action: #selector(tapOnViewAction), for: .touchUpInside)
+	}
+
+	@objc func tapOnViewAction(_ sender: UIButton) {
+		guard let detailsNewsViewController = viewControleller,
+			let link = link
+			else { assertionFailure(); return }
+		detailsNewsViewController.presentUrl(link: link)
 	}
 }

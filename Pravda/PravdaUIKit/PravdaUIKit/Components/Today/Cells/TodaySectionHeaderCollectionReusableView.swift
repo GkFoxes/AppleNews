@@ -24,14 +24,13 @@ final class TodaySectionHeaderCollectionReusableView: UICollectionReusableView {
 
 	// MARK: Views
 
-	private let sectionHeaderLabel = UILabel()
+	private let sectionHeaderLabel = initSectionHeaderLabel()
 
 	// MARK: Life Cycle
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 
-		setupSectionHeaderLabelAppearances()
 		setupSectionHeaderLabelLayout()
 	}
 
@@ -61,9 +60,11 @@ extension TodaySectionHeaderCollectionReusableView: TodaySectionHeaderCollection
 // MARK: Views Appearances
 
 private extension TodaySectionHeaderCollectionReusableView {
-	func setupSectionHeaderLabelAppearances() {
+	static func initSectionHeaderLabel() -> UILabel {
+		let sectionHeaderLabel = UILabel()
 		sectionHeaderLabel.backgroundColor = .systemBackground
 		sectionHeaderLabel.font = .systemFont(ofSize: 30.0, weight: .black)
+		return sectionHeaderLabel
 	}
 }
 

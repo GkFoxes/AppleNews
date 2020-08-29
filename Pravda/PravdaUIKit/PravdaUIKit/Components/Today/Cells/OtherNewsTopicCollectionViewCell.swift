@@ -19,17 +19,16 @@ final class OtherNewsTopicCollectionViewCell: UICollectionViewCell {
 
 	// MARK: Views
 
-	private let imageView = UIImageView()
-	private let sourceLabel = UILabel()
-	private let titleLabel = UILabel()
-	private let timePublicationLabel = UILabel()
+	private let headerImageView = initHeaderImageView()
+	private let sourceLabel = initSourceLabel()
+	private let titleLabel = initTitleLabel()
+	private let timePublicationLabel = initTimePublicationLabel()
 
 	// MARK: Life Cycle
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 
-		setupViewsAppearances()
 		setupViewsLayout()
 	}
 
@@ -50,8 +49,8 @@ extension OtherNewsTopicCollectionViewCell: TodayCollectionViewCellProtocol {
 		return 132
 	}
 
-	func setupContent(image: UIImage?, source: String, title: String, timePublication: String) {
-		imageView.image = Assets.test.image //temp
+	func setupContent(headerImage: UIImage?, source: String, title: String, timePublication: String) {
+		headerImageView.image = Assets.test.image //temp
 		sourceLabel.text = source
 		titleLabel.text = title
 		timePublicationLabel.text = timePublication
@@ -61,36 +60,37 @@ extension OtherNewsTopicCollectionViewCell: TodayCollectionViewCellProtocol {
 // MARK: Views Appearances
 
 private extension OtherNewsTopicCollectionViewCell {
-	func setupViewsAppearances() {
-		setupImageViewAppearances()
-		setupSourceLabelAppearances()
-		setupTitleLabelAppearances()
-		setupTimePublicationLabelAppearances()
+	static func initHeaderImageView() -> UIImageView {
+		let headerImageView = UIImageView()
+		headerImageView.backgroundColor = .systemBackground
+		headerImageView.layer.cornerRadius = 4
+		headerImageView.contentMode = .scaleAspectFill
+		headerImageView.clipsToBounds = true
+		return headerImageView
 	}
 
-	func setupImageViewAppearances() {
-		imageView.backgroundColor = .systemBackground
-		imageView.layer.cornerRadius = 4
-		imageView.contentMode = .scaleAspectFill
-		imageView.clipsToBounds = true
-	}
-
-	func setupSourceLabelAppearances() {
+	static func initSourceLabel() -> UILabel {
+		let sourceLabel = UILabel()
 		sourceLabel.backgroundColor = .systemBackground
 		sourceLabel.font = .systemFont(ofSize: 11.0, weight: .semibold)
 		sourceLabel.textColor = .systemGray
+		return sourceLabel
 	}
 
-	func setupTitleLabelAppearances() {
+	static func initTitleLabel() -> UILabel {
+		let titleLabel = UILabel()
 		titleLabel.backgroundColor = .systemBackground
 		titleLabel.font = .systemFont(ofSize: 18.0, weight: .bold)
 		titleLabel.numberOfLines = 4
+		return titleLabel
 	}
 
-	func setupTimePublicationLabelAppearances() {
+	static func initTimePublicationLabel() -> UILabel {
+		let timePublicationLabel = UILabel()
 		timePublicationLabel.backgroundColor = .systemBackground
 		timePublicationLabel.font = .systemFont(ofSize: 10.0, weight: .medium)
 		timePublicationLabel.textColor = .systemGray2
+		return timePublicationLabel
 	}
 }
 
@@ -144,19 +144,19 @@ private extension OtherNewsTopicCollectionViewCell {
 	}
 
 	func setupImageViewLayout() {
-		contentView.addSubview(imageView)
-		imageView.translatesAutoresizingMaskIntoConstraints = false
+		contentView.addSubview(headerImageView)
+		headerImageView.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
-			imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-			imageView.leadingAnchor.constraint(
+			headerImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+			headerImageView.leadingAnchor.constraint(
 				equalTo: titleLabel.trailingAnchor, constant: Constants.labelsVerticalDistance.rawValue),
-			imageView.topAnchor.constraint(
+			headerImageView.topAnchor.constraint(
 				equalTo: sourceLabel.bottomAnchor, constant: Constants.labelsVerticalDistance.rawValue),
-			imageView.bottomAnchor.constraint(
+			headerImageView.bottomAnchor.constraint(
 				equalTo: timePublicationLabel.topAnchor, constant: -Constants.labelsVerticalDistance.rawValue),
 			// Aspect ratio 1 : 1 == Square
-			imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
+			headerImageView.heightAnchor.constraint(equalTo: headerImageView.widthAnchor)
 		])
 	}
 }
