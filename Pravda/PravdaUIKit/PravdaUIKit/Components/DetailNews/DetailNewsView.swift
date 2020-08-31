@@ -10,6 +10,9 @@ import Models
 
 public protocol DetailNewsViewProtocol: UIView {
 	func setItem(_ detailNews: DetailNewsItem)
+	func getNavigationLargeTitleDisplayMode() -> UINavigationItem.LargeTitleDisplayMode
+	func getNavigationFavoriteButtonItem(isNewsFavorite: Bool) -> UIBarButtonItem
+	func getFavoriteButtonImage(isNewsFavorite: Bool) -> UIImage
 }
 
 public final class DetailNewsView: UIView {
@@ -23,6 +26,8 @@ public final class DetailNewsView: UIView {
 	private var sharedConstraints: [NSLayoutConstraint] = []
 	private var compactConstraints: [NSLayoutConstraint] = []
 	private var regularConstraints: [NSLayoutConstraint] = []
+
+	private weak var detailNewsViewController: DetailNewsViewControllerProtocol?
 
 	private enum Constants: CGFloat {
 		case contentVerticalDistance = 19
@@ -46,8 +51,9 @@ public final class DetailNewsView: UIView {
 
 	// MARK: Life Cycle
 
-	public init(viewController: SafariViewControllerDelegate) {
-		readOriginalStoryView = ReadOriginalStoryView(viewControleller: viewController)
+	public init(viewController: DetailNewsViewControllerProtocol & SafariViewControllerDelegate) {
+		self.detailNewsViewController = viewController
+		readOriginalStoryView = ReadOriginalStoryView(safariViewController: viewController)
 
 		super.init(frame: .zero)
 
@@ -79,6 +85,26 @@ extension DetailNewsView: DetailNewsViewProtocol {
 		timePublicationLabel.text = detailNews.timePublication
 		textLabel.text = detailNews.text
 		readOriginalStoryView.setLink(detailNews.link)
+	}
+
+	public func getNavigationLargeTitleDisplayMode() -> UINavigationItem.LargeTitleDisplayMode {
+		return .never
+	}
+
+	public func getNavigationFavoriteButtonItem(isNewsFavorite: Bool) -> UIBarButtonItem {
+		return UIBarButtonItem(
+			image: getFavoriteButtonImage(isNewsFavorite: isNewsFavorite),
+			style: .done,
+			target: detailNewsViewController,
+			action: #selector(detailNewsViewController?.tapOnNavigationFavoriteButtonItem(_:)))
+	}
+
+	public func getFavoriteButtonImage(isNewsFavorite: Bool) -> UIImage {
+		if isNewsFavorite {
+			return Assets.bookmarkFill.systemImage
+		} else {
+			return Assets.bookmark.systemImage
+		}
 	}
 }
 

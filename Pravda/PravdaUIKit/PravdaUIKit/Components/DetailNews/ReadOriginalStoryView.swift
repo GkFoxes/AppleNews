@@ -14,7 +14,7 @@ public final class ReadOriginalStoryView: UIView {
 
 	// MARK: Properties
 
-	private weak var viewControleller: SafariViewControllerDelegate?
+	private weak var safariViewController: SafariViewControllerDelegate?
 	private var link: String?
 
 	private enum Constants: CGFloat {
@@ -30,8 +30,8 @@ public final class ReadOriginalStoryView: UIView {
 
 	// MARK: Life Cycle
 
-	public init(viewControleller: SafariViewControllerDelegate) {
-		self.viewControleller = viewControleller
+	public init(safariViewController: SafariViewControllerDelegate) {
+		self.safariViewController = safariViewController
 
 		super.init(frame: .zero)
 
@@ -126,9 +126,9 @@ private extension ReadOriginalStoryView {
 	}
 
 	@objc func tapOnViewAction(_ sender: UIButton) {
-		guard let detailsNewsViewController = viewControleller,
+		guard let safariViewController = safariViewController,
 			let link = link
 			else { assertionFailure(); return }
-		detailsNewsViewController.presentUrl(link: link)
+		safariViewController.presentUrl(link: link)
 	}
 }

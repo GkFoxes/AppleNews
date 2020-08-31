@@ -49,7 +49,7 @@ extension TitleNewsTopicCollectionViewCell: TodayCollectionViewCellProtocol {
 	}
 
 	func setupContent(headerImage: UIImage?, source: String, title: String, timePublication: String) {
-		headerImageView.image = Assets.test.image //temp
+		headerImageView.image = Assets.test.image // temp
 		sourceLabel.text = source
 		titleLabel.text = title
 		timePublicationLabel.text = timePublication

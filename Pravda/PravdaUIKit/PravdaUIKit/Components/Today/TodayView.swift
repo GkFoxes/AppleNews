@@ -9,7 +9,7 @@
 import Models
 
 public protocol TodayViewProtocol: CollectionViewProtocol {
-	var detailNewsViewController: ((IndexPath) -> UIViewController)? { get set }
+	var detailNewsViewController: ((IndexPath) -> DetailNewsViewControllerProtocol)? { get set }
 
 	func setItems(_ todayNewsItems: TodayNewsItems)
 	func getItem(for indexPath: IndexPath) -> TodayNewsItem?
@@ -23,7 +23,7 @@ public final class TodayView: UIView {
 	public override class var requiresConstraintBasedLayout: Bool { return true }
 
 	public var selectedItemHandler: ((IndexPath) -> Void)?
-	public var detailNewsViewController: ((IndexPath) -> UIViewController)?
+	public var detailNewsViewController: ((IndexPath) -> DetailNewsViewControllerProtocol)?
 
 	private let collectionViewLayout: TodayCollectionViewLayoutProtocol = TodayCollectionViewLayout()
 	private let dataSource: TodayCollectionViewDiffableDataSourceProtocol
@@ -140,10 +140,10 @@ private extension TodayView {
 	}
 
 	func setupDetailNewsViewController() {
-		self.output.detailNewsViewController  = { [weak self] indexPath in
+		self.output.detailNewsViewControllerHandler  = { [weak self] indexPath in
 			guard let self = self,
 				let detailNewsViewController = self.detailNewsViewController
-				else { assertionFailure(); return UIViewController() }
+				else { fatalError() }
 
 			return detailNewsViewController(indexPath)
 		}

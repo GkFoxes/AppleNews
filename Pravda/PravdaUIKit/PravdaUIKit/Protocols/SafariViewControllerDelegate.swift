@@ -14,12 +14,6 @@ public protocol SafariViewControllerDelegate: SFSafariViewControllerDelegate, UI
 
 public extension SafariViewControllerDelegate {
 	func presentUrl(link: String) {
-		tryPresentUrl(link: link)
-	}
-}
-
-private extension SafariViewControllerDelegate {
-	func tryPresentUrl(link: String) {
 		guard let link = URL(string: link), UIApplication.shared.canOpenURL(link) else {
 			let alert = UIAlertController(
 				title: "Can not open this website",

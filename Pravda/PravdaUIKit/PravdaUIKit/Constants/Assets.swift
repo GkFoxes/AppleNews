@@ -18,10 +18,10 @@ public enum Assets: String {
 
 	case squareRighthalfFill = "square.righthalf.fill"
 	case archiveboxFill = "archivebox.fill"
+	case bookmark = "bookmark"
+	case bookmarkFill = "bookmark.fill"
 
-	private var name: String {
-		return self.rawValue
-	}
+	// MARK: Public Properties
 
 	public var image: UIImage {
 		guard let bundle = Bundle(identifier: "ru.GkFoxes.PravdaUIKit"),
@@ -34,5 +34,11 @@ public enum Assets: String {
 	public var systemImage: UIImage {
 		guard let image = UIImage(systemName: self.name) else { assertionFailure(); return UIImage() }
 		return image
+	}
+
+	// MARK: Private Properties
+
+	private var name: String {
+		return self.rawValue
 	}
 }

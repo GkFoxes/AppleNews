@@ -13,10 +13,10 @@ public final class DetailNewsFactory {
 	public static func make(
 		detailNews: TodayNewsItem
 	) -> UIViewController {
-		let detailNewsViewController: DetailNewsViewControllerProtocol = DetailNewsViewController()
+		let detailNewsViewController: DetailNewsViewControllerFactoryProtocol = DetailNewsViewController()
 
 		detailNewsViewController.setItem(DetailNewsItem(
-			image: Assets.test.image.pngData(), //temp
+			image: Assets.test.image.pngData(), // temp
 			title: detailNews.title,
 			timePublication: detailNews.timePublication,
 			text: detailNews.text,

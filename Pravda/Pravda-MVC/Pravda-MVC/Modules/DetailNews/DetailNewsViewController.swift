@@ -9,11 +9,15 @@
 import Models
 import PravdaUIKit
 
-protocol DetailNewsViewControllerProtocol: UIViewController {
+protocol DetailNewsViewControllerFactoryProtocol: UIViewController {
 	func setItem(_ detailNews: DetailNewsItem)
 }
 
-final class DetailNewsViewController: UIViewController {
+final class DetailNewsViewController: UIViewController, SafariViewControllerDelegate {
+
+	// MARK: Properties
+
+	private var isNewsFavorite = false // temp, should create favoriteService in CoreDataKit
 
 	// MARK: Views
 
@@ -31,14 +35,28 @@ final class DetailNewsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		navigationItem.largeTitleDisplayMode = .never
+		navigationItem.largeTitleDisplayMode = detailNewsView.getNavigationLargeTitleDisplayMode()
+		navigationItem.rightBarButtonItem = detailNewsView.getNavigationFavoriteButtonItem(isNewsFavorite: isNewsFavorite)
 	}
 }
 
-// MARK: Interface
+// MARK: Factory Interface
 
-extension DetailNewsViewController: DetailNewsViewControllerProtocol, SafariViewControllerDelegate {
+extension DetailNewsViewController: DetailNewsViewControllerFactoryProtocol {
 	func setItem(_ detailNews: DetailNewsItem) {
 		detailNewsView.setItem(detailNews)
+	}
+}
+
+// MARK: View Controller Interface
+
+extension DetailNewsViewController: DetailNewsViewControllerProtocol {
+	@objc func tapOnNavigationFavoriteButtonItem(_ sender: UIBarButtonItem?) {
+		isNewsFavorite.toggle()
+		navigationItem.rightBarButtonItem?.image = detailNewsView.getFavoriteButtonImage(isNewsFavorite: isNewsFavorite)
+	}
+
+	func getFavoriteButtonImage() -> UIImage {
+		detailNewsView.getFavoriteButtonImage(isNewsFavorite: isNewsFavorite)
 	}
 }

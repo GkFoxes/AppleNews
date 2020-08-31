@@ -45,9 +45,9 @@ final class TodayViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		setupSplitViewAppearancesIfNeeded()
 		self.navigationController?.setupBlackDesignAppearances()
 		self.view = createTodayView()
+		setupSplitViewAppearancesIfNeeded()
 	}
 
 	// MARK: Changes Cycle
@@ -102,20 +102,24 @@ private extension TodayViewController {
 		}
 
 		todayView.detailNewsViewController = { [weak self] indexPath in
-			guard let self = self else { assertionFailure(); return UIViewController() }
+			guard let self = self else { fatalError() }
 			return self.makeDetailNewsViewController(with: indexPath)
 		}
 
 		return todayView
 	}
 
-	func makeDetailNewsViewController(with indexPath: IndexPath) -> UIViewController {
-		guard let item = todayView.getItem(for: indexPath) else { assertionFailure(); return UIViewController() }
-		return DetailNewsFactory.make(detailNews: item)
+	func makeDetailNewsViewController(with indexPath: IndexPath) -> DetailNewsViewControllerProtocol {
+		guard let item = todayView.getItem(for: indexPath),
+			let detailNewsViewController = DetailNewsFactory.make(detailNews: item) as? DetailNewsViewControllerProtocol
+			else { fatalError() }
+		return detailNewsViewController
 	}
 
 	func pushTodayDetailViewController(with indexPath: IndexPath) {
-		navigationController?.pushViewController(makeDetailNewsViewController(with: indexPath), animated: true)
+		guard let detailNewsViewController = makeDetailNewsViewController(with: indexPath) as? UIViewController
+			else { return assertionFailure() }
+		navigationController?.pushViewController(detailNewsViewController, animated: true)
 	}
 }
 
