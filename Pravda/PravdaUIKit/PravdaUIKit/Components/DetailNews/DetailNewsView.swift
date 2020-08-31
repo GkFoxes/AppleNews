@@ -12,6 +12,7 @@ public protocol DetailNewsViewProtocol: UIView {
 	func setItem(_ detailNews: DetailNewsItem)
 	func getNavigationLargeTitleDisplayMode() -> UINavigationItem.LargeTitleDisplayMode
 	func getNavigationFavoriteButtonItem(isNewsFavorite: Bool) -> UIBarButtonItem
+	func getFavoriteButtonTitle(isNewsFavorite: Bool) -> String
 	func getFavoriteButtonImage(isNewsFavorite: Bool) -> UIImage
 }
 
@@ -97,6 +98,14 @@ extension DetailNewsView: DetailNewsViewProtocol {
 			style: .done,
 			target: detailNewsViewController,
 			action: #selector(detailNewsViewController?.tapOnNavigationFavoriteButtonItem(_:)))
+	}
+
+	public func getFavoriteButtonTitle(isNewsFavorite: Bool) -> String {
+		if isNewsFavorite {
+			return Strings.unfavorite.rawValue
+		} else {
+			return Strings.favorite.rawValue
+		}
 	}
 
 	public func getFavoriteButtonImage(isNewsFavorite: Bool) -> UIImage {

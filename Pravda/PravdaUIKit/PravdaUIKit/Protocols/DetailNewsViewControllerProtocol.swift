@@ -9,4 +9,5 @@
 @objc public protocol DetailNewsViewControllerProtocol {
 	@objc func tapOnNavigationFavoriteButtonItem(_ sender: UIBarButtonItem?)
 	func getFavoriteButtonImage() -> UIImage
+	func getFavoriteButtonTitle() -> String
 }

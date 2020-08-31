@@ -56,6 +56,10 @@ extension DetailNewsViewController: DetailNewsViewControllerProtocol {
 		navigationItem.rightBarButtonItem?.image = detailNewsView.getFavoriteButtonImage(isNewsFavorite: isNewsFavorite)
 	}
 
+	func getFavoriteButtonTitle() -> String {
+		detailNewsView.getFavoriteButtonTitle(isNewsFavorite: isNewsFavorite)
+	}
+
 	func getFavoriteButtonImage() -> UIImage {
 		detailNewsView.getFavoriteButtonImage(isNewsFavorite: isNewsFavorite)
 	}

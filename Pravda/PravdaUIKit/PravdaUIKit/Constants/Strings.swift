@@ -16,5 +16,6 @@ public enum Strings: String {
 	// MARK: Favorites Module
 
 	case favorite = "Favorite"
+	case unfavorite = "Unfavorite"
 	case favoritesTitle = "Favorites"
 }

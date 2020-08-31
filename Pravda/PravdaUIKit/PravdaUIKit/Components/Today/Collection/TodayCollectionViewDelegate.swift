@@ -35,10 +35,13 @@ extension TodayCollectionViewDelegate: TodayCollectionViewDelegateProtocol {
 					else { assertionFailure(); return nil }
 				return detailNewsViewController
 			}, actionProvider: { _ -> UIMenu? in
+				guard let detailNewsViewController = self.detailNewsViewControllerHandler?(indexPath)
+					else { assertionFailure(); return nil }
+
 				let action = UIAction(
-					title: Strings.favorite.rawValue,
-					image: self.detailNewsViewControllerHandler?(indexPath).getFavoriteButtonImage()) { _ in
-					self.detailNewsViewControllerHandler?(indexPath).tapOnNavigationFavoriteButtonItem(nil)
+					title: detailNewsViewController.getFavoriteButtonTitle(),
+					image: detailNewsViewController.getFavoriteButtonImage()) { _ in
+						detailNewsViewController.tapOnNavigationFavoriteButtonItem(nil)
 				}
 			return UIMenu(title: "", children: [action])
 		})
