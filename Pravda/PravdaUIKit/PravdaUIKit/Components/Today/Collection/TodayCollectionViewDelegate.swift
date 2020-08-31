@@ -7,7 +7,7 @@
 //
 
 protocol TodayCollectionViewDelegateProtocol: CollectionViewDelegateProtocol {
-	var detailNewsViewController: ((IndexPath) -> UIViewController)? { get set }
+	var detailNewsViewControllerHandler: ((IndexPath) -> DetailNewsViewControllerProtocol)? { get set }
 }
 
 final class TodayCollectionViewDelegate: NSObject {
@@ -15,7 +15,7 @@ final class TodayCollectionViewDelegate: NSObject {
 	// MARK: Properties
 
 	var selectedItemHandler: ((IndexPath) -> Void)?
-	var detailNewsViewController: ((IndexPath) -> UIViewController)?
+	var detailNewsViewControllerHandler: ((IndexPath) -> DetailNewsViewControllerProtocol)?
 }
 
 extension TodayCollectionViewDelegate: TodayCollectionViewDelegateProtocol {
@@ -30,11 +30,15 @@ extension TodayCollectionViewDelegate: TodayCollectionViewDelegateProtocol {
 	) -> UIContextMenuConfiguration? {
 		let configuration = UIContextMenuConfiguration(identifier: indexPath as NSIndexPath, previewProvider: {
 			[weak self] () -> UIViewController? in
-				guard let self = self else { assertionFailure(); return nil }
-				return self.detailNewsViewController?(indexPath)
+				guard let self = self,
+					let detailNewsViewController = self.detailNewsViewControllerHandler?(indexPath) as? UIViewController
+					else { assertionFailure(); return nil }
+				return detailNewsViewController
 			}, actionProvider: { _ -> UIMenu? in
-				let action = UIAction(title: "Favorite", image: Assets.archiveboxFill.systemImage) { _ in
-				// Tap Favorite
+				let action = UIAction(
+					title: Strings.favorite.rawValue,
+					image: self.detailNewsViewControllerHandler?(indexPath).getFavoriteButtonImage()) { _ in
+					self.detailNewsViewControllerHandler?(indexPath).tapOnNavigationFavoriteButtonItem(nil)
 				}
 			return UIMenu(title: "", children: [action])
 		})
