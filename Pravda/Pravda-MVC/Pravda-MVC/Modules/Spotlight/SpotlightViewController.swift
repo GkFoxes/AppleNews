@@ -13,9 +13,7 @@ final class SpotlightViewController: UIViewController {
 	init() {
 		super.init(nibName: nil, bundle: nil)
 
-		self.navigationItem.title = Strings.spotlightTitle.rawValue
-		self.tabBarItem.title = Strings.spotlightTitle.rawValue
-		self.tabBarItem.image = Assets.spotlightTab.image
+		self.navigationItem.title = "Test" // temp, should use name of categories
 	}
 
 	@available(*, unavailable)

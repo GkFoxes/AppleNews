@@ -11,7 +11,6 @@ public enum Assets: String {
 	// MARK: Tabs
 
 	case todayTab
-	case spotlightTab
 	case favoritesTab
 	case test
 

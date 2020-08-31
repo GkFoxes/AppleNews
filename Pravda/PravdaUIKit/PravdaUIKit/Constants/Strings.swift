@@ -13,10 +13,6 @@ public enum Strings: String {
 	case todayNavigationTitle = "News"
 	case todayTabTitle = "Today"
 
-	// MARK: Spotlight Module
-
-	case spotlightTitle = "Spotlight"
-
 	// MARK: Favorites Module
 
 	case favoritesTitle = "Favorites"
