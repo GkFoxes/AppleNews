@@ -39,7 +39,7 @@ final class TodayCollectionViewDiffableDataSource: TodayDiffableDataSource {
 extension TodayCollectionViewDiffableDataSource: TodayCollectionViewDiffableDataSourceProtocol {
 	func setItems(_ todayNewsItems: TodayNewsItems) {
 		self.todayNewsItems = todayNewsItems
-		setupSectionHeaderProvider()
+		setupSupplementaryViewProvider()
 		applyCurrentStateSnapshot()
 	}
 
@@ -84,18 +84,28 @@ private extension TodayCollectionViewDiffableDataSource {
 		}
 	}
 
-	func setupSectionHeaderProvider() {
+	func setupSupplementaryViewProvider() {
 		self.supplementaryViewProvider = {
 			(collectionView: UICollectionView, kind: String, indexPath: IndexPath) -> UICollectionReusableView? in
 			guard let sectionItem = self.itemIdentifier(for: indexPath),
-				let section = self.snapshot().sectionIdentifier(containingItem: sectionItem),
-				let sectionHeader = collectionView.dequeueReusableSupplementaryView(
-					ofKind: kind,
-					withReuseIdentifier: TodaySectionHeaderCollectionReusableView.reuseIdentifer,
-					for: indexPath) as? TodaySectionHeaderCollectionReusableViewProtocol
+				let section = self.snapshot().sectionIdentifier(containingItem: sectionItem)
 				else { assertionFailure(); return nil }
-			sectionHeader.setupContent(title: section.rawValue, textColor: section.color)
-			return sectionHeader
+
+			if kind == "UICollectionElementKindSectionHeader" {
+					let sectionHeader = collectionView.dequeueReusableSupplementaryView(
+						ofKind: kind,
+						withReuseIdentifier: TodaySectionHeaderCollectionReusableView.reuseIdentifer,
+						for: indexPath) as? TodaySectionHeaderCollectionReusableViewProtocol
+				sectionHeader?.setupContent(title: section.rawValue, textColor: section.color)
+				return sectionHeader
+			} else {
+					let sectionFooter = collectionView.dequeueReusableSupplementaryView(
+						ofKind: kind,
+						withReuseIdentifier: MoreSectionFooterCollectionReusableView.reuseIdentifer,
+						for: indexPath) as? MoreSectionFooterCollectionReusableViewProtocol
+				sectionFooter?.setupContent(sectionTitle: section.rawValue, sectionColor: section.color)
+				return sectionFooter
+			}
 		}
 	}
 

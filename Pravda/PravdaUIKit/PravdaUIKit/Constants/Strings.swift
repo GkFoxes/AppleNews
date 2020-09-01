@@ -12,10 +12,16 @@ public enum Strings: String {
 
 	case todayNavigationTitle = "News"
 	case todayTabTitle = "Today"
+	case moreNewsFrom = "More news from"
+	case triangularBullet = "‣"
 
 	// MARK: Favorites Module
 
 	case favorite = "Favorite"
 	case unfavorite = "Unfavorite"
 	case favoritesTitle = "Favorites"
+
+	// MARK: Common
+
+	case whitespace = " "
 }

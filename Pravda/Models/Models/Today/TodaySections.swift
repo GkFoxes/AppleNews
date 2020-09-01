@@ -10,9 +10,9 @@ import UIKit
 
 public enum TodaySections: String, CaseIterable {
 	case topStories = "Top Stories"
-	case otherTopStories
+	case otherTopStories = "top stories"
 	case science = "Science"
-	case otherScience
+	case otherScience = "science"
 }
 
 // MARK: Setup UIColor
@@ -20,9 +20,8 @@ public enum TodaySections: String, CaseIterable {
 public extension TodaySections {
 	var color: UIColor {
 		switch self {
-		case .topStories: return .systemPink
-		case .science: return .systemIndigo
-		default: return .systemBackground
+		case .topStories, .otherTopStories: return .systemPink
+		case .science, .otherScience: return .systemIndigo
 		}
 	}
 }

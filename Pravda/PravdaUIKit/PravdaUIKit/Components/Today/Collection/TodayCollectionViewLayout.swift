@@ -44,19 +44,9 @@ extension TodayCollectionViewLayout: TodayCollectionViewLayoutProtocol {
 	}
 }
 
+// MARK: Sections
+
 private extension TodayCollectionViewLayout {
-	func makeSectionHeaderLayout() -> NSCollectionLayoutBoundarySupplementaryItem {
-		let sectionHeaderLayoutSize = NSCollectionLayoutSize(
-			widthDimension: .fractionalWidth(1.0),
-			heightDimension: .estimated(TodaySectionHeaderCollectionReusableView.getEstimatedHeight()))
-
-		let sectionHeaderLayout = NSCollectionLayoutBoundarySupplementaryItem(
-			layoutSize: sectionHeaderLayoutSize,
-			elementKind: UICollectionView.elementKindSectionHeader,
-			alignment: .top)
-		return sectionHeaderLayout
-	}
-
 	func makeTitleNewsLayoutSection() -> NSCollectionLayoutSection {
 		let topStoriesLayoutSize = NSCollectionLayoutSize(
 			widthDimension: .fractionalWidth(1.0),
@@ -101,7 +91,35 @@ private extension TodayCollectionViewLayout {
 			leading: TodayLayout.safeHorizontalDistance.rawValue,
 			bottom: TodayLayout.topicHorizontalDistance.rawValue,
 			trailing: TodayLayout.safeHorizontalDistance.rawValue)
-
+		section.boundarySupplementaryItems = [makeSectionFooterLayout()]
 		return section
+	}
+}
+
+// MARK: Supplementary Items
+
+private extension TodayCollectionViewLayout {
+	func makeSectionHeaderLayout() -> NSCollectionLayoutBoundarySupplementaryItem {
+		let sectionHeaderLayoutSize = NSCollectionLayoutSize(
+			widthDimension: .fractionalWidth(1.0),
+			heightDimension: .estimated(TodaySectionHeaderCollectionReusableView.getEstimatedHeight()))
+
+		let sectionHeaderLayout = NSCollectionLayoutBoundarySupplementaryItem(
+			layoutSize: sectionHeaderLayoutSize,
+			elementKind: UICollectionView.elementKindSectionHeader,
+			alignment: .top)
+		return sectionHeaderLayout
+	}
+
+	func makeSectionFooterLayout() -> NSCollectionLayoutBoundarySupplementaryItem {
+		let sectionFooterLayoutSize = NSCollectionLayoutSize(
+			widthDimension: .fractionalWidth(1.0),
+			heightDimension: .estimated(MoreSectionFooterCollectionReusableView.getEstimatedHeight()))
+
+		let sectionFooterLayout = NSCollectionLayoutBoundarySupplementaryItem(
+			layoutSize: sectionFooterLayoutSize,
+			elementKind: UICollectionView.elementKindSectionFooter,
+			alignment: .bottom)
+		return sectionFooterLayout
 	}
 }

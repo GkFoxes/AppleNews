@@ -79,7 +79,7 @@ private extension TodaySectionHeaderCollectionReusableView {
 			sectionHeaderLabel.leadingAnchor.constraint(
 				equalTo: leadingAnchor, constant: TodayLayout.safeHorizontalDistance.rawValue),
 			sectionHeaderLabel.trailingAnchor.constraint(
-				equalTo: trailingAnchor, constant: TodayLayout.safeHorizontalDistance.rawValue),
+				equalTo: trailingAnchor, constant: -TodayLayout.safeHorizontalDistance.rawValue),
 			sectionHeaderLabel.topAnchor.constraint(
 				equalTo: topAnchor, constant: Constants.horizontalDistance.rawValue),
 			sectionHeaderLabel.bottomAnchor.constraint(

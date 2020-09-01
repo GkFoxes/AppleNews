@@ -97,6 +97,10 @@ private extension TodayView {
 			TodaySectionHeaderCollectionReusableView.self,
 			forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
 			withReuseIdentifier: TodaySectionHeaderCollectionReusableView.reuseIdentifer)
+		collectionView.register(
+			MoreSectionFooterCollectionReusableView.self,
+			forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+			withReuseIdentifier: MoreSectionFooterCollectionReusableView.reuseIdentifer)
 
 		collectionView.backgroundColor = .systemBackground
 	}
