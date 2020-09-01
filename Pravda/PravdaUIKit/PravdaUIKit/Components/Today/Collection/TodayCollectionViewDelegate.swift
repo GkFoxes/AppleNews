@@ -37,7 +37,6 @@ extension TodayCollectionViewDelegate: TodayCollectionViewDelegateProtocol {
 			}, actionProvider: { _ -> UIMenu? in
 				guard let detailNewsViewController = self.detailNewsViewControllerHandler?(indexPath)
 					else { assertionFailure(); return nil }
-
 				let action = UIAction(
 					title: detailNewsViewController.getFavoriteButtonTitle(),
 					image: detailNewsViewController.getFavoriteButtonImage()) { _ in

@@ -144,7 +144,6 @@ private extension TodayView {
 			guard let self = self,
 				let detailNewsViewController = self.detailNewsViewController
 				else { fatalError() }
-
 			return detailNewsViewController(indexPath)
 		}
 	}

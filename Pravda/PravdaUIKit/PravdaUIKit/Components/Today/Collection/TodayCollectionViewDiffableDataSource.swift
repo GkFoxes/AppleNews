@@ -94,7 +94,6 @@ private extension TodayCollectionViewDiffableDataSource {
 					withReuseIdentifier: TodaySectionHeaderCollectionReusableView.reuseIdentifer,
 					for: indexPath) as? TodaySectionHeaderCollectionReusableViewProtocol
 				else { assertionFailure(); return nil }
-
 			sectionHeader.setupContent(title: section.rawValue, textColor: section.color)
 			return sectionHeader
 		}

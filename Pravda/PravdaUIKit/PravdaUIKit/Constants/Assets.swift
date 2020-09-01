@@ -27,7 +27,6 @@ public enum Assets: String {
 		guard let bundle = Bundle(identifier: "ru.GkFoxes.PravdaUIKit"),
 			let image = UIImage(named: self.name, in: bundle, compatibleWith: nil)
 			else { assertionFailure(); return UIImage() }
-
 		return image
 	}
 
