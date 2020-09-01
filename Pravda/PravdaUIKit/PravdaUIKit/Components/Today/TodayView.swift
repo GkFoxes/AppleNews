@@ -35,13 +35,14 @@ public final class TodayView: UIView {
 
 	// MARK: Life Cycle
 
-	public init(isCollectionCompact: Bool, frame: CGRect) {
+	public init(todayViewController: TodayViewControllerProtocol, isCollectionCompact: Bool, frame: CGRect) {
 		collectionView = UICollectionView(
 			frame: frame,
 			collectionViewLayout: collectionViewLayout
 				.makeCollectionViewCompositionalLayout(isCollectionCompact: isCollectionCompact))
 
-		dataSource = TodayCollectionViewDiffableDataSource(collectionView: collectionView)
+		dataSource = TodayCollectionViewDiffableDataSource(
+			collectionView: collectionView, todayViewController: todayViewController)
 
 		super.init(frame: frame)
 

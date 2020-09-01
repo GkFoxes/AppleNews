@@ -11,12 +11,16 @@ protocol MoreSectionFooterCollectionReusableViewProtocol: UICollectionReusableVi
 
 	static func getEstimatedHeight() -> CGFloat
 
-	func setupContent(sectionTitle: String, sectionColor: UIColor)
+	func setupTodayViewController(_ todayViewController: TodayViewControllerProtocol)
+	func setupContent(sectionString: String, sectionColor: UIColor)
 }
 
 final class MoreSectionFooterCollectionReusableView: UICollectionReusableView {
 
 	// MARK: Properties
+
+	private weak var todayViewController: TodayViewControllerProtocol?
+	private var sectionString: String?
 
 	private enum Constants: CGFloat {
 		case horizontalDistance = 8
@@ -33,6 +37,7 @@ final class MoreSectionFooterCollectionReusableView: UICollectionReusableView {
 		super.init(frame: frame)
 
 		setupViewsLayout()
+		setupActions()
 	}
 
 	@available(*, unavailable)
@@ -52,12 +57,18 @@ extension MoreSectionFooterCollectionReusableView: MoreSectionFooterCollectionRe
 		return 22
 	}
 
-	func setupContent(sectionTitle: String, sectionColor: UIColor) {
+	func setupTodayViewController(_ todayViewController: TodayViewControllerProtocol) {
+		self.todayViewController = todayViewController
+	}
+
+	func setupContent(sectionString: String, sectionColor: UIColor) {
+		self.sectionString = sectionString
+
 		let moreLabelAttributedString = NSMutableAttributedString()
 		moreLabel.text = Strings.moreNewsFrom.rawValue.uppercased() + Strings.whitespace.rawValue
 		guard let moreLabelAttributedText = moreLabel.attributedText else { return assertionFailure() }
 
-		let sectionString = sectionTitle.uppercased() + Strings.whitespace.rawValue + Strings.triangularBullet.rawValue
+		let sectionString = sectionString.uppercased() + Strings.whitespace.rawValue + Strings.triangularBullet.rawValue
 		let sectionAttributes = [NSAttributedString.Key.foregroundColor: sectionColor]
 		let sectionAttributedString = NSAttributedString(string: sectionString, attributes: sectionAttributes)
 
@@ -110,5 +121,20 @@ private extension MoreSectionFooterCollectionReusableView {
 			tapOnViewButton.topAnchor.constraint(equalTo: self.topAnchor),
 			tapOnViewButton.bottomAnchor.constraint(equalTo: self.bottomAnchor)
 		])
+	}
+}
+
+// MARK: Button Actions
+
+private extension MoreSectionFooterCollectionReusableView {
+	func setupActions() {
+		tapOnViewButton.addTarget(self, action: #selector(tapOnViewAction), for: .touchUpInside)
+	}
+
+	@objc func tapOnViewAction(_ sender: UIButton) {
+		guard let sectionString = sectionString,
+			let todayViewController = todayViewController
+			else { return assertionFailure() }
+		todayViewController.tapOnMoreViewAction(navigationTitle: sectionString)
 	}
 }

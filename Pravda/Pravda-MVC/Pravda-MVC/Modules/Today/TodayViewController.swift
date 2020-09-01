@@ -60,7 +60,16 @@ final class TodayViewController: UIViewController {
 	}
 }
 
-// MARK: Split View
+// MARK: View Controller Interface
+
+extension TodayViewController: TodayViewControllerProtocol {
+	func tapOnMoreViewAction(navigationTitle: String) {
+		let spotlightViewController = SpotlightViewController(navigationTitle: navigationTitle)
+		navigationController?.pushViewController(spotlightViewController, animated: true)
+	}
+}
+
+// MARK: Split View Interface
 
 extension TodayViewController: UISplitViewControllerDelegate {
 	func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewController.DisplayMode) {
@@ -93,7 +102,8 @@ extension TodayViewController: UISplitViewControllerDelegate {
 
 private extension TodayViewController {
 	func createTodayView() -> UIView {
-		let todayView: TodayViewProtocol = TodayView(isCollectionCompact: isCollectionCompact, frame: view.bounds)
+		let todayView: TodayViewProtocol = TodayView(
+			todayViewController: self, isCollectionCompact: isCollectionCompact, frame: view.bounds)
 		todayView.setItems(getTodayNewsItems())
 
 		todayView.selectedItemHandler = { [weak self] indexPath in

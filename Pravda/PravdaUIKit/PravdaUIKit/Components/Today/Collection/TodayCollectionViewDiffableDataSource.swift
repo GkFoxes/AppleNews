@@ -19,11 +19,15 @@ final class TodayCollectionViewDiffableDataSource: TodayDiffableDataSource {
 
 	// MARK: Properties
 
+	private weak var todayViewController: TodayViewControllerProtocol?
+
 	private var todayNewsItems = TodayNewsItems()
 
 	// MARK: Life Cycle
 
-	init(collectionView: UICollectionView) {
+	init(collectionView: UICollectionView, todayViewController: TodayViewControllerProtocol) {
+		self.todayViewController = todayViewController
+
 		super.init(
 		collectionView: collectionView
 		) { (collectionView: UICollectionView, indexPath: IndexPath, detailItem: TodayNewsItem)
@@ -92,18 +96,21 @@ private extension TodayCollectionViewDiffableDataSource {
 				else { assertionFailure(); return nil }
 
 			if kind == "UICollectionElementKindSectionHeader" {
-					let sectionHeader = collectionView.dequeueReusableSupplementaryView(
-						ofKind: kind,
-						withReuseIdentifier: TodaySectionHeaderCollectionReusableView.reuseIdentifer,
-						for: indexPath) as? TodaySectionHeaderCollectionReusableViewProtocol
-				sectionHeader?.setupContent(title: section.rawValue, textColor: section.color)
+				let sectionHeader = collectionView.dequeueReusableSupplementaryView(
+					ofKind: kind,
+					withReuseIdentifier: TodaySectionHeaderCollectionReusableView.reuseIdentifer,
+					for: indexPath) as? TodaySectionHeaderCollectionReusableViewProtocol
+				sectionHeader?.setupContent(title: section.string, textColor: section.color)
 				return sectionHeader
 			} else {
-					let sectionFooter = collectionView.dequeueReusableSupplementaryView(
-						ofKind: kind,
-						withReuseIdentifier: MoreSectionFooterCollectionReusableView.reuseIdentifer,
-						for: indexPath) as? MoreSectionFooterCollectionReusableViewProtocol
-				sectionFooter?.setupContent(sectionTitle: section.rawValue, sectionColor: section.color)
+				let sectionFooter = collectionView.dequeueReusableSupplementaryView(
+					ofKind: kind,
+					withReuseIdentifier: MoreSectionFooterCollectionReusableView.reuseIdentifer,
+					for: indexPath) as? MoreSectionFooterCollectionReusableViewProtocol
+
+				guard let todayViewController = self.todayViewController else { assertionFailure(); return nil }
+				sectionFooter?.setupTodayViewController(todayViewController)
+				sectionFooter?.setupContent(sectionString: section.string, sectionColor: section.color)
 				return sectionFooter
 			}
 		}

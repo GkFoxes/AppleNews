@@ -10,10 +10,12 @@ import PravdaUIKit
 
 final class SpotlightViewController: UIViewController {
 
-	init() {
+	// MARK: Life Cycle
+
+	init(navigationTitle: String) {
 		super.init(nibName: nil, bundle: nil)
 
-		self.navigationItem.title = "Test" // temp, should use name of categories
+		self.navigationItem.title = navigationTitle
 	}
 
 	@available(*, unavailable)
@@ -25,6 +27,6 @@ final class SpotlightViewController: UIViewController {
 		super.viewDidLoad()
 
 		self.navigationController?.setupBoldDesignAppearances()
-		self.view.backgroundColor = .blue
+		self.view.backgroundColor = .blue // temp
 	}
 }

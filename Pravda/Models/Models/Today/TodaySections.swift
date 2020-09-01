@@ -8,11 +8,22 @@
 
 import UIKit
 
-public enum TodaySections: String, CaseIterable {
-	case topStories = "Top Stories"
-	case otherTopStories = "top stories"
-	case science = "Science"
-	case otherScience = "science"
+public enum TodaySections: CaseIterable {
+	case topStories
+	case otherTopStories
+	case science
+	case otherScience
+}
+
+// MARK: Setup Strings
+
+public extension TodaySections {
+	var string: String {
+		switch self {
+		case .topStories, .otherTopStories: return "Top Stories"
+		case .science, .otherScience: return "Science"
+		}
+	}
 }
 
 // MARK: Setup UIColor

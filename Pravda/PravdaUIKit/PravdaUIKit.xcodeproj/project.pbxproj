@@ -23,6 +23,7 @@
 		A99D202F249525F2004A7BDD /* UINavigationController+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D202E249525F2004A7BDD /* UINavigationController+Design.swift */; };
 		A9B38D5624FD5622009F175C /* DetailNewsViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B38D5524FD5622009F175C /* DetailNewsViewControllerProtocol.swift */; };
 		A9B38D5824FE9670009F175C /* MoreSectionFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B38D5724FE9670009F175C /* MoreSectionFooterCollectionReusableView.swift */; };
+		A9C3098D24FEBEE800E2C7AB /* TodayViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C3098C24FEBEE800E2C7AB /* TodayViewControllerProtocol.swift */; };
 		A9C8B6C824C9FCA900DD4ABA /* TodayCollectionViewDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8B6C724C9FCA900DD4ABA /* TodayCollectionViewDiffableDataSource.swift */; };
 		A9C8B6CA24CA0FBF00DD4ABA /* TodayCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8B6C924CA0FBF00DD4ABA /* TodayCollectionViewLayout.swift */; };
 		A9C8B6CD24CB054700DD4ABA /* RegularInterfaceSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8B6CC24CB054700DD4ABA /* RegularInterfaceSplitViewController.swift */; };
@@ -70,6 +71,7 @@
 		A99D202E249525F2004A7BDD /* UINavigationController+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Design.swift"; sourceTree = "<group>"; };
 		A9B38D5524FD5622009F175C /* DetailNewsViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewControllerProtocol.swift; sourceTree = "<group>"; };
 		A9B38D5724FE9670009F175C /* MoreSectionFooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreSectionFooterCollectionReusableView.swift; sourceTree = "<group>"; };
+		A9C3098C24FEBEE800E2C7AB /* TodayViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewControllerProtocol.swift; sourceTree = "<group>"; };
 		A9C8B6C724C9FCA900DD4ABA /* TodayCollectionViewDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCollectionViewDiffableDataSource.swift; sourceTree = "<group>"; };
 		A9C8B6C924CA0FBF00DD4ABA /* TodayCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCollectionViewLayout.swift; sourceTree = "<group>"; };
 		A9C8B6CC24CB054700DD4ABA /* RegularInterfaceSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularInterfaceSplitViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			children = (
 				A981577E24E6BCB400830E53 /* Collection */,
 				A981577F24E6BCCA00830E53 /* SafariViewControllerDelegate.swift */,
+				A9C3098C24FEBEE800E2C7AB /* TodayViewControllerProtocol.swift */,
 				A9B38D5524FD5622009F175C /* DetailNewsViewControllerProtocol.swift */,
 			);
 			path = Protocols;
@@ -397,6 +400,7 @@
 				A9FE6E1B24C9EC010022FB3B /* OtherNewsTopicCollectionViewCell.swift in Sources */,
 				A99D202F249525F2004A7BDD /* UINavigationController+Design.swift in Sources */,
 				A9E415C5247EE07D00018A16 /* SectionsTabBarController.swift in Sources */,
+				A9C3098D24FEBEE800E2C7AB /* TodayViewControllerProtocol.swift in Sources */,
 				F0806728248E68A00096DAF5 /* MainContainerView.swift in Sources */,
 				A981051324D08CB800EB6160 /* CollectionViewProtocol.swift in Sources */,
 				A9B38D5824FE9670009F175C /* MoreSectionFooterCollectionReusableView.swift in Sources */,

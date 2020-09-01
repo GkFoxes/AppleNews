@@ -20,6 +20,8 @@ public final class DetailNewsView: UIView {
 
 	// MARK: Properties
 
+	private weak var detailNewsViewController: DetailNewsViewControllerProtocol?
+
 	/// The interface is always regular, except when the width and height are equal to (.compact, .regular)
 	/// default = true
 	private var isLayoutCompact = true
@@ -27,8 +29,6 @@ public final class DetailNewsView: UIView {
 	private var sharedConstraints: [NSLayoutConstraint] = []
 	private var compactConstraints: [NSLayoutConstraint] = []
 	private var regularConstraints: [NSLayoutConstraint] = []
-
-	private weak var detailNewsViewController: DetailNewsViewControllerProtocol?
 
 	private enum Constants: CGFloat {
 		case contentVerticalDistance = 19
