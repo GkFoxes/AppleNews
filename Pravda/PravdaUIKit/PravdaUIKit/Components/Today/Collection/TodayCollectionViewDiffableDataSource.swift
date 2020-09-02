@@ -102,7 +102,7 @@ private extension TodayCollectionViewDiffableDataSource {
 					for: indexPath) as? TodaySectionHeaderCollectionReusableViewProtocol
 				sectionHeader?.setupContent(title: section.string, textColor: section.color)
 				return sectionHeader
-			} else {
+			} else if kind == "UICollectionElementKindSectionFooter" {
 				let sectionFooter = collectionView.dequeueReusableSupplementaryView(
 					ofKind: kind,
 					withReuseIdentifier: MoreSectionFooterCollectionReusableView.reuseIdentifer,
@@ -112,6 +112,8 @@ private extension TodayCollectionViewDiffableDataSource {
 				sectionFooter?.setupTodayViewController(todayViewController)
 				sectionFooter?.setupContent(sectionString: section.string, sectionColor: section.color)
 				return sectionFooter
+			} else {
+				return nil
 			}
 		}
 	}
