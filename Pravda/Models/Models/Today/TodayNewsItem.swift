@@ -17,7 +17,20 @@ public struct TodayNewsItem {
 	private let identifier = UUID()
 }
 
+// MARK: Setup Hashable Protocol
+
+extension TodayNewsItem: Hashable {
+	public func hash(into hasher: inout Hasher) {
+		hasher.combine(identifier)
+	}
+
+	public static func == (lhs: Self, rhs: Self) -> Bool {
+		return lhs.identifier == rhs.identifier
+	}
+}
+
 // MARK: Mock Data
+// temp
 
 public extension TodayNewsItem {
 	static func makeTopStoriesMock(isOnlyOneItem: Bool) -> [Self] {
@@ -136,17 +149,5 @@ public extension TodayNewsItem {
 				text: "4Study of Over 1 Million People Finds Intriguing",
 				link: "https://github.com/GkFoxes")
 		]
-	}
-}
-
-// MARK: Setup Hashable Protocol
-
-extension TodayNewsItem: Hashable {
-	public func hash(into hasher: inout Hasher) {
-		hasher.combine(identifier)
-	}
-
-	public static func == (lhs: Self, rhs: Self) -> Bool {
-		return lhs.identifier == rhs.identifier
 	}
 }

@@ -16,7 +16,7 @@ public final class DetailNewsFactory {
 		let detailNewsViewController: DetailNewsViewControllerFactoryProtocol = DetailNewsViewController()
 
 		detailNewsViewController.setItem(DetailNewsItem(
-			image: Assets.test.image.pngData(), // temp
+			headerImage: Assets.test.image.pngData(), // temp
 			title: detailNews.title,
 			timePublication: detailNews.timePublication,
 			text: detailNews.text,

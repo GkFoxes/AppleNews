@@ -1,13 +1,12 @@
 //
-//  DetailNewsItem.swift
+//  SpotlightNewsItem.swift
 //  Models
 //
-//  Created by Дмитрий Матвеенко on 05.08.2020.
+//  Created by Дмитрий Матвеенко on 03.09.2020.
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-public struct DetailNewsItem {
-	public let headerImage: Data?
+public struct SpotlightNewsItem {
 	public let title: String
 	public let timePublication: String
 	public let text: String?
@@ -16,13 +15,11 @@ public struct DetailNewsItem {
 	// MARK: Life Cycle
 
 	public init(
-		headerImage: Data?,
 		title: String,
 		timePublication: String,
 		text: String?,
 		link: String
 	) {
-		self.headerImage = headerImage
 		self.title = title
 		self.timePublication = timePublication
 		self.text = text
