@@ -6,7 +6,7 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-protocol CollectionViewCellProtocol: UICollectionViewCell {
+protocol ListViewCellProtocol: UICollectionViewCell {
 	static var reuseIdentifer: String { get }
 
 	static func getEstimatedHeight() -> CGFloat
