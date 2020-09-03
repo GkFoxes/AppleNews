@@ -40,7 +40,7 @@ final class TodaySectionHeaderCollectionReusableView: UICollectionReusableView {
 	}
 }
 
-// MARK: Interface
+// MARK: Reusable View Interface
 
 extension TodaySectionHeaderCollectionReusableView: TodaySectionHeaderCollectionReusableViewProtocol {
 	static var reuseIdentifer: String {

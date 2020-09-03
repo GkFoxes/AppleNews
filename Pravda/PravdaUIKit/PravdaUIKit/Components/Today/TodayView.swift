@@ -65,7 +65,7 @@ public final class TodayView: UIView {
 	}
 }
 
-// MARK: Interface
+// MARK: View Interface
 
 extension TodayView: TodayViewProtocol {
 	public func setItems(_ todayNewsItems: TodayNewsItems) {

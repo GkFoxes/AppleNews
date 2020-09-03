@@ -45,7 +45,7 @@ public final class ReadOriginalStoryView: UIView {
 	}
 }
 
-// MARK: Interface
+// MARK: View Interface
 
 extension ReadOriginalStoryView: ReadOriginalStoryViewProtocol {
 	public func setLink(_ link: String) {

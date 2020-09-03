@@ -46,7 +46,7 @@ final class MoreSectionFooterCollectionReusableView: UICollectionReusableView {
 	}
 }
 
-// MARK: Interface
+// MARK: Reusable View Interface
 
 extension MoreSectionFooterCollectionReusableView: MoreSectionFooterCollectionReusableViewProtocol {
 	static var reuseIdentifer: String {

@@ -77,7 +77,7 @@ public final class DetailNewsView: UIView {
 	}
 }
 
-// MARK: Interface
+// MARK: View Interface
 
 extension DetailNewsView: DetailNewsViewProtocol {
 	public func setItem(_ detailNews: DetailNewsItem) {
