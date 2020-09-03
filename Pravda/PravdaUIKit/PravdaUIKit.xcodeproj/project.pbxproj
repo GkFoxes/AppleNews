@@ -159,20 +159,20 @@
 			path = Layout;
 			sourceTree = "<group>";
 		};
-		A981577E24E6BCB400830E53 /* Collection */ = {
+		A981577E24E6BCB400830E53 /* List */ = {
 			isa = PBXGroup;
 			children = (
 				A981051224D08CB800EB6160 /* ListViewProtocol.swift */,
 				A988552A24CB73AD002421F6 /* ListViewCellProtocol.swift */,
 				A981050E24D078AE00EB6160 /* ListViewDelegateProtocol.swift */,
 			);
-			path = Collection;
+			path = List;
 			sourceTree = "<group>";
 		};
 		A988552924CB7397002421F6 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				A981577E24E6BCB400830E53 /* Collection */,
+				A981577E24E6BCB400830E53 /* List */,
 				A981577F24E6BCCA00830E53 /* SafariViewControllerDelegate.swift */,
 				A9C3098C24FEBEE800E2C7AB /* TodayViewControllerProtocol.swift */,
 				A9B38D5524FD5622009F175C /* DetailNewsViewControllerProtocol.swift */,

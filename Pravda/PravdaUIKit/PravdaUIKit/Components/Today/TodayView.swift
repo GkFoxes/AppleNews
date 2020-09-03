@@ -8,7 +8,7 @@
 
 import Models
 
-public protocol TodayViewProtocol: CollectionViewProtocol {
+public protocol TodayViewProtocol: ListViewProtocol {
 	var detailNewsViewController: ((IndexPath) -> DetailNewsViewControllerProtocol)? { get set }
 
 	func setItems(_ todayNewsItems: TodayNewsItems)

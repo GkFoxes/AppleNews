@@ -6,7 +6,7 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-protocol TodayCollectionViewDelegateProtocol: CollectionViewDelegateProtocol {
+protocol TodayCollectionViewDelegateProtocol: ListViewDelegateProtocol, UICollectionViewDelegate {
 	var detailNewsViewControllerHandler: ((IndexPath) -> DetailNewsViewControllerProtocol)? { get set }
 }
 
@@ -17,6 +17,8 @@ final class TodayCollectionViewDelegate: NSObject {
 	var selectedItemHandler: ((IndexPath) -> Void)?
 	var detailNewsViewControllerHandler: ((IndexPath) -> DetailNewsViewControllerProtocol)?
 }
+
+// MARK: Delegate Interface
 
 extension TodayCollectionViewDelegate: TodayCollectionViewDelegateProtocol {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

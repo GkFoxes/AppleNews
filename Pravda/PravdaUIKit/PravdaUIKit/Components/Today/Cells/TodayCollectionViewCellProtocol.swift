@@ -6,6 +6,7 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-protocol TodayCollectionViewCellProtocol: CollectionViewCellProtocol {
+protocol TodayCollectionViewCellProtocol: ListViewCellProtocol, UICollectionViewCell {
+	static func getEstimatedHeight() -> CGFloat
 	func setupContent(headerImage: UIImage?, source: String, title: String, timePublication: String)
 }
