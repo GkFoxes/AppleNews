@@ -10,6 +10,13 @@ import PravdaUIKit
 
 final class SpotlightViewController: UIViewController {
 
+	// MARK: Views
+
+	private var spotlightView: SpotlightViewProtocol {
+		guard let spotlightView = view as? SpotlightViewProtocol else { fatalError() }
+		return spotlightView
+	}
+
 	// MARK: Life Cycle
 
 	init(navigationTitle: String) {
@@ -23,10 +30,13 @@ final class SpotlightViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 
+	override func loadView() {
+		self.view = SpotlightView()
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		self.navigationController?.setupBoldDesignAppearances()
-		self.view.backgroundColor = .blue // temp
 	}
 }

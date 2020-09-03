@@ -8,8 +8,9 @@
 
 import Models
 
-public protocol SpotlightViewProtocol: CollectionViewProtocol {
-	func setItems(_ todayNewsItems: TodayNewsItems)
+public protocol SpotlightViewProtocol: ListViewProtocol {
+	func setItems(_ spotlightNewsItems: [SpotlightNewsItem])
+	func getItem(for indexPath: IndexPath) -> SpotlightNewsItem?
 }
 
 public final class SpotlightView: UIView {
@@ -18,30 +19,23 @@ public final class SpotlightView: UIView {
 
 	public var selectedItemHandler: ((IndexPath) -> Void)?
 
-	private let collectionViewLayout: TodayCollectionViewLayoutProtocol = TodayCollectionViewLayout()
-	private let dataSource: TodayCollectionViewDiffableDataSourceProtocol
-	private let output: TodayCollectionViewDelegateProtocol = TodayCollectionViewDelegate()
+	private let dataSource: SpotlightTableViewDataSourceProtocol = SpotlightTableViewDataSource()
+	private let output = SpotlightTableViewDelegate()
 
 	// MARK: Views
 
-	private let collectionView: UICollectionView
+	private let tableView: UITableView
 
 	// MARK: Life Cycle
 
-	public init(todayViewController: TodayViewControllerProtocol, isCollectionCompact: Bool, frame: CGRect) {
-		collectionView = UICollectionView(
-			frame: frame,
-			collectionViewLayout: collectionViewLayout
-				.makeCollectionViewCompositionalLayout(isCollectionCompact: isCollectionCompact))
-
-		dataSource = TodayCollectionViewDiffableDataSource(
-			collectionView: collectionView, todayViewController: todayViewController)
+	override init(frame: CGRect) {
+		tableView = UITableView(frame: frame)
 
 		super.init(frame: frame)
 
-		setupCollectionViewAppearances()
-		setupCollectionViewLayout()
-		setupCollectionViewDelegate()
+		setupTableViewAppearances()
+		setupTableViewLayout()
+		setupSelectedItemHandler()
 	}
 
 	@available(*, unavailable)
@@ -50,91 +44,56 @@ public final class SpotlightView: UIView {
 	}
 }
 
-// MARK: Interface
+// MARK: View Interface
 
 extension SpotlightView: SpotlightViewProtocol {
-	public func setItems(_ todayNewsItems: TodayNewsItems) {
-		dataSource.setItems(todayNewsItems)
+	public func setItems(_ spotlightNewsItems: [SpotlightNewsItem]) {
+		dataSource.setItems(spotlightNewsItems)
 	}
 
-	public func getItem(for indexPath: IndexPath) -> TodayNewsItem? {
+	public func getItem(for indexPath: IndexPath) -> SpotlightNewsItem? {
 		dataSource.getItem(for: indexPath)
-	}
-
-	public func updateCollectionView(isCollectionCompact: Bool, items: TodayNewsItems) {
-		collectionViewLayout.setIsCollectionCompact(isCollectionCompact)
-		dataSource.setItems(items)
 	}
 }
 
 // MARK: Views Appearances
 
 private extension SpotlightView {
-	func setupCollectionViewAppearances() {
-		collectionView.delegate = output
+	func setupTableViewAppearances() {
+		tableView.delegate = output
 
-		collectionView.register(
-			TitleNewsTopicCollectionViewCell.self,
-			forCellWithReuseIdentifier: TitleNewsTopicCollectionViewCell.reuseIdentifer)
-		collectionView.register(
-			OtherNewsTopicCollectionViewCell.self,
-			forCellWithReuseIdentifier: OtherNewsTopicCollectionViewCell.reuseIdentifer)
-		collectionView.register(
-			TodaySectionHeaderCollectionReusableView.self,
-			forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-			withReuseIdentifier: TodaySectionHeaderCollectionReusableView.reuseIdentifer)
-		collectionView.register(
-			MoreSectionFooterCollectionReusableView.self,
-			forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
-			withReuseIdentifier: MoreSectionFooterCollectionReusableView.reuseIdentifer)
+//		tableView.register(
+//			TitleNewsTopicCollectionViewCell.self,
+//			forCellWithReuseIdentifier: TitleNewsTopicCollectionViewCell.reuseIdentifer)
 
-		collectionView.backgroundColor = .systemBackground
+		tableView.backgroundColor = .systemBackground
 	}
 }
 
 // MARK: View Layout
 
 private extension SpotlightView {
-	func setupCollectionViewLayout() {
-		self.addSubview(collectionView)
-		collectionView.translatesAutoresizingMaskIntoConstraints = false
+	func setupTableViewLayout() {
+		self.addSubview(tableView)
+		tableView.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
-			collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-			collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+			tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+			tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
 
-			collectionView.topAnchor.constraint(equalTo: self.topAnchor),
-			collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+			tableView.topAnchor.constraint(equalTo: self.topAnchor),
+			tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
 		])
-	}
-
-	func refreshCollectionViewLayout() {
-		collectionView.reloadData()
-		collectionView.collectionViewLayout.invalidateLayout()
 	}
 }
 
-// MARK: Collection Delegate
+// MARK: Table Delegate
 
 private extension SpotlightView {
-	func setupCollectionViewDelegate() {
-		setupSelectedItemHandler()
-		setupDetailNewsViewController()
-	}
-
 	func setupSelectedItemHandler() {
 		self.output.selectedItemHandler = { [weak self] indexPath in
 			guard let self = self else { return assertionFailure() }
 			self.selectedItemHandler?(indexPath)
-		}
-	}
-
-	func setupDetailNewsViewController() {
-		self.output.detailNewsViewControllerHandler  = { [weak self] indexPath in
-			guard let self = self,
-				let detailNewsViewController = self.detailNewsViewController
-				else { fatalError() }
-			return detailNewsViewController(indexPath)
 		}
 	}
 }

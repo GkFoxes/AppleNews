@@ -28,7 +28,7 @@ final class DetailNewsViewController: UIViewController, SafariViewControllerDele
 
 	// MARK: Life Cycle
 
-	public override func loadView() {
+	override func loadView() {
 		self.view = DetailNewsView(viewController: self)
 	}
 
