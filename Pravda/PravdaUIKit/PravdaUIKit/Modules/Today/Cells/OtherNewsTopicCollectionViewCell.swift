@@ -19,10 +19,10 @@ final class OtherNewsTopicCollectionViewCell: UICollectionViewCell {
 
 	// MARK: Views
 
-	private let headerImageView = initHeaderImageView()
-	private let sourceLabel = initSourceLabel()
-	private let titleLabel = initTitleLabel()
-	private let timePublicationLabel = initTimePublicationLabel()
+	private let headerImageView = NewsViews.initHeaderImageView()
+	private let sourceLabel = NewsViews.initSourceLabel(fontSize: 11.0)
+	private let titleLabel = NewsViews.initTitleLabel(fontSize: 18.0, weight: .bold, numberOfLines: 4)
+	private let timePublicationLabel = NewsViews.initTimePublicationLabel(fontSize: 10.0, weight: .medium)
 
 	// MARK: Life Cycle
 
@@ -54,43 +54,6 @@ extension OtherNewsTopicCollectionViewCell: TodayCollectionViewCellProtocol {
 		sourceLabel.text = source
 		titleLabel.text = title
 		timePublicationLabel.text = timePublication
-	}
-}
-
-// MARK: Views Appearances
-
-private extension OtherNewsTopicCollectionViewCell {
-	static func initHeaderImageView() -> UIImageView {
-		let headerImageView = UIImageView()
-		headerImageView.backgroundColor = .systemBackground
-		headerImageView.layer.cornerRadius = 4
-		headerImageView.contentMode = .scaleAspectFill
-		headerImageView.clipsToBounds = true
-		return headerImageView
-	}
-
-	static func initSourceLabel() -> UILabel {
-		let sourceLabel = UILabel()
-		sourceLabel.backgroundColor = .systemBackground
-		sourceLabel.font = .systemFont(ofSize: 11.0, weight: .semibold)
-		sourceLabel.textColor = .systemGray
-		return sourceLabel
-	}
-
-	static func initTitleLabel() -> UILabel {
-		let titleLabel = UILabel()
-		titleLabel.backgroundColor = .systemBackground
-		titleLabel.font = .systemFont(ofSize: 18.0, weight: .bold)
-		titleLabel.numberOfLines = 4
-		return titleLabel
-	}
-
-	static func initTimePublicationLabel() -> UILabel {
-		let timePublicationLabel = UILabel()
-		timePublicationLabel.backgroundColor = .systemBackground
-		timePublicationLabel.font = .systemFont(ofSize: 10.0, weight: .medium)
-		timePublicationLabel.textColor = .systemGray2
-		return timePublicationLabel
 	}
 }
 

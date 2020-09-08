@@ -44,9 +44,9 @@ public final class DetailNewsView: UIView {
 	// MARK: Views
 
 	private let scrollView = UIScrollView()
-	private let headerImageView = initHeaderImageView()
-	private let titleLabel = initTitleLabel()
-	private let timePublicationLabel = initTimePublicationLabel()
+	private let headerImageView = NewsViews.initHeaderImageView(cornerRadius: 0.0)
+	private let titleLabel = NewsViews.initTitleLabel(fontSize: 26.0, weight: .heavy, numberOfLines: 0)
+	private let timePublicationLabel = NewsViews.initTimePublicationLabel(fontSize: 12.0, weight: .semibold)
 	private let textLabel = initTextLabel()
 	private let readOriginalStoryView: ReadOriginalStoryViewProtocol
 
@@ -122,30 +122,6 @@ extension DetailNewsView: DetailNewsViewProtocol {
 private extension DetailNewsView {
 	func setupViewAppearances() {
 		self.backgroundColor = .systemBackground
-	}
-
-	static func initHeaderImageView() -> UIImageView {
-		let headerImageView = UIImageView()
-		headerImageView.backgroundColor = .systemBackground
-		headerImageView.contentMode = .scaleAspectFill
-		headerImageView.clipsToBounds = true
-		return headerImageView
-	}
-
-	static func initTitleLabel() -> UILabel {
-		let titleLabel = UILabel()
-		titleLabel.backgroundColor = .systemBackground
-		titleLabel.font = .systemFont(ofSize: 26.0, weight: .heavy)
-		titleLabel.numberOfLines = 0
-		return titleLabel
-	}
-
-	static func initTimePublicationLabel() -> UILabel {
-		let timePublicationLabel = UILabel()
-		timePublicationLabel.backgroundColor = .systemBackground
-		timePublicationLabel.font = .systemFont(ofSize: 12.0, weight: .semibold)
-		timePublicationLabel.textColor = .systemGray2
-		return timePublicationLabel
 	}
 
 	static func initTextLabel() -> UILabel {
