@@ -62,9 +62,9 @@ private extension SpotlightView {
 	func setupTableViewAppearances() {
 		tableView.delegate = output
 
-//		tableView.register(
-//			TitleNewsTopicCollectionViewCell.self,
-//			forCellWithReuseIdentifier: TitleNewsTopicCollectionViewCell.reuseIdentifer)
+		tableView.register(
+			SpotlightTableViewCell.self,
+			forCellReuseIdentifier: SpotlightTableViewCell.reuseIdentifer)
 
 		tableView.backgroundColor = .systemBackground
 	}

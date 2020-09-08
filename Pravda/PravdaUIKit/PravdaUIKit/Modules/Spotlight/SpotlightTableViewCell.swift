@@ -24,9 +24,9 @@ final class SpotlightTableViewCell: UITableViewCell {
 
 	// MARK: Views
 
-	private let titleLabel = initTitleLabel()
-	private let sourceLabel = initSourceLabel()
-	private let timePublicationLabel = initTimePublicationLabel()
+	private let titleLabel = NewsViews.initTitleLabel(fontSize: 16.0, weight: .bold, numberOfLines: 4)
+	private let sourceLabel = NewsViews.initSourceLabel(fontSize: 11.0)
+	private let timePublicationLabel = NewsViews.initTimePublicationLabel(fontSize: 10.0, weight: .medium)
 
 	// MARK: Life Cycle
 
@@ -46,41 +46,13 @@ final class SpotlightTableViewCell: UITableViewCell {
 
 extension SpotlightTableViewCell: SpotlightTableViewCellProtocol {
 	static var reuseIdentifer: String {
-		return String(describing: OtherNewsTopicCollectionViewCell.self)
+		return String(describing: SpotlightTableViewCell.self)
 	}
 
 	func setupContent(title: String, source: String, timePublication: String) {
 		titleLabel.text = title
 		sourceLabel.text = source
 		timePublicationLabel.text = timePublication
-	}
-}
-
-// MARK: Views Appearances
-
-private extension SpotlightTableViewCell {
-	static func initTitleLabel() -> UILabel {
-		let titleLabel = UILabel()
-		titleLabel.backgroundColor = .systemBackground
-		titleLabel.font = .systemFont(ofSize: 16.0, weight: .bold)
-		titleLabel.numberOfLines = 5
-		return titleLabel
-	}
-
-	static func initSourceLabel() -> UILabel {
-		let sourceLabel = UILabel()
-		sourceLabel.backgroundColor = .systemBackground
-		sourceLabel.font = .systemFont(ofSize: 11.0, weight: .semibold)
-		sourceLabel.textColor = .systemGray
-		return sourceLabel
-	}
-
-	static func initTimePublicationLabel() -> UILabel {
-		let timePublicationLabel = UILabel()
-		timePublicationLabel.backgroundColor = .systemBackground
-		timePublicationLabel.font = .systemFont(ofSize: 10.0, weight: .medium)
-		timePublicationLabel.textColor = .systemGray2
-		return timePublicationLabel
 	}
 }
 
