@@ -31,6 +31,7 @@ extension TodayNewsItem: Hashable {
 
 // MARK: Mock Data
 // temp
+// swiftlint:disable all
 
 public extension TodayNewsItem {
 	static func makeTopStoriesMock(isOnlyOneItem: Bool) -> [Self] {
@@ -82,6 +83,27 @@ public extension TodayNewsItem {
 						2Rep. John Lewis, a civil rights icon who began pushing for racial justice in south, has died
 						2Rep. John Lewis, a civil rights icon who began pushing for racial justice in south, has died
 						""",
+				link: "https://github.com/GkFoxes"),
+			TodayNewsItem(
+				imageURL: nil,
+				source: "3USA TODAY",
+				title: "3Rep. John Lewis, a civil rights",
+				timePublication: "357m ago",
+				text: "3Rep. John Lewis, a civil rights",
+				link: "https://github.com/GkFoxes"),
+			TodayNewsItem(
+				imageURL: nil,
+				source: "3USA TODAY",
+				title: "3Rep. John Lewis, a civil rights",
+				timePublication: "357m ago",
+				text: "3Rep. John Lewis, a civil rights",
+				link: "https://github.com/GkFoxes"),
+			TodayNewsItem(
+				imageURL: nil,
+				source: "3USA TODAY",
+				title: "3Rep. John Lewis, a civil rights",
+				timePublication: "357m ago",
+				text: "3Rep. John Lewis, a civil rights",
 				link: "https://github.com/GkFoxes"),
 			TodayNewsItem(
 				imageURL: nil,

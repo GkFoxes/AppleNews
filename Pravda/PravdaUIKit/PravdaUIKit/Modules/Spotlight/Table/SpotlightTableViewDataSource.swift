@@ -24,11 +24,21 @@ final class SpotlightTableViewDataSource: NSObject {
 
 extension SpotlightTableViewDataSource: SpotlightTableViewDataSourceProtocol {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 100 // temp
+		return spotlightNewsItems.count
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return UITableViewCell() // temp
+		guard let cell = tableView.dequeueReusableCell(
+			withIdentifier: SpotlightTableViewCell.reuseIdentifer,
+			for: indexPath) as? SpotlightTableViewCellProtocol
+			else { assertionFailure(); return UITableViewCell() }
+
+		let spotlightNewsItem = spotlightNewsItems[indexPath.row]
+		cell.setupContent(
+			title: spotlightNewsItem.title,
+			source: spotlightNewsItem.source,
+			timePublication: spotlightNewsItem.timePublication)
+		return cell
 	}
 
 	func setItems(_ spotlightNewsItems: [SpotlightNewsItem]) {

@@ -61,6 +61,7 @@ extension SpotlightView: SpotlightViewProtocol {
 private extension SpotlightView {
 	func setupTableViewAppearances() {
 		tableView.delegate = output
+		tableView.dataSource = dataSource
 
 		tableView.register(
 			SpotlightTableViewCell.self,

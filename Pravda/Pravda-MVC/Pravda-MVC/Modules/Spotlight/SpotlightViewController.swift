@@ -7,6 +7,7 @@
 //
 
 import PravdaUIKit
+import Models
 
 final class SpotlightViewController: UIViewController {
 
@@ -38,5 +39,6 @@ final class SpotlightViewController: UIViewController {
 		super.viewDidLoad()
 
 		self.navigationController?.setupBoldDesignAppearances()
+		self.spotlightView.setItems(SpotlightNewsItem.makeSpotlightMock()) // temp
 	}
 }
