@@ -9,21 +9,23 @@
 import SafariServices
 
 public protocol SafariViewControllerDelegate: SFSafariViewControllerDelegate, UIViewController {
-	func presentUrl(link: String)
+	func presentUrl(linkString: String?)
 }
 
 public extension SafariViewControllerDelegate {
-	func presentUrl(link: String) {
-		guard let link = URL(string: link), UIApplication.shared.canOpenURL(link) else {
-			let alert = UIAlertController(
-				title: "Can not open this website",
-				message: nil,
-				preferredStyle: .alert)
-			alert.addAction(UIAlertAction(title: "OK", style: .default))
-			return self.present(alert, animated: true, completion: nil)
+	func presentUrl(linkString: String?) {
+		guard let linkString = linkString,
+			let linkUrl = URL(string: linkString),
+			UIApplication.shared.canOpenURL(linkUrl) else {
+				let alert = UIAlertController(
+					title: Strings.canNotOpenWebsite.rawValue,
+					message: nil,
+					preferredStyle: .alert)
+				alert.addAction(UIAlertAction(title: Strings.okCapital.rawValue, style: .default))
+				return self.present(alert, animated: true, completion: nil)
 		}
 
-		let safariViewController = SFSafariViewController(url: link)
+		let safariViewController = SFSafariViewController(url: linkUrl)
 		self.present(safariViewController, animated: true)
 	}
 }

@@ -21,7 +21,14 @@ public enum Strings: String {
 	case unfavorite = "Unfavorite"
 	case favoritesTitle = "Favorites"
 
+	// MARK: Spotlight Module
+
+	case readFullStroy = "Read Full Story"
+	case fullStoryNotAvailable = "Full Story is not available"
+
 	// MARK: Common
 
 	case whitespace = " "
+	case okCapital = "OK"
+	case canNotOpenWebsite = "Can not open this website"
 }

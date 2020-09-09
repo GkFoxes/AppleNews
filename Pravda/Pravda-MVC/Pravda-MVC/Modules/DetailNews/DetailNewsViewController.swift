@@ -10,7 +10,7 @@ import Models
 import PravdaUIKit
 
 protocol DetailNewsViewControllerFactoryProtocol: UIViewController {
-	func setItem(_ detailNews: DetailNewsItem)
+	func setItem(_ detailNewsItem: DetailNewsItem)
 }
 
 final class DetailNewsViewController: UIViewController, SafariViewControllerDelegate {
@@ -43,8 +43,9 @@ final class DetailNewsViewController: UIViewController, SafariViewControllerDele
 // MARK: Factory Interface
 
 extension DetailNewsViewController: DetailNewsViewControllerFactoryProtocol {
-	func setItem(_ detailNews: DetailNewsItem) {
-		detailNewsView.setItem(detailNews)
+	func setItem(_ detailNewsItem: DetailNewsItem) {
+		detailNewsView.setItem(detailNewsItem)
+		navigationItem.title = detailNewsItem.source
 	}
 }
 

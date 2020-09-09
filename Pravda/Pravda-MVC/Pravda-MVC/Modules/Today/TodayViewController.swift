@@ -120,9 +120,8 @@ private extension TodayViewController {
 	}
 
 	func makeDetailNewsViewController(with indexPath: IndexPath) -> DetailNewsViewControllerProtocol {
-		guard let item = todayView.getItem(for: indexPath),
-			let detailNewsViewController = DetailNewsFactory.make(detailNews: item) as? DetailNewsViewControllerProtocol
-			else { fatalError() }
+		guard let item = todayView.getItem(for: indexPath) else { fatalError() }
+		let detailNewsViewController = DetailNewsFactory.make(detailNewsItem: DetailNewsItem(todayNewsItem: item))
 		return detailNewsViewController
 	}
 

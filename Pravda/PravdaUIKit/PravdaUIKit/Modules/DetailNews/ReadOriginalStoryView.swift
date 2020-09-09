@@ -7,7 +7,7 @@
 //
 
 protocol ReadOriginalStoryViewProtocol: UIView {
-	func setLink(_ link: String)
+	func setLink(_ link: String?)
 }
 
 public final class ReadOriginalStoryView: UIView {
@@ -48,9 +48,14 @@ public final class ReadOriginalStoryView: UIView {
 // MARK: View Interface
 
 extension ReadOriginalStoryView: ReadOriginalStoryViewProtocol {
-	public func setLink(_ link: String) {
+	public func setLink(_ link: String?) {
 		self.link = link
-		linkLabel.text = link
+
+		if let link = link, !link.isEmpty {
+			linkLabel.text = link
+		} else {
+			linkLabel.text = Strings.fullStoryNotAvailable.rawValue
+		}
 	}
 }
 
@@ -60,7 +65,7 @@ private extension ReadOriginalStoryView {
 	static func initSuggestionLabel() -> UILabel {
 		let suggestionLabel = UILabel()
 		suggestionLabel.backgroundColor = .systemBackground
-		suggestionLabel.text = "Read Full Story"
+		suggestionLabel.text = Strings.readFullStroy.rawValue
 		suggestionLabel.font = .systemFont(ofSize: 16.0, weight: .medium)
 		return suggestionLabel
 	}
@@ -126,9 +131,7 @@ private extension ReadOriginalStoryView {
 	}
 
 	@objc func tapOnViewAction(_ sender: UIButton) {
-		guard let safariViewController = safariViewController,
-			let link = link
-			else { assertionFailure(); return }
-		safariViewController.presentUrl(link: link)
+		guard let safariViewController = safariViewController else { assertionFailure(); return }
+		safariViewController.presentUrl(linkString: link)
 	}
 }

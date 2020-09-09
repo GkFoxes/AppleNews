@@ -32,18 +32,41 @@ final class SpotlightViewController: UIViewController {
 	}
 
 	override func loadView() {
-		self.view = SpotlightView()
+		self.view = createSpotlightView()
 	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		self.navigationController?.setupBoldDesignAppearances()
-		self.spotlightView.setItems(SpotlightNewsItem.makeSpotlightMock()) // temp
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		spotlightView.viewWillAppear(animated)
+	}
+}
+
+// MARK: Spotlight View
+
+private extension SpotlightViewController {
+	func createSpotlightView() -> UIView {
+		let spotlightView: SpotlightViewProtocol = SpotlightView()
+		spotlightView.setItems(SpotlightNewsItem.makeSpotlightMock()) // temp
+
+		spotlightView.selectedItemHandler = { [weak self] indexPath in
+			guard let self = self else { return assertionFailure() }
+			self.pushTodayDetailViewController(with: indexPath)
+		}
+
+		return spotlightView
+	}
+
+	func pushTodayDetailViewController(with indexPath: IndexPath) {
+		guard let item = spotlightView.getItem(for: indexPath),
+			let detailNewsViewController = DetailNewsFactory.make(detailNewsItem:
+				DetailNewsItem(spotlightNewsItem: item)) as? UIViewController
+			else { return assertionFailure() }
+		navigationController?.pushViewController(detailNewsViewController, animated: true)
 	}
 }

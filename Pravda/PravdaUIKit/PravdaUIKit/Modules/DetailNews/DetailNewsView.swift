@@ -81,11 +81,11 @@ public final class DetailNewsView: UIView {
 
 extension DetailNewsView: DetailNewsViewProtocol {
 	public func setItem(_ detailNews: DetailNewsItem) {
-		headerImageView.image = UIImage(data: detailNews.headerImage ?? Data())
+		headerImageView.image = Assets.test.image // temp
 		titleLabel.text = detailNews.title
 		timePublicationLabel.text = detailNews.timePublication
 		textLabel.text = detailNews.text
-		readOriginalStoryView.setLink(detailNews.link)
+		readOriginalStoryView.setLink("https://github.com/GkFoxes") // temp
 	}
 
 	public func getNavigationLargeTitleDisplayMode() -> UINavigationItem.LargeTitleDisplayMode {

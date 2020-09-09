@@ -9,20 +9,13 @@
 import Models
 import PravdaUIKit
 
-public final class DetailNewsFactory {
+final class DetailNewsFactory {
 	public static func make(
-		detailNews: TodayNewsItem
-	) -> UIViewController {
-		let detailNewsViewController: DetailNewsViewControllerFactoryProtocol = DetailNewsViewController()
-
-		detailNewsViewController.setItem(DetailNewsItem(
-			headerImage: Assets.test.image.pngData(), // temp
-			title: detailNews.title,
-			timePublication: detailNews.timePublication,
-			text: detailNews.text,
-			link: detailNews.link))
-		detailNewsViewController.navigationItem.title = detailNews.source
-
+		detailNewsItem: DetailNewsItem
+	) -> DetailNewsViewControllerProtocol {
+		let detailNewsViewController: DetailNewsViewControllerFactoryProtocol & DetailNewsViewControllerProtocol
+			= DetailNewsViewController()
+		detailNewsViewController.setItem(detailNewsItem)
 		return detailNewsViewController
 	}
 }
