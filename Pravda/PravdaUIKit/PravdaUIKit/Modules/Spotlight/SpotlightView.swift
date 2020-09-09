@@ -9,6 +9,8 @@
 import Models
 
 public protocol SpotlightViewProtocol: ListViewProtocol {
+	func viewWillAppear(_ animated: Bool)
+
 	func setItems(_ spotlightNewsItems: [SpotlightNewsItem])
 	func getItem(for indexPath: IndexPath) -> SpotlightNewsItem?
 }
@@ -36,6 +38,12 @@ public final class SpotlightView: UIView {
 		setupTableViewAppearances()
 		setupTableViewLayout()
 		setupSelectedItemHandler()
+	}
+
+	public func viewWillAppear(_ animated: Bool) {
+		if let selectedIndexPath = tableView.indexPathForSelectedRow {
+			tableView.deselectRow(at: selectedIndexPath, animated: animated)
+		}
 	}
 
 	@available(*, unavailable)

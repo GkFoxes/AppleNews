@@ -34,6 +34,7 @@ final class SpotlightTableViewCell: UITableViewCell {
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+		setupViewCellAppearances()
 		setupViewsLayout()
 	}
 
@@ -46,10 +47,12 @@ final class SpotlightTableViewCell: UITableViewCell {
 		super.setSelected(selected, animated: animated)
 
 		if selected {
+			self.backgroundColor = .systemGray4
 			titleLabel.backgroundColor = .systemGray4
 			sourceLabel.backgroundColor = .systemGray4
 			timePublicationLabel.backgroundColor = .systemGray4
 		} else {
+			self.backgroundColor = .systemBackground
 			titleLabel.backgroundColor = .systemBackground
 			sourceLabel.backgroundColor = .systemBackground
 			timePublicationLabel.backgroundColor = .systemBackground
@@ -72,6 +75,14 @@ extension SpotlightTableViewCell: SpotlightTableViewCellProtocol {
 		titleLabel.text = title
 		sourceLabel.text = source
 		timePublicationLabel.text = timePublication
+	}
+}
+
+// MARK: Views Appearances
+
+private extension SpotlightTableViewCell {
+	func setupViewCellAppearances() {
+		self.selectionStyle = .none
 	}
 }
 

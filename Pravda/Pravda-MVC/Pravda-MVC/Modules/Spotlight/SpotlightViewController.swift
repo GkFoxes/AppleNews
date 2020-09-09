@@ -41,4 +41,9 @@ final class SpotlightViewController: UIViewController {
 		self.navigationController?.setupBoldDesignAppearances()
 		self.spotlightView.setItems(SpotlightNewsItem.makeSpotlightMock()) // temp
 	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		spotlightView.viewWillAppear(animated)
+	}
 }
