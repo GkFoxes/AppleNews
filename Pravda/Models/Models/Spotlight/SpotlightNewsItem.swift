@@ -32,7 +32,23 @@ public struct SpotlightNewsItem {
 	public static func makeSpotlightMock() -> [Self] {
 		return [
 			SpotlightNewsItem(
-				title: "1Stud of Over 1 Million People Finds Intriguing",
+				title: "1Stud of Over 1 Million People Finds Intriguing 1Stud of Over 1 Million People Finds Intriguing",
+				source: "1Science 1Science 1Science 1Science 1Science 1Science 1Science 1Science 1Science 1Science",
+				timePublication: "12h ago"),
+			SpotlightNewsItem(
+				title: "2Stud of Over 1 Million People Finds Intriguing 1Stud of Over 1 Million People Finds Intriguing",
+				source: "2Science",
+				timePublication: "2h ago"),
+			SpotlightNewsItem(
+				title: "3Stud of Over 1 Million People Finds Intriguing",
+				source: "3Science",
+				timePublication: "32h ago"),
+			SpotlightNewsItem(
+				title: "4Stud of Over 1 Million People Finds Intriguing",
+				source: "4Science",
+				timePublication: "42h ago"),
+			SpotlightNewsItem(
+				title: "1Stud of Over 1 Million People Finds Intriguing 1Stud of Over 1 Million People Finds Intriguing",
 				source: "1Science",
 				timePublication: "12h ago"),
 			SpotlightNewsItem(
@@ -41,6 +57,54 @@ public struct SpotlightNewsItem {
 				timePublication: "2h ago"),
 			SpotlightNewsItem(
 				title: "3Stud of Over 1 Million People Finds Intriguing",
+				source: "3Science",
+				timePublication: "32h ago"),
+			SpotlightNewsItem(
+				title: "4Stud of Over 1 Million People Finds Intriguing",
+				source: "4Science",
+				timePublication: "42h ago"),
+			SpotlightNewsItem(
+				title: "1Stud of Over 1 Million People Finds Intriguing 1Stud of Over 1 Million People Finds Intriguing 1Stud of Over 1 Million People Finds Intriguing 1Stud of Over 1 Million People Finds Intriguing",
+				source: "1Science",
+				timePublication: "12h ago"),
+			SpotlightNewsItem(
+				title: "2Stud of Over 1 Million People Finds Intriguing",
+				source: "2Science",
+				timePublication: "2h ago"),
+			SpotlightNewsItem(
+				title: "3Stud of Over 1 Million People Finds Intriguing",
+				source: "3Science",
+				timePublication: "32h ago"),
+			SpotlightNewsItem(
+				title: "4Stud of Over 1 Million People Finds Intriguing",
+				source: "4Science",
+				timePublication: "42h ago"),
+			SpotlightNewsItem(
+				title: "1Stud of Over 1 Million People Finds Intriguing",
+				source: "1Science",
+				timePublication: "12h ago"),
+			SpotlightNewsItem(
+				title: "2Stud of Over 1 Million People Finds Intriguing 1Stud of Over 1 Million People Finds Intriguing 1Stud of Over 1 Million People Finds Intriguing",
+				source: "2Science",
+				timePublication: "2h ago"),
+			SpotlightNewsItem(
+				title: "3Stud of Over 1 Million People Finds Intriguing",
+				source: "3Science",
+				timePublication: "32h ago"),
+			SpotlightNewsItem(
+				title: "4Stud of Over 1 Million People Finds Intriguing 1Stud of Over 1 Million People Finds Intriguing 1Stud of Over 1 Million People Finds Intriguing 1Stud of Over 1 Million People Finds Intriguing ",
+				source: "4Science",
+				timePublication: "42h ago"),
+			SpotlightNewsItem(
+				title: "1Stud of Over 1 Million People Finds Intriguing",
+				source: "1Science",
+				timePublication: "12h ago"),
+			SpotlightNewsItem(
+				title: "2Stud of Over 1 Million People Finds Intriguing",
+				source: "2Science",
+				timePublication: "2h ago"),
+			SpotlightNewsItem(
+				title: "3Stud of Over 1 Million People Finds Intriguing 1Stud of Over 1 Million People Finds Intriguing 1Stud of Over 1 Million People Finds Intriguing 1Stud of Over 1 Million People Finds Intriguing",
 				source: "3Science",
 				timePublication: "32h ago"),
 			SpotlightNewsItem(
@@ -84,71 +148,7 @@ public struct SpotlightNewsItem {
 				source: "1Science",
 				timePublication: "12h ago"),
 			SpotlightNewsItem(
-				title: "2Stud of Over 1 Million People Finds Intriguing",
-				source: "2Science",
-				timePublication: "2h ago"),
-			SpotlightNewsItem(
-				title: "3Stud of Over 1 Million People Finds Intriguing",
-				source: "3Science",
-				timePublication: "32h ago"),
-			SpotlightNewsItem(
-				title: "4Stud of Over 1 Million People Finds Intriguing",
-				source: "4Science",
-				timePublication: "42h ago"),
-			SpotlightNewsItem(
-				title: "1Stud of Over 1 Million People Finds Intriguing",
-				source: "1Science",
-				timePublication: "12h ago"),
-			SpotlightNewsItem(
-				title: "2Stud of Over 1 Million People Finds Intriguing",
-				source: "2Science",
-				timePublication: "2h ago"),
-			SpotlightNewsItem(
-				title: "3Stud of Over 1 Million People Finds Intriguing",
-				source: "3Science",
-				timePublication: "32h ago"),
-			SpotlightNewsItem(
-				title: "4Stud of Over 1 Million People Finds Intriguing",
-				source: "4Science",
-				timePublication: "42h ago"),
-			SpotlightNewsItem(
-				title: "1Stud of Over 1 Million People Finds Intriguing",
-				source: "1Science",
-				timePublication: "12h ago"),
-			SpotlightNewsItem(
-				title: "2Stud of Over 1 Million People Finds Intriguing",
-				source: "2Science",
-				timePublication: "2h ago"),
-			SpotlightNewsItem(
-				title: "3Stud of Over 1 Million People Finds Intriguing",
-				source: "3Science",
-				timePublication: "32h ago"),
-			SpotlightNewsItem(
-				title: "4Stud of Over 1 Million People Finds Intriguing",
-				source: "4Science",
-				timePublication: "42h ago"),
-			SpotlightNewsItem(
-				title: "1Stud of Over 1 Million People Finds Intriguing",
-				source: "1Science",
-				timePublication: "12h ago"),
-			SpotlightNewsItem(
-				title: "2Stud of Over 1 Million People Finds Intriguing",
-				source: "2Science",
-				timePublication: "2h ago"),
-			SpotlightNewsItem(
-				title: "3Stud of Over 1 Million People Finds Intriguing",
-				source: "3Science",
-				timePublication: "32h ago"),
-			SpotlightNewsItem(
-				title: "4Stud of Over 1 Million People Finds Intriguing",
-				source: "4Science",
-				timePublication: "42h ago"),
-			SpotlightNewsItem(
-				title: "1Stud of Over 1 Million People Finds Intriguing",
-				source: "1Science",
-				timePublication: "12h ago"),
-			SpotlightNewsItem(
-				title: "2Stud of Over 1 Million People Finds Intriguing",
+				title: "2Stud of Over 1 Million People Finds Intriguing 1Stud of Over 1 Million People Finds Intriguing 1Stud of Over 1 Million People Finds Intriguing",
 				source: "2Science",
 				timePublication: "2h ago"),
 			SpotlightNewsItem(

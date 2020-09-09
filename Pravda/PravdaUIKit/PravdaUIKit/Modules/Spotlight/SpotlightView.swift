@@ -67,6 +67,9 @@ private extension SpotlightView {
 			SpotlightTableViewCell.self,
 			forCellReuseIdentifier: SpotlightTableViewCell.reuseIdentifer)
 
+		tableView.rowHeight = UITableView.automaticDimension
+		tableView.estimatedRowHeight = SpotlightTableViewCell.getEstimatedHeight()
+
 		tableView.backgroundColor = .systemBackground
 	}
 }

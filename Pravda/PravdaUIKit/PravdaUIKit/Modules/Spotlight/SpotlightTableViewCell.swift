@@ -7,6 +7,7 @@
 //
 
 protocol SpotlightTableViewCellProtocol: ListViewCellProtocol, UITableViewCell {
+	static func getEstimatedHeight() -> CGFloat
 	func setupContent(title: String, source: String, timePublication: String)
 }
 
@@ -16,8 +17,8 @@ final class SpotlightTableViewCell: UITableViewCell {
 
 	private enum Constants: CGFloat {
 		case safeHorizontalDistance = 10
-		case safeVerticalDistance = 4
-		case labelsVerticalDistance = 6
+		case safeVerticalDistance = 6
+		case labelsVerticalDistance = 4
 		case sourceLabelHeight = 14
 		case timePublicationLabelHeight = 12
 	}
@@ -49,6 +50,10 @@ extension SpotlightTableViewCell: SpotlightTableViewCellProtocol {
 		return String(describing: SpotlightTableViewCell.self)
 	}
 
+	static func getEstimatedHeight() -> CGFloat {
+		return 50
+	}
+
 	func setupContent(title: String, source: String, timePublication: String) {
 		titleLabel.text = title
 		sourceLabel.text = source
@@ -73,7 +78,7 @@ private extension SpotlightTableViewCell {
 			titleLabel.leadingAnchor.constraint(
 				equalTo: contentView.leadingAnchor, constant: Constants.safeHorizontalDistance.rawValue),
 			titleLabel.trailingAnchor.constraint(
-				equalTo: contentView.trailingAnchor, constant: Constants.safeHorizontalDistance.rawValue),
+				equalTo: contentView.trailingAnchor, constant: -Constants.safeHorizontalDistance.rawValue),
 			titleLabel.topAnchor.constraint(
 				equalTo: contentView.topAnchor, constant: Constants.safeVerticalDistance.rawValue)
 		])
@@ -82,12 +87,15 @@ private extension SpotlightTableViewCell {
 	func setupSourceLabelLayout() {
 		contentView.addSubview(sourceLabel)
 		sourceLabel.translatesAutoresizingMaskIntoConstraints = false
+		sourceLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
+		sourceLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
 
 		NSLayoutConstraint.activate([
 			sourceLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-			sourceLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
 			sourceLabel.topAnchor.constraint(
 				equalTo: titleLabel.bottomAnchor, constant: Constants.labelsVerticalDistance.rawValue),
+			sourceLabel.bottomAnchor.constraint(
+				equalTo: contentView.bottomAnchor, constant: -Constants.safeVerticalDistance.rawValue),
 			sourceLabel.heightAnchor.constraint(equalToConstant: Constants.sourceLabelHeight.rawValue)
 		])
 	}
@@ -95,14 +103,14 @@ private extension SpotlightTableViewCell {
 	func setupTimePublicationLabelLayout() {
 		contentView.addSubview(timePublicationLabel)
 		timePublicationLabel.translatesAutoresizingMaskIntoConstraints = false
+		timePublicationLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+		timePublicationLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
 
 		NSLayoutConstraint.activate([
-			timePublicationLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+			timePublicationLabel.leadingAnchor.constraint(
+				equalTo: sourceLabel.trailingAnchor, constant: Constants.labelsVerticalDistance.rawValue),
 			timePublicationLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-			timePublicationLabel.topAnchor.constraint(
-				equalTo: sourceLabel.bottomAnchor, constant: Constants.labelsVerticalDistance.rawValue),
-			timePublicationLabel.bottomAnchor.constraint(
-				equalTo: contentView.bottomAnchor, constant: Constants.safeVerticalDistance.rawValue),
+			timePublicationLabel.centerYAnchor.constraint(equalTo: sourceLabel.centerYAnchor),
 			timePublicationLabel.heightAnchor.constraint(equalToConstant: Constants.timePublicationLabelHeight.rawValue)
 		])
 	}
