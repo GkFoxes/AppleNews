@@ -29,19 +29,19 @@ public final class FavoritesView: UIView {
 	// MARK: Life Cycle
 
 	override init(frame: CGRect) {
-		tableView = UITableView(frame: frame)
+		collectionView = UICollectionView(frame: frame)
 
 		super.init(frame: frame)
 
-		setupTableViewAppearances()
-		setupTableViewLayout()
-		setupSelectedItemHandler()
+//		setupTableViewAppearances()
+//		setupTableViewLayout()
+//		setupSelectedItemHandler()
 	}
 
 	public func viewWillAppear(_ animated: Bool) {
-		if let selectedIndexPath = tableView.indexPathForSelectedRow {
-			tableView.deselectRow(at: selectedIndexPath, animated: animated)
-		}
+//		if let selectedIndexPath = tableView.indexPathForSelectedRow {
+//			tableView.deselectRow(at: selectedIndexPath, animated: animated)
+//		}
 	}
 
 	@available(*, unavailable)

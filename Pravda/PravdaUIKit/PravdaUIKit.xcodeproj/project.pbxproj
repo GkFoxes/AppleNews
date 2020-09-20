@@ -295,14 +295,14 @@
 				F00188812476F02600518FF0 /* Extensions */,
 				A988552924CB7397002421F6 /* Protocols */,
 				A990145F2507A71300D911CC /* Components */,
-				F00188772476EC2000518FF0 /* Modules */,
+				F00188772476EC2000518FF0 /* Screens */,
 				A900A7152494F0EA00AC4341 /* Resources */,
 				A99D202D2495235F004A7BDD /* Supports */,
 			);
 			path = PravdaUIKit;
 			sourceTree = "<group>";
 		};
-		F00188772476EC2000518FF0 /* Modules */ = {
+		F00188772476EC2000518FF0 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				F0806725248E68750096DAF5 /* Main Container */,
@@ -311,7 +311,7 @@
 				A9E54F62250154AE0064C738 /* Spotlight */,
 				A95A1148251268DE00D5E5AE /* Favorites */,
 			);
-			path = Modules;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		F00188812476F02600518FF0 /* Extensions */ = {
