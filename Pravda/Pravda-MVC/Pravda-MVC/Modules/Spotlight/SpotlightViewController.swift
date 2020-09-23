@@ -6,8 +6,8 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-import PravdaUIKit
 import Models
+import PravdaUIKit
 
 final class SpotlightViewController: UIViewController {
 

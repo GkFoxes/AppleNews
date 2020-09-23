@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A90C1E58251BA1C900D0B4B4 /* FavoritesNewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C1E57251BA1C900D0B4B4 /* FavoritesNewsItem.swift */; };
 		A981051524D090C700EB6160 /* TodayNewsItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = A981051424D090C700EB6160 /* TodayNewsItems.swift */; };
 		A996365924DB07CE004430C9 /* DetailNewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A996365824DB07CE004430C9 /* DetailNewsItem.swift */; };
 		A9A0841E24C9F77700207792 /* TodaySections.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A0841D24C9F77700207792 /* TodaySections.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A90C1E57251BA1C900D0B4B4 /* FavoritesNewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesNewsItem.swift; sourceTree = "<group>"; };
 		A981051424D090C700EB6160 /* TodayNewsItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayNewsItems.swift; sourceTree = "<group>"; };
 		A996365824DB07CE004430C9 /* DetailNewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsItem.swift; sourceTree = "<group>"; };
 		A9A0841D24C9F77700207792 /* TodaySections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaySections.swift; sourceTree = "<group>"; };
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A90C1E56251BA1B300D0B4B4 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				A90C1E57251BA1C900D0B4B4 /* FavoritesNewsItem.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		A93A86D324C9F8CF007A5645 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +125,7 @@
 				A9A0841B24C9F75100207792 /* Today */,
 				A996365724DB07BD004430C9 /* Detail */,
 				A9E54F6A25015BA80064C738 /* Spotlight */,
+				A90C1E56251BA1B300D0B4B4 /* Favorites */,
 				A93A86D824C9F8E3007A5645 /* Supports */,
 			);
 			path = Models;
@@ -202,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A981051524D090C700EB6160 /* TodayNewsItems.swift in Sources */,
+				A90C1E58251BA1C900D0B4B4 /* FavoritesNewsItem.swift in Sources */,
 				A9A0841E24C9F77700207792 /* TodaySections.swift in Sources */,
 				A9E54F6C25015BBC0064C738 /* SpotlightNewsItem.swift in Sources */,
 				A9A0842024C9F79700207792 /* TodayNewsItem.swift in Sources */,

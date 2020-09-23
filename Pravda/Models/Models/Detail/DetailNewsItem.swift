@@ -10,7 +10,7 @@ public struct DetailNewsItem {
 	public let source: String
 	public let headerImage: Data?
 	public let title: String
-	public let timePublication: String
+	public let timePublication: String?
 	public let text: String?
 	public let link: String?
 
@@ -20,7 +20,7 @@ public struct DetailNewsItem {
 		source: String,
 		headerImage: Data?,
 		title: String,
-		timePublication: String,
+		timePublication: String?,
 		text: String?,
 		link: String?
 	) {
@@ -48,6 +48,16 @@ public struct DetailNewsItem {
 			headerImage: nil,
 			title: spotlightNewsItem.title,
 			timePublication: spotlightNewsItem.timePublication,
+			text: nil,
+			link: nil)
+	}
+
+	public init(favoritesNewsItem: FavoritesNewsItem) {
+		self.init(
+			source: favoritesNewsItem.source,
+			headerImage: favoritesNewsItem.fillImage,
+			title: favoritesNewsItem.title,
+			timePublication: nil,
 			text: nil,
 			link: nil)
 	}

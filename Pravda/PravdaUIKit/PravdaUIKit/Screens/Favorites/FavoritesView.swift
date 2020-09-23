@@ -9,8 +9,8 @@
 import Models
 
 public protocol FavoritesViewProtocol: ListViewProtocol {
-	func setItems(_ spotlightNewsItems: [SpotlightNewsItem])
-	func getItem(for indexPath: IndexPath) -> SpotlightNewsItem?
+	func setItems(_ favoritesNewsItems: [FavoritesNewsItem])
+	func getItem(for indexPath: IndexPath) -> FavoritesNewsItem?
 }
 
 public final class FavoritesView: UIView {
@@ -19,8 +19,8 @@ public final class FavoritesView: UIView {
 
 	public var selectedItemHandler: ((IndexPath) -> Void)?
 
-	private let dataSource: SpotlightTableViewDataSourceProtocol = SpotlightTableViewDataSource()
-	private let output = SpotlightTableViewDelegate()
+	private let dataSource: FavoritesCollectionViewDataSourceProtocol = FavoritesCollectionViewDataSource()
+	private let output = FavoritesCollectionViewDelegate()
 
 	// MARK: Views
 
@@ -29,23 +29,71 @@ public final class FavoritesView: UIView {
 	// MARK: Life Cycle
 
 	override init(frame: CGRect) {
-		collectionView = UICollectionView(frame: frame)
+		collectionView = UICollectionView(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
 
 		super.init(frame: frame)
 
-//		setupTableViewAppearances()
-//		setupTableViewLayout()
-//		setupSelectedItemHandler()
-	}
-
-	public func viewWillAppear(_ animated: Bool) {
-//		if let selectedIndexPath = tableView.indexPathForSelectedRow {
-//			tableView.deselectRow(at: selectedIndexPath, animated: animated)
-//		}
+		setupCollectionViewAppearances()
+		setupCollectionViewLayout()
+		setupSelectedItemHandler()
 	}
 
 	@available(*, unavailable)
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+}
+
+// MARK: View Interface
+
+extension FavoritesView: FavoritesViewProtocol {
+	public func setItems(_ favoritesNewsItems: [FavoritesNewsItem]) {
+		dataSource.setItems(favoritesNewsItems)
+	}
+
+	public func getItem(for indexPath: IndexPath) -> FavoritesNewsItem? {
+		dataSource.getItem(for: indexPath)
+	}
+}
+
+// MARK: Views Appearances
+
+private extension FavoritesView {
+	func setupCollectionViewAppearances() {
+		collectionView.delegate = output
+		collectionView.dataSource = dataSource
+
+		collectionView.register(
+			FavoritesCollectionViewCell.self,
+			forCellWithReuseIdentifier: FavoritesCollectionViewCell.reuseIdentifer)
+
+		collectionView.backgroundColor = .systemBackground
+	}
+}
+
+// MARK: View Layout
+
+private extension FavoritesView {
+	func setupCollectionViewLayout() {
+		self.addSubview(collectionView)
+		collectionView.translatesAutoresizingMaskIntoConstraints = false
+
+		NSLayoutConstraint.activate([
+			collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+			collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+			collectionView.topAnchor.constraint(equalTo: self.topAnchor),
+			collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+		])
+	}
+}
+
+// MARK: Table Delegate
+
+private extension FavoritesView {
+	func setupSelectedItemHandler() {
+		self.output.selectedItemHandler = { [weak self] indexPath in
+			guard let self = self else { return assertionFailure() }
+			self.selectedItemHandler?(indexPath)
+		}
 	}
 }

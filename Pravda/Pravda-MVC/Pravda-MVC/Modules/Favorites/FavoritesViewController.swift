@@ -6,6 +6,7 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
+import Models
 import PravdaUIKit
 
 final class FavoritesViewController: UIViewController {
@@ -33,7 +34,7 @@ final class FavoritesViewController: UIViewController {
 	}
 
 	override func loadView() {
-		self.view = FavoritesView()
+		self.view = createFavoritesView()
 	}
 
 	override func viewDidLoad() {
@@ -46,22 +47,22 @@ final class FavoritesViewController: UIViewController {
 // MARK: Favorites View
 
 private extension FavoritesViewController {
-	func createSpotlightView() -> UIView {
-		let spotlightView: SpotlightViewProtocol = SpotlightView()
-		spotlightView.setItems(SpotlightNewsItem.makeSpotlightMock()) // temp
+	func createFavoritesView() -> UIView {
+		let favoritesView: FavoritesViewProtocol = FavoritesView()
+		favoritesView.setItems(FavoritesNewsItem.makeFavoritesMock()) // temp
 
-		spotlightView.selectedItemHandler = { [weak self] indexPath in
+		favoritesView.selectedItemHandler = { [weak self] indexPath in
 			guard let self = self else { return assertionFailure() }
 			self.pushTodayDetailViewController(with: indexPath)
 		}
 
-		return spotlightView
+		return favoritesView
 	}
 
 	func pushTodayDetailViewController(with indexPath: IndexPath) {
-		guard let item = spotlightView.getItem(for: indexPath),
+		guard let item = favoritesView.getItem(for: indexPath),
 			let detailNewsViewController = DetailNewsFactory.make(detailNewsItem:
-				DetailNewsItem(spotlightNewsItem: item)) as? UIViewController
+				DetailNewsItem(favoritesNewsItem: item)) as? UIViewController
 			else { return assertionFailure() }
 		navigationController?.pushViewController(detailNewsViewController, animated: true)
 	}
