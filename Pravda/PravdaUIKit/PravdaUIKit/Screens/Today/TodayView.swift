@@ -117,7 +117,6 @@ private extension TodayView {
 		NSLayoutConstraint.activate([
 			collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
 			collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-
 			collectionView.topAnchor.constraint(equalTo: self.topAnchor),
 			collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
 		])

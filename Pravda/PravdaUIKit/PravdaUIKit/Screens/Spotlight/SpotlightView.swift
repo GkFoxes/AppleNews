@@ -92,7 +92,6 @@ private extension SpotlightView {
 		NSLayoutConstraint.activate([
 			tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
 			tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-
 			tableView.topAnchor.constraint(equalTo: self.topAnchor),
 			tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
 		])
