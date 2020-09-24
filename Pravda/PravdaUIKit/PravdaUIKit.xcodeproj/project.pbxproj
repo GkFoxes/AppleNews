@@ -52,6 +52,7 @@
 		F0C4C8CF251C866100C61A0A /* SourceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C4C8CE251C866100C61A0A /* SourceLabel.swift */; };
 		F0C4C8D1251C87AF00C61A0A /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C4C8D0251C87AF00C61A0A /* TitleLabel.swift */; };
 		F0C4C8D3251C884B00C61A0A /* TimePublicationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C4C8D2251C884B00C61A0A /* TimePublicationLabel.swift */; };
+		F0C4C8D5251CAB1B00C61A0A /* RoundShadowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C4C8D4251CAB1B00C61A0A /* RoundShadowImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -115,6 +116,7 @@
 		F0C4C8CE251C866100C61A0A /* SourceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLabel.swift; sourceTree = "<group>"; };
 		F0C4C8D0251C87AF00C61A0A /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		F0C4C8D2251C884B00C61A0A /* TimePublicationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePublicationLabel.swift; sourceTree = "<group>"; };
+		F0C4C8D4251CAB1B00C61A0A /* RoundShadowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,10 +225,8 @@
 		A990145F2507A71300D911CC /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				F0C4C8CC251C84E800C61A0A /* HeaderImageView.swift */,
-				F0C4C8CE251C866100C61A0A /* SourceLabel.swift */,
-				F0C4C8D0251C87AF00C61A0A /* TitleLabel.swift */,
-				F0C4C8D2251C884B00C61A0A /* TimePublicationLabel.swift */,
+				F0C4C8D7251CB9E000C61A0A /* Labels */,
+				F0C4C8D6251CB9D500C61A0A /* ImageViews */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -373,6 +373,25 @@
 			path = "Inside ViewControllers";
 			sourceTree = "<group>";
 		};
+		F0C4C8D6251CB9D500C61A0A /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				F0C4C8CC251C84E800C61A0A /* HeaderImageView.swift */,
+				F0C4C8D4251CAB1B00C61A0A /* RoundShadowImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		F0C4C8D7251CB9E000C61A0A /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				F0C4C8CE251C866100C61A0A /* SourceLabel.swift */,
+				F0C4C8D0251C87AF00C61A0A /* TitleLabel.swift */,
+				F0C4C8D2251C884B00C61A0A /* TimePublicationLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -490,6 +509,7 @@
 				F0C4C8CF251C866100C61A0A /* SourceLabel.swift in Sources */,
 				A9E54F67250158BD0064C738 /* SpotlightTableViewDelegate.swift in Sources */,
 				F0C4C8D1251C87AF00C61A0A /* TitleLabel.swift in Sources */,
+				F0C4C8D5251CAB1B00C61A0A /* RoundShadowImageView.swift in Sources */,
 				A95A114A2512697F00D5E5AE /* FavoritesView.swift in Sources */,
 				F00188792476EC2D00518FF0 /* MainContainerViewController.swift in Sources */,
 				A9C8B6C824C9FCA900DD4ABA /* TodayCollectionViewDiffableDataSource.swift in Sources */,

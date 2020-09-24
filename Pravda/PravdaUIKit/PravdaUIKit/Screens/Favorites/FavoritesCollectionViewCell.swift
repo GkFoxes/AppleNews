@@ -25,7 +25,12 @@ final class FavoritesCollectionViewCell: UICollectionViewCell {
 
 	// MARK: Views
 
-	private let fillImageView = initFillImageView()
+	private let fillImageView = RoundShadowImageView(
+		cornerRadius: 10,
+		shadowColor: .lightGray,
+		shadowRadius: 8,
+		shadowOpacity: 0.5,
+		shadowOffset: CGSize(width: 0, height: 8))
 	private let sourceLabel = SourceLabel(fontSize: 11.0, backgroundColor: .clear)
 	private let titleLabel = TitleLabel(fontSize: 16.0, weight: .bold, numberOfLines: 3, backgroundColor: .clear)
 
@@ -40,21 +45,6 @@ final class FavoritesCollectionViewCell: UICollectionViewCell {
 	@available(*, unavailable)
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
-	}
-}
-
-// MARK: Views Appearances
-
-private extension FavoritesCollectionViewCell {
-	static func initFillImageView() -> UIImageView {
-		let fillImageView = UIImageView()
-		fillImageView.layer.cornerRadius = 10
-		fillImageView.layer.shadowColor = UIColor.lightGray.cgColor
-		fillImageView.layer.shadowRadius = 8
-		fillImageView.layer.shadowOpacity = 0.5
-		fillImageView.layer.shadowOffset = CGSize(width: 0, height: 8)
-		fillImageView.contentMode = .scaleAspectFill
-		return fillImageView
 	}
 }
 
@@ -120,8 +110,7 @@ private extension FavoritesCollectionViewCell {
 			titleLabel.leadingAnchor.constraint(equalTo: sourceLabel.leadingAnchor),
 			titleLabel.trailingAnchor.constraint(equalTo: sourceLabel.trailingAnchor),
 			titleLabel.topAnchor.constraint(
-				equalTo: sourceLabel.topAnchor, constant: Constants.safeVerticalDistance.rawValue),
-			titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+				equalTo: sourceLabel.topAnchor, constant: Constants.safeVerticalDistance.rawValue)
 		])
 	}
 }
