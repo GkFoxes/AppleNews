@@ -38,9 +38,9 @@ final class RoundShadowImageView: UIView {
 
 	init(
 		cornerRadius: CGFloat = 10,
-		shadowColor: UIColor = .lightGray,
+		shadowColor: UIColor = .black,
 		shadowRadius: CGFloat = 8,
-		shadowOpacity: Float = 0.5,
+		shadowOpacity: Float = 0.6,
 		shadowOffset: CGSize = CGSize(width: 0, height: 8)
 	) {
 		self.cornerRadius = cornerRadius

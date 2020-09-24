@@ -16,18 +16,16 @@ final class FavoritesCollectionViewCell: UICollectionViewCell {
 	// MARK: Properties
 
 	private enum Constants: CGFloat {
-		case safeHorizontalDistance = 10
-		case safeVerticalDistance = 6
-		case labelsVerticalDistance = 4
+		case labelsHorizontalDistance = 12
+		case labelsVerticalDistance = 10
 		case sourceLabelHeight = 14
-		case timePublicationLabelHeight = 12
 	}
 
 	// MARK: Views
 
 	private let fillImageView = RoundShadowImageView()
-	private let sourceLabel = SourceLabel(fontSize: 11.0, backgroundColor: .clear)
-	private let titleLabel = TitleLabel(fontSize: 16.0, weight: .bold, numberOfLines: 3, backgroundColor: .clear)
+	private let sourceLabel = SourceLabel(fontSize: 14.0, backgroundColor: .clear)
+	private let titleLabel = TitleLabel(fontSize: 22.0, weight: .heavy, numberOfLines: 4, backgroundColor: .clear)
 
 	// MARK: Life Cycle
 
@@ -75,8 +73,10 @@ private extension FavoritesCollectionViewCell {
 		fillImageView.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
-			fillImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-			fillImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+			fillImageView.leadingAnchor.constraint(
+				equalTo: contentView.leadingAnchor, constant: FavoritesLayout.safeInterDistance.rawValue),
+			fillImageView.trailingAnchor.constraint(
+				equalTo: contentView.trailingAnchor, constant: -FavoritesLayout.safeInterDistance.rawValue),
 			fillImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
 			fillImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
 		])
@@ -88,11 +88,11 @@ private extension FavoritesCollectionViewCell {
 
 		NSLayoutConstraint.activate([
 			sourceLabel.leadingAnchor.constraint(
-				equalTo: contentView.leadingAnchor, constant: Constants.safeHorizontalDistance.rawValue),
+				equalTo: fillImageView.leadingAnchor, constant: Constants.labelsHorizontalDistance.rawValue),
 			sourceLabel.trailingAnchor.constraint(
-				equalTo: contentView.trailingAnchor, constant: -Constants.safeHorizontalDistance.rawValue),
+				equalTo: fillImageView.trailingAnchor, constant: -Constants.labelsHorizontalDistance.rawValue),
 			sourceLabel.topAnchor.constraint(
-				equalTo: contentView.topAnchor, constant: Constants.labelsVerticalDistance.rawValue),
+				equalTo: fillImageView.topAnchor, constant: Constants.labelsVerticalDistance.rawValue),
 			sourceLabel.heightAnchor.constraint(equalToConstant: Constants.sourceLabelHeight.rawValue)
 		])
 	}
@@ -105,7 +105,7 @@ private extension FavoritesCollectionViewCell {
 			titleLabel.leadingAnchor.constraint(equalTo: sourceLabel.leadingAnchor),
 			titleLabel.trailingAnchor.constraint(equalTo: sourceLabel.trailingAnchor),
 			titleLabel.topAnchor.constraint(
-				equalTo: sourceLabel.topAnchor, constant: Constants.safeVerticalDistance.rawValue)
+				equalTo: sourceLabel.bottomAnchor, constant: Constants.labelsVerticalDistance.rawValue)
 		])
 	}
 }
