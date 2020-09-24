@@ -62,26 +62,25 @@ final class RoundShadowImageView: UIView {
 	override func layoutSubviews() {
 		super.layoutSubviews()
 
-		if shadowLayer == nil {
-			shadowLayer = CAShapeLayer()
+		guard shadowLayer == nil else { return }
+		shadowLayer = CAShapeLayer()
 
-			guard let shadowLayer = shadowLayer else { assertionFailure(); return }
-			shadowLayer.shadowPath = (image == nil) ? nil : shadowPath
-			shadowLayer.shadowColor = shadowColor.cgColor
-			shadowLayer.shadowRadius = shadowRadius
-			shadowLayer.shadowOpacity = shadowOpacity
-			shadowLayer.shadowOffset = shadowOffset
+		guard let shadowLayer = shadowLayer else { assertionFailure(); return }
+		shadowLayer.shadowPath = (image == nil) ? nil : shadowPath
+		shadowLayer.shadowColor = shadowColor.cgColor
+		shadowLayer.shadowRadius = shadowRadius
+		shadowLayer.shadowOpacity = shadowOpacity
+		shadowLayer.shadowOffset = shadowOffset
 
-			imageLayer.frame = bounds
-			imageLayer.contentsGravity = .resizeAspectFill
-			let shadowMask = CAShapeLayer()
-			shadowMask.path = shadowPath
-			imageLayer.mask = shadowMask
+		imageLayer.frame = bounds
+		imageLayer.contentsGravity = .resizeAspectFill
+		let shadowMask = CAShapeLayer()
+		shadowMask.path = shadowPath
+		imageLayer.mask = shadowMask
 
-			self.layer.shouldRasterize = true
-			self.layer.rasterizationScale = UIScreen.main.scale
-			self.layer.addSublayer(shadowLayer)
-			self.layer.addSublayer(imageLayer)
-		}
+		self.layer.shouldRasterize = true
+		self.layer.rasterizationScale = UIScreen.main.scale
+		self.layer.addSublayer(shadowLayer)
+		self.layer.addSublayer(imageLayer)
 	}
 }
