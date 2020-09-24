@@ -26,9 +26,8 @@ final class FavoritesCollectionViewCell: UICollectionViewCell {
 	// MARK: Views
 
 	private let fillImageView = initFillImageView()
-	private let sourceLabel = NewsViews.initSourceLabel(fontSize: 11.0, backgroundColor: .clear)
-	private let titleLabel = NewsViews.initTitleLabel(
-		fontSize: 16.0, weight: .bold, numberOfLines: 3, backgroundColor: .clear)
+	private let sourceLabel = SourceLabel(fontSize: 11.0, backgroundColor: .clear)
+	private let titleLabel = TitleLabel(fontSize: 16.0, weight: .bold, numberOfLines: 3, backgroundColor: .clear)
 
 	// MARK: Life Cycle
 

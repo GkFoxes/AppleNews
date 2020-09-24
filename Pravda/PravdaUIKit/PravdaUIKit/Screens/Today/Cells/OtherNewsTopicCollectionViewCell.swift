@@ -19,10 +19,10 @@ final class OtherNewsTopicCollectionViewCell: UICollectionViewCell {
 
 	// MARK: Views
 
-	private let headerImageView = NewsViews.initHeaderImageView()
-	private let sourceLabel = NewsViews.initSourceLabel(fontSize: 11.0)
-	private let titleLabel = NewsViews.initTitleLabel(fontSize: 18.0, weight: .bold, numberOfLines: 4)
-	private let timePublicationLabel = NewsViews.initTimePublicationLabel(fontSize: 10.0, weight: .medium)
+	private let headerImageView = HeaderImageView()
+	private let sourceLabel = SourceLabel(fontSize: 11.0)
+	private let titleLabel = TitleLabel(fontSize: 18.0, weight: .bold, numberOfLines: 4)
+	private let timePublicationLabel = TimePublicationLabel(fontSize: 10.0, weight: .medium)
 
 	// MARK: Life Cycle
 

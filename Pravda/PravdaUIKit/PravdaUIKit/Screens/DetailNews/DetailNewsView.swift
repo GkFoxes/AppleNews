@@ -44,9 +44,9 @@ public final class DetailNewsView: UIView {
 	// MARK: Views
 
 	private let scrollView = UIScrollView()
-	private let headerImageView = NewsViews.initHeaderImageView(cornerRadius: 0.0)
-	private let titleLabel = NewsViews.initTitleLabel(fontSize: 26.0, weight: .heavy, numberOfLines: 0)
-	private let timePublicationLabel = NewsViews.initTimePublicationLabel(fontSize: 12.0, weight: .semibold)
+	private let headerImageView = HeaderImageView(cornerRadius: 0.0)
+	private let titleLabel = TitleLabel(fontSize: 26.0, weight: .heavy, numberOfLines: 0)
+	private let timePublicationLabel = TimePublicationLabel(fontSize: 12.0, weight: .semibold)
 	private let textLabel = initTextLabel()
 	private let readOriginalStoryView: ReadOriginalStoryViewProtocol
 
