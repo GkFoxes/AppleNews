@@ -25,9 +25,9 @@ final class SpotlightTableViewCell: UITableViewCell {
 
 	// MARK: Views
 
-	private let titleLabel = TitleLabel(fontSize: 16.0, weight: .bold, numberOfLines: 4)
-	private let sourceLabel = SourceLabel(fontSize: 11.0)
-	private let timePublicationLabel = TimePublicationLabel(fontSize: 10.0, weight: .medium)
+	private let titleLabel = TitleLabel(fontSize: .small, weight: .bold)
+	private let sourceLabel = SourceLabel()
+	private let timePublicationLabel = TimePublicationLabel()
 
 	// MARK: Life Cycle
 

@@ -8,13 +8,20 @@
 
 final class SourceLabel: UILabel {
 
+	// MARK: Properties
+
+	enum FontSize: CGFloat {
+		case standart = 11
+		case medium = 14
+	}
+
 	// MARK: Life Cycle
 
-	init(fontSize: CGFloat, backgroundColor: UIColor = .systemBackground) {
+	init(fontSize: FontSize = .standart, backgroundColor: UIColor = .systemBackground) {
 		super.init(frame: .zero)
 
 		self.backgroundColor = backgroundColor
-		self.font = .systemFont(ofSize: fontSize, weight: .semibold)
+		self.font = .systemFont(ofSize: fontSize.rawValue, weight: .semibold)
 		self.textColor = .systemGray
 	}
 

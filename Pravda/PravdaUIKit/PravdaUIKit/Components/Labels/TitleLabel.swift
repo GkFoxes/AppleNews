@@ -8,18 +8,27 @@
 
 final class TitleLabel: UILabel {
 
+	// MARK: Properties
+
+	enum FontSize: CGFloat {
+		case standart = 26
+		case small = 16
+		case medium = 18
+		case large = 22
+	}
+
 	// MARK: Life Cycle
 
 	init(
-		fontSize: CGFloat,
-		weight: UIFont.Weight,
-		numberOfLines: Int,
+		fontSize: FontSize = .standart,
+		weight: UIFont.Weight = .heavy,
+		numberOfLines: Int = 4,
 		backgroundColor: UIColor = .systemBackground
 	) {
 		super.init(frame: .zero)
 
 		self.backgroundColor = backgroundColor
-		self.font = .systemFont(ofSize: fontSize, weight: weight)
+		self.font = .systemFont(ofSize: fontSize.rawValue, weight: weight)
 		self.numberOfLines = numberOfLines
 	}
 

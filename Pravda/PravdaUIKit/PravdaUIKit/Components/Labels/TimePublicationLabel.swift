@@ -8,13 +8,20 @@
 
 final class TimePublicationLabel: UILabel {
 
+	// MARK: Properties
+
+	enum FontSize: CGFloat {
+		case standart = 10
+		case medium = 12
+	}
+
 	// MARK: Life Cycle
 
-	init(fontSize: CGFloat, weight: UIFont.Weight) {
+	init(fontSize: FontSize = .standart, weight: UIFont.Weight = .medium) {
 		super.init(frame: .zero)
 
 		self.backgroundColor = .systemBackground
-		self.font = .systemFont(ofSize: fontSize, weight: weight)
+		self.font = .systemFont(ofSize: fontSize.rawValue, weight: weight)
 		self.textColor = .systemGray2
 	}
 

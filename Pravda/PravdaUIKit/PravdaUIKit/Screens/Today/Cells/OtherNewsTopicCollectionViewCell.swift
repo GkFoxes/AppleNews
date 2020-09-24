@@ -20,9 +20,9 @@ final class OtherNewsTopicCollectionViewCell: UICollectionViewCell {
 	// MARK: Views
 
 	private let headerImageView = HeaderImageView()
-	private let sourceLabel = SourceLabel(fontSize: 11.0)
-	private let titleLabel = TitleLabel(fontSize: 18.0, weight: .bold, numberOfLines: 4)
-	private let timePublicationLabel = TimePublicationLabel(fontSize: 10.0, weight: .medium)
+	private let sourceLabel = SourceLabel()
+	private let titleLabel = TitleLabel(fontSize: .medium, weight: .bold)
+	private let timePublicationLabel = TimePublicationLabel()
 
 	// MARK: Life Cycle
 
