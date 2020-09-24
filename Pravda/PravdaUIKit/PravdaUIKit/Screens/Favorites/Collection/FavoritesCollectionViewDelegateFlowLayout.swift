@@ -14,4 +14,12 @@ extension FavoritesCollectionViewDelegate: UICollectionViewDelegateFlowLayout {
 	-> CGSize {
 		return CGSize(width: collectionView.bounds.width, height: FavoritesCollectionViewCell.getHeight())
 	}
+
+	func collectionView(
+		_ collectionView: UICollectionView,
+		layout collectionViewLayout: UICollectionViewLayout,
+		minimumLineSpacingForSectionAt section: Int
+	) -> CGFloat {
+		return FavoritesLayout.safeInterDistance.rawValue
+	}
 }
