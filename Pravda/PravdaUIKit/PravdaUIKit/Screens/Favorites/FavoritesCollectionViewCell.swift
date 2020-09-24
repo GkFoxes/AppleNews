@@ -25,12 +25,7 @@ final class FavoritesCollectionViewCell: UICollectionViewCell {
 
 	// MARK: Views
 
-	private let fillImageView = RoundShadowImageView(
-		cornerRadius: 10,
-		shadowColor: .lightGray,
-		shadowRadius: 8,
-		shadowOpacity: 0.5,
-		shadowOffset: CGSize(width: 0, height: 8))
+	private let fillImageView = RoundShadowImageView()
 	private let sourceLabel = SourceLabel(fontSize: 11.0, backgroundColor: .clear)
 	private let titleLabel = TitleLabel(fontSize: 16.0, weight: .bold, numberOfLines: 3, backgroundColor: .clear)
 

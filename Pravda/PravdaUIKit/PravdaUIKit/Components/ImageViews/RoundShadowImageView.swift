@@ -37,11 +37,11 @@ final class RoundShadowImageView: UIView {
 	// MARK: Life Cycle
 
 	init(
-		cornerRadius: CGFloat,
-		shadowColor: UIColor,
-		shadowRadius: CGFloat,
-		shadowOpacity: Float,
-		shadowOffset: CGSize
+		cornerRadius: CGFloat = 10,
+		shadowColor: UIColor = .lightGray,
+		shadowRadius: CGFloat = 8,
+		shadowOpacity: Float = 0.5,
+		shadowOffset: CGSize = CGSize(width: 0, height: 8)
 	) {
 		self.cornerRadius = cornerRadius
 		self.shadowColor = shadowColor
