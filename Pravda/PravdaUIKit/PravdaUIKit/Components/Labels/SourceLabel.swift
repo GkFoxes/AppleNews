@@ -10,6 +10,8 @@ final class SourceLabel: UILabel {
 
 	// MARK: Properties
 
+	private let isShadowNeeded: Bool
+
 	enum FontSize: CGFloat {
 		case standart = 11
 		case medium = 14
@@ -17,7 +19,9 @@ final class SourceLabel: UILabel {
 
 	// MARK: Life Cycle
 
-	init(fontSize: FontSize = .standart, backgroundColor: UIColor = .systemBackground) {
+	init(fontSize: FontSize = .standart, backgroundColor: UIColor = .systemBackground, isShadowNeeded: Bool = false) {
+		self.isShadowNeeded = isShadowNeeded
+
 		super.init(frame: .zero)
 
 		self.backgroundColor = backgroundColor
@@ -27,5 +31,14 @@ final class SourceLabel: UILabel {
 
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+	override func layoutSubviews() {
+		super.layoutSubviews()
+
+		guard isShadowNeeded else { return }
+		self.layer.shadowColor = UIColor.systemBackground.cgColor
+		self.layer.shadowRadius = 6
+		self.layer.shadowOpacity = 0.5
 	}
 }

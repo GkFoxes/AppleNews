@@ -10,6 +10,8 @@ final class TitleLabel: UILabel {
 
 	// MARK: Properties
 
+	private let isShadowNeeded: Bool
+
 	enum FontSize: CGFloat {
 		case standart = 26
 		case small = 16
@@ -23,8 +25,11 @@ final class TitleLabel: UILabel {
 		fontSize: FontSize = .standart,
 		weight: UIFont.Weight = .heavy,
 		numberOfLines: Int = 4,
-		backgroundColor: UIColor = .systemBackground
+		backgroundColor: UIColor = .systemBackground,
+		isShadowNeeded: Bool = false
 	) {
+		self.isShadowNeeded = isShadowNeeded
+
 		super.init(frame: .zero)
 
 		self.backgroundColor = backgroundColor
@@ -34,5 +39,14 @@ final class TitleLabel: UILabel {
 
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+	override func layoutSubviews() {
+		super.layoutSubviews()
+
+		guard isShadowNeeded else { return }
+		self.layer.shadowColor = UIColor.systemBackground.cgColor
+		self.layer.shadowRadius = 8
+		self.layer.shadowOpacity = 0.9
 	}
 }

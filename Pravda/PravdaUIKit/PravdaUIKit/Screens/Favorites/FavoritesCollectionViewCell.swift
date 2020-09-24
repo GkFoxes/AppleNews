@@ -24,8 +24,8 @@ final class FavoritesCollectionViewCell: UICollectionViewCell {
 	// MARK: Views
 
 	private let fillImageView = RoundShadowImageView()
-	private let sourceLabel = SourceLabel(fontSize: .medium, backgroundColor: .clear)
-	private let titleLabel = TitleLabel(fontSize: .large, backgroundColor: .clear)
+	private let sourceLabel = SourceLabel(fontSize: .medium, backgroundColor: .clear, isShadowNeeded: true)
+	private let titleLabel = TitleLabel(fontSize: .large, backgroundColor: .clear, isShadowNeeded: true)
 
 	// MARK: Life Cycle
 
