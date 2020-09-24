@@ -19,17 +19,22 @@ final class NewsViews {
 		return headerImageView
 	}
 
-	static func initSourceLabel(fontSize: CGFloat) -> UILabel {
+	static func initSourceLabel(fontSize: CGFloat, backgroundColor: UIColor = .systemBackground) -> UILabel {
 		let sourceLabel = UILabel()
-		sourceLabel.backgroundColor = .systemBackground
+		sourceLabel.backgroundColor = backgroundColor
 		sourceLabel.font = .systemFont(ofSize: fontSize, weight: .semibold)
 		sourceLabel.textColor = .systemGray
 		return sourceLabel
 	}
 
-	static func initTitleLabel(fontSize: CGFloat, weight: UIFont.Weight, numberOfLines: Int) -> UILabel {
+	static func initTitleLabel(
+		fontSize: CGFloat,
+		weight: UIFont.Weight,
+		numberOfLines: Int,
+		backgroundColor: UIColor = .systemBackground
+	) -> UILabel {
 		let titleLabel = UILabel()
-		titleLabel.backgroundColor = .systemBackground
+		titleLabel.backgroundColor = backgroundColor
 		titleLabel.font = .systemFont(ofSize: fontSize, weight: weight)
 		titleLabel.numberOfLines = numberOfLines
 		return titleLabel

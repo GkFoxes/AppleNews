@@ -26,8 +26,9 @@ final class FavoritesCollectionViewCell: UICollectionViewCell {
 	// MARK: Views
 
 	private let fillImageView = initFillImageView()
-	private let sourceLabel = NewsViews.initSourceLabel(fontSize: 11.0)
-	private let titleLabel = NewsViews.initTitleLabel(fontSize: 16.0, weight: .bold, numberOfLines: 3)
+	private let sourceLabel = NewsViews.initSourceLabel(fontSize: 11.0, backgroundColor: .clear)
+	private let titleLabel = NewsViews.initTitleLabel(
+		fontSize: 16.0, weight: .bold, numberOfLines: 3, backgroundColor: .clear)
 
 	// MARK: Life Cycle
 
@@ -53,6 +54,7 @@ private extension FavoritesCollectionViewCell {
 		fillImageView.layer.shadowRadius = 8
 		fillImageView.layer.shadowOpacity = 0.5
 		fillImageView.layer.shadowOffset = CGSize(width: 0, height: 8)
+		fillImageView.contentMode = .scaleAspectFill
 		return fillImageView
 	}
 }
@@ -123,5 +125,4 @@ private extension FavoritesCollectionViewCell {
 			titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
 		])
 	}
-
 }
