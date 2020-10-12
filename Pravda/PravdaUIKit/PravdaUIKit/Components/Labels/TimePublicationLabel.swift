@@ -11,13 +11,13 @@ final class TimePublicationLabel: UILabel {
 	// MARK: Properties
 
 	enum FontSize: CGFloat {
-		case standart = 10
+		case standard = 10
 		case medium = 12
 	}
 
 	// MARK: Life Cycle
 
-	init(fontSize: FontSize = .standart, weight: UIFont.Weight = .medium) {
+	init(fontSize: FontSize = .standard, weight: UIFont.Weight = .medium) {
 		super.init(frame: .zero)
 
 		self.backgroundColor = .systemBackground

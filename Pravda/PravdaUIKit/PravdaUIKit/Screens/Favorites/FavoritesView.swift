@@ -65,7 +65,7 @@ private extension FavoritesView {
 
 		collectionView.register(
 			FavoritesCollectionViewCell.self,
-			forCellWithReuseIdentifier: FavoritesCollectionViewCell.reuseIdentifer)
+			forCellWithReuseIdentifier: FavoritesCollectionViewCell.reuseIdentifier)
 
 		collectionView.backgroundColor = .systemBackground
 	}

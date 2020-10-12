@@ -65,12 +65,12 @@ private extension TodayCollectionViewDiffableDataSource {
 		switch TodaySections.allCases[indexPath.section] {
 		case .topStories, .science:
 			let titleNewsTopicCell = collectionView.tryDequeueReusableTodayCell(
-				withReuseIdentifier: TitleNewsTopicCollectionViewCell.reuseIdentifer,
+				withReuseIdentifier: TitleNewsTopicCollectionViewCell.reuseIdentifier,
 				for: indexPath)
 			newsCell = titleNewsTopicCell
 		case .otherTopStories, .otherScience:
 			let newsTopicCell = collectionView.tryDequeueReusableTodayCell(
-				withReuseIdentifier: OtherNewsTopicCollectionViewCell.reuseIdentifer,
+				withReuseIdentifier: OtherNewsTopicCollectionViewCell.reuseIdentifier,
 				for: indexPath)
 			newsCell = newsTopicCell
 		}
@@ -98,14 +98,14 @@ private extension TodayCollectionViewDiffableDataSource {
 			if kind == "UICollectionElementKindSectionHeader" {
 				let sectionHeader = collectionView.dequeueReusableSupplementaryView(
 					ofKind: kind,
-					withReuseIdentifier: TodaySectionHeaderCollectionReusableView.reuseIdentifer,
+					withReuseIdentifier: TodaySectionHeaderCollectionReusableView.reuseIdentifier,
 					for: indexPath) as? TodaySectionHeaderCollectionReusableViewProtocol
 				sectionHeader?.setupContent(title: section.string, textColor: section.color)
 				return sectionHeader
 			} else if kind == "UICollectionElementKindSectionFooter" {
 				let sectionFooter = collectionView.dequeueReusableSupplementaryView(
 					ofKind: kind,
-					withReuseIdentifier: MoreSectionFooterCollectionReusableView.reuseIdentifer,
+					withReuseIdentifier: MoreSectionFooterCollectionReusableView.reuseIdentifier,
 					for: indexPath) as? MoreSectionFooterCollectionReusableViewProtocol
 
 				guard let todayViewController = self.todayViewController else { assertionFailure(); return nil }

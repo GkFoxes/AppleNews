@@ -73,7 +73,7 @@ private extension SpotlightView {
 
 		tableView.register(
 			SpotlightTableViewCell.self,
-			forCellReuseIdentifier: SpotlightTableViewCell.reuseIdentifer)
+			forCellReuseIdentifier: SpotlightTableViewCell.reuseIdentifier)
 
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.estimatedRowHeight = SpotlightTableViewCell.getEstimatedHeight()

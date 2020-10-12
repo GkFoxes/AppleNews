@@ -30,7 +30,7 @@ extension FavoritesCollectionViewDataSource: FavoritesCollectionViewDataSourcePr
 	func collectionView(
 		_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		guard let cell = collectionView.dequeueReusableCell(
-				withReuseIdentifier: FavoritesCollectionViewCell.reuseIdentifer,
+				withReuseIdentifier: FavoritesCollectionViewCell.reuseIdentifier,
 				for: indexPath) as? FavoritesCollectionViewCellProtocol
 			else { assertionFailure(); return UICollectionViewCell() }
 

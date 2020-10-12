@@ -65,7 +65,7 @@ private extension ReadOriginalStoryView {
 	static func initSuggestionLabel() -> UILabel {
 		let suggestionLabel = UILabel()
 		suggestionLabel.backgroundColor = .systemBackground
-		suggestionLabel.text = Strings.readFullStroy.rawValue
+		suggestionLabel.text = Strings.readFullStory.rawValue
 		suggestionLabel.font = .systemFont(ofSize: 16.0, weight: .medium)
 		return suggestionLabel
 	}

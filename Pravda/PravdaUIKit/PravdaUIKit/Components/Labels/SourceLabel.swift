@@ -13,13 +13,13 @@ final class SourceLabel: UILabel {
 	private let isShadowNeeded: Bool
 
 	enum FontSize: CGFloat {
-		case standart = 11
+		case standard = 11
 		case medium = 14
 	}
 
 	// MARK: Life Cycle
 
-	init(fontSize: FontSize = .standart, backgroundColor: UIColor = .systemBackground, isShadowNeeded: Bool = false) {
+	init(fontSize: FontSize = .standard, backgroundColor: UIColor = .systemBackground, isShadowNeeded: Bool = false) {
 		self.isShadowNeeded = isShadowNeeded
 
 		super.init(frame: .zero)

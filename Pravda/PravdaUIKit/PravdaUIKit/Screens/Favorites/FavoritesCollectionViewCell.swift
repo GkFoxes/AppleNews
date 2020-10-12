@@ -44,7 +44,7 @@ final class FavoritesCollectionViewCell: UICollectionViewCell {
 // MARK: Cell Interface
 
 extension FavoritesCollectionViewCell: FavoritesCollectionViewCellProtocol {
-	static var reuseIdentifer: String {
+	static var reuseIdentifier: String {
 		return String(describing: FavoritesCollectionViewCell.self)
 	}
 

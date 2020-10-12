@@ -7,7 +7,7 @@
 //
 
 protocol TodaySectionHeaderCollectionReusableViewProtocol: UICollectionReusableView {
-	static var reuseIdentifer: String { get }
+	static var reuseIdentifier: String { get }
 
 	static func getEstimatedHeight() -> CGFloat
 
@@ -43,7 +43,7 @@ final class TodaySectionHeaderCollectionReusableView: UICollectionReusableView {
 // MARK: Reusable View Interface
 
 extension TodaySectionHeaderCollectionReusableView: TodaySectionHeaderCollectionReusableViewProtocol {
-	static var reuseIdentifer: String {
+	static var reuseIdentifier: String {
 		return String(describing: TodaySectionHeaderCollectionReusableView.self)
 	}
 

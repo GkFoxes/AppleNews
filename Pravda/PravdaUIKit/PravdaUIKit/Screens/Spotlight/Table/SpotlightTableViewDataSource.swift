@@ -29,7 +29,7 @@ extension SpotlightTableViewDataSource: SpotlightTableViewDataSourceProtocol {
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let cell = tableView.dequeueReusableCell(
-			withIdentifier: SpotlightTableViewCell.reuseIdentifer,
+			withIdentifier: SpotlightTableViewCell.reuseIdentifier,
 			for: indexPath) as? SpotlightTableViewCellProtocol
 			else { assertionFailure(); return UITableViewCell() }
 

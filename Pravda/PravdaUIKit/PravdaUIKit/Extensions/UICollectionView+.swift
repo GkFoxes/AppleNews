@@ -11,11 +11,11 @@ extension UICollectionView {
 	// MARK: Dequeue Reusable Cells
 
 	func tryDequeueReusableTodayCell(
-		withReuseIdentifier reuseIdentifer: String,
+		withReuseIdentifier reuseIdentifier: String,
 		for indexPath: IndexPath
 	) -> TodayCollectionViewCellProtocol? {
 		guard let cell = self.dequeueReusableCell(
-			withReuseIdentifier: reuseIdentifer,
+			withReuseIdentifier: reuseIdentifier,
 			for: indexPath) as? TodayCollectionViewCellProtocol
 			else { assertionFailure(); return nil }
 		return cell

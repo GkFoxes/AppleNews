@@ -7,5 +7,5 @@
 //
 
 protocol ListViewCellProtocol: UIView {
-	static var reuseIdentifer: String { get }
+	static var reuseIdentifier: String { get }
 }

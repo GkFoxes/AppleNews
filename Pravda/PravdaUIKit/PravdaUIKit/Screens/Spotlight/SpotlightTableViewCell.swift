@@ -63,7 +63,7 @@ final class SpotlightTableViewCell: UITableViewCell {
 // MARK: Cell Interface
 
 extension SpotlightTableViewCell: SpotlightTableViewCellProtocol {
-	static var reuseIdentifer: String {
+	static var reuseIdentifier: String {
 		return String(describing: SpotlightTableViewCell.self)
 	}
 

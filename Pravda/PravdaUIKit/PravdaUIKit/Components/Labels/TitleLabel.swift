@@ -13,7 +13,7 @@ final class TitleLabel: UILabel {
 	private let isShadowNeeded: Bool
 
 	enum FontSize: CGFloat {
-		case standart = 26
+		case standard = 26
 		case small = 16
 		case medium = 18
 		case large = 22
@@ -22,7 +22,7 @@ final class TitleLabel: UILabel {
 	// MARK: Life Cycle
 
 	init(
-		fontSize: FontSize = .standart,
+		fontSize: FontSize = .standard,
 		weight: UIFont.Weight = .heavy,
 		numberOfLines: Int = 4,
 		backgroundColor: UIColor = .systemBackground,

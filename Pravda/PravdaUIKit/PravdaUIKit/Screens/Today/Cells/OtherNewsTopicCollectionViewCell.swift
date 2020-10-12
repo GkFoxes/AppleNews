@@ -41,7 +41,7 @@ final class OtherNewsTopicCollectionViewCell: UICollectionViewCell {
 // MARK: Cell Interface
 
 extension OtherNewsTopicCollectionViewCell: TodayCollectionViewCellProtocol {
-	static var reuseIdentifer: String {
+	static var reuseIdentifier: String {
 		return String(describing: OtherNewsTopicCollectionViewCell.self)
 	}
 

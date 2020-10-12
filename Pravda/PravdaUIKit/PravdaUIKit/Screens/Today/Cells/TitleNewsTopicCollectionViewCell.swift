@@ -40,7 +40,7 @@ final class TitleNewsTopicCollectionViewCell: UICollectionViewCell {
 // MARK: View Interface
 
 extension TitleNewsTopicCollectionViewCell: TodayCollectionViewCellProtocol {
-	static var reuseIdentifer: String {
+	static var reuseIdentifier: String {
 		return String(describing: TitleNewsTopicCollectionViewCell.self)
 	}
 

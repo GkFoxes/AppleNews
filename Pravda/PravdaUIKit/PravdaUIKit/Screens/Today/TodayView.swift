@@ -90,18 +90,18 @@ private extension TodayView {
 
 		collectionView.register(
 			TitleNewsTopicCollectionViewCell.self,
-			forCellWithReuseIdentifier: TitleNewsTopicCollectionViewCell.reuseIdentifer)
+			forCellWithReuseIdentifier: TitleNewsTopicCollectionViewCell.reuseIdentifier)
 		collectionView.register(
 			OtherNewsTopicCollectionViewCell.self,
-			forCellWithReuseIdentifier: OtherNewsTopicCollectionViewCell.reuseIdentifer)
+			forCellWithReuseIdentifier: OtherNewsTopicCollectionViewCell.reuseIdentifier)
 		collectionView.register(
 			TodaySectionHeaderCollectionReusableView.self,
 			forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-			withReuseIdentifier: TodaySectionHeaderCollectionReusableView.reuseIdentifer)
+			withReuseIdentifier: TodaySectionHeaderCollectionReusableView.reuseIdentifier)
 		collectionView.register(
 			MoreSectionFooterCollectionReusableView.self,
 			forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
-			withReuseIdentifier: MoreSectionFooterCollectionReusableView.reuseIdentifer)
+			withReuseIdentifier: MoreSectionFooterCollectionReusableView.reuseIdentifier)
 
 		collectionView.backgroundColor = .systemBackground
 	}

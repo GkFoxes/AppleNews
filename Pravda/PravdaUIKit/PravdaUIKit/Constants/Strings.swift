@@ -23,7 +23,7 @@ public enum Strings: String {
 
 	// MARK: Spotlight Module
 
-	case readFullStroy = "Read Full Story"
+	case readFullStory = "Read Full Story"
 	case fullStoryNotAvailable = "Full Story is not available"
 
 	// MARK: Common
