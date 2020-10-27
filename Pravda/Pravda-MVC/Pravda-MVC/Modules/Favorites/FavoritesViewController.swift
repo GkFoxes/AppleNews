@@ -42,6 +42,12 @@ final class FavoritesViewController: UIViewController {
 
 		self.navigationController?.setupBoldDesignAppearances()
 	}
+
+	override func viewWillLayoutSubviews() {
+		super.viewWillLayoutSubviews()
+
+		favoritesView.viewWillLayoutSubviews()
+	}
 }
 
 // MARK: Favorites View

@@ -12,7 +12,9 @@ extension FavoritesCollectionViewDelegate: UICollectionViewDelegateFlowLayout {
 		layout collectionViewLayout: UICollectionViewLayout,
 		sizeForItemAt indexPath: IndexPath)
 	-> CGSize {
-		return CGSize(width: collectionView.bounds.width, height: FavoritesCollectionViewCell.getHeight())
+		return CGSize(
+			width: collectionView.safeAreaLayoutGuide.layoutFrame.width,
+			height: FavoritesCollectionViewCell.getHeight())
 	}
 
 	func collectionView(
@@ -21,5 +23,13 @@ extension FavoritesCollectionViewDelegate: UICollectionViewDelegateFlowLayout {
 		minimumLineSpacingForSectionAt section: Int
 	) -> CGFloat {
 		return FavoritesLayout.safeInterDistance.rawValue
+	}
+
+	func collectionView(
+		_ collectionView: UICollectionView,
+		layout collectionViewLayout: UICollectionViewLayout,
+		insetForSectionAt section: Int
+	) -> UIEdgeInsets {
+		return UIEdgeInsets(top: FavoritesLayout.safeInterDistance.rawValue, left: .zero, bottom: .zero, right: .zero)
 	}
 }
