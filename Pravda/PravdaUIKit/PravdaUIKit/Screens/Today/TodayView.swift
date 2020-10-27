@@ -61,7 +61,7 @@ public final class TodayView: UIView {
 	public override func layoutSubviews() {
 		super.layoutSubviews()
 
-		refreshCollectionViewLayout()
+		collectionView.refreshCollectionViewLayout()
 	}
 }
 
@@ -120,11 +120,6 @@ private extension TodayView {
 			collectionView.topAnchor.constraint(equalTo: self.topAnchor),
 			collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
 		])
-	}
-
-	func refreshCollectionViewLayout() {
-		collectionView.reloadData()
-		collectionView.collectionViewLayout.invalidateLayout()
 	}
 }
 

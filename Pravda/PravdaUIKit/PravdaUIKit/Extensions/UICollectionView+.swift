@@ -20,4 +20,11 @@ extension UICollectionView {
 			else { assertionFailure(); return nil }
 		return cell
 	}
+
+	// MARK: Layout
+
+	func refreshCollectionViewLayout() {
+		self.reloadData()
+		self.collectionViewLayout.invalidateLayout()
+	}
 }
