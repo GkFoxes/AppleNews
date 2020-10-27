@@ -62,7 +62,17 @@ final class RoundShadowImageView: UIView {
 	override func layoutSubviews() {
 		super.layoutSubviews()
 
-		guard shadowLayer == nil else { return }
+		imageLayer.frame = bounds
+		imageLayer.contentsGravity = .resizeAspectFill
+		let shadowMask = CAShapeLayer()
+		shadowMask.path = shadowPath
+		imageLayer.mask = shadowMask
+
+		guard shadowLayer == nil else {
+			shadowLayer?.shadowPath = (image == nil) ? nil : shadowPath
+			return
+		}
+
 		shadowLayer = CAShapeLayer()
 
 		guard let shadowLayer = shadowLayer else { assertionFailure(); return }
@@ -71,12 +81,6 @@ final class RoundShadowImageView: UIView {
 		shadowLayer.shadowRadius = shadowRadius
 		shadowLayer.shadowOpacity = shadowOpacity
 		shadowLayer.shadowOffset = shadowOffset
-
-		imageLayer.frame = bounds
-		imageLayer.contentsGravity = .resizeAspectFill
-		let shadowMask = CAShapeLayer()
-		shadowMask.path = shadowPath
-		imageLayer.mask = shadowMask
 
 		self.layer.shouldRasterize = true
 		self.layer.rasterizationScale = UIScreen.main.scale
