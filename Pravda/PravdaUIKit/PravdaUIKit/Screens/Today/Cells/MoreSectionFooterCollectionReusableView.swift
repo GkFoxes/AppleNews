@@ -28,7 +28,7 @@ final class MoreSectionFooterCollectionReusableView: UICollectionReusableView {
 
 	// MARK: Views
 
-	private let moreLabel = initMoreLabel()
+	private let moreLabel = moreLabelInit()
 	private let tapOnViewButton = UIButton()
 
 	// MARK: Life Cycle
@@ -81,7 +81,7 @@ extension MoreSectionFooterCollectionReusableView: MoreSectionFooterCollectionRe
 // MARK: Views Appearances
 
 private extension MoreSectionFooterCollectionReusableView {
-	static func initMoreLabel() -> UILabel {
+	static func moreLabelInit() -> UILabel {
 		let moreLabel = UILabel()
 		moreLabel.backgroundColor = .systemBackground
 		moreLabel.textColor = .systemGray2

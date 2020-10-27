@@ -24,7 +24,7 @@ final class TodaySectionHeaderCollectionReusableView: UICollectionReusableView {
 
 	// MARK: Views
 
-	private let sectionHeaderLabel = initSectionHeaderLabel()
+	private let sectionHeaderLabel = sectionHeaderLabelInit()
 
 	// MARK: Life Cycle
 
@@ -60,7 +60,7 @@ extension TodaySectionHeaderCollectionReusableView: TodaySectionHeaderCollection
 // MARK: Views Appearances
 
 private extension TodaySectionHeaderCollectionReusableView {
-	static func initSectionHeaderLabel() -> UILabel {
+	static func sectionHeaderLabelInit() -> UILabel {
 		let sectionHeaderLabel = UILabel()
 		sectionHeaderLabel.backgroundColor = .systemBackground
 		sectionHeaderLabel.font = .systemFont(ofSize: 30.0, weight: .black)

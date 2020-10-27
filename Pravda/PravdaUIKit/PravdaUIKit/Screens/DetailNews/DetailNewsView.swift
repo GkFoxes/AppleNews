@@ -47,7 +47,7 @@ public final class DetailNewsView: UIView {
 	private let headerImageView = HeaderImageView(cornerRadius: 0.0)
 	private let titleLabel = TitleLabel(numberOfLines: 0)
 	private let timePublicationLabel = TimePublicationLabel(fontSize: .medium, weight: .semibold)
-	private let textLabel = initTextLabel()
+	private let textLabel = textLabelInit()
 	private let readOriginalStoryView: ReadOriginalStoryViewProtocol
 
 	// MARK: Life Cycle
@@ -124,7 +124,7 @@ private extension DetailNewsView {
 		self.backgroundColor = .systemBackground
 	}
 
-	static func initTextLabel() -> UILabel {
+	static func textLabelInit() -> UILabel {
 		let textLabel = UILabel()
 		textLabel.backgroundColor = .systemBackground
 		textLabel.font = .systemFont(ofSize: 17.0, weight: .regular)

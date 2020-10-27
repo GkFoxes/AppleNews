@@ -24,8 +24,8 @@ public final class ReadOriginalStoryView: UIView {
 
 	// MARK: Views
 
-	private let suggestionLabel = initSuggestionLabel()
-	private let linkLabel = initLinkLabel()
+	private let suggestionLabel = suggestionLabelInit()
+	private let linkLabel = linkLabelInit()
 	private let tapOnViewButton = UIButton()
 
 	// MARK: Life Cycle
@@ -62,7 +62,7 @@ extension ReadOriginalStoryView: ReadOriginalStoryViewProtocol {
 // MARK: Views Appearances
 
 private extension ReadOriginalStoryView {
-	static func initSuggestionLabel() -> UILabel {
+	static func suggestionLabelInit() -> UILabel {
 		let suggestionLabel = UILabel()
 		suggestionLabel.backgroundColor = .systemBackground
 		suggestionLabel.text = Strings.readFullStory.rawValue
@@ -70,7 +70,7 @@ private extension ReadOriginalStoryView {
 		return suggestionLabel
 	}
 
-	static func initLinkLabel() -> UILabel {
+	static func linkLabelInit() -> UILabel {
 		let linkLabel = UILabel()
 		linkLabel.backgroundColor = .systemBackground
 		linkLabel.font = .systemFont(ofSize: 11.0, weight: .medium)
