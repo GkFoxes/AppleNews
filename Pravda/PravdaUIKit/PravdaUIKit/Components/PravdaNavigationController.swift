@@ -6,23 +6,22 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-public extension UINavigationController {
+public final class PravdaNavigationController: UINavigationController {
 
 	// MARK: Design Variations
 
-	func setupBoldDesignAppearances() {
+	public func setupBoldDesignAppearances() {
 		setupDesignAppearances(weight: .bold)
 	}
 
-	func setupBlackDesignAppearances() {
+	public func setupBlackDesignAppearances() {
 		setupDesignAppearances(weight: .black)
 	}
 }
 
 // MARK: Design Appearances
 
-private extension UINavigationController {
-
+private extension PravdaNavigationController {
 	func setupDesignAppearances(weight: UIFont.Weight) {
 		navigationBar.prefersLargeTitles = true
 

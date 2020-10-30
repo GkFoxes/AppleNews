@@ -34,9 +34,9 @@ private extension SceneDelegate {
 		window.windowScene = windowScene
 
 		let todayViewController: TodayViewControllerProtocol = TodayViewController()
-		let todayNavigationViewController = UINavigationController(rootViewController: todayViewController)
+		let todayNavigationViewController = PravdaNavigationController(rootViewController: todayViewController)
 		let favoritesViewController = FavoritesViewController(todayViewController: todayViewController)
-		let favoritesNavigationViewController = UINavigationController(rootViewController: favoritesViewController)
+		let favoritesNavigationViewController = PravdaNavigationController(rootViewController: favoritesViewController)
 
 		window.rootViewController = MainContainerFactory.make(
 			firstSectionViewController: todayNavigationViewController,

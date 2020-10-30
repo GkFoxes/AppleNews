@@ -45,7 +45,11 @@ final class FavoritesViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		self.navigationController?.setupBoldDesignAppearances()
+		guard let pravdaNavigationController = self.navigationController as? PravdaNavigationController else {
+			return assertionFailure()
+		}
+
+		pravdaNavigationController.setupBoldDesignAppearances()
 	}
 
 	override func viewWillLayoutSubviews() {

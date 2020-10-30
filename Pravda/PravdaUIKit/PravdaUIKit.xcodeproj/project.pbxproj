@@ -27,7 +27,7 @@
 		A990145E2507A18800D911CC /* SpotlightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A990145D2507A18800D911CC /* SpotlightTableViewCell.swift */; };
 		A9924443251CDCB6002EEB17 /* FavoritesLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9924442251CDCB6002EEB17 /* FavoritesLayout.swift */; };
 		A996365624DAF748004430C9 /* DetailNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A996365524DAF748004430C9 /* DetailNewsView.swift */; };
-		A99D202F249525F2004A7BDD /* UINavigationController+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D202E249525F2004A7BDD /* UINavigationController+Design.swift */; };
+		A99D202F249525F2004A7BDD /* PravdaNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99D202E249525F2004A7BDD /* PravdaNavigationController.swift */; };
 		A9B38D5624FD5622009F175C /* DetailNewsViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B38D5524FD5622009F175C /* DetailNewsViewControllerProtocol.swift */; };
 		A9B38D5824FE9670009F175C /* MoreSectionFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B38D5724FE9670009F175C /* MoreSectionFooterCollectionReusableView.swift */; };
 		A9C3098D24FEBEE800E2C7AB /* TodayViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C3098C24FEBEE800E2C7AB /* TodayViewControllerProtocol.swift */; };
@@ -90,7 +90,7 @@
 		A990145D2507A18800D911CC /* SpotlightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightTableViewCell.swift; sourceTree = "<group>"; };
 		A9924442251CDCB6002EEB17 /* FavoritesLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesLayout.swift; sourceTree = "<group>"; };
 		A996365524DAF748004430C9 /* DetailNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsView.swift; sourceTree = "<group>"; };
-		A99D202E249525F2004A7BDD /* UINavigationController+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Design.swift"; sourceTree = "<group>"; };
+		A99D202E249525F2004A7BDD /* PravdaNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PravdaNavigationController.swift; sourceTree = "<group>"; };
 		A9B38D5524FD5622009F175C /* DetailNewsViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewControllerProtocol.swift; sourceTree = "<group>"; };
 		A9B38D5724FE9670009F175C /* MoreSectionFooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreSectionFooterCollectionReusableView.swift; sourceTree = "<group>"; };
 		A9C3098C24FEBEE800E2C7AB /* TodayViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewControllerProtocol.swift; sourceTree = "<group>"; };
@@ -177,14 +177,6 @@
 			path = Today;
 			sourceTree = "<group>";
 		};
-		A9533900249E285F000AD0B9 /* Design */ = {
-			isa = PBXGroup;
-			children = (
-				A99D202E249525F2004A7BDD /* UINavigationController+Design.swift */,
-			);
-			path = Design;
-			sourceTree = "<group>";
-		};
 		A95A1148251268DE00D5E5AE /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +222,7 @@
 			children = (
 				F0C4C8D7251CB9E000C61A0A /* Labels */,
 				F0C4C8D6251CB9D500C61A0A /* ImageViews */,
+				A99D202E249525F2004A7BDD /* PravdaNavigationController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -349,7 +342,6 @@
 		F00188812476F02600518FF0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A9533900249E285F000AD0B9 /* Design */,
 				A988552724CB7202002421F6 /* UICollectionView+.swift */,
 			);
 			path = Extensions;
@@ -501,7 +493,7 @@
 				A990145E2507A18800D911CC /* SpotlightTableViewCell.swift in Sources */,
 				A9FE6E1B24C9EC010022FB3B /* OtherNewsTopicCollectionViewCell.swift in Sources */,
 				A90C1E55251B98E700D0B4B4 /* FavoritesCollectionViewCell.swift in Sources */,
-				A99D202F249525F2004A7BDD /* UINavigationController+Design.swift in Sources */,
+				A99D202F249525F2004A7BDD /* PravdaNavigationController.swift in Sources */,
 				A9E415C5247EE07D00018A16 /* SectionsTabBarController.swift in Sources */,
 				A9924443251CDCB6002EEB17 /* FavoritesLayout.swift in Sources */,
 				A9E54F64250154D20064C738 /* SpotlightView.swift in Sources */,

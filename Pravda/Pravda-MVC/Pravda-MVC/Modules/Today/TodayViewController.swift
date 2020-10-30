@@ -45,7 +45,11 @@ final class TodayViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		self.navigationController?.setupBlackDesignAppearances()
+		guard let pravdaNavigationController = self.navigationController as? PravdaNavigationController else {
+			return assertionFailure()
+		}
+
+		pravdaNavigationController.setupBlackDesignAppearances()
 		self.view = createTodayView()
 		setupSplitViewAppearancesIfNeeded()
 	}
