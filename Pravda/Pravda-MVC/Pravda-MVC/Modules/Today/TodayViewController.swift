@@ -67,6 +67,12 @@ extension TodayViewController: TodayViewControllerProtocol {
 		let spotlightViewController = SpotlightViewController(navigationTitle: navigationTitle)
 		navigationController?.pushViewController(spotlightViewController, animated: true)
 	}
+
+	func pushDetailNewsViewController(with todayNewsItem: TodayNewsItem) {
+		guard let detailNewsViewController = makeDetailNewsViewController(with: todayNewsItem) as? UIViewController
+			else { return assertionFailure() }
+		navigationController?.pushViewController(detailNewsViewController, animated: true)
+	}
 }
 
 // MARK: Split View Interface
@@ -108,7 +114,7 @@ private extension TodayViewController {
 
 		todayView.selectedItemHandler = { [weak self] indexPath in
 			guard let self = self else { return assertionFailure() }
-			self.pushTodayDetailViewController(with: indexPath)
+			self.pushDetailNewsViewController(with: indexPath)
 		}
 
 		todayView.detailNewsViewController = { [weak self] indexPath in
@@ -119,13 +125,19 @@ private extension TodayViewController {
 		return todayView
 	}
 
+	func makeDetailNewsViewController(with todayNewsItem: TodayNewsItem) -> DetailNewsViewControllerProtocol {
+		let detailNewsViewController = DetailNewsFactory.make(
+			detailNewsItem: DetailNewsItem(todayNewsItem: todayNewsItem))
+		return detailNewsViewController
+	}
+
 	func makeDetailNewsViewController(with indexPath: IndexPath) -> DetailNewsViewControllerProtocol {
 		guard let item = todayView.getItem(for: indexPath) else { fatalError() }
 		let detailNewsViewController = DetailNewsFactory.make(detailNewsItem: DetailNewsItem(todayNewsItem: item))
 		return detailNewsViewController
 	}
 
-	func pushTodayDetailViewController(with indexPath: IndexPath) {
+	func pushDetailNewsViewController(with indexPath: IndexPath) {
 		guard let detailNewsViewController = makeDetailNewsViewController(with: indexPath) as? UIViewController
 			else { return assertionFailure() }
 		navigationController?.pushViewController(detailNewsViewController, animated: true)

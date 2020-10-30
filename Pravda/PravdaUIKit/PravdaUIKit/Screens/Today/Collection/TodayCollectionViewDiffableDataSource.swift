@@ -79,7 +79,7 @@ private extension TodayCollectionViewDiffableDataSource {
 				headerImage: nil,
 				source: detailItem.source,
 				title: detailItem.title,
-				timePublication: detailItem.timePublication)
+				timePublication: detailItem.timePublication ?? "") //temp
 			return newsCell
 		} else {
 			assertionFailure()

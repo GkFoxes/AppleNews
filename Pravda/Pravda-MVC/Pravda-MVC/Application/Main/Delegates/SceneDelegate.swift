@@ -33,8 +33,10 @@ private extension SceneDelegate {
 		guard let window = window else { return assertionFailure() }
 		window.windowScene = windowScene
 
-		let todayNavigationViewController = UINavigationController(rootViewController: TodayViewController())
-		let favoritesNavigationViewController = UINavigationController(rootViewController: FavoritesViewController())
+		let todayViewController: TodayViewControllerProtocol = TodayViewController()
+		let todayNavigationViewController = UINavigationController(rootViewController: todayViewController)
+		let favoritesViewController = FavoritesViewController(todayViewController: todayViewController)
+		let favoritesNavigationViewController = UINavigationController(rootViewController: favoritesViewController)
 
 		window.rootViewController = MainContainerFactory.make(
 			firstSectionViewController: todayNavigationViewController,

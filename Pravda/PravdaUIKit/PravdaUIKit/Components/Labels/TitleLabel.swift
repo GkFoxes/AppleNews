@@ -29,7 +29,6 @@ final class TitleLabel: UILabel {
 		isShadowNeeded: Bool = false
 	) {
 		self.isShadowNeeded = isShadowNeeded
-
 		super.init(frame: .zero)
 
 		self.backgroundColor = backgroundColor

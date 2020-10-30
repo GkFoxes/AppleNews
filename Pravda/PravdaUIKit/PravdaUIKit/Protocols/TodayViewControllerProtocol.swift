@@ -6,6 +6,9 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
+import Models
+
 public protocol TodayViewControllerProtocol: UIViewController {
 	func tapOnMoreViewAction(navigationTitle: String)
+	func pushDetailNewsViewController(with todayNewsItem: TodayNewsItem)
 }

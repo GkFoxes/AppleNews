@@ -11,6 +11,10 @@ import PravdaUIKit
 
 final class FavoritesViewController: UIViewController {
 
+	// MARK: Properties
+
+	private let todayViewController: TodayViewControllerProtocol
+
 	// MARK: Views
 
 	private var favoritesView: FavoritesViewProtocol {
@@ -20,7 +24,8 @@ final class FavoritesViewController: UIViewController {
 
 	// MARK: Life Cycle
 
-	init() {
+	init(todayViewController: TodayViewControllerProtocol) {
+		self.todayViewController = todayViewController
 		super.init(nibName: nil, bundle: nil)
 
 		self.navigationItem.title = Strings.favoritesTitle.rawValue
@@ -66,10 +71,18 @@ private extension FavoritesViewController {
 	}
 
 	func pushTodayDetailViewController(with indexPath: IndexPath) {
-		guard let item = favoritesView.getItem(for: indexPath),
-			let detailNewsViewController = DetailNewsFactory.make(detailNewsItem:
-				DetailNewsItem(favoritesNewsItem: item)) as? UIViewController
-			else { return assertionFailure() }
-		navigationController?.pushViewController(detailNewsViewController, animated: true)
+		guard let item = favoritesView.getItem(for: indexPath) else { return assertionFailure() }
+
+		let todayHorizontalTraitCollection = todayViewController.traitCollection.horizontalSizeClass
+		let todayVerticalTraitCollection = todayViewController.traitCollection.verticalSizeClass
+		switch (todayHorizontalTraitCollection, todayVerticalTraitCollection) {
+		case (.regular, .regular):
+			todayViewController.pushDetailNewsViewController(with: TodayNewsItem(favoritesNewsItem: item))
+		default:
+			guard let detailNewsViewController = DetailNewsFactory.make(detailNewsItem:
+					DetailNewsItem(favoritesNewsItem: item)) as? UIViewController
+				else { return assertionFailure() }
+			navigationController?.pushViewController(detailNewsViewController, animated: true)
+		}
 	}
 }

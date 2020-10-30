@@ -10,9 +10,31 @@ public struct TodayNewsItem {
 	public let headerImage: Data?
 	public let source: String
 	public let title: String
-	public let timePublication: String
+	public let timePublication: String?
 
 	private let identifier = UUID()
+
+	// MARK: Life Cycle
+
+	init(
+		headerImage: Data?,
+		source: String,
+		title: String,
+		timePublication: String?
+	) {
+		self.source = source
+		self.headerImage = headerImage
+		self.title = title
+		self.timePublication = timePublication
+	}
+
+	public init(favoritesNewsItem: FavoritesNewsItem) {
+		self.init(
+			headerImage: favoritesNewsItem.fillImage,
+			source: favoritesNewsItem.source,
+			title: favoritesNewsItem.title,
+			timePublication: nil)
+	}
 }
 
 // MARK: Setup Hashable Protocol
