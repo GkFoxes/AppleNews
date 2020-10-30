@@ -38,9 +38,8 @@ final class SpotlightViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		guard let pravdaNavigationController = self.navigationController as? PravdaNavigationController else {
-			return assertionFailure()
-		}
+		guard let pravdaNavigationController = self.navigationController as? PravdaNavigationController
+			else { return assertionFailure() }
 
 		pravdaNavigationController.setupBoldDesignAppearances()
 	}
