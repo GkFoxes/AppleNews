@@ -21,7 +21,6 @@ final class SourceLabel: UILabel {
 
 	init(fontSize: FontSize = .standard, backgroundColor: UIColor = .systemBackground, isShadowNeeded: Bool = false) {
 		self.isShadowNeeded = isShadowNeeded
-
 		super.init(frame: .zero)
 
 		self.backgroundColor = backgroundColor

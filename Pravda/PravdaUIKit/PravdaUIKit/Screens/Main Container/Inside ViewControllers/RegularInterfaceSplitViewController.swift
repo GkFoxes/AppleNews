@@ -29,7 +29,6 @@ final class RegularInterfaceSplitViewController: UISplitViewController {
 	) {
 		self.secondaryViewController = secondaryViewController
 		self.mainViewController = mainViewController
-
 		super.init(nibName: nil, bundle: nil)
 	}
 

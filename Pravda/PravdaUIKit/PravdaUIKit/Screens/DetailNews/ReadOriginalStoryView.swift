@@ -32,7 +32,6 @@ public final class ReadOriginalStoryView: UIView {
 
 	public init(safariViewController: SafariViewControllerDelegate) {
 		self.safariViewController = safariViewController
-
 		super.init(frame: .zero)
 
 		setupViewsLayout()

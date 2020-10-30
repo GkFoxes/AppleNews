@@ -27,7 +27,6 @@ final class TodayCollectionViewDiffableDataSource: TodayDiffableDataSource {
 
 	init(collectionView: UICollectionView, todayViewController: TodayViewControllerProtocol) {
 		self.todayViewController = todayViewController
-
 		super.init(
 		collectionView: collectionView
 		) { (collectionView: UICollectionView, indexPath: IndexPath, detailItem: TodayNewsItem)

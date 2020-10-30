@@ -48,7 +48,6 @@ final class RoundShadowImageView: UIView {
 		self.shadowRadius = shadowRadius
 		self.shadowOpacity = shadowOpacity
 		self.shadowOffset = shadowOffset
-
 		super.init(frame: .zero)
 
 		self.backgroundColor = .systemBackground

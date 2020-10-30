@@ -32,7 +32,6 @@ public final class SpotlightView: UIView {
 
 	override init(frame: CGRect) {
 		tableView = UITableView(frame: frame)
-
 		super.init(frame: frame)
 
 		setupTableViewAppearances()

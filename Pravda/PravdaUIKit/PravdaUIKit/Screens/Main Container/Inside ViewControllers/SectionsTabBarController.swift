@@ -30,7 +30,6 @@ final class SectionsTabBarController: UITabBarController {
 	) {
 		self.firstSectionViewController = firstSectionViewController
 		self.secondSectionViewController = secondSectionViewController
-
 		super.init(nibName: nil, bundle: nil)
 	}
 

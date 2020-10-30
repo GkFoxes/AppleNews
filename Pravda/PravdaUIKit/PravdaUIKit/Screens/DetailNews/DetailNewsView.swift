@@ -55,7 +55,6 @@ public final class DetailNewsView: UIView {
 	public init(viewController: DetailNewsViewControllerProtocol & SafariViewControllerDelegate) {
 		self.detailNewsViewController = viewController
 		readOriginalStoryView = ReadOriginalStoryView(safariViewController: viewController)
-
 		super.init(frame: .zero)
 
 		setupViewAppearances()

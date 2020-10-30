@@ -43,7 +43,6 @@ public final class TodayView: UIView {
 
 		dataSource = TodayCollectionViewDiffableDataSource(
 			collectionView: collectionView, todayViewController: todayViewController)
-
 		super.init(frame: frame)
 
 		setupCollectionViewAppearances()

@@ -31,7 +31,6 @@ public final class FavoritesView: UIView {
 
 	override init(frame: CGRect) {
 		collectionView = UICollectionView(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
-
 		super.init(frame: frame)
 
 		setupCollectionViewAppearances()

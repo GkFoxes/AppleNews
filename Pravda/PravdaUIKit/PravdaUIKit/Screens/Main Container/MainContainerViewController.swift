@@ -33,7 +33,6 @@ final class MainContainerViewController: UIViewController {
 	) {
 		self.sectionsTabBarController = sectionsTabBarController
 		self.regularInterfaceSplitViewController = regularInterfaceSplitViewController
-
 		super.init(nibName: nil, bundle: nil)
 	}
 
