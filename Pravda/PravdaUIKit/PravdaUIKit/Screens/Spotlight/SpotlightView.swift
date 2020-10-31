@@ -11,8 +11,8 @@ import Models
 public protocol SpotlightViewProtocol: ListViewProtocol {
 	func viewWillAppear(_ animated: Bool)
 
-	func setItems(_ spotlightNewsItems: [SpotlightNewsItem])
-	func getItem(for indexPath: IndexPath) -> SpotlightNewsItem?
+	func setItems(_ newsItem: [NewsItem])
+	func getItem(for indexPath: IndexPath) -> NewsItem?
 }
 
 public final class SpotlightView: UIView {
@@ -54,11 +54,11 @@ public final class SpotlightView: UIView {
 // MARK: View Interface
 
 extension SpotlightView: SpotlightViewProtocol {
-	public func setItems(_ spotlightNewsItems: [SpotlightNewsItem]) {
-		dataSource.setItems(spotlightNewsItems)
+	public func setItems(_ newsItem: [NewsItem]) {
+		dataSource.setItems(newsItem)
 	}
 
-	public func getItem(for indexPath: IndexPath) -> SpotlightNewsItem? {
+	public func getItem(for indexPath: IndexPath) -> NewsItem? {
 		dataSource.getItem(for: indexPath)
 	}
 }

@@ -63,7 +63,7 @@ final class FavoritesViewController: UIViewController {
 private extension FavoritesViewController {
 	func createFavoritesView() -> UIView {
 		let favoritesView: FavoritesViewProtocol = FavoritesView()
-		favoritesView.setItems(FavoritesNewsItem.makeFavoritesMock()) // temp
+		favoritesView.setItems(FavoritesMocks.make())
 
 		favoritesView.selectedItemHandler = { [weak self] indexPath in
 			guard let self = self else { return assertionFailure() }
@@ -80,10 +80,9 @@ private extension FavoritesViewController {
 		let todayVerticalTraitCollection = todayViewController.traitCollection.verticalSizeClass
 		switch (todayHorizontalTraitCollection, todayVerticalTraitCollection) {
 		case (.regular, .regular):
-			todayViewController.pushDetailNewsViewController(with: TodayNewsItem(favoritesNewsItem: item))
+			todayViewController.pushDetailNewsViewController(with: item)
 		default:
-			guard let detailNewsViewController = DetailNewsFactory.make(detailNewsItem:
-					DetailNewsItem(favoritesNewsItem: item)) as? UIViewController
+			guard let detailNewsViewController = DetailNewsFactory.make(detailNewsItem: item) as? UIViewController
 				else { return assertionFailure() }
 			navigationController?.pushViewController(detailNewsViewController, animated: true)
 		}

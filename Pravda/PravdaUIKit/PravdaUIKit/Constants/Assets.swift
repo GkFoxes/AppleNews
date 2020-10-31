@@ -12,7 +12,6 @@ public enum Assets: String {
 
 	case todayTab
 	case favoritesTab
-	case test
 
 	// MARK: System Images
 

@@ -53,7 +53,7 @@ extension FavoritesCollectionViewCell: FavoritesCollectionViewCellProtocol {
 	}
 
 	func setupContent(fillImage: UIImage?, source: String, title: String) {
-		fillImageView.image = Assets.test.image // temp
+		fillImageView.image = fillImage
 		sourceLabel.text = source
 		titleLabel.text = title
 	}

@@ -10,8 +10,8 @@ import Models
 
 public protocol FavoritesViewProtocol: ListViewProtocol {
 	func viewWillLayoutSubviews()
-	func setItems(_ favoritesNewsItems: [FavoritesNewsItem])
-	func getItem(for indexPath: IndexPath) -> FavoritesNewsItem?
+	func setItems(_ newsItems: [NewsItem])
+	func getItem(for indexPath: IndexPath) -> NewsItem?
 }
 
 public final class FavoritesView: UIView {
@@ -52,11 +52,11 @@ extension FavoritesView: FavoritesViewProtocol {
 		collectionView.refreshCollectionViewLayout()
 	}
 
-	public func setItems(_ favoritesNewsItems: [FavoritesNewsItem]) {
-		dataSource.setItems(favoritesNewsItems)
+	public func setItems(_ newsItems: [NewsItem]) {
+		dataSource.setItems(newsItems)
 	}
 
-	public func getItem(for indexPath: IndexPath) -> FavoritesNewsItem? {
+	public func getItem(for indexPath: IndexPath) -> NewsItem? {
 		dataSource.getItem(for: indexPath)
 	}
 }

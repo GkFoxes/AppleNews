@@ -55,7 +55,7 @@ final class SpotlightViewController: UIViewController {
 private extension SpotlightViewController {
 	func createSpotlightView() -> UIView {
 		let spotlightView: SpotlightViewProtocol = SpotlightView()
-		spotlightView.setItems(SpotlightNewsItem.makeSpotlightMock()) // temp
+		spotlightView.setItems(SpotlightMocks.make())
 
 		spotlightView.selectedItemHandler = { [weak self] indexPath in
 			guard let self = self else { return assertionFailure() }
@@ -67,8 +67,7 @@ private extension SpotlightViewController {
 
 	func pushTodayDetailViewController(with indexPath: IndexPath) {
 		guard let item = spotlightView.getItem(for: indexPath),
-			let detailNewsViewController = DetailNewsFactory.make(detailNewsItem:
-				DetailNewsItem(spotlightNewsItem: item)) as? UIViewController
+			let detailNewsViewController = DetailNewsFactory.make(detailNewsItem: item) as? UIViewController
 			else { return assertionFailure() }
 		navigationController?.pushViewController(detailNewsViewController, animated: true)
 	}

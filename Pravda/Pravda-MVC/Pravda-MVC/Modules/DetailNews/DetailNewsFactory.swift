@@ -11,7 +11,7 @@ import PravdaUIKit
 
 final class DetailNewsFactory {
 	public static func make(
-		detailNewsItem: DetailNewsItem
+		detailNewsItem: NewsItem
 	) -> DetailNewsViewControllerProtocol {
 		let detailNewsViewController: DetailNewsViewControllerFactoryProtocol & DetailNewsViewControllerProtocol
 			= DetailNewsViewController()

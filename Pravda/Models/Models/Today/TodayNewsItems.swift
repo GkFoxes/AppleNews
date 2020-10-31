@@ -10,20 +10,20 @@ public struct TodayNewsItems {
 
 	// MARK: Properties
 
-	public let topStoriesItems: [TodayNewsItem]
-	public let otherTopStoriesItems: [TodayNewsItem]
-	public let scienceItems: [TodayNewsItem]
-	public let otherScienceItems: [TodayNewsItem]
+	public let topStoriesItems: [NewsItem]
+	public let otherTopStoriesItems: [NewsItem]
+	public let scienceItems: [NewsItem]
+	public let otherScienceItems: [NewsItem]
 
 	private let identifier = UUID()
 
 	// MARK: Life Cycle
 
 	public init(
-		topStoriesItems: [TodayNewsItem],
-		otherTopStoriesItems: [TodayNewsItem],
-		scienceItems: [TodayNewsItem],
-		otherScienceItems: [TodayNewsItem]
+		topStoriesItems: [NewsItem],
+		otherTopStoriesItems: [NewsItem],
+		scienceItems: [NewsItem],
+		otherScienceItems: [NewsItem]
 	) {
 		self.topStoriesItems = topStoriesItems
 		self.otherTopStoriesItems = otherTopStoriesItems

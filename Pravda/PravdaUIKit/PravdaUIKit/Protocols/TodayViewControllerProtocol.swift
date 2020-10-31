@@ -10,5 +10,5 @@ import Models
 
 public protocol TodayViewControllerProtocol: UIViewController {
 	func tapOnMoreViewAction(navigationTitle: String)
-	func pushDetailNewsViewController(with todayNewsItem: TodayNewsItem)
+	func pushDetailNewsViewController(with todayNewsItem: NewsItem)
 }

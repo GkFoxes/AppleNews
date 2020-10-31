@@ -12,7 +12,7 @@ public protocol TodayViewProtocol: ListViewProtocol {
 	var detailNewsViewController: ((IndexPath) -> DetailNewsViewControllerProtocol)? { get set }
 
 	func setItems(_ todayNewsItems: TodayNewsItems)
-	func getItem(for indexPath: IndexPath) -> TodayNewsItem?
+	func getItem(for indexPath: IndexPath) -> NewsItem?
 	func updateCollectionView(isCollectionCompact: Bool, items: TodayNewsItems)
 }
 
@@ -71,7 +71,7 @@ extension TodayView: TodayViewProtocol {
 		dataSource.setItems(todayNewsItems)
 	}
 
-	public func getItem(for indexPath: IndexPath) -> TodayNewsItem? {
+	public func getItem(for indexPath: IndexPath) -> NewsItem? {
 		dataSource.getItem(for: indexPath)
 	}
 

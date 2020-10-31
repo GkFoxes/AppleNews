@@ -9,7 +9,7 @@
 import Models
 
 public protocol DetailNewsViewProtocol: UIView {
-	func setItem(_ detailNews: DetailNewsItem)
+	func setItem(_ detailNews: NewsItem)
 	func getNavigationLargeTitleDisplayMode() -> UINavigationItem.LargeTitleDisplayMode
 	func getNavigationFavoriteButtonItem(isNewsFavorite: Bool) -> UIBarButtonItem
 	func getFavoriteButtonTitle(isNewsFavorite: Bool) -> String
@@ -77,8 +77,8 @@ public final class DetailNewsView: UIView {
 // MARK: View Interface
 
 extension DetailNewsView: DetailNewsViewProtocol {
-	public func setItem(_ detailNews: DetailNewsItem) {
-		headerImageView.image = Assets.test.image // temp
+	public func setItem(_ detailNews: NewsItem) {
+		headerImageView.image = UIImage(named: detailNews.headerImage)
 		titleLabel.text = detailNews.title
 		timePublicationLabel.text = detailNews.timePublication
 		textLabel.text = detailNews.text

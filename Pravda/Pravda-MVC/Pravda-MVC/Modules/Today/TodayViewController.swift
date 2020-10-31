@@ -71,7 +71,7 @@ extension TodayViewController: TodayViewControllerProtocol {
 		navigationController?.pushViewController(spotlightViewController, animated: true)
 	}
 
-	func pushDetailNewsViewController(with todayNewsItem: TodayNewsItem) {
+	func pushDetailNewsViewController(with todayNewsItem: NewsItem) {
 		guard let detailNewsViewController = makeDetailNewsViewController(with: todayNewsItem) as? UIViewController
 			else { return assertionFailure() }
 		navigationController?.pushViewController(detailNewsViewController, animated: true)
@@ -128,15 +128,14 @@ private extension TodayViewController {
 		return todayView
 	}
 
-	func makeDetailNewsViewController(with todayNewsItem: TodayNewsItem) -> DetailNewsViewControllerProtocol {
-		let detailNewsViewController = DetailNewsFactory.make(
-			detailNewsItem: DetailNewsItem(todayNewsItem: todayNewsItem))
+	func makeDetailNewsViewController(with todayNewsItem: NewsItem) -> DetailNewsViewControllerProtocol {
+		let detailNewsViewController = DetailNewsFactory.make(detailNewsItem: todayNewsItem)
 		return detailNewsViewController
 	}
 
 	func makeDetailNewsViewController(with indexPath: IndexPath) -> DetailNewsViewControllerProtocol {
 		guard let item = todayView.getItem(for: indexPath) else { fatalError() }
-		let detailNewsViewController = DetailNewsFactory.make(detailNewsItem: DetailNewsItem(todayNewsItem: item))
+		let detailNewsViewController = DetailNewsFactory.make(detailNewsItem: item)
 		return detailNewsViewController
 	}
 
@@ -153,9 +152,9 @@ private extension TodayViewController {
 	func getTodayNewsItems() -> TodayNewsItems {
 		// temp
 		return TodayNewsItems(
-			topStoriesItems: TodayNewsItem.makeTopStoriesMock(isOnlyOneItem: isCollectionCompact),
-			otherTopStoriesItems: TodayNewsItem.makeOtherTopStoriesMock(),
-			scienceItems: TodayNewsItem.makeScienceMock(isOnlyOneItem: isCollectionCompact),
-			otherScienceItems: TodayNewsItem.makeOtherScienceMock())
+			topStoriesItems: NewsItem.makeTopStoriesMock(isOnlyOneItem: isCollectionCompact),
+			otherTopStoriesItems: NewsItem.makeOtherTopStoriesMock(isRemoveFirstItem: isCollectionCompact),
+			scienceItems: NewsItem.makeScienceMock(isOnlyOneItem: isCollectionCompact),
+			otherScienceItems: NewsItem.makeOtherScienceMock(isRemoveFirstItem: isCollectionCompact))
 	}
 }

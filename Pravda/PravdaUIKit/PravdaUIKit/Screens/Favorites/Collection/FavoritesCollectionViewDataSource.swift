@@ -9,22 +9,22 @@
 import Models
 
 protocol FavoritesCollectionViewDataSourceProtocol: UICollectionViewDataSource {
-	func setItems(_ favoritesNewsItems: [FavoritesNewsItem])
-	func getItem(for indexPath: IndexPath) -> FavoritesNewsItem
+	func setItems(_ newsItems: [NewsItem])
+	func getItem(for indexPath: IndexPath) -> NewsItem
 }
 
 final class FavoritesCollectionViewDataSource: NSObject {
 
 	// MARK: Properties
 
-	private var favoritesNewsItems = [FavoritesNewsItem]()
+	private var newsItems = [NewsItem]()
 }
 
 // MARK: Data Source Interface
 
 extension FavoritesCollectionViewDataSource: FavoritesCollectionViewDataSourceProtocol {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return favoritesNewsItems.count
+		return newsItems.count
 	}
 
 	func collectionView(
@@ -34,19 +34,19 @@ extension FavoritesCollectionViewDataSource: FavoritesCollectionViewDataSourcePr
 				for: indexPath) as? FavoritesCollectionViewCellProtocol
 			else { assertionFailure(); return UICollectionViewCell() }
 
-		let favoritesNewsItem = favoritesNewsItems[indexPath.row]
+		let favoritesNewsItem = newsItems[indexPath.row]
 		cell.setupContent(
-			fillImage: UIImage(data: favoritesNewsItem.fillImage ?? Data()), // temp
+			fillImage: UIImage(named: favoritesNewsItem.headerImage),
 			source: favoritesNewsItem.source,
 			title: favoritesNewsItem.title)
 		return cell
 	}
 
-	func setItems(_ favoritesNewsItem: [FavoritesNewsItem]) {
-		self.favoritesNewsItems = favoritesNewsItem
+	func setItems(_ newsItems: [NewsItem]) {
+		self.newsItems = newsItems
 	}
 
-	func getItem(for indexPath: IndexPath) -> FavoritesNewsItem {
-		return favoritesNewsItems[indexPath.row]
+	func getItem(for indexPath: IndexPath) -> NewsItem {
+		return newsItems[indexPath.row]
 	}
 }

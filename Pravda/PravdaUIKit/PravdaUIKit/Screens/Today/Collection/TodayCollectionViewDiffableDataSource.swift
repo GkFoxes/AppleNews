@@ -8,11 +8,11 @@
 
 import Models
 
-typealias TodayDiffableDataSource = UICollectionViewDiffableDataSource<TodaySections, TodayNewsItem>
+typealias TodayDiffableDataSource = UICollectionViewDiffableDataSource<TodaySections, NewsItem>
 
 protocol TodayCollectionViewDiffableDataSourceProtocol: TodayDiffableDataSource {
 	func setItems(_ todayNewsItems: TodayNewsItems)
-	func getItem(for indexPath: IndexPath) -> TodayNewsItem?
+	func getItem(for indexPath: IndexPath) -> NewsItem?
 }
 
 final class TodayCollectionViewDiffableDataSource: TodayDiffableDataSource {
@@ -29,7 +29,7 @@ final class TodayCollectionViewDiffableDataSource: TodayDiffableDataSource {
 		self.todayViewController = todayViewController
 		super.init(
 		collectionView: collectionView
-		) { (collectionView: UICollectionView, indexPath: IndexPath, detailItem: TodayNewsItem)
+		) { (collectionView: UICollectionView, indexPath: IndexPath, detailItem: NewsItem)
 			-> UICollectionViewCell? in
 			return TodayCollectionViewDiffableDataSource.setupCellsDataSource(
 				collectionView: collectionView, indexPath: indexPath, detailItem: detailItem)
@@ -46,7 +46,7 @@ extension TodayCollectionViewDiffableDataSource: TodayCollectionViewDiffableData
 		applyCurrentStateSnapshot()
 	}
 
-	func getItem(for indexPath: IndexPath) -> TodayNewsItem? {
+	func getItem(for indexPath: IndexPath) -> NewsItem? {
 		return self.itemIdentifier(for: indexPath)
 	}
 }
@@ -57,7 +57,7 @@ private extension TodayCollectionViewDiffableDataSource {
 	static func setupCellsDataSource(
 		collectionView: UICollectionView,
 		indexPath: IndexPath,
-		detailItem: TodayNewsItem
+		detailItem: NewsItem
 	) -> UICollectionViewCell? {
 		var newsCell: TodayCollectionViewCellProtocol?
 
@@ -79,7 +79,7 @@ private extension TodayCollectionViewDiffableDataSource {
 				headerImage: nil,
 				source: detailItem.source,
 				title: detailItem.title,
-				timePublication: detailItem.timePublication ?? "") //temp
+				timePublication: detailItem.timePublication)
 			return newsCell
 		} else {
 			assertionFailure()
@@ -121,8 +121,8 @@ private extension TodayCollectionViewDiffableDataSource {
 		self.apply(self.getCurrentStateSnapshot(), animatingDifferences: true)
 	}
 
-	func getCurrentStateSnapshot() -> NSDiffableDataSourceSnapshot<TodaySections, TodayNewsItem> {
-		var snapshot = NSDiffableDataSourceSnapshot<TodaySections, TodayNewsItem>()
+	func getCurrentStateSnapshot() -> NSDiffableDataSourceSnapshot<TodaySections, NewsItem> {
+		var snapshot = NSDiffableDataSourceSnapshot<TodaySections, NewsItem>()
 		snapshot.appendSections([.topStories, .otherTopStories, .science, .otherScience])
 
 		snapshot.appendItems(todayNewsItems.topStoriesItems, toSection: .topStories)

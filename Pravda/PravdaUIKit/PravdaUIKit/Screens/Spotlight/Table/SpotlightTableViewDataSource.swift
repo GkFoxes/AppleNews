@@ -9,22 +9,22 @@
 import Models
 
 protocol SpotlightTableViewDataSourceProtocol: UITableViewDataSource {
-	func setItems(_ spotlightNewsItems: [SpotlightNewsItem])
-	func getItem(for indexPath: IndexPath) -> SpotlightNewsItem
+	func setItems(_ newsItems: [NewsItem])
+	func getItem(for indexPath: IndexPath) -> NewsItem
 }
 
 final class SpotlightTableViewDataSource: NSObject {
 
 	// MARK: Properties
 
-	private var spotlightNewsItems = [SpotlightNewsItem]()
+	private var newsItems = [NewsItem]()
 }
 
 // MARK: Data Source Interface
 
 extension SpotlightTableViewDataSource: SpotlightTableViewDataSourceProtocol {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return spotlightNewsItems.count
+		return newsItems.count
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -33,7 +33,7 @@ extension SpotlightTableViewDataSource: SpotlightTableViewDataSourceProtocol {
 			for: indexPath) as? SpotlightTableViewCellProtocol
 			else { assertionFailure(); return UITableViewCell() }
 
-		let spotlightNewsItem = spotlightNewsItems[indexPath.row]
+		let spotlightNewsItem = newsItems[indexPath.row]
 		cell.setupContent(
 			title: spotlightNewsItem.title,
 			source: spotlightNewsItem.source,
@@ -41,11 +41,11 @@ extension SpotlightTableViewDataSource: SpotlightTableViewDataSourceProtocol {
 		return cell
 	}
 
-	func setItems(_ spotlightNewsItems: [SpotlightNewsItem]) {
-		self.spotlightNewsItems = spotlightNewsItems
+	func setItems(_ newsItems: [NewsItem]) {
+		self.newsItems = newsItems
 	}
 
-	func getItem(for indexPath: IndexPath) -> SpotlightNewsItem {
-		return spotlightNewsItems[indexPath.row]
+	func getItem(for indexPath: IndexPath) -> NewsItem {
+		return newsItems[indexPath.row]
 	}
 }
