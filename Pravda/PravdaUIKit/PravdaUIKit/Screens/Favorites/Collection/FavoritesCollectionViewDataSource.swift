@@ -36,7 +36,7 @@ extension FavoritesCollectionViewDataSource: FavoritesCollectionViewDataSourcePr
 
 		let favoritesNewsItem = newsItems[indexPath.row]
 		cell.setupContent(
-			fillImage: UIImage(named: favoritesNewsItem.headerImage),
+			fillImage: Assets.getImage(named: favoritesNewsItem.headerImage),
 			source: favoritesNewsItem.source,
 			title: favoritesNewsItem.title)
 		return cell

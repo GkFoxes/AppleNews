@@ -34,6 +34,13 @@ public enum Assets: String {
 		return image
 	}
 
+	static func getImage(named: String) -> UIImage {
+		guard let bundle = Bundle(identifier: "ru.GkFoxes.PravdaUIKit"),
+			let image = UIImage(named: named, in: bundle, compatibleWith: nil)
+			else { assertionFailure(); return UIImage() }
+		return image
+	}
+
 	// MARK: Private Properties
 
 	private var name: String {

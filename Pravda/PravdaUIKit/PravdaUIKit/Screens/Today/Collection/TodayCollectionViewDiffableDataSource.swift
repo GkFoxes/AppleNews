@@ -76,7 +76,7 @@ private extension TodayCollectionViewDiffableDataSource {
 
 		if let newsCell = newsCell {
 			newsCell.setupContent(
-				headerImage: nil,
+				headerImage: Assets.getImage(named: detailItem.headerImage),
 				source: detailItem.source,
 				title: detailItem.title,
 				timePublication: detailItem.timePublication)
