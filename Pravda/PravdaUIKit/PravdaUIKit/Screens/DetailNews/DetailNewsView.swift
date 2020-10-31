@@ -55,7 +55,7 @@ public final class DetailNewsView: UIView {
 
 		setupViewAppearances()
 		setupViewsLayout()
-		changeViewsLayoutIfNeeded(traitCollection: traitCollection, previousTraitCollection: nil)
+		changeViewsLayoutIfNeeded(traitCollection: traitCollection)
 	}
 
 	@available(*, unavailable)
@@ -68,7 +68,9 @@ public final class DetailNewsView: UIView {
 	public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 		super.traitCollectionDidChange(previousTraitCollection)
 
-		changeViewsLayoutIfNeeded(traitCollection: traitCollection, previousTraitCollection: previousTraitCollection)
+		guard traitCollection.horizontalSizeClass != previousTraitCollection?.horizontalSizeClass,
+			traitCollection.horizontalSizeClass != previousTraitCollection?.horizontalSizeClass else { return }
+		changeViewsLayoutIfNeeded(traitCollection: traitCollection)
 	}
 }
 
@@ -137,10 +139,7 @@ private extension DetailNewsView {
 		configureRegularViewsLayout()
 	}
 
-	func changeViewsLayoutIfNeeded(traitCollection: UITraitCollection, previousTraitCollection: UITraitCollection?) {
-		guard traitCollection.horizontalSizeClass != previousTraitCollection?.horizontalSizeClass,
-			traitCollection.horizontalSizeClass != previousTraitCollection?.horizontalSizeClass else { return }
-
+	func changeViewsLayoutIfNeeded(traitCollection: UITraitCollection) {
 		switch (traitCollection.horizontalSizeClass, traitCollection.verticalSizeClass) {
 		case (.compact, .regular):
 			NSLayoutConstraint.deactivate(regularConstraints)
