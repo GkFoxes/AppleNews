@@ -22,10 +22,6 @@ public final class DetailNewsView: UIView {
 
 	private weak var detailNewsViewController: DetailNewsViewControllerProtocol?
 
-	/// The interface is always regular, except when the width and height are equal to (.compact, .regular)
-	/// default = true
-	private var isLayoutCompact = true
-
 	private var sharedConstraints: [NSLayoutConstraint] = []
 	private var compactConstraints: [NSLayoutConstraint] = []
 	private var regularConstraints: [NSLayoutConstraint] = []
@@ -59,7 +55,7 @@ public final class DetailNewsView: UIView {
 
 		setupViewAppearances()
 		setupViewsLayout()
-		changeViewsLayoutIfNeeded(traitCollection: traitCollection)
+		changeViewsLayoutIfNeeded(traitCollection: traitCollection, previousTraitCollection: nil)
 	}
 
 	@available(*, unavailable)
@@ -72,7 +68,7 @@ public final class DetailNewsView: UIView {
 	public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 		super.traitCollectionDidChange(previousTraitCollection)
 
-		changeViewsLayoutIfNeeded(traitCollection: traitCollection)
+		changeViewsLayoutIfNeeded(traitCollection: traitCollection, previousTraitCollection: previousTraitCollection)
 	}
 }
 
@@ -141,15 +137,15 @@ private extension DetailNewsView {
 		configureRegularViewsLayout()
 	}
 
-	func changeViewsLayoutIfNeeded(traitCollection: UITraitCollection) {
+	func changeViewsLayoutIfNeeded(traitCollection: UITraitCollection, previousTraitCollection: UITraitCollection?) {
+		guard traitCollection.horizontalSizeClass != previousTraitCollection?.horizontalSizeClass,
+			traitCollection.horizontalSizeClass != previousTraitCollection?.horizontalSizeClass else { return }
+
 		switch (traitCollection.horizontalSizeClass, traitCollection.verticalSizeClass) {
 		case (.compact, .regular):
-			isLayoutCompact = true
 			NSLayoutConstraint.deactivate(regularConstraints)
 			NSLayoutConstraint.activate(compactConstraints)
 		default:
-			guard isLayoutCompact != false else { return }
-			isLayoutCompact = false
 			NSLayoutConstraint.deactivate(compactConstraints)
 			NSLayoutConstraint.activate(regularConstraints)
 		}
