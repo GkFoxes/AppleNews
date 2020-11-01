@@ -68,8 +68,8 @@ public final class DetailNewsView: UIView {
 	public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 		super.traitCollectionDidChange(previousTraitCollection)
 
-		guard traitCollection.horizontalSizeClass != previousTraitCollection?.horizontalSizeClass,
-			traitCollection.horizontalSizeClass != previousTraitCollection?.horizontalSizeClass else { return }
+		guard traitCollection.horizontalSizeClass != previousTraitCollection?.horizontalSizeClass ||
+			traitCollection.verticalSizeClass != previousTraitCollection?.verticalSizeClass else { return }
 		changeViewsLayoutIfNeeded(traitCollection: traitCollection)
 	}
 }
