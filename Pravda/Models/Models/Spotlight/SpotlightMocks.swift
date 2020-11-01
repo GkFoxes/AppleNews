@@ -11,6 +11,9 @@
 
 public struct SpotlightMocks {
 	public static func make() -> [NewsItem] {
-		return []
+		let isRemoveFirstItem = false
+		return NewsItem.makeOtherTopStoriesMock(isRemoveFirstItem: isRemoveFirstItem)
+			+ NewsItem.makeOtherScienceMock(isRemoveFirstItem: isRemoveFirstItem)
+			+ NewsItem.makeOtherTechnologyMock(isRemoveFirstItem: isRemoveFirstItem)
 	}
 }

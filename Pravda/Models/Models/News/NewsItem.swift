@@ -182,7 +182,7 @@ public extension NewsItem {
 			NewsItem(
 				image: "shark",
 				source: "CNN",
-				title: "https://www.nytimes.com/2020/10/27/science/swordfish-stabbing-sharks.html",
+				title: "Covid-19: England Sets Lockdown as Resurgent Virus Consumes Europe",
 				timePublication: "30 October 10:23",
 				text: nil,
 				link: "https://www.nytimes.com/live/2020/10/31/world/covid-19-coronavirus"),
@@ -268,7 +268,7 @@ public extension NewsItem {
 			NewsItem(
 				image: "shark",
 				source: "CNN",
-				title: "https://www.nytimes.com/2020/10/27/science/swordfish-stabbing-sharks.html",
+				title: "Sharks Wash Up on Beaches, Stabbed by Swordfish",
 				timePublication: "30 October 10:23",
 				text: nil,
 				link: "https://www.nytimes.com/live/2020/10/31/world/covid-19-coronavirus"),
