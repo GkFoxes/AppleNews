@@ -20,6 +20,7 @@ public final class ReadOriginalStoryView: UIView {
 	private enum Constants: CGFloat {
 		case suggestionLabelCenterXConstant = -10
 		case linkLabelTopAnchorConstant = 2
+		case linkLabelWidthConstant = 200
 	}
 
 	// MARK: Views
@@ -105,7 +106,8 @@ private extension ReadOriginalStoryView {
 		NSLayoutConstraint.activate([
 			linkLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
 			linkLabel.topAnchor.constraint(
-				equalTo: suggestionLabel.bottomAnchor, constant: Constants.linkLabelTopAnchorConstant.rawValue)
+				equalTo: suggestionLabel.bottomAnchor, constant: Constants.linkLabelTopAnchorConstant.rawValue),
+			linkLabel.widthAnchor.constraint(equalToConstant: Constants.linkLabelWidthConstant.rawValue)
 		])
 	}
 

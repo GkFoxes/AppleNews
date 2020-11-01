@@ -150,7 +150,6 @@ private extension TodayViewController {
 
 private extension TodayViewController {
 	func getTodayNewsItems() -> TodayNewsItems {
-		// temp
 		return TodayNewsItems(
 			topStoriesItems: NewsItem.makeTopStoriesMock(isOnlyOneItem: isCollectionCompact),
 			otherTopStoriesItems: NewsItem.makeOtherTopStoriesMock(isRemoveFirstItem: isCollectionCompact),

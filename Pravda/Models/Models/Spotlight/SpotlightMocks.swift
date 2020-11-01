@@ -6,9 +6,6 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-// temp
-// swiftlint:disable all
-
 public struct SpotlightMocks {
 	public static func make() -> [NewsItem] {
 		let isRemoveFirstItem = false

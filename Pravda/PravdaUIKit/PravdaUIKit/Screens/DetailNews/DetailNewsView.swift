@@ -82,7 +82,7 @@ extension DetailNewsView: DetailNewsViewProtocol {
 		titleLabel.text = detailNews.title
 		timePublicationLabel.text = detailNews.timePublication
 		textLabel.text = detailNews.text
-		readOriginalStoryView.setLink("https://github.com/GkFoxes") // temp
+		readOriginalStoryView.setLink(detailNews.link)
 	}
 
 	public func getNavigationLargeTitleDisplayMode() -> UINavigationItem.LargeTitleDisplayMode {

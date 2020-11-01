@@ -17,7 +17,7 @@ final class DetailNewsViewController: UIViewController, SafariViewControllerDele
 
 	// MARK: Properties
 
-	private var isNewsFavorite = false // temp, should create favoriteService in CoreDataKit
+	private var isNewsFavorite = false // Should create favoriteService in CoreData
 
 	// MARK: Views
 
