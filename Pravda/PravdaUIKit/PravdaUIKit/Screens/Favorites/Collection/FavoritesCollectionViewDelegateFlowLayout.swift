@@ -30,6 +30,10 @@ extension FavoritesCollectionViewDelegate: UICollectionViewDelegateFlowLayout {
 		layout collectionViewLayout: UICollectionViewLayout,
 		insetForSectionAt section: Int
 	) -> UIEdgeInsets {
-		return UIEdgeInsets(top: FavoritesLayout.safeInterDistance.rawValue, left: .zero, bottom: .zero, right: .zero)
+		return UIEdgeInsets(
+			top: FavoritesLayout.safeInterDistance.rawValue,
+			left: .zero,
+			bottom: FavoritesLayout.safeInterDistance.rawValue,
+			right: .zero)
 	}
 }

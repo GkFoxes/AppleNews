@@ -37,7 +37,7 @@ final class SourceLabel: UILabel {
 
 		guard isShadowNeeded else { return }
 		self.layer.shadowColor = UIColor.systemBackground.cgColor
-		self.layer.shadowRadius = 6
-		self.layer.shadowOpacity = 0.5
+		self.layer.shadowRadius = 8
+		self.layer.shadowOpacity = 1.0
 	}
 }

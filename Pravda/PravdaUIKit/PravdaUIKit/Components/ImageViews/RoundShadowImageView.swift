@@ -15,6 +15,7 @@ final class RoundShadowImageView: UIView {
 	private let shadowRadius: CGFloat
 	private let shadowOpacity: Float
 	private let shadowOffset: CGSize
+	private let imageOpacity: Float
 
 	// MARK: Layers
 
@@ -41,13 +42,15 @@ final class RoundShadowImageView: UIView {
 		shadowColor: UIColor = .black,
 		shadowRadius: CGFloat = 8,
 		shadowOpacity: Float = 0.6,
-		shadowOffset: CGSize = CGSize(width: 0, height: 8)
+		shadowOffset: CGSize = CGSize(width: 0, height: 8),
+		imageOpacity: Float = 0.75
 	) {
 		self.cornerRadius = cornerRadius
 		self.shadowColor = shadowColor
 		self.shadowRadius = shadowRadius
 		self.shadowOpacity = shadowOpacity
 		self.shadowOffset = shadowOffset
+		self.imageOpacity = imageOpacity
 		super.init(frame: .zero)
 
 		self.backgroundColor = .systemBackground
@@ -61,12 +64,35 @@ final class RoundShadowImageView: UIView {
 	override func layoutSubviews() {
 		super.layoutSubviews()
 
+		configureLayer()
+		configureImageLayer()
+		configureShadowLayer()
+
+		guard let shadowLayer = shadowLayer else { assertionFailure(); return }
+		self.layer.addSublayer(shadowLayer)
+		self.layer.addSublayer(imageLayer)
+	}
+}
+
+// MARK: Configure Layers
+
+private extension RoundShadowImageView {
+	func configureLayer() {
+		self.layer.shouldRasterize = true
+		self.layer.rasterizationScale = UIScreen.main.scale
+	}
+
+	func configureImageLayer() {
 		imageLayer.frame = bounds
 		imageLayer.contentsGravity = .resizeAspectFill
 		let shadowMask = CAShapeLayer()
 		shadowMask.path = shadowPath
 		imageLayer.mask = shadowMask
+		imageLayer.opacity = imageOpacity
+		imageLayer.backgroundColor = UIColor.systemBackground.cgColor
+	}
 
+	func configureShadowLayer() {
 		guard shadowLayer == nil else {
 			shadowLayer?.shadowPath = (image == nil) ? nil : shadowPath
 			return
@@ -80,10 +106,5 @@ final class RoundShadowImageView: UIView {
 		shadowLayer.shadowRadius = shadowRadius
 		shadowLayer.shadowOpacity = shadowOpacity
 		shadowLayer.shadowOffset = shadowOffset
-
-		self.layer.shouldRasterize = true
-		self.layer.rasterizationScale = UIScreen.main.scale
-		self.layer.addSublayer(shadowLayer)
-		self.layer.addSublayer(imageLayer)
 	}
 }

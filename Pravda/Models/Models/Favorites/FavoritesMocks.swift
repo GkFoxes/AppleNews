@@ -8,6 +8,10 @@
 
 public struct FavoritesMocks {
 	public static func make() -> [NewsItem] {
-		return []
+		let isOnlyOneItem = false
+
+		return NewsItem.makeTopStoriesMock(isOnlyOneItem: isOnlyOneItem)
+			+ NewsItem.makeScienceMock(isOnlyOneItem: isOnlyOneItem)
+			+ NewsItem.makeTechnologyMock(isOnlyOneItem: isOnlyOneItem)
 	}
 }
