@@ -62,12 +62,12 @@ private extension TodayCollectionViewDiffableDataSource {
 		var newsCell: TodayCollectionViewCellProtocol?
 
 		switch TodaySections.allCases[indexPath.section] {
-		case .topStories, .science:
+		case .topStories, .science, .technology:
 			let titleNewsTopicCell = collectionView.tryDequeueReusableTodayCell(
 				withReuseIdentifier: TitleNewsTopicCollectionViewCell.reuseIdentifier,
 				for: indexPath)
 			newsCell = titleNewsTopicCell
-		case .otherTopStories, .otherScience:
+		case .otherTopStories, .otherScience, .otherTechnology:
 			let newsTopicCell = collectionView.tryDequeueReusableTodayCell(
 				withReuseIdentifier: OtherNewsTopicCollectionViewCell.reuseIdentifier,
 				for: indexPath)
@@ -123,12 +123,14 @@ private extension TodayCollectionViewDiffableDataSource {
 
 	func getCurrentStateSnapshot() -> NSDiffableDataSourceSnapshot<TodaySections, NewsItem> {
 		var snapshot = NSDiffableDataSourceSnapshot<TodaySections, NewsItem>()
-		snapshot.appendSections([.topStories, .otherTopStories, .science, .otherScience])
+		snapshot.appendSections([.topStories, .otherTopStories, .science, .otherScience, .technology, .otherTechnology])
 
 		snapshot.appendItems(todayNewsItems.topStoriesItems, toSection: .topStories)
 		snapshot.appendItems(todayNewsItems.otherTopStoriesItems, toSection: .otherTopStories)
 		snapshot.appendItems(todayNewsItems.scienceItems, toSection: .science)
 		snapshot.appendItems(todayNewsItems.otherScienceItems, toSection: .otherScience)
+		snapshot.appendItems(todayNewsItems.technologyItems, toSection: .technology)
+		snapshot.appendItems(todayNewsItems.otherTechnologyItems, toSection: .otherTechnology)
 
 		return snapshot
 	}

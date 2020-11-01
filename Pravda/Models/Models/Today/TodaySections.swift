@@ -13,6 +13,8 @@ public enum TodaySections: CaseIterable {
 	case otherTopStories
 	case science
 	case otherScience
+	case technology
+	case otherTechnology
 }
 
 // MARK: Setup Strings
@@ -22,6 +24,7 @@ public extension TodaySections {
 		switch self {
 		case .topStories, .otherTopStories: return "Top Stories"
 		case .science, .otherScience: return "Science"
+		case .technology, .otherTechnology: return "Technology"
 		}
 	}
 }
@@ -33,6 +36,7 @@ public extension TodaySections {
 		switch self {
 		case .topStories, .otherTopStories: return .systemPink
 		case .science, .otherScience: return .systemIndigo
+		case .technology, .otherTechnology: return .systemGreen
 		}
 	}
 }

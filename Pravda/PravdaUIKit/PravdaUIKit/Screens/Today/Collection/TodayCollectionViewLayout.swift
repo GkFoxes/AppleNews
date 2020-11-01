@@ -35,8 +35,8 @@ extension TodayCollectionViewLayout: TodayCollectionViewLayoutProtocol {
 		let layout = UICollectionViewCompositionalLayout { [weak self] (sectionIndex, _) -> NSCollectionLayoutSection? in
 			guard let self = self else { assertionFailure(); return nil }
 			switch TodaySections.allCases[sectionIndex] {
-			case .topStories, .science: return self.makeTitleNewsLayoutSection()
-			case .otherTopStories, .otherScience: return self.makeOtherNewsLayoutSection()
+			case .topStories, .science, .technology: return self.makeTitleNewsLayoutSection()
+			case .otherTopStories, .otherScience, .otherTechnology: return self.makeOtherNewsLayoutSection()
 			}
 		}
 

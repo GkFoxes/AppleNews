@@ -73,18 +73,7 @@ public extension NewsItem {
 				source: "The New York Times",
 				title: "Fights in Front of Fans Test Boxing’s Business in the Pandemic Era",
 				timePublication: "30 October 11:44",
-				text:
-				"""
-				Gervonta Davis, a fighter nicknamed Tank, is honored to have a live audience.
-
-				Davis, an undefeated 25-year old boxer from Baltimore, will face Leo Santa Cruz with two world titles at stake on Saturday night. It will be the main event of the first major boxing card with live spectators since the coronavirus pandemic reshaped the dynamic of live sports.
-
-				Davis will fight even harder, he said, knowing that up to 10,000 people at the Alamodome in San Antonio will have spent money and ventured out during the outbreak to watch him.
-
-				The fight represents a two-pronged strategy for making money in boxing during a time when seemingly nothing is normal about live events or sports on television. Selling tickets and broadcasting the fight on pay-per-view are both business decisions — made by Davis’s backers at Mayweather Promotions — to generate revenue to finance the pay guarantees that star fighters command. The promoters argue that Davis is the sport’s next star (he is 23-0 with 22 knockouts), and that putting him on pay-per-view signals that he is an elite fighter worth the price of admission.
-
-				But with a glut of live programming driving viewership down across many individual sports, and an economy still hobbled by the pandemic, asking fans to pay $75 for a boxing broadcast is also a gamble.
-				""",
+				text: nil,
 				link: nil),
 		]
 
@@ -97,6 +86,13 @@ public extension NewsItem {
 
 	static func makeOtherTopStoriesMock(isRemoveFirstItem: Bool) -> [Self] {
 		var otherTopStories = [
+			NewsItem(
+				headerImage: "box",
+				source: "The New York Times",
+				title: "Fights in Front of Fans Test Boxing’s Business in the Pandemic Era",
+				timePublication: "30 October 11:44",
+				text: nil,
+				link: nil),
 			NewsItem(
 				headerImage: "merlin",
 				source: "CNN",
@@ -283,13 +279,6 @@ public extension NewsItem {
 				timePublication: "30 October 10:51",
 				text: nil,
 				link: "https://www.nytimes.com/2020/10/30/us/politics/florida-seniors-biden-trump.html"),
-			NewsItem(
-				headerImage: "scream",
-				source: "CNN Plus",
-				title: "They Scream! We Scream!",
-				timePublication: "30 October 10:10",
-				text: nil,
-				link: "https://www.nytimes.com/2020/10/29/movies/scream-horror.html"),
 			NewsItem(
 				headerImage: "nasa",
 				source: "The New York Times",

@@ -155,6 +155,8 @@ private extension TodayViewController {
 			topStoriesItems: NewsItem.makeTopStoriesMock(isOnlyOneItem: isCollectionCompact),
 			otherTopStoriesItems: NewsItem.makeOtherTopStoriesMock(isRemoveFirstItem: isCollectionCompact),
 			scienceItems: NewsItem.makeScienceMock(isOnlyOneItem: isCollectionCompact),
-			otherScienceItems: NewsItem.makeOtherScienceMock(isRemoveFirstItem: isCollectionCompact))
+			otherScienceItems: NewsItem.makeOtherScienceMock(isRemoveFirstItem: isCollectionCompact),
+			technologyItems: NewsItem.makeTechnologyMock(isOnlyOneItem: isCollectionCompact),
+			otherTechnologyItems: NewsItem.makeOtherTechnologyMock(isRemoveFirstItem: isCollectionCompact))
 	}
 }

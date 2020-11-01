@@ -14,6 +14,8 @@ public struct TodayNewsItems {
 	public let otherTopStoriesItems: [NewsItem]
 	public let scienceItems: [NewsItem]
 	public let otherScienceItems: [NewsItem]
+	public let technologyItems: [NewsItem]
+	public let otherTechnologyItems: [NewsItem]
 
 	private let identifier = UUID()
 
@@ -23,12 +25,16 @@ public struct TodayNewsItems {
 		topStoriesItems: [NewsItem],
 		otherTopStoriesItems: [NewsItem],
 		scienceItems: [NewsItem],
-		otherScienceItems: [NewsItem]
+		otherScienceItems: [NewsItem],
+		technologyItems: [NewsItem],
+		otherTechnologyItems: [NewsItem]
 	) {
 		self.topStoriesItems = topStoriesItems
 		self.otherTopStoriesItems = otherTopStoriesItems
 		self.scienceItems = scienceItems
 		self.otherScienceItems = otherScienceItems
+		self.technologyItems = technologyItems
+		self.otherTechnologyItems = otherTechnologyItems
 	}
 
 	/// Empty initializer, where each array items is empty
@@ -37,6 +43,8 @@ public struct TodayNewsItems {
 		self.otherTopStoriesItems = []
 		self.scienceItems = []
 		self.otherScienceItems = []
+		self.technologyItems = []
+		self.otherTechnologyItems = []
 	}
 }
 
