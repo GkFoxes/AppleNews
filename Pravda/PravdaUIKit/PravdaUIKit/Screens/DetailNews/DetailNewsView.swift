@@ -78,7 +78,7 @@ public final class DetailNewsView: UIView {
 
 extension DetailNewsView: DetailNewsViewProtocol {
 	public func setItem(_ detailNews: NewsItem) {
-		headerImageView.image = Assets.getImage(named: detailNews.headerImage)
+		headerImageView.image = Assets.getImage(named: detailNews.image)
 		titleLabel.text = detailNews.title
 		timePublicationLabel.text = detailNews.timePublication
 		textLabel.text = detailNews.text
