@@ -1,4 +1,4 @@
-# Pravda
+# Pravda Project
 News copying a design using Diffable Data Source
 
 ## Available:
