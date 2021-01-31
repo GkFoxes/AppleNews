@@ -11,16 +11,17 @@ struct SpotlightList: View {
 	var body: some View {
 		List() {
 			ForEach (0..<20) { _ in //landmark in
-				NavigationLink(destination: DetailNewsView()) {
+				ZStack {
 					SpotlightRow()
+					NavigationLink(destination: DetailNewsView()) {
+						EmptyView()
+					}
+					.hidden()
 				}
-				.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
+				.listRowInsets(EdgeInsets())
 			}
 		}
-		.listStyle(InsetListStyle())
-		.navigationBarTitle(
-			Text("Top Stories")
-				.fontWeight(.black))
+		.navigationTitle("Top Stories")
 	}
 }
 
@@ -28,7 +29,6 @@ struct SpotlightList_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationView {
 			SpotlightList()
-				.navigationBarTitle("Top Stories")
 		}
 	}
 }
