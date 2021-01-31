@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct TodayView: View {
+	init () {
+		UINavigationBar.appearance().setupBlackDesignAppearances()
+	}
+
 	var body: some View {
 		NavigationView {
 			NavigationLink(destination: SpotlightList()) {

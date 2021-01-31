@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A902F13C25C6D597002E539F /* SpotlightRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902F13B25C6D597002E539F /* SpotlightRow.swift */; };
 		A902F14025C6D784002E539F /* DetailNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902F13F25C6D784002E539F /* DetailNewsView.swift */; };
+		A902F14425C7129E002E539F /* UINavigationBar+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902F14325C7129E002E539F /* UINavigationBar+Design.swift */; };
 		A98B723925C3ECEA00390608 /* PravdaSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B723825C3ECEA00390608 /* PravdaSwiftUIApp.swift */; };
 		A98B723B25C3ECEA00390608 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B723A25C3ECEA00390608 /* TodayView.swift */; };
 		A98B723D25C3ECEB00390608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98B723C25C3ECEB00390608 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		A902F13B25C6D597002E539F /* SpotlightRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightRow.swift; sourceTree = "<group>"; };
 		A902F13F25C6D784002E539F /* DetailNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsView.swift; sourceTree = "<group>"; };
+		A902F14325C7129E002E539F /* UINavigationBar+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Design.swift"; sourceTree = "<group>"; };
 		A98B723525C3ECEA00390608 /* PravdaSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PravdaSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A98B723825C3ECEA00390608 /* PravdaSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PravdaSwiftUIApp.swift; sourceTree = "<group>"; };
 		A98B723A25C3ECEA00390608 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 				A902F13F25C6D784002E539F /* DetailNewsView.swift */,
 			);
 			path = DetailNews;
+			sourceTree = "<group>";
+		};
+		A902F14225C7123D002E539F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A902F14325C7129E002E539F /* UINavigationBar+Design.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A94EC79E25C6D0D900A48819 /* Views */ = {
@@ -93,6 +103,7 @@
 		A98B723725C3ECEA00390608 /* PravdaSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				A902F14225C7123D002E539F /* Extensions */,
 				A94EC79E25C6D0D900A48819 /* Views */,
 				A98B725C25C6CF6D00390608 /* Application */,
 				A98B725425C6CEC000390608 /* Resources */,
@@ -206,6 +217,7 @@
 				A98B724F25C6CD2D00390608 /* SpotlightList.swift in Sources */,
 				A98B723B25C3ECEA00390608 /* TodayView.swift in Sources */,
 				A98B723925C3ECEA00390608 /* PravdaSwiftUIApp.swift in Sources */,
+				A902F14425C7129E002E539F /* UINavigationBar+Design.swift in Sources */,
 				A902F13C25C6D597002E539F /* SpotlightRow.swift in Sources */,
 				A902F14025C6D784002E539F /* DetailNewsView.swift in Sources */,
 			);
