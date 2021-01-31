@@ -38,10 +38,26 @@
 		A94EC79E25C6D0D900A48819 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A98B723A25C3ECEA00390608 /* TodayView.swift */,
-				A98B724E25C6CD2D00390608 /* SpotlightList.swift */,
+				A94EC7A025C6D2AA00A48819 /* Today */,
+				A94EC7A125C6D2B000A48819 /* Spotlight */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A94EC7A025C6D2AA00A48819 /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				A98B723A25C3ECEA00390608 /* TodayView.swift */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		A94EC7A125C6D2B000A48819 /* Spotlight */ = {
+			isa = PBXGroup;
+			children = (
+				A98B724E25C6CD2D00390608 /* SpotlightList.swift */,
+			);
+			path = Spotlight;
 			sourceTree = "<group>";
 		};
 		A98B722C25C3ECEA00390608 = {
