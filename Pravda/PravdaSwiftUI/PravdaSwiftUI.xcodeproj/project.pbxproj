@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A902F13C25C6D597002E539F /* SpotlightRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902F13B25C6D597002E539F /* SpotlightRow.swift */; };
+		A902F14025C6D784002E539F /* DetailNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902F13F25C6D784002E539F /* DetailNewsView.swift */; };
 		A98B723925C3ECEA00390608 /* PravdaSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B723825C3ECEA00390608 /* PravdaSwiftUIApp.swift */; };
 		A98B723B25C3ECEA00390608 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B723A25C3ECEA00390608 /* TodayView.swift */; };
 		A98B723D25C3ECEB00390608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98B723C25C3ECEB00390608 /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A902F13B25C6D597002E539F /* SpotlightRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightRow.swift; sourceTree = "<group>"; };
+		A902F13F25C6D784002E539F /* DetailNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsView.swift; sourceTree = "<group>"; };
 		A98B723525C3ECEA00390608 /* PravdaSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PravdaSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A98B723825C3ECEA00390608 /* PravdaSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PravdaSwiftUIApp.swift; sourceTree = "<group>"; };
 		A98B723A25C3ECEA00390608 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
@@ -35,11 +39,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A902F13E25C6D772002E539F /* DetailNews */ = {
+			isa = PBXGroup;
+			children = (
+				A902F13F25C6D784002E539F /* DetailNewsView.swift */,
+			);
+			path = DetailNews;
+			sourceTree = "<group>";
+		};
 		A94EC79E25C6D0D900A48819 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				A94EC7A025C6D2AA00A48819 /* Today */,
 				A94EC7A125C6D2B000A48819 /* Spotlight */,
+				A902F13E25C6D772002E539F /* DetailNews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -56,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				A98B724E25C6CD2D00390608 /* SpotlightList.swift */,
+				A902F13B25C6D597002E539F /* SpotlightRow.swift */,
 			);
 			path = Spotlight;
 			sourceTree = "<group>";
@@ -192,6 +206,8 @@
 				A98B724F25C6CD2D00390608 /* SpotlightList.swift in Sources */,
 				A98B723B25C3ECEA00390608 /* TodayView.swift in Sources */,
 				A98B723925C3ECEA00390608 /* PravdaSwiftUIApp.swift in Sources */,
+				A902F13C25C6D597002E539F /* SpotlightRow.swift in Sources */,
+				A902F14025C6D784002E539F /* DetailNewsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
