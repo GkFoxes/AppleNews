@@ -14,14 +14,21 @@ struct SpotlightList: View {
 				NavigationLink(destination: DetailNewsView()) {
 					SpotlightRow()
 				}
-				.buttonStyle(PlainButtonStyle())
+				.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
 			}
 		}
+		.listStyle(InsetListStyle())
+		.navigationBarTitle(
+			Text("Top Stories")
+				.fontWeight(.black))
 	}
 }
 
 struct SpotlightList_Previews: PreviewProvider {
 	static var previews: some View {
-		SpotlightList()
+		NavigationView {
+			SpotlightList()
+				.navigationBarTitle("Top Stories")
+		}
 	}
 }
