@@ -8,18 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		A98B723925C3ECEA00390608 /* PravdaSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B723825C3ECEA00390608 /* PravdaSwiftUIApp.swift */; };
-		A98B723B25C3ECEA00390608 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B723A25C3ECEA00390608 /* ContentView.swift */; };
+		A98B723B25C3ECEA00390608 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B723A25C3ECEA00390608 /* TodayView.swift */; };
 		A98B723D25C3ECEB00390608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98B723C25C3ECEB00390608 /* Assets.xcassets */; };
 		A98B724025C3ECEB00390608 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98B723F25C3ECEB00390608 /* Preview Assets.xcassets */; };
+		A98B724F25C6CD2D00390608 /* SpotlightList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B724E25C6CD2D00390608 /* SpotlightList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A98B723525C3ECEA00390608 /* PravdaSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PravdaSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A98B723825C3ECEA00390608 /* PravdaSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PravdaSwiftUIApp.swift; sourceTree = "<group>"; };
-		A98B723A25C3ECEA00390608 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A98B723A25C3ECEA00390608 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		A98B723C25C3ECEB00390608 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A98B723F25C3ECEB00390608 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A98B724125C3ECEB00390608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A98B724E25C6CD2D00390608 /* SpotlightList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +35,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A94EC79E25C6D0D900A48819 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A98B723A25C3ECEA00390608 /* TodayView.swift */,
+				A98B724E25C6CD2D00390608 /* SpotlightList.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A98B722C25C3ECEA00390608 = {
 			isa = PBXGroup;
 			children = (
@@ -52,11 +63,10 @@
 		A98B723725C3ECEA00390608 /* PravdaSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				A98B723825C3ECEA00390608 /* PravdaSwiftUIApp.swift */,
-				A98B723A25C3ECEA00390608 /* ContentView.swift */,
-				A98B723C25C3ECEB00390608 /* Assets.xcassets */,
-				A98B724125C3ECEB00390608 /* Info.plist */,
-				A98B723E25C3ECEB00390608 /* Preview Content */,
+				A94EC79E25C6D0D900A48819 /* Views */,
+				A98B725C25C6CF6D00390608 /* Application */,
+				A98B725425C6CEC000390608 /* Resources */,
+				A98B725925C6CF3D00390608 /* Supports */,
 			);
 			path = PravdaSwiftUI;
 			sourceTree = "<group>";
@@ -67,6 +77,31 @@
 				A98B723F25C3ECEB00390608 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A98B725425C6CEC000390608 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A98B723C25C3ECEB00390608 /* Assets.xcassets */,
+				A98B723E25C3ECEB00390608 /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A98B725925C6CF3D00390608 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				A98B724125C3ECEB00390608 /* Info.plist */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		A98B725C25C6CF6D00390608 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A98B723825C3ECEA00390608 /* PravdaSwiftUIApp.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +173,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A98B723B25C3ECEA00390608 /* ContentView.swift in Sources */,
+				A98B724F25C6CD2D00390608 /* SpotlightList.swift in Sources */,
+				A98B723B25C3ECEA00390608 /* TodayView.swift in Sources */,
 				A98B723925C3ECEA00390608 /* PravdaSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,10 +304,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"PravdaSwiftUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PravdaSwiftUI/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 2NKCB3S776;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = PravdaSwiftUI/Info.plist;
+				INFOPLIST_FILE = PravdaSwiftUI/Supports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -290,10 +326,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"PravdaSwiftUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PravdaSwiftUI/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 2NKCB3S776;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = PravdaSwiftUI/Info.plist;
+				INFOPLIST_FILE = PravdaSwiftUI/Supports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
