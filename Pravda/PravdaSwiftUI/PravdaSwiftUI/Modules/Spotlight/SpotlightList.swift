@@ -13,10 +13,10 @@ struct SpotlightList: View {
 
 	var body: some View {
 		List() {
-			ForEach (spotlightItems) { spotlightItem in
+			ForEach (spotlightItems) { newsItem in
 				ZStack {
-					SpotlightRow(newsItem: spotlightItem)
-					NavigationLink(destination: DetailNewsView()) {
+					SpotlightRow(newsItem: newsItem)
+					NavigationLink(destination: DetailNewsView(newsItem: newsItem)) {
 						EmptyView()
 					}
 					.hidden()
@@ -24,7 +24,7 @@ struct SpotlightList: View {
 				.listRowInsets(EdgeInsets())
 			}
 		}
-		.navigationTitle("Top Stories")
+		.navigationTitle("Top Stories") // temp
 	}
 }
 

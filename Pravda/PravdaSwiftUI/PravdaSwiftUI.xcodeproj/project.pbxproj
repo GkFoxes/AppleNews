@@ -84,8 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				A94EC7A025C6D2AA00A48819 /* Today */,
-				A94EC7A125C6D2B000A48819 /* Spotlight */,
 				A902F13E25C6D772002E539F /* DetailNews */,
+				A94EC7A125C6D2B000A48819 /* Spotlight */,
 			);
 			path = Modules;
 			sourceTree = "<group>";

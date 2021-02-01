@@ -98,7 +98,15 @@ public extension NewsItem {
 				source: "CNN",
 				title: "Some Older Voters Shift to Biden in Florida. Will It Be Enough for Him?",
 				timePublication: "30 October 10:51",
-				text: nil,
+				text:
+				"""
+				Since March, even with the support of the government, the staff of Olafsdottir has been reduced from 140 to only 16 employees. The hotel, which has more than 200 rooms, typically has an occupancy rate of more than 75 percent, but fell to 11 percent in September.
+
+				” It has caused a lot of feelings, " Olafsdottir said, adding that, even after reducing its operations to a minimum, the hotel continues to accumulate debts. "But the thing is, I think we're all in the same situation.”
+				Tourism is experiencing an unprecedented recession around the world, but several factors make Iceland particularly vulnerable to the collapse of the industry: geographical isolation, a small national population, strict border measures and an economy that —after an extraordinary tourism boom that has lasted a decade— has ended up relying heavily on foreign tourists. A recent wave of coronavirus cases has increased the challenges for Iceland.
+
+				However, despite the low visitor numbers, Iceland is positioned for a significant recovery in tourism following the pandemic. The government will invest more than dólares 12 million in infrastructure for tourism, while improving roads and ports across the country. To keep the tourism industry afloat in the short term, the government will also invest more than dólares 9 million in a program that distributes free travel coupons among citizens and residents of Iceland. In late spring, an advertising campaign aimed at domestic tourists was launched; an international version will be unveiled as soon as the travel restrictions are over.
+				""",
 				link: "https://www.nytimes.com/2020/10/30/us/politics/florida-seniors-biden-trump.html"),
 			NewsItem(
 				image: "cars",
