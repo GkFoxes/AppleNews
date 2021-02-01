@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		A902F13C25C6D597002E539F /* SpotlightRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902F13B25C6D597002E539F /* SpotlightRow.swift */; };
 		A902F14025C6D784002E539F /* DetailNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902F13F25C6D784002E539F /* DetailNewsView.swift */; };
-		A902F14425C7129E002E539F /* UINavigationBar+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902F14325C7129E002E539F /* UINavigationBar+Design.swift */; };
+		A902F14425C7129E002E539F /* NavBarAppearances.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902F14325C7129E002E539F /* NavBarAppearances.swift */; };
 		A98B723925C3ECEA00390608 /* PravdaSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B723825C3ECEA00390608 /* PravdaSwiftUIApp.swift */; };
 		A98B723B25C3ECEA00390608 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B723A25C3ECEA00390608 /* TodayView.swift */; };
 		A98B723D25C3ECEB00390608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98B723C25C3ECEB00390608 /* Assets.xcassets */; };
 		A98B724025C3ECEB00390608 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98B723F25C3ECEB00390608 /* Preview Assets.xcassets */; };
 		A98B724F25C6CD2D00390608 /* SpotlightList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B724E25C6CD2D00390608 /* SpotlightList.swift */; };
+		A99A427C25C815CE00A53238 /* PravdaUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99A427B25C815CE00A53238 /* PravdaUIKit.framework */; };
+		A99A427D25C815CE00A53238 /* PravdaUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A99A427B25C815CE00A53238 /* PravdaUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9EB212D25C7EB84000D133C /* Constants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EB212C25C7EB84000D133C /* Constants.framework */; };
 		A9EB212E25C7EB84000D133C /* Constants.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9EB212C25C7EB84000D133C /* Constants.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9EB213125C7ECBF000D133C /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EB213025C7ECBF000D133C /* Models.framework */; };
@@ -28,6 +30,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A99A427D25C815CE00A53238 /* PravdaUIKit.framework in Embed Frameworks */,
 				A9EB213225C7ECBF000D133C /* Models.framework in Embed Frameworks */,
 				A9EB212E25C7EB84000D133C /* Constants.framework in Embed Frameworks */,
 			);
@@ -39,7 +42,7 @@
 /* Begin PBXFileReference section */
 		A902F13B25C6D597002E539F /* SpotlightRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightRow.swift; sourceTree = "<group>"; };
 		A902F13F25C6D784002E539F /* DetailNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsView.swift; sourceTree = "<group>"; };
-		A902F14325C7129E002E539F /* UINavigationBar+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Design.swift"; sourceTree = "<group>"; };
+		A902F14325C7129E002E539F /* NavBarAppearances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarAppearances.swift; sourceTree = "<group>"; };
 		A98B723525C3ECEA00390608 /* PravdaSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PravdaSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A98B723825C3ECEA00390608 /* PravdaSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PravdaSwiftUIApp.swift; sourceTree = "<group>"; };
 		A98B723A25C3ECEA00390608 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		A98B723F25C3ECEB00390608 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A98B724125C3ECEB00390608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A98B724E25C6CD2D00390608 /* SpotlightList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightList.swift; sourceTree = "<group>"; };
+		A99A427B25C815CE00A53238 /* PravdaUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PravdaUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9EB212C25C7EB84000D133C /* Constants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Constants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9EB213025C7ECBF000D133C /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -56,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A99A427C25C815CE00A53238 /* PravdaUIKit.framework in Frameworks */,
 				A9EB213125C7ECBF000D133C /* Models.framework in Frameworks */,
 				A9EB212D25C7EB84000D133C /* Constants.framework in Frameworks */,
 			);
@@ -72,12 +77,12 @@
 			path = DetailNews;
 			sourceTree = "<group>";
 		};
-		A902F14225C7123D002E539F /* Extensions */ = {
+		A902F14225C7123D002E539F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A902F14325C7129E002E539F /* UINavigationBar+Design.swift */,
+				A902F14325C7129E002E539F /* NavBarAppearances.swift */,
 			);
-			path = Extensions;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		A94EC79E25C6D0D900A48819 /* Modules */ = {
@@ -129,7 +134,7 @@
 			children = (
 				A94EC79E25C6D0D900A48819 /* Modules */,
 				A98B725C25C6CF6D00390608 /* Application */,
-				A902F14225C7123D002E539F /* Extensions */,
+				A902F14225C7123D002E539F /* Components */,
 				A98B725425C6CEC000390608 /* Resources */,
 				A98B725925C6CF3D00390608 /* Supports */,
 			);
@@ -172,6 +177,7 @@
 		A9EB212B25C7EB84000D133C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A99A427B25C815CE00A53238 /* PravdaUIKit.framework */,
 				A9EB213025C7ECBF000D133C /* Models.framework */,
 				A9EB212C25C7EB84000D133C /* Constants.framework */,
 			);
@@ -251,7 +257,7 @@
 				A98B724F25C6CD2D00390608 /* SpotlightList.swift in Sources */,
 				A98B723B25C3ECEA00390608 /* TodayView.swift in Sources */,
 				A98B723925C3ECEA00390608 /* PravdaSwiftUIApp.swift in Sources */,
-				A902F14425C7129E002E539F /* UINavigationBar+Design.swift in Sources */,
+				A902F14425C7129E002E539F /* NavBarAppearances.swift in Sources */,
 				A902F13C25C6D597002E539F /* SpotlightRow.swift in Sources */,
 				A902F14025C6D784002E539F /* DetailNewsView.swift in Sources */,
 			);

@@ -1,5 +1,5 @@
 //
-//  UINavigationBar+Design.swift
+//  NavBarAppearances.swift
 //  PravdaSwiftUI
 //
 //  Created by Дмитрий Матвеенко on 31.01.2021.

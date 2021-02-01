@@ -11,28 +11,54 @@ import SwiftUI
 
 struct DetailNewsView: View {
 	let newsItem: NewsItem
-	@State var isNewsFavorite = false
+	@State private var isNewsFavorite = false
+	@State private var showingLinkAlert = false
+	@Environment(\.openURL) var openURL
 
 	var body: some View {
 		ScrollView {
-			VStack(alignment: .leading) {
-				Image(uiImage: Assets.getImage(named: newsItem.image))
-					.resizable()
-					.aspectRatio(4/3, contentMode: .fit)
-				Group {
-					Text(newsItem.title)
-						.font(.system(size: 26))
-						.fontWeight(.heavy)
-						.padding(.top, 26)
-					Text(newsItem.timePublication)
-						.font(.system(size: 12))
-						.fontWeight(.semibold)
-						.foregroundColor(Color(UIColor.systemGray2))
-						.padding(.top, 2)
-					Text(newsItem.text ?? "")
-						.padding(.top, 26)
+			VStack {
+				VStack(alignment: .leading) {
+					Image(uiImage: Assets.getImage(named: newsItem.image))
+						.resizable()
+						.aspectRatio(4/3, contentMode: .fit)
+					Group {
+						Text(newsItem.title)
+							.font(.system(size: 26))
+							.fontWeight(.heavy)
+							.padding(.top, 26)
+						Text(newsItem.timePublication)
+							.font(.system(size: 12))
+							.fontWeight(.semibold)
+							.foregroundColor(Color(UIColor.systemGray2))
+							.padding(.top, 2)
+						Text(newsItem.text ?? "")
+							.padding(.top, 26)
+					}
+					.padding(.horizontal, 19)
 				}
-				.padding(.horizontal, 19)
+
+				VStack(alignment: .center) {
+					Text(Strings.readFullStory.rawValue)
+						.font(.system(size: 16))
+						.fontWeight(.medium)
+					Button("Open source") {
+						if let newsLink = newsItem.link, let linkURL = URL(string: newsLink) {
+							openURL(linkURL)
+						} else {
+							self.showingLinkAlert = true
+						}
+					}
+					.font(.system(size: 16))
+					.accentColor(.pink)
+					.alert(isPresented: $showingLinkAlert) {
+						Alert(
+							title: Text(Strings.canNotOpenWebsite.rawValue),
+							message: nil,
+							dismissButton: .default(Text(Strings.okCapital.rawValue)))
+					}
+				}
+				.padding(.vertical, 8)
 			}
 		}
 		.navigationBarTitle(newsItem.source, displayMode: .inline)
