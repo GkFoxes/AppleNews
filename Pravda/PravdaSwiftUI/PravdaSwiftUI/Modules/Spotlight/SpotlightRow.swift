@@ -43,7 +43,6 @@ struct SpotlightRow_Previews: PreviewProvider {
 			SpotlightRow(newsItem: newsItemMock)
 				.previewLayout(.fixed(width: 375, height: 80))
 				.colorScheme(.dark)
-
 		}
 	}
 }

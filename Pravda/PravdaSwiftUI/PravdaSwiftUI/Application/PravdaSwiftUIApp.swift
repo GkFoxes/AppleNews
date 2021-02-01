@@ -11,7 +11,7 @@ import SwiftUI
 struct PravdaSwiftUIApp: App {
 	var body: some Scene {
 		WindowGroup {
-			TodayView()
+			SpotlightList()
 		}
 	}
 }

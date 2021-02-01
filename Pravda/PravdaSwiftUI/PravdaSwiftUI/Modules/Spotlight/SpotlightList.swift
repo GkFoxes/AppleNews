@@ -6,32 +6,37 @@
 //
 
 import Models
+import Constants
 import SwiftUI
 
 struct SpotlightList: View {
 	private var spotlightItems = SpotlightMocks.make()
 
+	init() {
+		UINavigationBar.appearance().setupBlackDesignAppearances()
+	}
+
 	var body: some View {
-		List() {
-			ForEach (spotlightItems) { newsItem in
-				ZStack {
-					SpotlightRow(newsItem: newsItem)
-					NavigationLink(destination: DetailNewsView(newsItem: newsItem)) {
-						EmptyView()
+		NavigationView {
+			List() {
+				ForEach (spotlightItems) { newsItem in
+					ZStack {
+						SpotlightRow(newsItem: newsItem)
+						NavigationLink(destination: DetailNewsView(newsItem: newsItem)) {
+							EmptyView()
+						}
+						.hidden()
 					}
-					.hidden()
+					.listRowInsets(EdgeInsets())
 				}
-				.listRowInsets(EdgeInsets())
 			}
+			.navigationTitle(Strings.todayNavigationTitle.rawValue)
 		}
-		.navigationTitle("Top Stories") // temp
 	}
 }
 
 struct SpotlightList_Previews: PreviewProvider {
 	static var previews: some View {
-		NavigationView {
-			SpotlightList()
-		}
+		SpotlightList()
 	}
 }

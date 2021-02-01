@@ -11,7 +11,6 @@
 		A902F14025C6D784002E539F /* DetailNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902F13F25C6D784002E539F /* DetailNewsView.swift */; };
 		A902F14425C7129E002E539F /* NavBarAppearances.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902F14325C7129E002E539F /* NavBarAppearances.swift */; };
 		A98B723925C3ECEA00390608 /* PravdaSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B723825C3ECEA00390608 /* PravdaSwiftUIApp.swift */; };
-		A98B723B25C3ECEA00390608 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B723A25C3ECEA00390608 /* TodayView.swift */; };
 		A98B723D25C3ECEB00390608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98B723C25C3ECEB00390608 /* Assets.xcassets */; };
 		A98B724025C3ECEB00390608 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98B723F25C3ECEB00390608 /* Preview Assets.xcassets */; };
 		A98B724F25C6CD2D00390608 /* SpotlightList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B724E25C6CD2D00390608 /* SpotlightList.swift */; };
@@ -45,7 +44,6 @@
 		A902F14325C7129E002E539F /* NavBarAppearances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarAppearances.swift; sourceTree = "<group>"; };
 		A98B723525C3ECEA00390608 /* PravdaSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PravdaSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A98B723825C3ECEA00390608 /* PravdaSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PravdaSwiftUIApp.swift; sourceTree = "<group>"; };
-		A98B723A25C3ECEA00390608 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		A98B723C25C3ECEB00390608 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A98B723F25C3ECEB00390608 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A98B724125C3ECEB00390608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,19 +86,10 @@
 		A94EC79E25C6D0D900A48819 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				A94EC7A025C6D2AA00A48819 /* Today */,
-				A902F13E25C6D772002E539F /* DetailNews */,
 				A94EC7A125C6D2B000A48819 /* Spotlight */,
+				A902F13E25C6D772002E539F /* DetailNews */,
 			);
 			path = Modules;
-			sourceTree = "<group>";
-		};
-		A94EC7A025C6D2AA00A48819 /* Today */ = {
-			isa = PBXGroup;
-			children = (
-				A98B723A25C3ECEA00390608 /* TodayView.swift */,
-			);
-			path = Today;
 			sourceTree = "<group>";
 		};
 		A94EC7A125C6D2B000A48819 /* Spotlight */ = {
@@ -255,7 +244,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A98B724F25C6CD2D00390608 /* SpotlightList.swift in Sources */,
-				A98B723B25C3ECEA00390608 /* TodayView.swift in Sources */,
 				A98B723925C3ECEA00390608 /* PravdaSwiftUIApp.swift in Sources */,
 				A902F14425C7129E002E539F /* NavBarAppearances.swift in Sources */,
 				A902F13C25C6D597002E539F /* SpotlightRow.swift in Sources */,
