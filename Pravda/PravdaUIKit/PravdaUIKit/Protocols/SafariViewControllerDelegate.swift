@@ -6,6 +6,7 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
+import Constants
 import SafariServices
 
 public protocol SafariViewControllerDelegate: SFSafariViewControllerDelegate, UIViewController {

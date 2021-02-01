@@ -42,4 +42,3 @@ struct SpotlightRow_Previews: PreviewProvider {
 		}
 	}
 }
- 

@@ -6,6 +6,8 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
+import Constants
+
 public protocol SplitViewDisplayModeButtonItem: UISplitViewController {
 	func getDisplayModeButtonItem() -> UIBarButtonItem
 }

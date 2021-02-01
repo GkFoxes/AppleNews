@@ -5,6 +5,9 @@
       location = "group:Models/Models.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Constants/Constants.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:PravdaUIKit/PravdaUIKit.xcodeproj">
    </FileRef>
    <FileRef

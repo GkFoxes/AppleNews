@@ -6,6 +6,8 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
+import Constants
+
 protocol ReadOriginalStoryViewProtocol: UIView {
 	func setLink(_ link: String?)
 }
