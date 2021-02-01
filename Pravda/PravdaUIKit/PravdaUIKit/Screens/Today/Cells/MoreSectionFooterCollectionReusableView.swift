@@ -6,6 +6,8 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
+import Constants
+
 protocol MoreSectionFooterCollectionReusableViewProtocol: UICollectionReusableView {
 	static var reuseIdentifier: String { get }
 

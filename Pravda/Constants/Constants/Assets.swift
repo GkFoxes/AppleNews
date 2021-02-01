@@ -6,6 +6,8 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
+import UIKit
+
 public enum Assets: String {
 
 	// MARK: Tabs
@@ -23,7 +25,7 @@ public enum Assets: String {
 	// MARK: Public Properties
 
 	public var image: UIImage {
-		guard let bundle = Bundle(identifier: "ru.GkFoxes.PravdaUIKit"),
+		guard let bundle = Bundle(identifier: "ru.GkFoxes.Constants"),
 			let image = UIImage(named: self.name, in: bundle, compatibleWith: nil)
 			else { assertionFailure(); return UIImage() }
 		return image
@@ -34,8 +36,8 @@ public enum Assets: String {
 		return image
 	}
 
-	static func getImage(named: String) -> UIImage {
-		guard let bundle = Bundle(identifier: "ru.GkFoxes.PravdaUIKit"),
+	public static func getImage(named: String) -> UIImage {
+		guard let bundle = Bundle(identifier: "ru.GkFoxes.Constants"),
 			let image = UIImage(named: named, in: bundle, compatibleWith: nil)
 			else { assertionFailure(); return UIImage() }
 		return image

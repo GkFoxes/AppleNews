@@ -7,6 +7,7 @@
 //
 
 import Models
+import Constants
 
 protocol FavoritesCollectionViewDataSourceProtocol: UICollectionViewDataSource {
 	func setItems(_ newsItems: [NewsItem])

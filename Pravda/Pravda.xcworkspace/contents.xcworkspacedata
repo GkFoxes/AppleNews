@@ -5,9 +5,15 @@
       location = "group:Models/Models.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Constants/Constants.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:PravdaUIKit/PravdaUIKit.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pravda-MVC/Pravda-MVC.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:PravdaSwiftUI/PravdaSwiftUI.xcodeproj">
    </FileRef>
 </Workspace>

@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A902F13C25C6D597002E539F /* SpotlightRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902F13B25C6D597002E539F /* SpotlightRow.swift */; };
+		A902F14025C6D784002E539F /* DetailNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902F13F25C6D784002E539F /* DetailNewsView.swift */; };
+		A902F14425C7129E002E539F /* NavBarAppearances.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902F14325C7129E002E539F /* NavBarAppearances.swift */; };
+		A98B723925C3ECEA00390608 /* PravdaSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B723825C3ECEA00390608 /* PravdaSwiftUIApp.swift */; };
+		A98B723D25C3ECEB00390608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98B723C25C3ECEB00390608 /* Assets.xcassets */; };
+		A98B724025C3ECEB00390608 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98B723F25C3ECEB00390608 /* Preview Assets.xcassets */; };
+		A98B724F25C6CD2D00390608 /* SpotlightList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B724E25C6CD2D00390608 /* SpotlightList.swift */; };
+		A99A427C25C815CE00A53238 /* PravdaUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99A427B25C815CE00A53238 /* PravdaUIKit.framework */; };
+		A99A427D25C815CE00A53238 /* PravdaUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A99A427B25C815CE00A53238 /* PravdaUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A9EB212D25C7EB84000D133C /* Constants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EB212C25C7EB84000D133C /* Constants.framework */; };
+		A9EB212E25C7EB84000D133C /* Constants.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9EB212C25C7EB84000D133C /* Constants.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A9EB213125C7ECBF000D133C /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EB213025C7ECBF000D133C /* Models.framework */; };
+		A9EB213225C7ECBF000D133C /* Models.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9EB213025C7ECBF000D133C /* Models.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A9EB212F25C7EB84000D133C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A99A427D25C815CE00A53238 /* PravdaUIKit.framework in Embed Frameworks */,
+				A9EB213225C7ECBF000D133C /* Models.framework in Embed Frameworks */,
+				A9EB212E25C7EB84000D133C /* Constants.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A902F13B25C6D597002E539F /* SpotlightRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightRow.swift; sourceTree = "<group>"; };
+		A902F13F25C6D784002E539F /* DetailNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsView.swift; sourceTree = "<group>"; };
+		A902F14325C7129E002E539F /* NavBarAppearances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarAppearances.swift; sourceTree = "<group>"; };
+		A98B723525C3ECEA00390608 /* PravdaSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PravdaSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A98B723825C3ECEA00390608 /* PravdaSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PravdaSwiftUIApp.swift; sourceTree = "<group>"; };
+		A98B723C25C3ECEB00390608 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A98B723F25C3ECEB00390608 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A98B724125C3ECEB00390608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A98B724E25C6CD2D00390608 /* SpotlightList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightList.swift; sourceTree = "<group>"; };
+		A99A427B25C815CE00A53238 /* PravdaUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PravdaUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9EB212C25C7EB84000D133C /* Constants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Constants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9EB213025C7ECBF000D133C /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A98B723225C3ECEA00390608 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A99A427C25C815CE00A53238 /* PravdaUIKit.framework in Frameworks */,
+				A9EB213125C7ECBF000D133C /* Models.framework in Frameworks */,
+				A9EB212D25C7EB84000D133C /* Constants.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A902F13E25C6D772002E539F /* DetailNews */ = {
+			isa = PBXGroup;
+			children = (
+				A902F13F25C6D784002E539F /* DetailNewsView.swift */,
+			);
+			path = DetailNews;
+			sourceTree = "<group>";
+		};
+		A902F14225C7123D002E539F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A902F14325C7129E002E539F /* NavBarAppearances.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A94EC79E25C6D0D900A48819 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				A94EC7A125C6D2B000A48819 /* Spotlight */,
+				A902F13E25C6D772002E539F /* DetailNews */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		A94EC7A125C6D2B000A48819 /* Spotlight */ = {
+			isa = PBXGroup;
+			children = (
+				A98B724E25C6CD2D00390608 /* SpotlightList.swift */,
+				A902F13B25C6D597002E539F /* SpotlightRow.swift */,
+			);
+			path = Spotlight;
+			sourceTree = "<group>";
+		};
+		A98B722C25C3ECEA00390608 = {
+			isa = PBXGroup;
+			children = (
+				A98B723725C3ECEA00390608 /* PravdaSwiftUI */,
+				A98B723625C3ECEA00390608 /* Products */,
+				A9EB212B25C7EB84000D133C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A98B723625C3ECEA00390608 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A98B723525C3ECEA00390608 /* PravdaSwiftUI.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A98B723725C3ECEA00390608 /* PravdaSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				A94EC79E25C6D0D900A48819 /* Modules */,
+				A98B725C25C6CF6D00390608 /* Application */,
+				A902F14225C7123D002E539F /* Components */,
+				A98B725425C6CEC000390608 /* Resources */,
+				A98B725925C6CF3D00390608 /* Supports */,
+			);
+			path = PravdaSwiftUI;
+			sourceTree = "<group>";
+		};
+		A98B723E25C3ECEB00390608 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A98B723F25C3ECEB00390608 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A98B725425C6CEC000390608 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A98B723C25C3ECEB00390608 /* Assets.xcassets */,
+				A98B723E25C3ECEB00390608 /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A98B725925C6CF3D00390608 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				A98B724125C3ECEB00390608 /* Info.plist */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		A98B725C25C6CF6D00390608 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A98B723825C3ECEA00390608 /* PravdaSwiftUIApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A9EB212B25C7EB84000D133C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A99A427B25C815CE00A53238 /* PravdaUIKit.framework */,
+				A9EB213025C7ECBF000D133C /* Models.framework */,
+				A9EB212C25C7EB84000D133C /* Constants.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A98B723425C3ECEA00390608 /* PravdaSwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A98B724425C3ECEB00390608 /* Build configuration list for PBXNativeTarget "PravdaSwiftUI" */;
+			buildPhases = (
+				A98B723125C3ECEA00390608 /* Sources */,
+				A98B723225C3ECEA00390608 /* Frameworks */,
+				A98B723325C3ECEA00390608 /* Resources */,
+				A9EB212F25C7EB84000D133C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PravdaSwiftUI;
+			productName = PravdaSwiftUI;
+			productReference = A98B723525C3ECEA00390608 /* PravdaSwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A98B722D25C3ECEA00390608 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					A98B723425C3ECEA00390608 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = A98B723025C3ECEA00390608 /* Build configuration list for PBXProject "PravdaSwiftUI" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A98B722C25C3ECEA00390608;
+			productRefGroup = A98B723625C3ECEA00390608 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A98B723425C3ECEA00390608 /* PravdaSwiftUI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A98B723325C3ECEA00390608 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A98B724025C3ECEB00390608 /* Preview Assets.xcassets in Resources */,
+				A98B723D25C3ECEB00390608 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A98B723125C3ECEA00390608 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A98B724F25C6CD2D00390608 /* SpotlightList.swift in Sources */,
+				A98B723925C3ECEA00390608 /* PravdaSwiftUIApp.swift in Sources */,
+				A902F14425C7129E002E539F /* NavBarAppearances.swift in Sources */,
+				A902F13C25C6D597002E539F /* SpotlightRow.swift in Sources */,
+				A902F14025C6D784002E539F /* DetailNewsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A98B724225C3ECEB00390608 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A98B724325C3ECEB00390608 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A98B724525C3ECEB00390608 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"PravdaSwiftUI/Resources/Preview Content\"";
+				DEVELOPMENT_TEAM = 2NKCB3S776;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = PravdaSwiftUI/Supports/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.GkFoxes.PravdaSwiftUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A98B724625C3ECEB00390608 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"PravdaSwiftUI/Resources/Preview Content\"";
+				DEVELOPMENT_TEAM = 2NKCB3S776;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = PravdaSwiftUI/Supports/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.GkFoxes.PravdaSwiftUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A98B723025C3ECEA00390608 /* Build configuration list for PBXProject "PravdaSwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A98B724225C3ECEB00390608 /* Debug */,
+				A98B724325C3ECEB00390608 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A98B724425C3ECEB00390608 /* Build configuration list for PBXNativeTarget "PravdaSwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A98B724525C3ECEB00390608 /* Debug */,
+				A98B724625C3ECEB00390608 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A98B722D25C3ECEA00390608 /* Project object */;
+}

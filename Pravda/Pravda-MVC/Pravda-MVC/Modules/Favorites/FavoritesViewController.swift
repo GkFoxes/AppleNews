@@ -7,6 +7,7 @@
 //
 
 import Models
+import Constants
 import PravdaUIKit
 
 final class FavoritesViewController: UIViewController {

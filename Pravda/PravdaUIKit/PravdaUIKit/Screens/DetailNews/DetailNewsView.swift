@@ -7,6 +7,7 @@
 //
 
 import Models
+import Constants
 
 public protocol DetailNewsViewProtocol: UIView {
 	func setItem(_ detailNews: NewsItem)

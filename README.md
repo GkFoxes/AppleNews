@@ -1,5 +1,5 @@
-# Pravda
-News copying a design using Diffable Data Source
+# Pravda Project
+News copying a design using Diffable Data Source and few SwiftUI
 
 ## Available:
 * Adapted interface for iPhone, iPad and Mac

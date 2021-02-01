@@ -11,6 +11,8 @@
 		A93A86CD24C9F8B1007A5645 /* Models.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93A86CB24C9F8B1007A5645 /* Models.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A996365324DAF6FD004430C9 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A996365224DAF6FD004430C9 /* DetailNewsViewController.swift */; };
 		A996365B24DB1240004430C9 /* DetailNewsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A996365A24DB1240004430C9 /* DetailNewsFactory.swift */; };
+		A99A428325C844A700A53238 /* Constants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99A428225C844A700A53238 /* Constants.framework */; };
+		A99A428425C844A700A53238 /* Constants.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A99A428225C844A700A53238 /* Constants.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F001883D247414FC00518FF0 /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001883C247414FC00518FF0 /* SpotlightViewController.swift */; };
 		F0018840247420A900518FF0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001883F247420A900518FF0 /* FavoritesViewController.swift */; };
 		F001887C2476EC9300518FF0 /* PravdaUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F001887B2476EC9300518FF0 /* PravdaUIKit.framework */; };
@@ -31,6 +33,7 @@
 			files = (
 				A93A86CD24C9F8B1007A5645 /* Models.framework in Embed Frameworks */,
 				F001887D2476EC9300518FF0 /* PravdaUIKit.framework in Embed Frameworks */,
+				A99A428425C844A700A53238 /* Constants.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,6 +44,7 @@
 		A93A86CB24C9F8B1007A5645 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A996365224DAF6FD004430C9 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		A996365A24DB1240004430C9 /* DetailNewsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsFactory.swift; sourceTree = "<group>"; };
+		A99A428225C844A700A53238 /* Constants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Constants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F001883C247414FC00518FF0 /* SpotlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightViewController.swift; sourceTree = "<group>"; };
 		F001883F247420A900518FF0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		F001887B2476EC9300518FF0 /* PravdaUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PravdaUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +65,7 @@
 			files = (
 				A93A86CC24C9F8B1007A5645 /* Models.framework in Frameworks */,
 				F001887C2476EC9300518FF0 /* PravdaUIKit.framework in Frameworks */,
+				A99A428325C844A700A53238 /* Constants.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +170,7 @@
 		F001887A2476EC9300518FF0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A99A428225C844A700A53238 /* Constants.framework */,
 				A93A86CB24C9F8B1007A5645 /* Models.framework */,
 				F001887B2476EC9300518FF0 /* PravdaUIKit.framework */,
 			);
