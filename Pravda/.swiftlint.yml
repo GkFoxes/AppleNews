@@ -1,2 +1,2 @@
-type_name:
-  allowed_symbols: "_"
+excluded:
+  - PravdaSwiftUI

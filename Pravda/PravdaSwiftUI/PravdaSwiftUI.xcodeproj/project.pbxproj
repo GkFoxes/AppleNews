@@ -15,7 +15,23 @@
 		A98B723D25C3ECEB00390608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98B723C25C3ECEB00390608 /* Assets.xcassets */; };
 		A98B724025C3ECEB00390608 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98B723F25C3ECEB00390608 /* Preview Assets.xcassets */; };
 		A98B724F25C6CD2D00390608 /* SpotlightList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B724E25C6CD2D00390608 /* SpotlightList.swift */; };
+		A9EB212D25C7EB84000D133C /* Constants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EB212C25C7EB84000D133C /* Constants.framework */; };
+		A9EB212E25C7EB84000D133C /* Constants.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9EB212C25C7EB84000D133C /* Constants.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A9EB212F25C7EB84000D133C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A9EB212E25C7EB84000D133C /* Constants.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A902F13B25C6D597002E539F /* SpotlightRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightRow.swift; sourceTree = "<group>"; };
@@ -28,6 +44,7 @@
 		A98B723F25C3ECEB00390608 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A98B724125C3ECEB00390608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A98B724E25C6CD2D00390608 /* SpotlightList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightList.swift; sourceTree = "<group>"; };
+		A9EB212C25C7EB84000D133C /* Constants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Constants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9EB212D25C7EB84000D133C /* Constants.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,14 +75,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		A94EC79E25C6D0D900A48819 /* Views */ = {
+		A94EC79E25C6D0D900A48819 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				A94EC7A025C6D2AA00A48819 /* Today */,
 				A94EC7A125C6D2B000A48819 /* Spotlight */,
 				A902F13E25C6D772002E539F /* DetailNews */,
 			);
-			path = Views;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		A94EC7A025C6D2AA00A48819 /* Today */ = {
@@ -89,6 +107,7 @@
 			children = (
 				A98B723725C3ECEA00390608 /* PravdaSwiftUI */,
 				A98B723625C3ECEA00390608 /* Products */,
+				A9EB212B25C7EB84000D133C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,9 +122,9 @@
 		A98B723725C3ECEA00390608 /* PravdaSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				A902F14225C7123D002E539F /* Extensions */,
-				A94EC79E25C6D0D900A48819 /* Views */,
+				A94EC79E25C6D0D900A48819 /* Modules */,
 				A98B725C25C6CF6D00390608 /* Application */,
+				A902F14225C7123D002E539F /* Extensions */,
 				A98B725425C6CEC000390608 /* Resources */,
 				A98B725925C6CF3D00390608 /* Supports */,
 			);
@@ -145,6 +164,14 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		A9EB212B25C7EB84000D133C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9EB212C25C7EB84000D133C /* Constants.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,6 +182,7 @@
 				A98B723125C3ECEA00390608 /* Sources */,
 				A98B723225C3ECEA00390608 /* Frameworks */,
 				A98B723325C3ECEA00390608 /* Resources */,
+				A9EB212F25C7EB84000D133C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
