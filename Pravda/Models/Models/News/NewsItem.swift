@@ -6,7 +6,7 @@
 //  Copyright © 2020 GkFoxes. All rights reserved.
 //
 
-public struct NewsItem {
+public struct NewsItem: Identifiable {
 	public let image: String // String for mock data, in real app use Data?
 	public let source: String
 	public let title: String
@@ -14,7 +14,7 @@ public struct NewsItem {
 	public let text: String?
 	public let link: String?
 
-	private let identifier = UUID()
+	public let id = UUID()
 
 	// MARK: Life Cycle
 
@@ -39,11 +39,11 @@ public struct NewsItem {
 
 extension NewsItem: Hashable {
 	public func hash(into hasher: inout Hasher) {
-		hasher.combine(identifier)
+		hasher.combine(id)
 	}
 
 	public static func == (lhs: Self, rhs: Self) -> Bool {
-		return lhs.identifier == rhs.identifier
+		return lhs.id == rhs.id
 	}
 }
 

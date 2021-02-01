@@ -5,14 +5,17 @@
 //  Created by Дмитрий Матвеенко on 31.01.2021.
 //
 
+import Models
 import SwiftUI
 
 struct SpotlightList: View {
+	private var spotlightItems = SpotlightMocks.make()
+
 	var body: some View {
 		List() {
-			ForEach (0..<20) { _ in //landmark in
+			ForEach (spotlightItems) { spotlightItem in
 				ZStack {
-					SpotlightRow()
+					SpotlightRow(newsItem: spotlightItem)
 					NavigationLink(destination: DetailNewsView()) {
 						EmptyView()
 					}
