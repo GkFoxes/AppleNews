@@ -18,18 +18,12 @@ struct SpotlightList: View {
 
 	var body: some View {
 		NavigationView {
-			List() {
-				ForEach (spotlightItems) { newsItem in
-					ZStack {
-						SpotlightRow(newsItem: newsItem)
-						NavigationLink(destination: DetailNewsView(newsItem: newsItem)) {
-							EmptyView()
-						}
-						.hidden()
-					}
-					.listRowInsets(EdgeInsets())
+			List(spotlightItems) { newsItem in
+				NavigationLink(destination: DetailNewsView(newsItem: newsItem)) {
+					SpotlightRow(newsItem: newsItem)
 				}
 			}
+			.listStyle(PlainListStyle())
 			.navigationTitle(Strings.todayNavigationTitle.rawValue)
 		}
 	}

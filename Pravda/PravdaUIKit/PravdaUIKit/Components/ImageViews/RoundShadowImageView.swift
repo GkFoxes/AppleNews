@@ -28,7 +28,7 @@ final class RoundShadowImageView: UIView {
 
 	// MARK: Views
 
-	var image: UIImage? = nil {
+	var image: UIImage? {
 		didSet {
 			imageLayer.contents = image?.cgImage
 			shadowLayer?.shadowPath = (image == nil) ? nil : shadowPath
