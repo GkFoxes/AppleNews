@@ -1,10 +1,11 @@
 # Pravda Project
-News copying a design using Diffable Data Source and few SwiftUI
+News copying a design using Diffable Data Source and a few SwiftUI
 
 ## Available:
 * Adapted interface for iPhone, iPad and Mac
 * SplitView interface on iPad, Mac and TabBar interface on iPhone
 * Using a Diffable Data Source for Today, TableView for Spotlight and CollectionView for Favorites
+* Test SwftUI for Spotlight and Detail modules
 
 ## Screenshots:
 <p align="center">
