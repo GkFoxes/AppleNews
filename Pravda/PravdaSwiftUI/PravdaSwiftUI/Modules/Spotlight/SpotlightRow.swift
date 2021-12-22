@@ -28,8 +28,6 @@ struct SpotlightRow: View {
 					.foregroundColor(Color(UIColor.systemGray2))
 			}
 		}
-		.padding(.horizontal, 10)
-		.padding(.vertical, 6)
 	}
 }
 

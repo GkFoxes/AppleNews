@@ -1,5 +1,2 @@
 disabled_rules:
-   - identifier_name
-
-excluded:
-  - PravdaSwiftUI
+   - multiple_closures_with_trailing_closure

@@ -89,8 +89,8 @@ private extension TodayCollectionViewDiffableDataSource {
 	}
 
 	func setupSupplementaryViewProvider() {
-		self.supplementaryViewProvider = {
-			(collectionView: UICollectionView, kind: String, indexPath: IndexPath) -> UICollectionReusableView? in
+		self.supplementaryViewProvider = { (collectionView: UICollectionView, kind: String, indexPath: IndexPath)
+			-> UICollectionReusableView? in
 			guard let sectionItem = self.itemIdentifier(for: indexPath),
 				let section = self.snapshot().sectionIdentifier(containingItem: sectionItem)
 				else { assertionFailure(); return nil }

@@ -68,7 +68,7 @@ extension SectionsTabBarController: SectionsTabBarControllerProtocol {
 
 		var selectedIndex = self.selectedIndex
 		if displayMode == .primaryOverlay {
-			//If Master view in read, show it in tabs
+			// If Master view in read, show it in tabs
 			selectedIndex += 1
 		} else {
 			selectedIndex = 0

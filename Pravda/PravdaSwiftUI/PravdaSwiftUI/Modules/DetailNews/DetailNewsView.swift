@@ -19,9 +19,18 @@ struct DetailNewsView: View {
 		ScrollView {
 			VStack {
 				VStack(alignment: .leading) {
-					Image(uiImage: Assets.getImage(named: newsItem.image))
-						.resizable()
-						.aspectRatio(4/3, contentMode: .fit)
+					ZStack {
+						Rectangle()
+							.fill(Color.white)
+							.aspectRatio(4/3, contentMode: .fit)
+
+						Image(uiImage: Assets.getImage(named: newsItem.image))
+							.resizable()
+							.aspectRatio(contentMode: .fill)
+							.layoutPriority(-1)
+					}
+					.clipped()
+
 					Group {
 						Text(newsItem.title)
 							.font(.system(size: 26))
