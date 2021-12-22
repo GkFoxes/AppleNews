@@ -8,11 +8,11 @@
 
 ## Screenshots:
 <p align="center">
-  <img src="https://github.com/GkFoxes/Pravda/blob/develop/Images/iPad1.png" width="850"/>
-  <img src="https://github.com/GkFoxes/Pravda/blob/develop/Images/iPad2.png" width="850"/>
-  <img src="https://github.com/GkFoxes/Pravda/blob/develop/Images/iPhone1.png" width="415"/>
-  <img src="https://github.com/GkFoxes/Pravda/blob/develop/Images/iPhone2.png" width="415"/>
-  <img src="https://github.com/GkFoxes/Pravda/blob/develop/Images/iPhone3.png" width="415"/>
-  <img src="https://github.com/GkFoxes/Pravda/blob/develop/Images/iPhone4.png" width="415"/>
-  <img src="https://github.com/GkFoxes/Pravda/blob/develop/Images/iPhone5.png" width="415"/>
+  <img src="https://github.com/GkFoxes/Pravda/blob/main/Images/iPad1.png" width="850"/>
+  <img src="https://github.com/GkFoxes/Pravda/blob/main/Images/iPad2.png" width="850"/>
+  <img src="https://github.com/GkFoxes/Pravda/blob/main/Images/iPhone1.png" width="415"/>
+  <img src="https://github.com/GkFoxes/Pravda/blob/main/Images/iPhone2.png" width="415"/>
+  <img src="https://github.com/GkFoxes/Pravda/blob/main/Images/iPhone3.png" width="415"/>
+  <img src="https://github.com/GkFoxes/Pravda/blob/main/Images/iPhone4.png" width="415"/>
+  <img src="https://github.com/GkFoxes/Pravda/blob/main/Images/iPhone5.png" width="415"/>
 </p>
